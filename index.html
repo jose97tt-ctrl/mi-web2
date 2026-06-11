@@ -24,19 +24,35 @@ html {
 }
 
 body {
-    background-color: #0f172a !important; /* Color oscuro premium de fondo por seguridad */
-    background-image: 
-        linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
-        url('https://unsplash.com'), 
-        url('https://unsplash.com') !important;
-    background-position: left top, right top !important;
-    background-size: 50% 100%, 50% 100% !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    color: #f8fafc !important;
+    background-color: #f4f6f9 !important; 
+    background-image: none !important;
+    color: #0f172a !important;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+
+.container, main, section {
+    margin-top: 30px !important; 
+    position: relative;
+    clear: both;
+}
+
+
+.product-card, .card, section {
+    background-color: #ffffff !important; 
+    border: 1px solid #e2e8f0 !important; 
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); 
+    padding: 30px !important;
+    margin-bottom: 35px !important;
+}
+
+
+h2 {
+    margin-top: 10px !important;
+    padding-top: 10px;
 }
 
 
