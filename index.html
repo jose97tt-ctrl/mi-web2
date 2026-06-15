@@ -132,19 +132,42 @@ color:#ffd166;
 
 .productos{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:20px;
 }
 
 .card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+background:#ffffff;
 border-radius:20px;
 overflow:hidden;
 transition:.4s;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
 .card:hover{
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+.card-content{
+padding:20px;
+}
+.btn-producto{
+display:block;
+width:80%;
+margin:15px auto;
+padding:12px;
+border:none;
+border-radius:30px;
+background:#0a8f4d;
+color:white;
+font-weight:bold;
+cursor:pointer;
+font-size:16px;
+}
 transform:translateY(-10px);
 }
 
@@ -305,17 +328,39 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
 
 <h2>Catálogo de Productos</h2>
 
-<div class="productos">
 <div class="card">
-    <img src="atun envasado.jpg">
-    <div class="card-content">
-        <h3>Atún envasado</h3>
-        <p>Precio 15€kg</p>
-    </div>
-<div class="producto">
+
     <img src="aguja.jpg" alt="Aguja">
-    <h3>Aguja</h3>
-    <p>Precio 24€kg</p>
+
+    <div class="card-content">
+
+        <h3>Aguja</h3>
+
+        <p>Precio 24€kg</p>
+
+        <button class="btn-producto">
+            Añadir
+        </button>
+
+    </div>
+
+</div>
+<div class="card">
+
+    <img src="atun envasado.jpg" alt="Atún Envasado">
+
+    <div class="card-content">
+
+        <h3>Atún envasado</h3>
+
+        <p>Precio 15€kg</p>
+
+        <button class="btn-producto">
+            Añadir
+        </button>
+
+    </div>
+
 </div>
 <div class="card">
 <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=1000">
