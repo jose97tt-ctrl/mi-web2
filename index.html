@@ -134,21 +134,18 @@ color:#ffd166;
     display:grid;
     grid-template-columns:1fr;
     gap:20px;
-    padding:15px;
+    padding:20px;
 }
-@media (min-width: 768px){
-
+@media(min-width:768px){
     .productos{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
-@media (min-width: 1200px){
 
+@media(min-width:1200px){
     .productos{
         grid-template-columns:repeat(4,1fr);
     }
-
 }
 @media (min-width: 900px){
 
@@ -172,12 +169,10 @@ color:#ffd166;
 }
 
 .card{
-    background:white;
+    background:#fff;
     border-radius:20px;
     overflow:hidden;
-    transition:.4s;
     box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    height:100%;
 }
 
 .card:hover{
@@ -194,10 +189,16 @@ color:#ffd166;
     padding:12px;
 }
 .btn-producto{
+    display:block;
     width:100%;
     padding:12px;
+    border:none;
     border-radius:30px;
+    background:#0a8f4d;
+    color:white;
+    font-size:16px;
     font-weight:bold;
+    cursor:pointer;
 }
 display:block;
 width:80%;
@@ -221,14 +222,15 @@ object-fit:cover;
 }
 
 .card-content{
-padding:25px;
+    padding:15px;
+    text-align:center;
 }
 
 .card h3{
-margin-bottom:15px;
-font-size:1.7rem;
+    font-size:1.2rem;
+    margin-bottom:10px;
+    word-break:break-word;
 }
-
 /* CALIDAD */
 
 .calidad{
