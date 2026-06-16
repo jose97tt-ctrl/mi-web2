@@ -1469,14 +1469,11 @@ function abrirCarrito(){
 
 }
 
-    const panel =
-    document.getElementById("carritoPanel");
+function cerrarCarrito(){
 
-    if(panel.style.right==="0px"){
-        panel.style.right="-350px";
-    }else{
-        panel.style.right="0";
-    }
+    document.getElementById("carritoPanel").style.right="-350px";
+
+    document.getElementById("fondoCarrito").style.display="none";
 
 }
 
