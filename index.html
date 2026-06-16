@@ -211,6 +211,18 @@ h2{
     border-radius:10px;
     box-shadow:0 2px 10px rgba(0,0,0,0.3);
 }
+.carrito-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:white;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
 
 .menu-lateral{
     height:100%;
@@ -407,6 +419,9 @@ width:200px;
 
 <div class="menu-btn" onclick="abrirMenu()">
 ☰
+</div>
+<div class="carrito-btn" onclick="abrirCarrito()">
+🛒 <span id="contadorCarrito">0</span>
 </div>
 
 <!-- CAMBIA logo.png POR TU LOGO -->
