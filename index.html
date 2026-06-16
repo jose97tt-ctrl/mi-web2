@@ -236,7 +236,19 @@ h2{
     z-index:9999;
     overflow-y:auto;
 }
-
+.aviso-carrito{
+    position:fixed;
+    top:100px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#16a34a;
+    color:white;
+    padding:15px 30px;
+    border-radius:12px;
+    font-weight:bold;
+    z-index:10000;
+    display:none;
+}
 .carrito-panel ul{
     list-style:none;
     padding:0;
@@ -456,6 +468,7 @@ width:200px;
 
 </header>
 <div id="fondoMenu" class="fondo-menu" onclick="cerrarMenu()"></div>
+<div id="fondoCarrito" class="fondo-menu" onclick="cerrarCarrito()"></div>
 <div id="menuLateral" class="menu-lateral">
 
 <a href="#inicio" onclick="cerrarMenu()">🏠 Inicio</a>
@@ -475,16 +488,23 @@ width:200px;
 <a href="#contacto" onclick="cerrarMenu()">📞 Contacto</a>
 
 </div>
+
+<div id="fondoCarrito" class="fondo-menu" onclick="cerrarCarrito()"></div>
+
 <div id="carritoPanel" class="carrito-panel">
 
     <h2>🛒 Mi Pedido</h2>
 
     <ul id="listaCarrito"></ul>
 
-    <button onclick="vaciarCarrito()" class="btn-producto">
-        Vaciar Pedido
-    </button>
+    <button class="btn-producto">
+    📋 Tramitar Pedido
+</button>
 
+</div>
+
+<div id="avisoCarrito" class="aviso-carrito">
+    ✅ Añadido al carrito
 </div>
 
 <section id="nosotros">
@@ -1407,6 +1427,18 @@ function agregarCarrito(producto){
     carrito.length;
 
     actualizarCarrito();
+
+    let aviso =
+    document.getElementById("avisoCarrito");
+
+    aviso.style.display="block";
+
+    setTimeout(()=>{
+
+        aviso.style.display="none";
+
+    },1500);
+
 }
 
 function actualizarCarrito(){
