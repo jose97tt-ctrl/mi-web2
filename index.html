@@ -191,6 +191,43 @@ color:#ffd166;
     font-size:12px;
     font-weight:bold;
 }
+.menu-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    font-size:35px;
+    cursor:pointer;
+    z-index:9999;
+    background:white;
+    padding:8px 15px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
+
+.menu-lateral{
+    height:100%;
+    width:0;
+    position:fixed;
+    top:0;
+    right:0;
+    background:#0f172a;
+    overflow-x:hidden;
+    transition:0.4s;
+    padding-top:80px;
+    z-index:9998;
+}
+
+.menu-lateral a{
+    padding:15px 25px;
+    text-decoration:none;
+    font-size:22px;
+    color:white;
+    display:block;
+}
+
+.menu-lateral a:hover{
+    background:#16a34a;
+}
 /* CALIDAD */
 
 .calidad{
@@ -348,6 +385,10 @@ width:200px;
 
 <div class="hero-content">
 
+<div class="menu-btn" onclick="abrirMenu()">
+☰
+</div>
+
 <!-- CAMBIA logo.png POR TU LOGO -->
 <img src="logo.png" class="logo" alt="Miguel Montalbán">
 
@@ -361,6 +402,19 @@ width:200px;
 </div>
 
 </header>
+<div id="menuLateral" class="menu-lateral">
+
+<a href="#inicio">🏠 Inicio</a>
+
+<a href="#productos">🐟 Productos</a>
+
+<a href="#nosotros">ℹ️ Sobre Nosotros</a>
+
+<a href="#contacto">📞 Contacto</a>
+
+<a href="javascript:void(0)" onclick="cerrarMenu()">✖ Cerrar</a>
+
+</div>
 
 <section id="nosotros">
 
