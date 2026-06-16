@@ -496,6 +496,17 @@ width:200px;
     <h2>🛒 Mi Pedido</h2>
 
     <ul id="listaCarrito"></ul>
+    
+    <p id="totalCarrito">
+Total: 0€
+</p>
+
+<button class="btn-producto">
+📋 Tramitar Pedido
+</button>
+    <p id="totalCarrito">
+Total: 0€
+</p>
 
     <button class="btn-producto">
     📋 Tramitar Pedido
@@ -534,9 +545,7 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
 
         <p>Precio 24€kg</p>
 
-      <button
-class="btn-producto"
-onclick="agregarCarrito('Aguja',24,this)">
+     <button class="btn-producto" onclick="agregarCarrito('Aguja',24)">
 Añadir
 </button>
 
@@ -1419,14 +1428,36 @@ function cerrarMenu(){
 }
 let carrito=[];
 
-function agregarCarrito(producto){
+function agregarCarrito(nombre,precio){
 
-    carrito.push(producto);
+    carrito.push({
+
+        nombre:nombre,
+        precio:precio
+
+    });
+
 
     document.getElementById("contadorCarrito").innerText =
     carrito.length;
 
+
     actualizarCarrito();
+
+
+    let aviso =
+    document.getElementById("avisoCarrito");
+
+    aviso.style.display="block";
+
+
+    setTimeout(()=>{
+
+        aviso.style.display="none";
+
+    },1500);
+
+}
 
     let aviso =
     document.getElementById("avisoCarrito");
@@ -1446,18 +1477,40 @@ function actualizarCarrito(){
     let lista =
     document.getElementById("listaCarrito");
 
+
     lista.innerHTML="";
 
+
+    let total=0;
+
+
     carrito.forEach(producto=>{
+
 
         let item =
         document.createElement("li");
 
-        item.textContent = producto;
+
+        item.textContent =
+        producto.nombre + " - " + producto.precio + "€";
+
 
         lista.appendChild(item);
 
+
+        total += producto.precio;
+
+
     });
+
+
+    let totalTexto =
+    document.getElementById("totalCarrito");
+
+
+    totalTexto.innerText =
+    "Total: " + total + "€";
+
 
 }
 
