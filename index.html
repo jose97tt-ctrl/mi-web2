@@ -123,10 +123,12 @@ padding:130px 10% 90px;
 }
 
 h2{
-text-align:center;
-font-size:2.8rem;
-margin-bottom:50px;
-color:#ffd166;
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:50px;
+    color:#ffd166;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
 /* PRODUCTOS */
@@ -150,6 +152,7 @@ color:#ffd166;
     overflow:hidden;
     box-shadow:0 4px 15px rgba(0,0,0,0.1);
     min-width:0;
+    transition:all .3s ease;
 }
 
 .card img{
@@ -158,6 +161,10 @@ color:#ffd166;
     object-fit:contain;
     display:block;
     padding:5px;
+}
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
 }
 
 .card-content{
@@ -359,11 +366,12 @@ width:200px;
 .categoria-productos{
     text-align:center;
     font-size:2rem;
-    margin:30px 0 20px 0;
+    margin:40px 0 25px;
     color:#0a8f4d;
-    font-weight:bold;
-    border-bottom:3px solid #0a8f4d;
-    padding-bottom:10px;
+    font-weight:700;
+    border-bottom:4px solid #0a8f4d;
+    padding-bottom:12px;
+    letter-spacing:1px;
 }
 @media(max-width:768px){
 
