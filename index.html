@@ -404,6 +404,7 @@ width:200px;
 </div>
 
 </header>
+<div id="fondoMenu" class="fondo-menu" onclick="cerrarMenu()"></div>
 <div id="menuLateral" class="menu-lateral">
 
 <a href="#inicio" onclick="cerrarMenu()">🏠 Inicio</a>
@@ -1321,12 +1322,13 @@ href="mailto:montalbanlopez81@gmail.com">
 
 function abrirMenu(){
     document.getElementById("menuLateral").style.transform="translateX(0)";
+    document.getElementById("fondoMenu").style.display="block";
 }
 
 function cerrarMenu(){
     document.getElementById("menuLateral").style.transform="translateX(-100%)";
+    document.getElementById("fondoMenu").style.display="none";
 }
-
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
