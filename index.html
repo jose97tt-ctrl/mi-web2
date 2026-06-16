@@ -29,6 +29,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior:smooth;
 }
 
 
@@ -381,7 +382,7 @@ width:200px;
 
 <body>
 
-<header class="hero">
+<header class="hero" id="inicio">
 
 <div class="hero-content">
 
@@ -404,15 +405,21 @@ width:200px;
 </header>
 <div id="menuLateral" class="menu-lateral">
 
-<a href="#inicio">🏠 Inicio</a>
+<a href="#inicio" onclick="cerrarMenu()">🏠 Inicio</a>
 
-<a href="#productos">🐟 Productos</a>
+<a href="#nosotros" onclick="cerrarMenu()">ℹ️ Sobre Nosotros</a>
 
-<a href="#nosotros">ℹ️ Sobre Nosotros</a>
+<a href="#productos" onclick="cerrarMenu()">🐟 Pescados</a>
 
-<a href="#contacto">📞 Contacto</a>
+<a href="#mariscos" onclick="cerrarMenu()">🦐 Mariscos</a>
 
-<a href="javascript:void(0)" onclick="cerrarMenu()">✖ Cerrar</a>
+<a href="#carnes" onclick="cerrarMenu()">🥩 Carnes</a>
+
+<a href="#piscifactoria" onclick="cerrarMenu()">🐟 Piscifactoría</a>
+
+<a href="#congelados" onclick="cerrarMenu()">❄️ Congelados</a>
+
+<a href="#contacto" onclick="cerrarMenu()">📞 Contacto</a>
 
 </div>
 
@@ -672,7 +679,7 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
 
 </div>
 </div>
-<h3 class="categoria-productos">🦐 MARISCOS</h3>
+<h3 id="mariscos" class="categoria-productos">🦐 MARISCOS</h3>
 <div class="productos">
 
 <div class="card">
