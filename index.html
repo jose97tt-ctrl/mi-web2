@@ -568,15 +568,28 @@ class="btn-producto">
 
         <p>Precio 15€kg</p>
 
-     <button
-class="btn-producto"
-onclick="agregarCarrito('Atún Envasado',15)">
-Añadir
-</button>
+        <div class="selector-cantidad">
+
+            <button onclick="restarCantidad('atunenvasado')">➖</button>
+
+            <span id="cantidad-atunenvasado">1</span>
+
+            <button onclick="sumarCantidad('atunenvasado')">➕</button>
+
+        </div>
+
+        <button
+        onclick="agregarCarrito('Atún Envasado',15,cantidades['atunenvasado'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
+        </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="atun fresco.jpg" alt="Atun Fresco">
@@ -587,15 +600,28 @@ Añadir
 
         <p>Precio 40€kg</p>
 
+        <div class="selector-cantidad">
+
+            <button onclick="restarCantidad('atunfresco')">➖</button>
+
+            <span id="cantidad-atunfresco">1</span>
+
+            <button onclick="sumarCantidad('atunfresco')">➕</button>
+
+        </div>
+
         <button
-class="btn-producto"
-onclick="agregarCarrito('Atún Fresco',40)">
-Añadir
-</button>
+        onclick="agregarCarrito('Atún Fresco',40,cantidades['atunfresco'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
+        </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="boqueron.jpg" alt="Boquerón">
@@ -606,13 +632,28 @@ Añadir
 
         <p>Precio 25€caja</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+
+            <button onclick="restarCantidad('boqueron')">➖</button>
+
+            <span id="cantidad-boqueron">1</span>
+
+            <button onclick="sumarCantidad('boqueron')">➕</button>
+
+        </div>
+
+        <button
+        onclick="agregarCarrito('Boquerón',25,cantidades['boqueron'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="bacaladilla.jpg" alt="Bacaladilla">
@@ -623,8 +664,22 @@ Añadir
 
         <p>Precio 18€caja</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+
+            <button onclick="restarCantidad('bacaladilla')">➖</button>
+
+            <span id="cantidad-bacaladilla">1</span>
+
+            <button onclick="sumarCantidad('bacaladilla')">➕</button>
+
+        </div>
+
+        <button
+        onclick="agregarCarrito('Bacaladilla',18,cantidades['bacaladilla'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
