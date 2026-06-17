@@ -554,8 +554,8 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
 
 </div>
 
-     <button class="btn-producto" onclick="agregarCarrito('Aguja',24)">
-Añadir
+     <button onclick="agregarCarrito('Aguja',24,cantidadAguja)">
+Añadir al carrito
 </button>
 
     </div>
@@ -1438,12 +1438,12 @@ function cerrarMenu(){
 let carrito=[];
 
 
-function agregarCarrito(producto,precio){
-
+function agregarCarrito(producto,precio,cantidad=1){
     carrito.push({
-        nombre:producto,
-        precio:precio
-    });
+    nombre:producto,
+    precio:precio,
+    cantidad:cantidad
+});
 
 
     document.getElementById("contadorCarrito").innerText =
@@ -1490,13 +1490,17 @@ function actualizarCarrito(){
 
 
         item.textContent =
-        producto.nombre + " - " + producto.precio + "€";
+        producto.nombre +
+        " x" + producto.cantidad +
+        " - " +
+        (producto.precio * producto.cantidad) +
+        "€";
 
 
         lista.appendChild(item);
 
 
-        total += producto.precio;
+        total += producto.precio * producto.cantidad;
 
 
     });
