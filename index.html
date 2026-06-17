@@ -544,13 +544,13 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
         <h3>Aguja</h3>
 
         <p>Precio 24€kg</p>
-    <div class="selector-cantidad">
+   <div class="selector-cantidad">
 
-<button>➖</button>
+<button onclick="restarAguja()">➖</button>
 
-<span>1</span>
+<span id="cantidadAguja">1</span>
 
-<button>➕</button>
+<button onclick="sumarAguja()">➕</button>
 
 </div>
 
@@ -1537,6 +1537,29 @@ function vaciarCarrito(){
     actualizarCarrito();
 
     document.getElementById("contadorCarrito").innerText="0";
+
+}
+let cantidadAguja = 1;
+
+function sumarAguja(){
+
+    cantidadAguja++;
+
+    document.getElementById("cantidadAguja").innerText =
+    cantidadAguja;
+
+}
+
+function restarAguja(){
+
+    if(cantidadAguja > 1){
+
+        cantidadAguja--;
+
+        document.getElementById("cantidadAguja").innerText =
+        cantidadAguja;
+
+    }
 
 }
 window.addEventListener('scroll',()=>{
