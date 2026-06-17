@@ -548,7 +548,10 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
 
 <div class="card">
 
-    <img src="aguja.jpg" alt="Aguja">
+    <img src="aguja.jpg"
+    alt="Aguja"
+    onclick="abrirProductoAguja()"
+    style="cursor:pointer;">
 
     <div class="card-content">
 
@@ -2168,6 +2171,54 @@ card.style.transition=".8s";
 });
 
 </script>
+<div id="modalAguja" class="modal-producto">
+
+<div class="contenido-modal">
+
+<span class="cerrar-modal"
+onclick="cerrarProductoAguja()">✖</span>
+
+<img src="aguja.jpg">
+
+<h2>🐟 Aguja</h2>
+
+<p><strong>Precio:</strong> 24 €/kg</p>
+
+<p>
+Pescado azul de gran calidad.
+Ideal para plancha, horno y fritura.
+</p>
+
+<label>Peso:</label>
+
+<select>
+<option>500 g</option>
+<option>1 kg</option>
+<option>2 kg</option>
+<option>3 kg</option>
+</select>
+
+<label>Preparación:</label>
+
+<select>
+<option>Entero</option>
+<option>Limpio</option>
+<option>Rodajas</option>
+<option>Filetes</option>
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button class="btn-producto">
+🛒 Añadir al carrito
+</button>
+
+</div>
+
+</div>
+
 
 </body>
 </html>
