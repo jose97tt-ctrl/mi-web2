@@ -600,7 +600,7 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
 
 </div>
 
-     <button
+<button
 onclick="abrirProductoAguja()"
 class="btn-producto">
 
@@ -2177,6 +2177,18 @@ function restarCantidad(id){
         cantidades[id];
 
     }
+function abrirProductoAguja(){
+
+document.getElementById("modalAguja").style.display="block";
+
+}
+
+
+function cerrarProductoAguja(){
+
+document.getElementById("modalAguja").style.display="none";
+
+}
 
 }
 window.addEventListener('scroll',()=>{
@@ -2243,8 +2255,12 @@ Ideal para plancha, horno y fritura.
 ✅ Disponible
 </p>
 
-<button class="btn-producto">
+<button 
+onclick="agregarCarrito('Aguja',24,1)"
+class="btn-producto">
+
 🛒 Añadir al carrito
+
 </button>
 
 </div>
