@@ -1265,13 +1265,24 @@ class="btn-producto">
 
         <p>Precio 100€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('cigala')">➖</button>
+            <span id="cantidad-cigala">1</span>
+            <button onclick="sumarCantidad('cigala')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Cigala',100,cantidades['cigala'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="concha fina.jpg" alt="Concha Fina">
@@ -1282,13 +1293,24 @@ class="btn-producto">
 
         <p>Precio 16€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('conchafina')">➖</button>
+            <span id="cantidad-conchafina">1</span>
+            <button onclick="sumarCantidad('conchafina')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Concha Fina',16,cantidades['conchafina'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="coquina.jpg" alt="Coquina">
@@ -1299,8 +1321,18 @@ class="btn-producto">
 
         <p>Precio 30€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('coquina')">➖</button>
+            <span id="cantidad-coquina">1</span>
+            <button onclick="sumarCantidad('coquina')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Coquina',30,cantidades['coquina'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
@@ -1317,13 +1349,24 @@ class="btn-producto">
 
         <p>Precio 35€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('chopito')">➖</button>
+            <span id="cantidad-chopito">1</span>
+            <button onclick="sumarCantidad('chopito')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Chopito',35,cantidades['chopito'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="galera.jpg" alt="Galera">
@@ -1334,33 +1377,55 @@ class="btn-producto">
 
         <p>Precio 6.5€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('galera')">➖</button>
+            <span id="cantidad-galera">1</span>
+            <button onclick="sumarCantidad('galera')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Galera',6.5,cantidades['galera'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="gamba.jpg" alt="Gamba Blanca">
 
     <div class="card-content">
 
-        <h3>Gamba blanca</h3>
+        <h3>Gamba Blanca</h3>
 
         <p>Precio 18€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('gambablanca')">➖</button>
+            <span id="cantidad-gambablanca">1</span>
+            <button onclick="sumarCantidad('gambablanca')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Gamba Blanca',18,cantidades['gambablanca'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
-    <img src="cristal.jpg" alt="Gamba Cristal O bambusino">
+    <img src="cristal.jpg" alt="Gamba Cristal O Gambusino">
 
     <div class="card-content">
 
@@ -1368,13 +1433,24 @@ class="btn-producto">
 
         <p>Precio 20€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('gambacristal')">➖</button>
+            <span id="cantidad-gambacristal">1</span>
+            <button onclick="sumarCantidad('gambacristal')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Gamba Cristal O Gambusino',20,cantidades['gambacristal'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="gamba roja.jpg" alt="Gamba Roja">
@@ -1385,8 +1461,18 @@ class="btn-producto">
 
         <p>Precio 110€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('gambaroja')">➖</button>
+            <span id="cantidad-gambaroja">1</span>
+            <button onclick="sumarCantidad('gambaroja')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Gamba Roja',110,cantidades['gambaroja'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
