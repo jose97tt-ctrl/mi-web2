@@ -986,13 +986,24 @@ class="btn-producto">
 
         <p>Precio 10€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('almejaitaliana')">➖</button>
+            <span id="cantidad-almejaitaliana">1</span>
+            <button onclick="sumarCantidad('almejaitaliana')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Almeja Italiana',10,cantidades['almejaitaliana'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="almeja o chirla.jpg" alt="Almeja O Chirla">
@@ -1003,13 +1014,24 @@ class="btn-producto">
 
         <p>Precio 12€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('almejachirla')">➖</button>
+            <span id="cantidad-almejachirla">1</span>
+            <button onclick="sumarCantidad('almejachirla')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Almeja o chirla',12,cantidades['almejachirla'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="almeja japonica gallega.jpg" alt="Almeja Japónica Gallega">
@@ -1020,8 +1042,18 @@ class="btn-producto">
 
         <p>Precio 26€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('almejajaponicagallega')">➖</button>
+            <span id="cantidad-almejajaponicagallega">1</span>
+            <button onclick="sumarCantidad('almejajaponicagallega')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Almeja Japónica Gallega',26,cantidades['almejajaponicagallega'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
@@ -1038,13 +1070,24 @@ class="btn-producto">
 
         <p>Precio 18€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('berberecho')">➖</button>
+            <span id="cantidad-berberecho">1</span>
+            <button onclick="sumarCantidad('berberecho')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Berberecho',18,cantidades['berberecho'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="bolos o escupiña gallega.jpg" alt="Bolos O Escupiña Gallega">
@@ -1055,13 +1098,24 @@ class="btn-producto">
 
         <p>Precio 24€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('bolosescupinagallega')">➖</button>
+            <span id="cantidad-bolosescupinagallega">1</span>
+            <button onclick="sumarCantidad('bolosescupinagallega')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Bolos O Escupiña Gallega',24,cantidades['bolosescupinagallega'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="cañaillas o busanos.jpg" alt="Cañaíllas O Busanos">
@@ -1072,13 +1126,24 @@ class="btn-producto">
 
         <p>Precio 45€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('canaillasbusanos')">➖</button>
+            <span id="cantidad-canaillasbusanos">1</span>
+            <button onclick="sumarCantidad('canaillasbusanos')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Cañaíllas O Busanos',45,cantidades['canaillasbusanos'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="calamar.jpg" alt="Calamar">
@@ -1089,13 +1154,24 @@ class="btn-producto">
 
         <p>Precio 26€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('calamar')">➖</button>
+            <span id="cantidad-calamar">1</span>
+            <button onclick="sumarCantidad('calamar')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Calamar',26,cantidades['calamar'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="cangrejo arena.jpg" alt="Cangrejo Arena">
@@ -1106,13 +1182,24 @@ class="btn-producto">
 
         <p>Precio 5.5€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('cangrejoarena')">➖</button>
+            <span id="cantidad-cangrejoarena">1</span>
+            <button onclick="sumarCantidad('cangrejoarena')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Cangrejo Arena',5.5,cantidades['cangrejoarena'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="cangrejo azul.jpg" alt="Cangrejo Azul">
@@ -1123,13 +1210,24 @@ class="btn-producto">
 
         <p>Precio 8.5€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('cangrejoazul')">➖</button>
+            <span id="cantidad-cangrejoazul">1</span>
+            <button onclick="sumarCantidad('cangrejoazul')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Cangrejo Azul',8.5,cantidades['cangrejoazul'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
 
 </div>
+
 <div class="card">
 
     <img src="carabinero.jpg" alt="Carabinero">
@@ -1140,8 +1238,18 @@ class="btn-producto">
 
         <p>Precio 85€kg</p>
 
-        <button class="btn-producto">
-            Añadir
+        <div class="selector-cantidad">
+            <button onclick="restarCantidad('carabinero')">➖</button>
+            <span id="cantidad-carabinero">1</span>
+            <button onclick="sumarCantidad('carabinero')">➕</button>
+        </div>
+
+        <button
+        onclick="agregarCarrito('Carabinero',85,cantidades['carabinero'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
         </button>
 
     </div>
