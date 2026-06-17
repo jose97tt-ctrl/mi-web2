@@ -546,16 +546,16 @@ En Pescados, Mariscos y Carnes Miguel Montalbán seleccionamos cada día los mej
         <p>Precio 24€kg</p>
    <div class="selector-cantidad">
 
-<button onclick="restarAguja()">➖</button>
+<button onclick="restarCantidad('aguja')">➖</button>
 
-<span id="cantidadAguja">1</span>
+<span id="cantidad-aguja">1</span>
 
-<button onclick="sumarAguja()">➕</button>
+<button onclick="sumarCantidad('aguja')">➕</button>
 
 </div>
 
      <button
-onclick="agregarCarrito('Aguja',24,cantidadAguja)"
+onclick="agregarCarrito('Aguja',24,cantidades['aguja'] || 1)"
 class="btn-producto">
 
 🛒 Añadir al carrito
@@ -1547,25 +1547,33 @@ function vaciarCarrito(){
     document.getElementById("contadorCarrito").innerText="0";
 
 }
-let cantidadAguja = 1;
+let cantidades = {};
 
-function sumarAguja(){
+function sumarCantidad(id){
 
-    cantidadAguja++;
+    if(!cantidades[id]){
+        cantidades[id] = 1;
+    }
 
-    document.getElementById("cantidadAguja").innerText =
-    cantidadAguja;
+    cantidades[id]++;
+
+    document.getElementById("cantidad-"+id).innerText =
+    cantidades[id];
 
 }
 
-function restarAguja(){
+function restarCantidad(id){
 
-    if(cantidadAguja > 1){
+    if(!cantidades[id]){
+        cantidades[id] = 1;
+    }
 
-        cantidadAguja--;
+    if(cantidades[id] > 1){
 
-        document.getElementById("cantidadAguja").innerText =
-        cantidadAguja;
+        cantidades[id]--;
+
+        document.getElementById("cantidad-"+id).innerText =
+        cantidades[id];
 
     }
 
