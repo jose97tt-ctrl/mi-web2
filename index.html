@@ -152,10 +152,11 @@ h2{
     background:white;
     border-radius:15px;
     overflow:hidden;
-
     box-shadow:0 4px 15px rgba(0,0,0,0.15);
-
     transition:0.3s;
+
+    display:flex;
+    flex-direction:column;
 }
 .card:hover{
 
@@ -167,7 +168,8 @@ h2{
 
 .card img{
     width:100%;
-    height:auto;
+    height:220px;
+    object-fit:cover;
     display:block;
 }
 .card:hover{
@@ -178,6 +180,13 @@ h2{
 .card-content{
     padding:10px;
     text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
+}
+.btn-producto{
+    margin-top:auto;
 }
 
 .card h3{
@@ -921,12 +930,7 @@ class="btn-producto">
 
         <p>Precio 10€kg</p>
 
-        <div class="selector-cantidad">
-            <button onclick="restarCantidad('almejaitaliana')">➖</button>
-            <span id="cantidad-almejaitaliana">1</span>
-            <button onclick="sumarCantidad('almejaitaliana')">➕</button>
-        </div>
-
+    
         <button
         onclick="agregarCarrito('Almeja Italiana',10,cantidades['almejaitaliana'] || 1)"
         class="btn-producto">
