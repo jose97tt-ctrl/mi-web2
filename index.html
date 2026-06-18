@@ -2066,6 +2066,43 @@ function cerrarProductoAtunEnvasado(){
 document.getElementById("modalAtunEnvasado").style.display="none";
 
 }
+function actualizarPrecioAtunEnvasado(){
+
+let peso =
+parseFloat(document.getElementById("pesoAtunEnvasado").value);
+
+let total = 15 * peso;
+
+document.getElementById("precioAtunEnvasado").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+function agregarAtunEnvasado(){
+
+let peso =
+parseFloat(document.getElementById("pesoAtunEnvasado").value);
+
+let preparacion =
+document.getElementById("preparacionAtunEnvasado").value;
+
+let precioFinal = 15 * peso;
+
+carrito.push({
+
+nombre:"Atún Envasado",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAtunEnvasado();
+
+}
 
 function agregarAtunEnvasado(){
 
