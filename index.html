@@ -1865,21 +1865,23 @@ function actualizarCarrito(){
         '<span onclick="eliminarProducto(' + index + ')" style="cursor:pointer;font-size:20px;">🗑️</span>';
 
 
-       item.textContent =
-       producto.nombre +
-       " | " +
-       producto.peso +
-       " | " +
-       producto.preparacion +
-       " | " +
-       producto.precio.toFixed(2) +
-       "€";
+       let item =
+document.createElement("li");
 
+item.innerHTML =
+producto.nombre +
+" | " +
+producto.peso +
+" | " +
+producto.preparacion +
+" | " +
+producto.precio.toFixed(2) +
+"€ " +
+'<span onclick="eliminarProducto(' + index + ')" style="cursor:pointer;font-size:20px;">🗑️</span>';
 
-        lista.appendChild(item);
+lista.appendChild(item);
 
-
-        total += producto.precio;
+total += producto.precio;
 
 
     });
