@@ -2192,6 +2192,24 @@ function cerrarProductoAguja(){
     document.getElementById("modalAguja").style.display="none";
 
 }
+function agregarAguja(){
+
+let peso =
+parseFloat(document.getElementById("pesoAguja").value);
+
+let preparacion =
+document.getElementById("preparacionAguja").value;
+
+let precioFinal = 24 * peso;
+
+alert(
+"Aguja\n" +
+peso + " kg\n" +
+preparacion + "\n" +
+precioFinal + "€"
+);
+
+}
 
 window.addEventListener('scroll',()=>{
 
@@ -2260,11 +2278,11 @@ Ideal para plancha, horno y fritura.
 ✅ Disponible
 </p>
 
-<button 
-onclick="agregarCarrito('Aguja',24,1)"
+<button
+onclick="agregarAguja()"
 class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
 
