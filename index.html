@@ -1840,14 +1840,11 @@ function actualizarCarrito(){
     let lista =
     document.getElementById("listaCarrito");
 
-
     lista.innerHTML="";
-
 
     let total=0;
 
-
-   carrito.forEach((producto,index)=>{
+    carrito.forEach((producto,index)=>{
 
         let item =
         document.createElement("li");
@@ -1861,31 +1858,13 @@ function actualizarCarrito(){
         " | " +
         producto.precio.toFixed(2) +
         "€ " +
-
         '<span onclick="eliminarProducto(' + index + ')" style="cursor:pointer;font-size:20px;">🗑️</span>';
 
+        lista.appendChild(item);
 
-       let item =
-document.createElement("li");
-
-item.innerHTML =
-producto.nombre +
-" | " +
-producto.peso +
-" | " +
-producto.preparacion +
-" | " +
-producto.precio.toFixed(2) +
-"€ " +
-'<span onclick="eliminarProducto(' + index + ')" style="cursor:pointer;font-size:20px;">🗑️</span>';
-
-lista.appendChild(item);
-
-total += producto.precio;
-
+        total += producto.precio;
 
     });
-
 
     document.getElementById("totalCarrito").innerText =
     "Total: " + total.toFixed(2) + "€";
