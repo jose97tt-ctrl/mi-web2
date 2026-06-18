@@ -518,6 +518,39 @@ width:200px;
 }
 
 }
+.linea-carrito{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:#f8f8f8;
+
+padding:12px;
+
+margin-bottom:10px;
+
+border-radius:10px;
+
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+
+}
+
+.papelera-carrito{
+
+cursor:pointer;
+
+font-size:22px;
+
+transition:0.3s;
+
+}
+
+.papelera-carrito:hover{
+
+transform:scale(1.2);
+
+}
 </style>
 </head>
 
@@ -1871,21 +1904,29 @@ function actualizarCarrito(){
         let item =
         document.createElement("li");
 
-        item.innerHTML =
-        producto.nombre +
-        " | " +
-        producto.peso +
-        " | " +
-        producto.preparacion +
-        " | " +
-        producto.precio.toFixed(2) +
-        "€ " +
-        '<span onclick="eliminarProducto(' + index + ')" style="cursor:pointer;font-size:20px;">🗑️</span>';
+       item.innerHTML =
 
-        lista.appendChild(item);
+'<div class="linea-carrito">' +
 
-        total += producto.precio;
+'<div>' +
 
+'<strong>' + producto.nombre + '</strong><br>' +
+
+'⚖️ ' + producto.peso + '<br>' +
+
+'🔪 ' + producto.preparacion + '<br>' +
+
+'<strong>' + producto.precio.toFixed(2) + '€</strong>' +
+
+'</div>' +
+
+'<span onclick="eliminarProducto(' + index + ')" class="papelera-carrito">🗑️</span>' +
+
+'</div>';
+
+lista.appendChild(item);
+
+total += producto.precio;
     });
 
     document.getElementById("totalCarrito").innerText =
