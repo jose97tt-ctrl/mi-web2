@@ -1977,6 +1977,17 @@ function cerrarProductoAguja(){
     document.getElementById("modalAguja").style.display="none";
 
 }
+function actualizarPrecioAguja(){
+
+let peso =
+parseFloat(document.getElementById("pesoAguja").value);
+
+let total = 24 * peso;
+
+document.getElementById("precioAguja").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
 function agregarAguja(){
 
 let peso =
