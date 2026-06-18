@@ -324,30 +324,52 @@ h2{
     display:none;
 }
 .modal-producto{
+
 display:none;
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+
+background:rgba(0,0,0,0.75);
+
 z-index:9999;
+
+align-items:center;
+justify-content:center;
+
 }
 
 .contenido-modal{
+
 background:white;
+
 width:90%;
-max-width:700px;
-margin:40px auto;
+
+max-width:500px;
+
 padding:20px;
-border-radius:15px;
-max-height:90vh;
-overflow:auto;
+
+border-radius:20px;
+
+text-align:center;
+
 }
 
 .contenido-modal img{
+
 width:100%;
+
+height:220px;
+
+object-fit:contain;
+
 border-radius:10px;
+
 }
 
 .cerrar-modal{
@@ -1946,8 +1968,7 @@ function restarCantidad(id){
 
 function abrirProductoAguja(){
 
-
-    document.getElementById("modalAguja").style.display="block";
+document.getElementById("modalAguja").style.display="flex";
 
 }
 
@@ -2046,12 +2067,12 @@ card.style.transition=".8s";
 });
 
 </script>
-<div id="modalAguja" class="modal-producto">
+<div id="modalAguja" 
+class="modal-producto"
+onclick="cerrarProductoAguja()">
 
-<div class="contenido-modal">
-
-<span class="cerrar-modal"
-onclick="cerrarProductoAguja()">✖</span>
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
 
 <img src="aguja.jpg">
 
