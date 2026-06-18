@@ -2087,14 +2087,29 @@ Ideal para plancha, horno y fritura.
 
 <label>Peso:</label>
 
-<select id="pesoAguja">
+<select id="pesoAguja"
+onchange="actualizarPrecioAguja()">
 
 <option value="0.5">500 g</option>
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<p id="precioAguja"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 12.00€
+
+</p>
+    
 
 <label>Preparación:</label>
 
