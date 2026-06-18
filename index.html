@@ -2094,12 +2094,15 @@ function actualizarCarrito(){
         document.createElement("li");
 
 
-        item.textContent =
-        producto.nombre +
-        " x" + producto.cantidad +
-        " - " +
-        (producto.precio * producto.cantidad) +
-        "€";
+       item.textContent =
+       producto.nombre +
+       " | " +
+       producto.peso +
+       " | " +
+       producto.preparacion +
+       " | " +
+       producto.precio.toFixed(2) +
+       "€";
 
 
         lista.appendChild(item);
@@ -2202,12 +2205,18 @@ document.getElementById("preparacionAguja").value;
 
 let precioFinal = 24 * peso;
 
-alert(
-"Aguja\n" +
-peso + " kg\n" +
-preparacion + "\n" +
-precioFinal + "€"
-);
+carrito.push({
+
+nombre:"Aguja",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+actualizarCarrito();
+
+cerrarProductoAguja();
 
 }
 
