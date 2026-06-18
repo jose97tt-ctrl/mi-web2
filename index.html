@@ -633,12 +633,12 @@ class="btn-producto">
 
 
         <button
-        onclick="agregarCarrito('Atún Envasado',15,cantidades['atunenvasado'] || 1)"
-        class="btn-producto">
+         onclick="abrirProductoAtunEnvasado()"
+         class="btn-producto">
 
-        🛒 Añadir al carrito
+         🛒 Añadir al carrito
 
-        </button>
+         </button>
 
     </div>
 
@@ -1982,6 +1982,45 @@ actualizarCarrito();
 
 cerrarProductoAguja();
 }
+function abrirProductoAtunEnvasado(){
+
+document.getElementById("modalAtunEnvasado").style.display="block";
+
+}
+
+function cerrarProductoAtunEnvasado(){
+
+document.getElementById("modalAtunEnvasado").style.display="none";
+
+}
+
+function agregarAtunEnvasado(){
+
+let peso =
+parseFloat(document.getElementById("pesoAtunEnvasado").value);
+
+let preparacion =
+document.getElementById("preparacionAtunEnvasado").value;
+
+let precioFinal = 15 * peso;
+
+carrito.push({
+
+nombre:"Atún Envasado",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAtunEnvasado();
+
+}
 
 window.addEventListener('scroll',()=>{
 
@@ -2061,7 +2100,60 @@ class="btn-producto">
 </div>
 
 </div>
+<div id="modalAtunEnvasado" class="modal-producto">
 
+<div class="contenido-modal">
+
+<span class="cerrar-modal"
+onclick="cerrarProductoAtunEnvasado()">✖</span>
+
+<img src="atun envasado.jpg">
+
+<h2>🐟 Atún Envasado</h2>
+
+<p><strong>Precio:</strong> 15 €/kg</p>
+
+<p>
+Atún seleccionado y envasado listo para consumo.
+Ideal para hogares, hostelería y restauración.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoAtunEnvasado">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<label>Preparación:</label>
+
+<select id="preparacionAtunEnvasado">
+
+<option>Envasado original</option>
+<option>Porciones</option>
+<option>Filetes</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarAtunEnvasado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
