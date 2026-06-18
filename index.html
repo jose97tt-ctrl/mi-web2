@@ -1847,11 +1847,22 @@ function actualizarCarrito(){
     let total=0;
 
 
-    carrito.forEach(producto=>{
-
+   carrito.forEach((producto,index)=>{
 
         let item =
         document.createElement("li");
+
+        item.innerHTML =
+        producto.nombre +
+        " | " +
+        producto.peso +
+        " | " +
+        producto.preparacion +
+        " | " +
+        producto.precio.toFixed(2) +
+        "€ " +
+
+        '<span onclick="eliminarProducto(' + index + ')" style="cursor:pointer;font-size:20px;">🗑️</span>';
 
 
        item.textContent =
@@ -1908,6 +1919,16 @@ function vaciarCarrito(){
     actualizarCarrito();
 
     document.getElementById("contadorCarrito").innerText="0";
+
+}
+    function eliminarProducto(indice){
+
+    carrito.splice(indice,1);
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
 
 }
 let cantidades = {};
