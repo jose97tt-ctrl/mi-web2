@@ -2108,15 +2108,14 @@ function actualizarCarrito(){
         lista.appendChild(item);
 
 
-        total += producto.precio * producto.cantidad;
+        total += producto.precio;
 
 
     });
 
 
     document.getElementById("totalCarrito").innerText =
-    "Total: " + total + "€";
-
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
@@ -2214,10 +2213,12 @@ precio:precioFinal
 
 });
 
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
 actualizarCarrito();
 
 cerrarProductoAguja();
-
 }
 
 window.addEventListener('scroll',()=>{
