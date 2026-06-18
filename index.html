@@ -2225,13 +2225,12 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalAtunEnvasado" class="modal-producto">
+<div id="modalAtunEnvasado"
+class="modal-producto"
+onclick="cerrarProductoAtunEnvasado()">
 
-<div class="contenido-modal">
-
-<span class="cerrar-modal"
-onclick="cerrarProductoAtunEnvasado()">✖</span>
-
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
 <img src="atun envasado.jpg">
 
 <h2>🐟 Atún Envasado</h2>
@@ -2253,6 +2252,17 @@ Ideal para hogares, hostelería y restauración.
 <option value="3">3 kg</option>
 
 </select>
+<p id="precioAtunEnvasado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.50€
+
+</p>
 
 <label>Preparación:</label>
 
