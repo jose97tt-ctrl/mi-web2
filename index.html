@@ -1122,13 +1122,13 @@ class="btn-producto">
 
       
 
-        <button
-        onclick="agregarCarrito('Cañaíllas O Busanos',45,cantidades['canaillasbusanos'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoCanaillasBusanos()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2979,6 +2979,57 @@ actualizarCarrito();
 cerrarProductoEscupinaGallega();
 
 }
+function abrirProductoCanaillasBusanos(){
+
+document.getElementById("modalCanaillasBusanos").style.display="flex";
+
+}
+
+function cerrarProductoCanaillasBusanos(){
+
+document.getElementById("modalCanaillasBusanos").style.display="none";
+
+}
+
+function actualizarPrecioCanaillasBusanos(){
+
+let peso =
+parseFloat(document.getElementById("pesoCanaillasBusanos").value);
+
+let total = 45 * peso;
+
+document.getElementById("precioCanaillasBusanos").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCanaillasBusanos(){
+
+let peso =
+parseFloat(document.getElementById("pesoCanaillasBusanos").value);
+
+let preparacion =
+document.getElementById("preparacionCanaillasBusanos").value;
+
+let precioFinal = 45 * peso;
+
+carrito.push({
+
+nombre:"Cañaíllas o Busanos",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCanaillasBusanos();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4299,6 +4350,75 @@ Total: 12.00€
 
 <button
 onclick="agregarEscupinaGallega()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCanaillasBusanos"
+class="modal-producto"
+onclick="cerrarProductoCanaillasBusanos()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="cañaillas o busanos.jpg">
+
+<h2 style="font-size:34px; line-height:1;">
+🦐 Cañaíllas o Busanos
+</h2>
+
+<p><strong>Precio:</strong> 45 €/kg</p>
+
+<p>
+Cañaíllas frescas seleccionadas.
+Perfectas para cocer y mariscadas.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCanaillasBusanos"
+onchange="actualizarPrecioCanaillasBusanos()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCanaillasBusanos"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 22.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCanaillasBusanos">
+
+<option>Natural</option>
+<option>Cocidas</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCanaillasBusanos()"
 class="btn-producto">
 
 🛒 Añadir al pedido
