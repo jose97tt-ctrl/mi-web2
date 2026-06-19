@@ -1147,12 +1147,12 @@ class="btn-producto">
         
 
         <button
-        onclick="agregarCarrito('Calamar',26,cantidades['calamar'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoCalamar()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3030,6 +3030,57 @@ actualizarCarrito();
 cerrarProductoCanaillasBusanos();
 
 }
+function abrirProductoCalamar(){
+
+document.getElementById("modalCalamar").style.display="flex";
+
+}
+
+function cerrarProductoCalamar(){
+
+document.getElementById("modalCalamar").style.display="none";
+
+}
+
+function actualizarPrecioCalamar(){
+
+let peso =
+parseFloat(document.getElementById("pesoCalamar").value);
+
+let total = 26 * peso;
+
+document.getElementById("precioCalamar").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCalamar(){
+
+let peso =
+parseFloat(document.getElementById("pesoCalamar").value);
+
+let preparacion =
+document.getElementById("preparacionCalamar").value;
+
+let precioFinal = 26 * peso;
+
+carrito.push({
+
+nombre:"Calamar",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCalamar();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4419,6 +4470,76 @@ Total: 22.50€
 
 <button
 onclick="agregarCanaillasBusanos()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCalamar"
+class="modal-producto"
+onclick="cerrarProductoCalamar()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="calamar.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦑 Calamar
+</h2>
+
+<p><strong>Precio:</strong> 26 €/kg</p>
+
+<p>
+Calamar fresco seleccionado.
+Ideal para plancha, fritura y rellenos.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCalamar"
+onchange="actualizarPrecioCalamar()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCalamar"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 13.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCalamar">
+
+<option>Entero</option>
+<option>Limpio entero</option>
+<option>Limpio cortado en anillas</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCalamar()"
 class="btn-producto">
 
 🛒 Añadir al pedido
