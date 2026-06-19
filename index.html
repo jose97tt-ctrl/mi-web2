@@ -931,13 +931,12 @@ class="btn-producto">
 
         
         <button
-        onclick="agregarCarrito('Pijota',14.5,cantidades['pijota'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoPijota()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -2572,6 +2571,57 @@ actualizarCarrito();
 cerrarProductoJurela();
 
 }
+function abrirProductoPijota(){
+
+document.getElementById("modalPijota").style.display="flex";
+
+}
+
+function cerrarProductoPijota(){
+
+document.getElementById("modalPijota").style.display="none";
+
+}
+
+function actualizarPrecioPijota(){
+
+let peso =
+parseFloat(document.getElementById("pesoPijota").value);
+
+let total = 14.5 * peso;
+
+document.getElementById("precioPijota").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPijota(){
+
+let peso =
+parseFloat(document.getElementById("pesoPijota").value);
+
+let preparacion =
+document.getElementById("preparacionPijota").value;
+
+let precioFinal = 14.5 * peso;
+
+carrito.push({
+
+nombre:"Pijota",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPijota();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3349,6 +3399,75 @@ Total: 3.00€
 
 <button
 onclick="agregarJurela()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPijota"
+class="modal-producto"
+onclick="cerrarProductoPijota()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="pijota.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Pijota
+</h2>
+
+<p><strong>Precio:</strong> 14.50 €/kg</p>
+
+<p>
+Pijota fresca seleccionada.
+Ideal para fritura y cocina tradicional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoPijota"
+onchange="actualizarPrecioPijota()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioPijota"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.25€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionPijota">
+
+<option>Entera</option>
+<option>Sin cabeza</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarPijota()"
 class="btn-producto">
 
 🛒 Añadir al pedido
