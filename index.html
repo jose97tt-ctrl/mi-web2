@@ -1240,13 +1240,13 @@ class="btn-producto">
 
         
 
-        <button
-        onclick="agregarCarrito('Cigala',100,cantidades['cigala'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoCigala()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3234,6 +3234,57 @@ actualizarCarrito();
 cerrarProductoCarabinero();
 
 }
+function abrirProductoCigala(){
+
+document.getElementById("modalCigala").style.display="flex";
+
+}
+
+function cerrarProductoCigala(){
+
+document.getElementById("modalCigala").style.display="none";
+
+}
+
+function actualizarPrecioCigala(){
+
+let peso =
+parseFloat(document.getElementById("pesoCigala").value);
+
+let total = 100 * peso;
+
+document.getElementById("precioCigala").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCigala(){
+
+let peso =
+parseFloat(document.getElementById("pesoCigala").value);
+
+let preparacion =
+document.getElementById("preparacionCigala").value;
+
+let precioFinal = 100 * peso;
+
+carrito.push({
+
+nombre:"Cigala",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCigala();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4897,6 +4948,73 @@ Total: 42.50€
 
 <button
 onclick="agregarCarabinero()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCigala"
+class="modal-producto"
+onclick="cerrarProductoCigala()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="cigala.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦞 Cigala
+</h2>
+
+<p><strong>Precio:</strong> 100 €/kg</p>
+
+<p>
+Cigala fresca de máxima calidad.
+Producto premium ideal para plancha, cocción y mariscadas.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCigala"
+onchange="actualizarPrecioCigala()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCigala"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 50.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCigala">
+
+<option>Natural</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCigala()"
 class="btn-producto">
 
 🛒 Añadir al pedido
