@@ -1099,12 +1099,12 @@ class="btn-producto">
     
 
         <button
-        onclick="agregarCarrito('Bolos O Escupiña Gallega',24,cantidades['bolosescupinagallega'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoEscupinaGallega()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2928,6 +2928,57 @@ actualizarCarrito();
 cerrarProductoBerberecho();
 
 }
+function abrirProductoEscupinaGallega(){
+
+document.getElementById("modalEscupinaGallega").style.display="flex";
+
+}
+
+function cerrarProductoEscupinaGallega(){
+
+document.getElementById("modalEscupinaGallega").style.display="none";
+
+}
+
+function actualizarPrecioEscupinaGallega(){
+
+let peso =
+parseFloat(document.getElementById("pesoEscupinaGallega").value);
+
+let total = 24 * peso;
+
+document.getElementById("precioEscupinaGallega").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarEscupinaGallega(){
+
+let peso =
+parseFloat(document.getElementById("pesoEscupinaGallega").value);
+
+let preparacion =
+document.getElementById("preparacionEscupinaGallega").value;
+
+let precioFinal = 24 * peso;
+
+carrito.push({
+
+nombre:"Bolos o Escupiña Gallega",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoEscupinaGallega();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4181,6 +4232,73 @@ Total: 9.00€
 
 <button
 onclick="agregarBerberecho()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalEscupinaGallega"
+class="modal-producto"
+onclick="cerrarProductoEscupinaGallega()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="bolos o escupiña gallega.jpg">
+
+<h2 style="font-size:34px; line-height:1;">
+🦪 Escupiña Gallega
+</h2>
+
+<p><strong>Precio:</strong> 24 €/kg</p>
+
+<p>
+Escupiña gallega fresca de alta calidad.
+Ideal para mariscadas y cocina gourmet.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoEscupinaGallega"
+onchange="actualizarPrecioEscupinaGallega()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioEscupinaGallega"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 12.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionEscupinaGallega">
+
+<option>Natural</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarEscupinaGallega()"
 class="btn-producto">
 
 🛒 Añadir al pedido
