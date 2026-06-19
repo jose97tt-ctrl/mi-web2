@@ -2214,6 +2214,57 @@ actualizarCarrito();
 cerrarProductoBoqueron();
 
 }
+function abrirProductoBacaladilla(){
+
+document.getElementById("modalBacaladilla").style.display="flex";
+
+}
+
+function cerrarProductoBacaladilla(){
+
+document.getElementById("modalBacaladilla").style.display="none";
+
+}
+
+function actualizarPrecioBacaladilla(){
+
+let peso =
+parseFloat(document.getElementById("pesoBacaladilla").value);
+
+let total = 18 * peso;
+
+document.getElementById("precioBacaladilla").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBacaladilla(){
+
+let peso =
+parseFloat(document.getElementById("pesoBacaladilla").value);
+
+let preparacion =
+document.getElementById("preparacionBacaladilla").value;
+
+let precioFinal = 18 * peso;
+
+carrito.push({
+
+nombre:"Bacaladilla",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoBacaladilla();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -2506,6 +2557,75 @@ Total: 5.00€
 
 <button
 onclick="agregarBoqueron()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalBacaladilla"
+class="modal-producto"
+onclick="cerrarProductoBacaladilla()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="bacaladilla.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Bacaladilla
+</h2>
+
+<p><strong>Precio:</strong> 18 €/kg</p>
+
+<p>
+Bacaladilla fresca seleccionada.
+Ideal para freír y cocina tradicional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoBacaladilla"
+onchange="actualizarPrecioBacaladilla()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioBacaladilla"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 9.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionBacaladilla">
+
+<option>Entera</option>
+<option>Limpia</option>
+<option>Sin cabeza</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarBacaladilla()"
 class="btn-producto">
 
 🛒 Añadir al pedido
