@@ -1194,13 +1194,13 @@ class="btn-producto">
 
         
 
-        <button
-        onclick="agregarCarrito('Cangrejo Azul',8.5,cantidades['cangrejoazul'] || 1)"
-        class="btn-producto">
+<button
+onclick="abrirProductoCangrejoAzul()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3132,6 +3132,57 @@ actualizarCarrito();
 cerrarProductoCangrejoArena();
 
 }
+function abrirProductoCangrejoAzul(){
+
+document.getElementById("modalCangrejoAzul").style.display="flex";
+
+}
+
+function cerrarProductoCangrejoAzul(){
+
+document.getElementById("modalCangrejoAzul").style.display="none";
+
+}
+
+function actualizarPrecioCangrejoAzul(){
+
+let peso =
+parseFloat(document.getElementById("pesoCangrejoAzul").value);
+
+let total = 8.5 * peso;
+
+document.getElementById("precioCangrejoAzul").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCangrejoAzul(){
+
+let peso =
+parseFloat(document.getElementById("pesoCangrejoAzul").value);
+
+let preparacion =
+document.getElementById("preparacionCangrejoAzul").value;
+
+let precioFinal = 8.5 * peso;
+
+carrito.push({
+
+nombre:"Cangrejo Azul",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCangrejoAzul();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4659,6 +4710,75 @@ Total: 2.75€
 
 <button
 onclick="agregarCangrejoArena()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCangrejoAzul"
+class="modal-producto"
+onclick="cerrarProductoCangrejoAzul()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="cangrejo azul.jpg">
+
+<h2 style="font-size:42px; line-height:1;">
+🦀 Cangrejo Azul
+</h2>
+
+<p><strong>Precio:</strong> 8,50 €/kg</p>
+
+<p>
+Cangrejo azul fresco seleccionado.
+Ideal para arroces, guisos y cocina marinera.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCangrejoAzul"
+onchange="actualizarPrecioCangrejoAzul()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCangrejoAzul"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 4.25€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCangrejoAzul">
+
+<option>Natural</option>
+<option>Vivo</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCangrejoAzul()"
 class="btn-producto">
 
 🛒 Añadir al pedido
