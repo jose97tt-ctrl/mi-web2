@@ -2446,6 +2446,75 @@ class="btn-producto">
 </div>
 
 </div>
+<div id="modalBoqueron"
+class="modal-producto"
+onclick="cerrarProductoBoqueron()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="boqueron.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Boquerón
+</h2>
+
+<p><strong>Precio:</strong> 10 €/kg</p>
+
+<p>
+Boquerón fresco seleccionado.
+Ideal para freír, vinagre o plancha.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoBoqueron"
+onchange="actualizarPrecioBoqueron()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioBoqueron"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 5.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionBoqueron">
+
+<option>Entero</option>
+<option>Desarrapado</option>
+<option>Sin cabeza</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarBoqueron()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
