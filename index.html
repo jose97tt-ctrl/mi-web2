@@ -862,14 +862,13 @@ class="btn-producto">
 
        
 
-        <button
-        onclick="agregarCarrito('Corvina',6.5,cantidades['corvina'] || 1)"
-        class="btn-producto">
+      <button
+onclick="abrirProductoCorvina()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -2421,6 +2420,57 @@ actualizarCarrito();
 cerrarProductoCazon();
 
 }
+function abrirProductoCorvina(){
+
+document.getElementById("modalCorvina").style.display="flex";
+
+}
+
+function cerrarProductoCorvina(){
+
+document.getElementById("modalCorvina").style.display="none";
+
+}
+
+function actualizarPrecioCorvina(){
+
+let peso =
+parseFloat(document.getElementById("pesoCorvina").value);
+
+let total = 6.5 * peso;
+
+document.getElementById("precioCorvina").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCorvina(){
+
+let peso =
+parseFloat(document.getElementById("pesoCorvina").value);
+
+let preparacion =
+document.getElementById("preparacionCorvina").value;
+
+let precioFinal = 6.5 * peso;
+
+carrito.push({
+
+nombre:"Corvina",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCorvina();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -2991,6 +3041,75 @@ Total: 7.75€
 
 <button
 onclick="agregarCazon()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCorvina"
+class="modal-producto"
+onclick="cerrarProductoCorvina()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="corvina.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Corvina
+</h2>
+
+<p><strong>Precio:</strong> 6.50 €/kg</p>
+
+<p>
+Corvina fresca seleccionada.
+Ideal para horno, plancha y filetes.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCorvina"
+onchange="actualizarPrecioCorvina()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCorvina"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 3.25€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCorvina">
+
+<option>Entera</option>
+<option>Sin cabeza</option>
+<option>Rodajas</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCorvina()"
 class="btn-producto">
 
 🛒 Añadir al pedido
