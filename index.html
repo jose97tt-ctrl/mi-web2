@@ -1171,12 +1171,12 @@ class="btn-producto">
         
 
         <button
-        onclick="agregarCarrito('Cangrejo Arena',5.5,cantidades['cangrejoarena'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoCangrejoArena()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3081,6 +3081,57 @@ actualizarCarrito();
 cerrarProductoCalamar();
 
 }
+function abrirProductoCangrejoArena(){
+
+document.getElementById("modalCangrejoArena").style.display="flex";
+
+}
+
+function cerrarProductoCangrejoArena(){
+
+document.getElementById("modalCangrejoArena").style.display="none";
+
+}
+
+function actualizarPrecioCangrejoArena(){
+
+let peso =
+parseFloat(document.getElementById("pesoCangrejoArena").value);
+
+let total = 5.5 * peso;
+
+document.getElementById("precioCangrejoArena").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCangrejoArena(){
+
+let peso =
+parseFloat(document.getElementById("pesoCangrejoArena").value);
+
+let preparacion =
+document.getElementById("preparacionCangrejoArena").value;
+
+let precioFinal = 5.5 * peso;
+
+carrito.push({
+
+nombre:"Cangrejo Arena",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCangrejoArena();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4540,6 +4591,74 @@ Total: 13.00€
 
 <button
 onclick="agregarCalamar()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCangrejoArena"
+class="modal-producto"
+onclick="cerrarProductoCangrejoArena()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="cangrejo arena.jpg">
+
+<h2 style="font-size:42px; line-height:1;">
+🦀 Cangrejo Arena
+</h2>
+
+<p><strong>Precio:</strong> 5,50 €/kg</p>
+
+<p>
+Cangrejo de arena fresco.
+Ideal para caldos, arroces y guisos marineros.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCangrejoArena"
+onchange="actualizarPrecioCangrejoArena()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCangrejoArena"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 2.75€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCangrejoArena">
+
+<option>Natural</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCangrejoArena()"
 class="btn-producto">
 
 🛒 Añadir al pedido
