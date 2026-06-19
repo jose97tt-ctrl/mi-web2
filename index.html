@@ -908,14 +908,13 @@ class="btn-producto">
 
       
 
-        <button
-        onclick="agregarCarrito('Jurela',6,cantidades['jurela'] || 1)"
-        class="btn-producto">
+      <button
+onclick="abrirProductoJurela()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -2522,6 +2521,57 @@ actualizarCarrito();
 cerrarProductoJurel();
 
 }
+function abrirProductoJurela(){
+
+document.getElementById("modalJurela").style.display="flex";
+
+}
+
+function cerrarProductoJurela(){
+
+document.getElementById("modalJurela").style.display="none";
+
+}
+
+function actualizarPrecioJurela(){
+
+let peso =
+parseFloat(document.getElementById("pesoJurela").value);
+
+let total = 6 * peso;
+
+document.getElementById("precioJurela").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarJurela(){
+
+let peso =
+parseFloat(document.getElementById("pesoJurela").value);
+
+let preparacion =
+document.getElementById("preparacionJurela").value;
+
+let precioFinal = 6 * peso;
+
+carrito.push({
+
+nombre:"Jurela",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoJurela();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3230,6 +3280,75 @@ Total: 1.75€
 
 <button
 onclick="agregarJurel()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalJurela"
+class="modal-producto"
+onclick="cerrarProductoJurela()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="jurela.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Jurela
+</h2>
+
+<p><strong>Precio:</strong> 6 €/kg</p>
+
+<p>
+Jurela fresca seleccionada.
+Ideal para plancha, horno y cocina tradicional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoJurela"
+onchange="actualizarPrecioJurela()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioJurela"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 3.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionJurela">
+
+<option>Entera</option>
+<option>Sin cabeza</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarJurela()"
 class="btn-producto">
 
 🛒 Añadir al pedido
