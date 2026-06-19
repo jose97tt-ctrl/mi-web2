@@ -1428,6 +1428,18 @@ class="btn-producto">
 
 
 
+       <div class="card">
+
+    <img src="jibia.jpg" alt="Jibia O Choco">
+
+    <div class="card-content">
+
+        <h3>Jibia O Choco</h3>
+
+        <p>Precio 12€kg</p>
+
+
+
         <button
         onclick="agregarCarrito('Jibia O Choco',12,cantidades['jibia'] || 1)"
         class="btn-producto">
@@ -1435,6 +1447,152 @@ class="btn-producto">
         🛒 Añadir al carrito
 
         </button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <img src="langostino tigre.jpg" alt="Langostino Tigre">
+
+    <div class="card-content">
+
+        <h3>Langostino Tigre</h3>
+
+        <p>Precio 45€kg</p>
+
+       
+        <button
+onclick="abrirProductoLangostinoTigre()"
+class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <img src="longueron.jpg" alt="Longuerón">
+
+    <div class="card-content">
+
+        <h3>Longuerón</h3>
+
+        <p>Precio 11€kg</p>
+
+      
+
+      <button
+onclick="abrirProductoLongueron()"
+class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <img src="mejillon roca.jpg" alt="Mejillón Roca">
+
+    <div class="card-content">
+
+        <h3>Mejillón Roca</h3>
+
+        <p>Precio 5.5€kg</p>
+
+
+        <button
+        onclick="agregarCarrito('Mejillón Roca',5.5,cantidades['mejillonroca'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <img src="mejillon.jpg" alt="Mejillón">
+
+    <div class="card-content">
+
+        <h3>Mejillón</h3>
+
+        <p>Precio 3.5€kg</p>
+
+        
+        <button
+        onclick="agregarCarrito('Mejillón',3.5,cantidades['mejillon'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <img src="navaja.jpg" alt="Navaja">
+
+    <div class="card-content">
+
+        <h3>Navaja</h3>
+
+        <p>Precio 9€kg</p>
+
+       
+
+        <button
+        onclick="agregarCarrito('Navaja',9,cantidades['navaja'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <img src="ostra.jpg" alt="Ostra Guillardeau">
+
+    <div class="card-content">
+
+        <h3>Ostra Guillardeau</h3>
+
+        <p>Precio 2.4€pz</p>
+
+      
+
+        <button
+        onclick="agregarCarrito('Ostra Guillardeau',2.4,cantidades['ostra'] || 1)"
+        class="btn-producto">
+
+        🛒 Añadir al carrito
+
+        </button>
+
+    </div>
+
+</div>
+
 
     </div>
 
@@ -3640,6 +3798,147 @@ actualizarCarrito();
 cerrarProductoGambaRoja();
 
 }
+function abrirProductoJibia(){
+document.getElementById("modalJibia").style.display="flex";
+}
+
+function cerrarProductoJibia(){
+document.getElementById("modalJibia").style.display="none";
+}
+
+function actualizarPrecioJibia(){
+
+let peso =
+parseFloat(document.getElementById("pesoJibia").value);
+
+let total = 12 * peso;
+
+document.getElementById("precioJibia").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarJibia(){
+
+let peso =
+parseFloat(document.getElementById("pesoJibia").value);
+
+let preparacion =
+document.getElementById("preparacionJibia").value;
+
+let precioFinal = 12 * peso;
+
+carrito.push({
+
+nombre:"Jibia o Choco",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoJibia();
+
+}
+function abrirProductoLangostinoTigre(){
+document.getElementById("modalLangostinoTigre").style.display="flex";
+}
+
+function cerrarProductoLangostinoTigre(){
+document.getElementById("modalLangostinoTigre").style.display="none";
+}
+
+function actualizarPrecioLangostinoTigre(){
+
+let peso =
+parseFloat(document.getElementById("pesoLangostinoTigre").value);
+
+let total = 45 * peso;
+
+document.getElementById("precioLangostinoTigre").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarLangostinoTigre(){
+
+let peso =
+parseFloat(document.getElementById("pesoLangostinoTigre").value);
+
+let preparacion =
+document.getElementById("preparacionLangostinoTigre").value;
+
+let precioFinal = 45 * peso;
+
+carrito.push({
+
+nombre:"Langostino Tigre",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoLangostinoTigre();
+
+}
+function abrirProductoLongueron(){
+document.getElementById("modalLongueron").style.display="flex";
+}
+
+function cerrarProductoLongueron(){
+document.getElementById("modalLongueron").style.display="none";
+}
+
+function actualizarPrecioLongueron(){
+
+let peso =
+parseFloat(document.getElementById("pesoLongueron").value);
+
+let total = 11 * peso;
+
+document.getElementById("precioLongueron").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarLongueron(){
+
+let peso =
+parseFloat(document.getElementById("pesoLongueron").value);
+
+let preparacion =
+document.getElementById("preparacionLongueron").value;
+
+let precioFinal = 11 * peso;
+
+carrito.push({
+
+nombre:"Longuerón",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoLongueron();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -5843,6 +6142,188 @@ Total: 55.00€
 
 <button
 onclick="agregarGambaRoja()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalJibia"
+class="modal-producto"
+onclick="cerrarProductoJibia()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="jibia.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦑 Jibia o Choco
+</h2>
+
+<p><strong>Precio:</strong> 12 €/kg</p>
+
+<p>
+Jibia fresca seleccionada.
+Ideal para plancha, guisos y fritura.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoJibia"
+onchange="actualizarPrecioJibia()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioJibia" style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+
+Total: 6.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionJibia">
+
+<option>Entera en sucio</option>
+<option>Limpia</option>
+
+
+</select>
+
+<p style="color:green;">✅ Disponible</p>
+
+<button
+onclick="agregarJibia()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalLangostinoTigre"
+class="modal-producto"
+onclick="cerrarProductoLangostinoTigre()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="langostino tigre.jpg">
+
+<h2 style="font-size:45px; line-height:1;">
+🦐 Langostino Tigre
+</h2>
+
+<p><strong>Precio:</strong> 45 €/kg</p>
+
+<p>
+Langostino tigre premium.
+Ideal para plancha, cocción y mariscadas.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoLangostinoTigre"
+onchange="actualizarPrecioLangostinoTigre()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioLangostinoTigre" style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+
+Total: 22.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionLangostinoTigre">
+
+<option>Fresco</option>
+<option>Cocido</option>
+
+
+</select>
+
+<p style="color:green;">✅ Disponible</p>
+
+<button
+onclick="agregarLangostinoTigre()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalLongueron"
+class="modal-producto"
+onclick="cerrarProductoLongueron()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="longueron.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Longuerón
+</h2>
+
+<p><strong>Precio:</strong> 11 €/kg</p>
+
+<p>
+Longuerón fresco seleccionado.
+Ideal para plancha y cocina marinera.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoLongueron"
+onchange="actualizarPrecioLongueron()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioLongueron" style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+
+Total: 5.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionLongueron">
+
+<option>Natural depurado</option>
+
+
+</select>
+
+<p style="color:green;">✅ Disponible</p>
+
+<button
+onclick="agregarLongueron()"
 class="btn-producto">
 
 🛒 Añadir al pedido
