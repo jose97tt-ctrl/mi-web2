@@ -2265,6 +2265,57 @@ actualizarCarrito();
 cerrarProductoBacaladilla();
 
 }
+function abrirProductoBrotolaRoca(){
+
+document.getElementById("modalBrotolaRoca").style.display="flex";
+
+}
+
+function cerrarProductoBrotolaRoca(){
+
+document.getElementById("modalBrotolaRoca").style.display="none";
+
+}
+
+function actualizarPrecioBrotolaRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoBrotolaRoca").value);
+
+let total = 15 * peso;
+
+document.getElementById("precioBrotolaRoca").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBrotolaRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoBrotolaRoca").value);
+
+let preparacion =
+document.getElementById("preparacionBrotolaRoca").value;
+
+let precioFinal = 15 * peso;
+
+carrito.push({
+
+nombre:"Brótola Roca",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoBrotolaRoca();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -2626,6 +2677,74 @@ Total: 9.00€
 
 <button
 onclick="agregarBacaladilla()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalBrotolaRoca"
+class="modal-producto"
+onclick="cerrarProductoBrotolaRoca()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="brotola roca.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Brótola Roca
+</h2>
+
+<p><strong>Precio:</strong> 15 €/kg</p>
+
+<p>
+Brótola roca fresca seleccionada.
+Ideal para horno, plancha y guisos.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoBrotolaRoca"
+onchange="actualizarPrecioBrotolaRoca()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioBrotolaRoca"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionBrotolaRoca">
+
+<option>Entera</option>
+<option>Limpia sin cabeza</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarBrotolaRoca()"
 class="btn-producto">
 
 🛒 Añadir al pedido
