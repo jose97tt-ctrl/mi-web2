@@ -1545,13 +1545,13 @@ class="btn-producto">
 
        
 
-        <button
-        onclick="agregarCarrito('Navaja',9,cantidades['navaja'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoNavaja()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3881,6 +3881,57 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoMejillon();
+
+}
+function abrirProductoNavaja(){
+
+document.getElementById("modalNavaja").style.display="flex";
+
+}
+
+function cerrarProductoNavaja(){
+
+document.getElementById("modalNavaja").style.display="none";
+
+}
+
+function actualizarPrecioNavaja(){
+
+let peso =
+parseFloat(document.getElementById("pesoNavaja").value);
+
+let total = 9 * peso;
+
+document.getElementById("precioNavaja").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarNavaja(){
+
+let peso =
+parseFloat(document.getElementById("pesoNavaja").value);
+
+let preparacion =
+document.getElementById("preparacionNavaja").value;
+
+let precioFinal = 9 * peso;
+
+carrito.push({
+
+nombre:"Navaja",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoNavaja();
 
 }
 
@@ -6403,6 +6454,73 @@ Total: 1.75€
 
 <button
 onclick="agregarMejillon()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalNavaja"
+class="modal-producto"
+onclick="cerrarProductoNavaja()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="navaja.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Navaja
+</h2>
+
+<p><strong>Precio:</strong> 9 €/kg</p>
+
+<p>
+Navaja fresca seleccionada.
+Ideal para plancha, ajo y perejil o cocina marinera.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoNavaja"
+onchange="actualizarPrecioNavaja()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioNavaja"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 4.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionNavaja">
+
+<option>Entera depurada</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarNavaja()"
 class="btn-producto">
 
 🛒 Añadir al pedido
