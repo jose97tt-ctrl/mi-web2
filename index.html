@@ -1498,13 +1498,13 @@ class="btn-producto">
         <p>Precio 5.5€kg</p>
 
 
-        <button
-        onclick="agregarCarrito('Mejillón Roca',5.5,cantidades['mejillonroca'] || 1)"
-        class="btn-producto">
+<button
+onclick="abrirProductoMejillonRoca()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3779,6 +3779,57 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoLongueron();
+
+}
+function abrirProductoMejillonRoca(){
+
+document.getElementById("modalMejillonRoca").style.display="flex";
+
+}
+
+function cerrarProductoMejillonRoca(){
+
+document.getElementById("modalMejillonRoca").style.display="none";
+
+}
+
+function actualizarPrecioMejillonRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoMejillonRoca").value);
+
+let total = 5.5 * peso;
+
+document.getElementById("precioMejillonRoca").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarMejillonRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoMejillonRoca").value);
+
+let preparacion =
+document.getElementById("preparacionMejillonRoca").value;
+
+let precioFinal = 5.5 * peso;
+
+carrito.push({
+
+nombre:"Mejillón Roca",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoMejillonRoca();
 
 }
 
@@ -6166,6 +6217,72 @@ Total: 5.50€
 
 <button
 onclick="agregarLongueron()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalMejillonRoca"
+class="modal-producto"
+onclick="cerrarProductoMejillonRoca()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="mejillon roca.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Mejillón Roca
+</h2>
+
+<p><strong>Precio:</strong> 5.50 €/kg</p>
+
+<p>
+Mejillón de roca fresco seleccionado.
+Ideal para vapor, marinera y arroces.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoMejillonRoca"
+onchange="actualizarPrecioMejillonRoca()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioMejillonRoca"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 2.75€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionMejillonRoca">
+
+<option>Entero fresco</option>
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarMejillonRoca()"
 class="btn-producto">
 
 🛒 Añadir al pedido
