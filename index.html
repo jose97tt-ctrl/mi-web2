@@ -2316,6 +2316,57 @@ actualizarCarrito();
 cerrarProductoBrotolaRoca();
 
 }
+function abrirProductoBrotola(){
+
+document.getElementById("modalBrotola").style.display="flex";
+
+}
+
+function cerrarProductoBrotola(){
+
+document.getElementById("modalBrotola").style.display="none";
+
+}
+
+function actualizarPrecioBrotola(){
+
+let peso =
+parseFloat(document.getElementById("pesoBrotola").value);
+
+let total = 8 * peso;
+
+document.getElementById("precioBrotola").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBrotola(){
+
+let peso =
+parseFloat(document.getElementById("pesoBrotola").value);
+
+let preparacion =
+document.getElementById("preparacionBrotola").value;
+
+let precioFinal = 8 * peso;
+
+carrito.push({
+
+nombre:"Brótola",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoBrotola();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -2745,6 +2796,74 @@ Total: 7.50€
 
 <button
 onclick="agregarBrotolaRoca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalBrotola"
+class="modal-producto"
+onclick="cerrarProductoBrotola()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="brotola.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Brótola
+</h2>
+
+<p><strong>Precio:</strong> 8 €/kg</p>
+
+<p>
+Brótola fresca seleccionada.
+Ideal para plancha, horno y guisos.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoBrotola"
+onchange="actualizarPrecioBrotola()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioBrotola"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 4.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionBrotola">
+
+<option>Entera</option>
+<option>Limpia sin cabeza</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarBrotola()"
 class="btn-producto">
 
 🛒 Añadir al pedido
