@@ -1383,14 +1383,13 @@ class="btn-producto">
 
        
 
-        <button
-        onclick="agregarCarrito('Gamba Cristal O Gambusino',20,cantidades['gambacristal'] || 1)"
-        class="btn-producto">
+      <button
+onclick="abrirProductoGambaCristal()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -1407,12 +1406,12 @@ class="btn-producto">
 
        
         <button
-        onclick="agregarCarrito('Gamba Roja',110,cantidades['gambaroja'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoGambaRoja()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3539,6 +3538,108 @@ actualizarCarrito();
 cerrarProductoGambaBlanca();
 
 }
+function abrirProductoGambaCristal(){
+
+document.getElementById("modalGambaCristal").style.display="flex";
+
+}
+
+function cerrarProductoGambaCristal(){
+
+document.getElementById("modalGambaCristal").style.display="none";
+
+}
+
+function actualizarPrecioGambaCristal(){
+
+let peso =
+parseFloat(document.getElementById("pesoGambaCristal").value);
+
+let total = 20 * peso;
+
+document.getElementById("precioGambaCristal").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarGambaCristal(){
+
+let peso =
+parseFloat(document.getElementById("pesoGambaCristal").value);
+
+let preparacion =
+document.getElementById("preparacionGambaCristal").value;
+
+let precioFinal = 20 * peso;
+
+carrito.push({
+
+nombre:"Gamba Cristal",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoGambaCristal();
+
+}
+function abrirProductoGambaRoja(){
+
+document.getElementById("modalGambaRoja").style.display="flex";
+
+}
+
+function cerrarProductoGambaRoja(){
+
+document.getElementById("modalGambaRoja").style.display="none";
+
+}
+
+function actualizarPrecioGambaRoja(){
+
+let peso =
+parseFloat(document.getElementById("pesoGambaRoja").value);
+
+let total = 110 * peso;
+
+document.getElementById("precioGambaRoja").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarGambaRoja(){
+
+let peso =
+parseFloat(document.getElementById("pesoGambaRoja").value);
+
+let preparacion =
+document.getElementById("preparacionGambaRoja").value;
+
+let precioFinal = 110 * peso;
+
+carrito.push({
+
+nombre:"Gamba Roja",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoGambaRoja();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -5607,6 +5708,141 @@ Total: 9.00€
 
 <button
 onclick="agregarGambaBlanca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalGambaCristal"
+class="modal-producto"
+onclick="cerrarProductoGambaCristal()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="cristal.jpg">
+
+<h2 style="font-size:42px; line-height:1;">
+🦐 Gamba Cristal
+</h2>
+
+<p><strong>Precio:</strong> 20 €/kg</p>
+
+<p>
+Gamba cristal fresca seleccionada.
+Perfecta para fritura tradicional y tortillas de camarones.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoGambaCristal"
+onchange="actualizarPrecioGambaCristal()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioGambaCristal"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 10.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionGambaCristal">
+
+<option>Fresca</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarGambaCristal()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalGambaRoja"
+class="modal-producto"
+onclick="cerrarProductoGambaRoja()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="gamba roja.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦐 Gamba Roja
+</h2>
+
+<p><strong>Precio:</strong> 110 €/kg</p>
+
+<p>
+Gamba roja premium de máxima calidad.
+Ideal para plancha, cocción y mariscadas especiales.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoGambaRoja"
+onchange="actualizarPrecioGambaRoja()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioGambaRoja"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 55.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionGambaRoja">
+
+<option>Fresca</option>
+<option>Cocida</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarGambaRoja()"
 class="btn-producto">
 
 🛒 Añadir al pedido
