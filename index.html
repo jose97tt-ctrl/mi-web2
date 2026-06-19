@@ -953,13 +953,13 @@ class="btn-producto">
 
         
 
-        <button
-        onclick="agregarCarrito('Salmonete Roca',23,cantidades['salmoneteroca'] || 1)"
-        class="btn-producto">
+      <button
+onclick="abrirProductoSalmoneteRoca()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2622,6 +2622,57 @@ actualizarCarrito();
 cerrarProductoPijota();
 
 }
+function abrirProductoSalmoneteRoca(){
+
+document.getElementById("modalSalmoneteRoca").style.display="flex";
+
+}
+
+function cerrarProductoSalmoneteRoca(){
+
+document.getElementById("modalSalmoneteRoca").style.display="none";
+
+}
+
+function actualizarPrecioSalmoneteRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoSalmoneteRoca").value);
+
+let total = 23 * peso;
+
+document.getElementById("precioSalmoneteRoca").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarSalmoneteRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoSalmoneteRoca").value);
+
+let preparacion =
+document.getElementById("preparacionSalmoneteRoca").value;
+
+let precioFinal = 23 * peso;
+
+carrito.push({
+
+nombre:"Salmonete Roca",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoSalmoneteRoca();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3468,6 +3519,75 @@ Total: 7.25€
 
 <button
 onclick="agregarPijota()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalSalmoneteRoca"
+class="modal-producto"
+onclick="cerrarProductoSalmoneteRoca()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="salmonete roca.jpg">
+
+<h2 style="font-size:42px; line-height:1;">
+🐟 Salmonete Roca
+</h2>
+
+<p><strong>Precio:</strong> 23 €/kg</p>
+
+<p>
+Salmonete de roca fresco seleccionado.
+Muy apreciado por su sabor intenso y calidad.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoSalmoneteRoca"
+onchange="actualizarPrecioSalmoneteRoca()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioSalmoneteRoca"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 11.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionSalmoneteRoca">
+
+<option>Entero</option>
+<option>Sin cabeza</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarSalmoneteRoca()"
 class="btn-producto">
 
 🛒 Añadir al pedido
