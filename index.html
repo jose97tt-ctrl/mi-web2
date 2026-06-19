@@ -1689,13 +1689,12 @@ class="btn-producto">
        
 
         <button
-        onclick="agregarCarrito('Puntillitas',40,cantidades['puntillitas'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoPuntillitas()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -4186,6 +4185,47 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoPulpoRoca();
+
+}
+function abrirProductoPuntillitas(){
+document.getElementById("modalPuntillitas").style.display="flex";
+}
+
+function cerrarProductoPuntillitas(){
+document.getElementById("modalPuntillitas").style.display="none";
+}
+
+function actualizarPrecioPuntillitas(){
+
+let peso=parseFloat(document.getElementById("pesoPuntillitas").value);
+
+let total=40*peso;
+
+document.getElementById("precioPuntillitas").innerText=
+"Total: "+total.toFixed(2)+"€";
+
+}
+
+function agregarPuntillitas(){
+
+let peso=parseFloat(document.getElementById("pesoPuntillitas").value);
+
+let preparacion=document.getElementById("preparacionPuntillitas").value;
+
+let precioFinal=40*peso;
+
+carrito.push({
+nombre:"Puntillitas",
+peso:peso+" kg",
+preparacion:preparacion,
+precio:precioFinal
+});
+
+document.getElementById("contadorCarrito").innerText=carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPuntillitas();
 
 }
 
@@ -7098,6 +7138,65 @@ Total: 7.50€
 
 <button
 onclick="agregarPulpoRoca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPuntillitas"
+class="modal-producto"
+onclick="cerrarProductoPuntillitas()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="puntas.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦑 Puntillitas
+</h2>
+
+<p><strong>Precio:</strong> 40 €/kg</p>
+
+<p>
+Puntillitas frescas ideales para fritura y tapeo.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoPuntillitas"
+onchange="actualizarPrecioPuntillitas()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioPuntillitas"
+style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+
+Total: 20.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionPuntillitas">
+
+<option>Enteras</option>
+
+</select>
+
+<p style="color:green;">✅ Disponible</p>
+
+<button
+onclick="agregarPuntillitas()"
 class="btn-producto">
 
 🛒 Añadir al pedido
