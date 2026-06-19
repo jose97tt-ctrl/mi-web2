@@ -1521,13 +1521,13 @@ class="btn-producto">
         <p>Precio 3.5€kg</p>
 
         
-        <button
-        onclick="agregarCarrito('Mejillón',3.5,cantidades['mejillon'] || 1)"
-        class="btn-producto">
+      <button
+onclick="abrirProductoMejillon()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3830,6 +3830,57 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoMejillonRoca();
+
+}
+function abrirProductoMejillon(){
+
+document.getElementById("modalMejillon").style.display="flex";
+
+}
+
+function cerrarProductoMejillon(){
+
+document.getElementById("modalMejillon").style.display="none";
+
+}
+
+function actualizarPrecioMejillon(){
+
+let peso =
+parseFloat(document.getElementById("pesoMejillon").value);
+
+let total = 3.5 * peso;
+
+document.getElementById("precioMejillon").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarMejillon(){
+
+let peso =
+parseFloat(document.getElementById("pesoMejillon").value);
+
+let preparacion =
+document.getElementById("preparacionMejillon").value;
+
+let precioFinal = 3.5 * peso;
+
+carrito.push({
+
+nombre:"Mejillón",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoMejillon();
 
 }
 
@@ -6283,6 +6334,75 @@ Total: 2.75€
 
 <button
 onclick="agregarMejillonRoca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalMejillon"
+class="modal-producto"
+onclick="cerrarProductoMejillon()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="mejillon.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Mejillón
+</h2>
+
+<p><strong>Precio:</strong> 3.50 €/kg</p>
+
+<p>
+Mejillón fresco seleccionado.
+Ideal para vapor, marinera, arroces y tapas.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoMejillon"
+onchange="actualizarPrecioMejillon()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioMejillon"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 1.75€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionMejillon">
+
+<option>Entero fresco</option>
+<option>Cocido</option>
+<option>Media concha</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarMejillon()"
 class="btn-producto">
 
 🛒 Añadir al pedido
