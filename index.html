@@ -1289,13 +1289,12 @@ class="btn-producto">
        
 
         <button
-        onclick="agregarCarrito('Coquina',30,cantidades['coquina'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoCoquina()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -1313,12 +1312,12 @@ class="btn-producto">
         
 
         <button
-        onclick="agregarCarrito('Chopito',35,cantidades['chopito'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoChopito()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3336,6 +3335,108 @@ actualizarCarrito();
 cerrarProductoConchaFina();
 
 }
+function abrirProductoCoquina(){
+
+document.getElementById("modalCoquina").style.display="flex";
+
+}
+
+function cerrarProductoCoquina(){
+
+document.getElementById("modalCoquina").style.display="none";
+
+}
+
+function actualizarPrecioCoquina(){
+
+let peso =
+parseFloat(document.getElementById("pesoCoquina").value);
+
+let total = 30 * peso;
+
+document.getElementById("precioCoquina").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCoquina(){
+
+let peso =
+parseFloat(document.getElementById("pesoCoquina").value);
+
+let preparacion =
+document.getElementById("preparacionCoquina").value;
+
+let precioFinal = 30 * peso;
+
+carrito.push({
+
+nombre:"Coquina",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCoquina();
+
+}
+function abrirProductoChopito(){
+
+document.getElementById("modalChopito").style.display="flex";
+
+}
+
+function cerrarProductoChopito(){
+
+document.getElementById("modalChopito").style.display="none";
+
+}
+
+function actualizarPrecioChopito(){
+
+let peso =
+parseFloat(document.getElementById("pesoChopito").value);
+
+let total = 35 * peso;
+
+document.getElementById("precioChopito").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarChopito(){
+
+let peso =
+parseFloat(document.getElementById("pesoChopito").value);
+
+let preparacion =
+document.getElementById("preparacionChopito").value;
+
+let precioFinal = 35 * peso;
+
+carrito.push({
+
+nombre:"Chopito",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoChopito();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -5133,6 +5234,144 @@ Total: 8.00€
 
 <button
 onclick="agregarConchaFina()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCoquina"
+class="modal-producto"
+onclick="cerrarProductoCoquina()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="coquina.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Coquina
+</h2>
+
+<p><strong>Precio:</strong> 30 €/kg</p>
+
+<p>
+Coquina fresca seleccionada.
+Ideal para plancha, ajillo y mariscadas.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCoquina"
+onchange="actualizarPrecioCoquina()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCoquina"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 15.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCoquina">
+
+<option>Natural</option>
+<option>Depurada</option>
+<option>Lista para cocinar</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCoquina()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalChopito"
+class="modal-producto"
+onclick="cerrarProductoChopito()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="chopito.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦑 Chopito
+</h2>
+
+<p><strong>Precio:</strong> 35 €/kg</p>
+
+<p>
+Chopito fresco seleccionado.
+Perfecto para fritura tradicional andaluza.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoChopito"
+onchange="actualizarPrecioChopito()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioChopito"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 17.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionChopito">
+
+<option>Entero</option>
+<option>Limpio</option>
+<option>Listo para freír</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarChopito()"
 class="btn-producto">
 
 🛒 Añadir al pedido
