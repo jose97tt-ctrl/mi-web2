@@ -1217,13 +1217,13 @@ class="btn-producto">
         <p>Precio 85€kg</p>
 
 
-        <button
-        onclick="agregarCarrito('Carabinero',85,cantidades['carabinero'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoCarabinero()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3183,6 +3183,57 @@ actualizarCarrito();
 cerrarProductoCangrejoAzul();
 
 }
+function abrirProductoCarabinero(){
+
+document.getElementById("modalCarabinero").style.display="flex";
+
+}
+
+function cerrarProductoCarabinero(){
+
+document.getElementById("modalCarabinero").style.display="none";
+
+}
+
+function actualizarPrecioCarabinero(){
+
+let peso =
+parseFloat(document.getElementById("pesoCarabinero").value);
+
+let total = 85 * peso;
+
+document.getElementById("precioCarabinero").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCarabinero(){
+
+let peso =
+parseFloat(document.getElementById("pesoCarabinero").value);
+
+let preparacion =
+document.getElementById("preparacionCarabinero").value;
+
+let precioFinal = 85 * peso;
+
+carrito.push({
+
+nombre:"Carabinero",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCarabinero();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4779,6 +4830,73 @@ Total: 4.25€
 
 <button
 onclick="agregarCangrejoAzul()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCarabinero"
+class="modal-producto"
+onclick="cerrarProductoCarabinero()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="carabinero.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦐 Carabinero
+</h2>
+
+<p><strong>Precio:</strong> 85 €/kg</p>
+
+<p>
+Carabinero fresco de máxima calidad.
+Ideal para plancha, arroces y ocasiones especiales.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCarabinero"
+onchange="actualizarPrecioCarabinero()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCarabinero"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 42.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCarabinero">
+
+<option>Natural</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCarabinero()"
 class="btn-producto">
 
 🛒 Añadir al pedido
