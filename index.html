@@ -1027,13 +1027,13 @@ class="btn-producto">
 
 
 
-        <button
-        onclick="agregarCarrito('Almeja o chirla',12,cantidades['almejachirla'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoAlmejaChirla()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2775,6 +2775,57 @@ actualizarCarrito();
 cerrarProductoAlmejaItaliana();
 
 }
+function abrirProductoAlmejaChirla(){
+
+document.getElementById("modalAlmejaChirla").style.display="flex";
+
+}
+
+function cerrarProductoAlmejaChirla(){
+
+document.getElementById("modalAlmejaChirla").style.display="none";
+
+}
+
+function actualizarPrecioAlmejaChirla(){
+
+let peso =
+parseFloat(document.getElementById("pesoAlmejaChirla").value);
+
+let total = 12 * peso;
+
+document.getElementById("precioAlmejaChirla").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarAlmejaChirla(){
+
+let peso =
+parseFloat(document.getElementById("pesoAlmejaChirla").value);
+
+let preparacion =
+document.getElementById("preparacionAlmejaChirla").value;
+
+let precioFinal = 12 * peso;
+
+carrito.push({
+
+nombre:"Almeja o Chirla",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAlmejaChirla();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3817,7 +3868,7 @@ Total: 5.00€
 
 <select id="preparacionAlmejaItaliana">
 
-<option>Natural ista para cocinar</option>
+<option>Natural lista para cocinar</option>
 
 </select>
 
@@ -3827,6 +3878,73 @@ Total: 5.00€
 
 <button
 onclick="agregarAlmejaItaliana()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalAlmejaChirla"
+class="modal-producto"
+onclick="cerrarProductoAlmejaChirla()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="almeja o chirla.jpg">
+
+<h2 style="font-size:40px; line-height:1;">
+🦪 Almeja o Chirla
+</h2>
+
+<p><strong>Precio:</strong> 12 €/kg</p>
+
+<p>
+Chirla fresca seleccionada.
+Perfecta para arroces, sopas y mariscos al vapor.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoAlmejaChirla"
+onchange="actualizarPrecioAlmejaChirla()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioAlmejaChirla"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 6.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionAlmejaChirla">
+
+<option>Natural lista para cocinar</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarAlmejaChirla()"
 class="btn-producto">
 
 🛒 Añadir al pedido
