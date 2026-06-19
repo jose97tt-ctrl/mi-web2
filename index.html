@@ -358,6 +358,8 @@ border-radius:20px;
 
 text-align:center;
 
+margin:auto;
+
 }
 
 .contenido-modal img{
@@ -2057,7 +2059,7 @@ cerrarProductoAguja();
 }
 function abrirProductoAtunEnvasado(){
 
-document.getElementById("modalAtunEnvasado").style.display="block";
+document.getElementById("modalAtunEnvasado").style.display="flex";
 
 }
 
@@ -2095,34 +2097,6 @@ preparacion:preparacion,
 precio:precioFinal
 
 });
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
-
-actualizarCarrito();
-
-cerrarProductoAtunEnvasado();
-
-}
-
-function agregarAtunEnvasado(){
-
-let peso =
-parseFloat(document.getElementById("pesoAtunEnvasado").value);
-
-let preparacion =
-document.getElementById("preparacionAtunEnvasado").value;
-
-let precioFinal = 15 * peso;
-
-carrito.push({
-
-nombre:"Atún Envasado",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
-
-});
-
 document.getElementById("contadorCarrito").innerText =
 carrito.length;
 
@@ -2244,7 +2218,8 @@ Ideal para hogares, hostelería y restauración.
 
 <label>Peso:</label>
 
-<select id="pesoAtunEnvasado">
+<select id="pesoAtunEnvasado"
+onchange="actualizarPrecioAtunEnvasado()">
 
 <option value="0.5">500 g</option>
 <option value="1">1 kg</option>
