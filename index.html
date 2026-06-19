@@ -1264,13 +1264,13 @@ class="btn-producto">
 
         
 
-        <button
-        onclick="agregarCarrito('Concha Fina',16,cantidades['conchafina'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoConchaFina()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3285,6 +3285,57 @@ actualizarCarrito();
 cerrarProductoCigala();
 
 }
+function abrirProductoConchaFina(){
+
+document.getElementById("modalConchaFina").style.display="flex";
+
+}
+
+function cerrarProductoConchaFina(){
+
+document.getElementById("modalConchaFina").style.display="none";
+
+}
+
+function actualizarPrecioConchaFina(){
+
+let peso =
+parseFloat(document.getElementById("pesoConchaFina").value);
+
+let total = 16 * peso;
+
+document.getElementById("precioConchaFina").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarConchaFina(){
+
+let peso =
+parseFloat(document.getElementById("pesoConchaFina").value);
+
+let preparacion =
+document.getElementById("preparacionConchaFina").value;
+
+let precioFinal = 16 * peso;
+
+carrito.push({
+
+nombre:"Concha Fina",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoConchaFina();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -5015,6 +5066,73 @@ Total: 50.00€
 
 <button
 onclick="agregarCigala()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalConchaFina"
+class="modal-producto"
+onclick="cerrarProductoConchaFina()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="concha fina.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Concha Fina
+</h2>
+
+<p><strong>Precio:</strong> 16 €/kg</p>
+
+<p>
+Concha fina fresca seleccionada.
+Ideal para consumir al natural o con limón.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoConchaFina"
+onchange="actualizarPrecioConchaFina()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioConchaFina"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 8.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionConchaFina">
+
+<option>Natural</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarConchaFina()"
 class="btn-producto">
 
 🛒 Añadir al pedido
