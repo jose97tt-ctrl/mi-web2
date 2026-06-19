@@ -2673,6 +2673,57 @@ actualizarCarrito();
 cerrarProductoSalmoneteRoca();
 
 }
+function abrirProductoSalmonete(){
+
+document.getElementById("modalSalmonete").style.display="flex";
+
+}
+
+function cerrarProductoSalmonete(){
+
+document.getElementById("modalSalmonete").style.display="none";
+
+}
+
+function actualizarPrecioSalmonete(){
+
+let peso =
+parseFloat(document.getElementById("pesoSalmonete").value);
+
+let total = 15 * peso;
+
+document.getElementById("precioSalmonete").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarSalmonete(){
+
+let peso =
+parseFloat(document.getElementById("pesoSalmonete").value);
+
+let preparacion =
+document.getElementById("preparacionSalmonete").value;
+
+let precioFinal = 15 * peso;
+
+carrito.push({
+
+nombre:"Salmonete",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoSalmonete();
+
+}
 
 
 window.addEventListener('scroll',()=>{
