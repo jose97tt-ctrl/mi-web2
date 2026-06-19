@@ -2163,6 +2163,58 @@ actualizarCarrito();
 cerrarProductoAtunFresco();
 
 }
+function abrirProductoBoqueron(){
+
+document.getElementById("modalBoqueron").style.display="flex";
+
+}
+
+function cerrarProductoBoqueron(){
+
+document.getElementById("modalBoqueron").style.display="none";
+
+}
+
+function actualizarPrecioBoqueron(){
+
+let peso =
+parseFloat(document.getElementById("pesoBoqueron").value);
+
+let total = 10 * peso;
+
+document.getElementById("precioBoqueron").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBoqueron(){
+
+let peso =
+parseFloat(document.getElementById("pesoBoqueron").value);
+
+let preparacion =
+document.getElementById("preparacionBoqueron").value;
+
+let precioFinal = 10 * peso;
+
+carrito.push({
+
+nombre:"Boquerón",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoBoqueron();
+
+}
+
 
 window.addEventListener('scroll',()=>{
 
