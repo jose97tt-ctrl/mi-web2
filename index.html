@@ -7589,6 +7589,87 @@ class="btn-producto">
 </div>
 
 </div>
+<div id="modalDorada" class="modal-producto">
+
+<div class="contenido-modal">
+
+<img src="dorada.jpg">
+
+<h2>🐟 DORADA</h2>
+
+<p>
+Dorada de piscifactoría seleccionada.
+Elige procedencia, tamaño y preparación.
+</p>
+
+<label><strong>Procedencia:</strong></label>
+
+<select id="procedenciaDorada"
+onchange="actualizarPrecioDorada()">
+
+<option value="7.8">Turca 400-600g</option>
+<option value="7.9">Nacional 400-600g</option>
+<option value="8.5">Griega 400-600g</option>
+
+<option value="8.3">Nacional 600-800g</option>
+<option value="9.3">Griega 600-800g</option>
+
+<option value="11.9">Esteros 600-800g</option>
+
+<option value="14.8">Esteros 1kg-1.5kg</option>
+
+</select>
+
+<br><br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoDorada"
+onchange="actualizarPrecioDorada()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioDorada"
+style="color:green;">
+Total: 7.80€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionDorada">
+
+<option>Entera</option>
+<option>Limpia</option>
+<option>Sin escamas</option>
+<option>Sin agallas</option>
+<option>Abierta a la espalda</option>
+<option>En lomos</option>
+<option>Rodajas</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarDorada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
