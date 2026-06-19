@@ -838,13 +838,13 @@ Bacaladilla
         <p>Precio 15.5€kg</p>
 
        
-        <button
-        onclick="agregarCarrito('Cazón',15.5,cantidades['cazon'] || 1)"
-        class="btn-producto">
+      <button
+onclick="abrirProductoCazon()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2370,6 +2370,57 @@ actualizarCarrito();
 cerrarProductoBrotola();
 
 }
+function abrirProductoCazon(){
+
+document.getElementById("modalCazon").style.display="flex";
+
+}
+
+function cerrarProductoCazon(){
+
+document.getElementById("modalCazon").style.display="none";
+
+}
+
+function actualizarPrecioCazon(){
+
+let peso =
+parseFloat(document.getElementById("pesoCazon").value);
+
+let total = 15.5 * peso;
+
+document.getElementById("precioCazon").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCazon(){
+
+let peso =
+parseFloat(document.getElementById("pesoCazon").value);
+
+let preparacion =
+document.getElementById("preparacionCazon").value;
+
+let precioFinal = 15.5 * peso;
+
+carrito.push({
+
+nombre:"Cazón",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoCazon();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -2872,6 +2923,74 @@ Total: 4.00€
 
 <button
 onclick="agregarBrotola()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalCazon"
+class="modal-producto"
+onclick="cerrarProductoCazon()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="cazon.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Cazón
+</h2>
+
+<p><strong>Precio:</strong> 15.50 €/kg</p>
+
+<p>
+Cazón fresco seleccionado.
+Ideal para adobo, fritura y cocina tradicional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoCazon"
+onchange="actualizarPrecioCazon()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioCazon"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.75€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionCazon">
+
+<option>Entero con piel</option>
+<option>Entero sin piel</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarCazon()"
 class="btn-producto">
 
 🛒 Añadir al pedido
