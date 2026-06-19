@@ -977,13 +977,13 @@ class="btn-producto">
 
         
 
-        <button
-        onclick="agregarCarrito('Salmonete',15,cantidades['salmonete'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoSalmonete()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3578,6 +3578,8 @@ Total: 11.50€
 
 <option>Entero</option>
 <option>Sin cabeza</option>
+<option>Sin escamas</option>
+
 
 
 </select>
@@ -3588,6 +3590,74 @@ Total: 11.50€
 
 <button
 onclick="agregarSalmoneteRoca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalSalmonete"
+class="modal-producto"
+onclick="cerrarProductoSalmonete()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="salmonete.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Salmonete
+</h2>
+
+<p><strong>Precio:</strong> 15 €/kg</p>
+
+<p>
+Salmonete fresco seleccionado.
+Ideal para fritura, plancha y horno.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoSalmonete"
+onchange="actualizarPrecioSalmonete()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioSalmonete"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionSalmonete">
+
+<option>Entero</option>
+<option>Sin cabeza</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarSalmonete()"
 class="btn-producto">
 
 🛒 Añadir al pedido
