@@ -1712,12 +1712,12 @@ class="btn-producto">
        
 
         <button
-        onclick="agregarCarrito('Quisquilla',70,cantidades['quisquilla'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoQuisquilla()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -1736,12 +1736,12 @@ class="btn-producto">
         
 
         <button
-        onclick="agregarCarrito('Vieira',4,cantidades['vieira'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoVieira()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -1760,13 +1760,12 @@ class="btn-producto">
         
 
         <button
-        onclick="agregarCarrito('Zamburiña',3.5,cantidades['zamburina'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoZamburina()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -4226,6 +4225,159 @@ document.getElementById("contadorCarrito").innerText=carrito.length;
 actualizarCarrito();
 
 cerrarProductoPuntillitas();
+
+}
+function abrirProductoQuisquilla(){
+
+document.getElementById("modalQuisquilla").style.display="flex";
+
+}
+
+function cerrarProductoQuisquilla(){
+
+document.getElementById("modalQuisquilla").style.display="none";
+
+}
+
+function actualizarPrecioQuisquilla(){
+
+let peso =
+parseFloat(document.getElementById("pesoQuisquilla").value);
+
+let total = 70 * peso;
+
+document.getElementById("precioQuisquilla").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarQuisquilla(){
+
+let peso =
+parseFloat(document.getElementById("pesoQuisquilla").value);
+
+let preparacion =
+document.getElementById("preparacionQuisquilla").value;
+
+let precioFinal = 70 * peso;
+
+carrito.push({
+
+nombre:"Quisquilla",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoQuisquilla();
+
+}
+function abrirProductoVieira(){
+
+document.getElementById("modalVieira").style.display="flex";
+
+}
+
+function cerrarProductoVieira(){
+
+document.getElementById("modalVieira").style.display="none";
+
+}
+
+function actualizarPrecioVieira(){
+
+let cantidad =
+parseInt(document.getElementById("cantidadVieira").value);
+
+let total = 4 * cantidad;
+
+document.getElementById("precioVieira").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarVieira(){
+
+let cantidad =
+parseInt(document.getElementById("cantidadVieira").value);
+
+let preparacion =
+document.getElementById("preparacionVieira").value;
+
+let precioFinal = 4 * cantidad;
+
+carrito.push({
+
+nombre:"Vieira",
+peso:cantidad + " unidades",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoVieira();
+
+}
+function abrirProductoZamburina(){
+
+document.getElementById("modalZamburina").style.display="flex";
+
+}
+
+function cerrarProductoZamburina(){
+
+document.getElementById("modalZamburina").style.display="none";
+
+}
+
+function actualizarPrecioZamburina(){
+
+let cantidad =
+parseInt(document.getElementById("cantidadZamburina").value);
+
+let total = 3.5 * cantidad;
+
+document.getElementById("precioZamburina").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarZamburina(){
+
+let cantidad =
+parseInt(document.getElementById("cantidadZamburina").value);
+
+let preparacion =
+document.getElementById("preparacionZamburina").value;
+
+let precioFinal = 3.5 * cantidad;
+
+carrito.push({
+
+nombre:"Zamburiña",
+peso:cantidad + " unidades",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoZamburina();
 
 }
 
@@ -7197,6 +7349,208 @@ Total: 20.00€
 
 <button
 onclick="agregarPuntillitas()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalQuisquilla"
+class="modal-producto"
+onclick="cerrarProductoQuisquilla()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="quisquillas.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦐 Quisquilla
+</h2>
+
+<p><strong>Precio:</strong> 70 €/kg</p>
+
+<p>
+Quisquilla fresca de máxima calidad.
+Ideal para cocer o consumir recién preparada.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoQuisquilla"
+onchange="actualizarPrecioQuisquilla()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioQuisquilla"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 35.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionQuisquilla">
+
+<option>Fresca</option>
+<option>Cocida</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarQuisquilla()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalVieira"
+class="modal-producto"
+onclick="cerrarProductoVieira()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="vieira.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐚 Vieira
+</h2>
+
+<p><strong>Precio:</strong> 4 €/unidad</p>
+
+<p>
+Vieira fresca seleccionada.
+Ideal para horno, plancha y gratinados.
+</p>
+
+<label>Cantidad:</label>
+
+<select id="cantidadVieira"
+onchange="actualizarPrecioVieira()">
+
+<option value="6">6 unidades</option>
+<option value="12">12 unidades</option>
+<option value="24">24 unidades</option>
+
+</select>
+
+<p id="precioVieira"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 24.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionVieira">
+
+<option>Con Concha</option>
+<option>Media Concha</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarVieira()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalZamburina"
+class="modal-producto"
+onclick="cerrarProductoZamburina()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="zamburiña.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐚 Zamburiña
+</h2>
+
+<p><strong>Precio:</strong> 3.50 €/unidad</p>
+
+<p>
+Zamburiña fresca seleccionada.
+Perfecta para plancha, horno y marisco gourmet.
+</p>
+
+<label>Cantidad:</label>
+
+<select id="cantidadZamburina"
+onchange="actualizarPrecioZamburina()">
+
+<option value="6">6 unidades</option>
+<option value="12">12 unidades</option>
+<option value="24">24 unidades</option>
+
+</select>
+
+<p id="precioZamburina"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 21.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionZamburina">
+
+<option>Con Concha</option>
+<option>Media Concha</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarZamburina()"
 class="btn-producto">
 
 🛒 Añadir al pedido
