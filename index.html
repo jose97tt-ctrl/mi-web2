@@ -885,12 +885,12 @@ class="btn-producto">
 
       
         <button
-        onclick="agregarCarrito('Jurel',3.5,cantidades['jurel'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoJurel()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2471,6 +2471,57 @@ actualizarCarrito();
 cerrarProductoCorvina();
 
 }
+function abrirProductoJurel(){
+
+document.getElementById("modalJurel").style.display="flex";
+
+}
+
+function cerrarProductoJurel(){
+
+document.getElementById("modalJurel").style.display="none";
+
+}
+
+function actualizarPrecioJurel(){
+
+let peso =
+parseFloat(document.getElementById("pesoJurel").value);
+
+let total = 3.5 * peso;
+
+document.getElementById("precioJurel").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarJurel(){
+
+let peso =
+parseFloat(document.getElementById("pesoJurel").value);
+
+let preparacion =
+document.getElementById("preparacionJurel").value;
+
+let precioFinal = 3.5 * peso;
+
+carrito.push({
+
+nombre:"Jurel",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoJurel();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3110,6 +3161,75 @@ Total: 3.25€
 
 <button
 onclick="agregarCorvina()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalJurel"
+class="modal-producto"
+onclick="cerrarProductoJurel()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="jurel.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Jurel
+</h2>
+
+<p><strong>Precio:</strong> 3.50 €/kg</p>
+
+<p>
+Jurel fresco seleccionado.
+Ideal para plancha, horno y fritura.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoJurel"
+onchange="actualizarPrecioJurel()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioJurel"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 1.75€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionJurel">
+
+<option>Entero</option>
+<option>Sin cabeza</option>
+
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarJurel()"
 class="btn-producto">
 
 🛒 Añadir al pedido
