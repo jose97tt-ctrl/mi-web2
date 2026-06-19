@@ -1570,13 +1570,12 @@ class="btn-producto">
       
 
         <button
-        onclick="agregarCarrito('Ostra Guillardeau',2.4,cantidades['ostra'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoOstra()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
-
+</button>
     </div>
 
 </div>
@@ -3932,6 +3931,57 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoNavaja();
+
+}
+function abrirProductoOstra(){
+
+document.getElementById("modalOstra").style.display="flex";
+
+}
+
+function cerrarProductoOstra(){
+
+document.getElementById("modalOstra").style.display="none";
+
+}
+
+function actualizarPrecioOstra(){
+
+let cantidad =
+parseInt(document.getElementById("cantidadOstra").value);
+
+let total = 2.4 * cantidad;
+
+document.getElementById("precioOstra").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarOstra(){
+
+let cantidad =
+parseInt(document.getElementById("cantidadOstra").value);
+
+let preparacion =
+document.getElementById("preparacionOstra").value;
+
+let precioFinal = 2.4 * cantidad;
+
+carrito.push({
+
+nombre:"Ostra Guillardeau",
+peso:cantidad + " unidades",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoOstra();
 
 }
 
@@ -6521,6 +6571,73 @@ Total: 4.50€
 
 <button
 onclick="agregarNavaja()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalOstra"
+class="modal-producto"
+onclick="cerrarProductoOstra()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="ostra.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Ostra Guillardeau
+</h2>
+
+<p><strong>Precio:</strong> 2.40 €/unidad</p>
+
+<p>
+Ostra francesa premium Guillardeau.
+Considerada una de las mejores ostras del mundo.
+</p>
+
+<label>Cantidad:</label>
+
+<select id="cantidadOstra"
+onchange="actualizarPrecioOstra()">
+
+<option value="6">6 unidades</option>
+<option value="12">12 unidades</option>
+<option value="24">24 unidades</option>
+<option value="48">48 unidades</option>
+
+</select>
+
+<p id="precioOstra"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 14.40€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionOstra">
+
+<option>Cerrada</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarOstra()"
 class="btn-producto">
 
 🛒 Añadir al pedido
