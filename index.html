@@ -1593,12 +1593,12 @@ class="btn-producto">
       
 
         <button
-        onclick="agregarCarrito('Pota Blanca',6,cantidades['potablanca'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoPotaBlanca()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -1616,13 +1616,13 @@ class="btn-producto">
 
        
 
-        <button
-        onclick="agregarCarrito('Pota Negra',10.5,cantidades['potanegra'] || 1)"
-        class="btn-producto">
+       <button
+onclick="abrirProductoPotaNegra()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -3982,6 +3982,108 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoOstra();
+
+}
+function abrirProductoPotaBlanca(){
+
+document.getElementById("modalPotaBlanca").style.display="flex";
+
+}
+
+function cerrarProductoPotaBlanca(){
+
+document.getElementById("modalPotaBlanca").style.display="none";
+
+}
+
+function actualizarPrecioPotaBlanca(){
+
+let peso =
+parseFloat(document.getElementById("pesoPotaBlanca").value);
+
+let total = 6 * peso;
+
+document.getElementById("precioPotaBlanca").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPotaBlanca(){
+
+let peso =
+parseFloat(document.getElementById("pesoPotaBlanca").value);
+
+let preparacion =
+document.getElementById("preparacionPotaBlanca").value;
+
+let precioFinal = 6 * peso;
+
+carrito.push({
+
+nombre:"Pota Blanca",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPotaBlanca();
+
+}
+function abrirProductoPotaNegra(){
+
+document.getElementById("modalPotaNegra").style.display="flex";
+
+}
+
+function cerrarProductoPotaNegra(){
+
+document.getElementById("modalPotaNegra").style.display="none";
+
+}
+
+function actualizarPrecioPotaNegra(){
+
+let peso =
+parseFloat(document.getElementById("pesoPotaNegra").value);
+
+let total = 10.5 * peso;
+
+document.getElementById("precioPotaNegra").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPotaNegra(){
+
+let peso =
+parseFloat(document.getElementById("pesoPotaNegra").value);
+
+let preparacion =
+document.getElementById("preparacionPotaNegra").value;
+
+let precioFinal = 10.5 * peso;
+
+carrito.push({
+
+nombre:"Pota Negra",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPotaNegra();
 
 }
 
@@ -6638,6 +6740,142 @@ Total: 14.40€
 
 <button
 onclick="agregarOstra()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPotaBlanca"
+class="modal-producto"
+onclick="cerrarProductoPotaBlanca()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="pota blanca.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐙 Pota Blanca
+</h2>
+
+<p><strong>Precio:</strong> 6 €/kg</p>
+
+<p>
+Pota blanca fresca seleccionada.
+Ideal para plancha, guisos y frituras.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoPotaBlanca"
+onchange="actualizarPrecioPotaBlanca()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioPotaBlanca"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 3.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionPotaBlanca">
+
+<option>Entera</option>
+<option>Limpia</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarPotaBlanca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPotaNegra"
+class="modal-producto"
+onclick="cerrarProductoPotaNegra()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="pota negra.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐙 Pota Negra
+</h2>
+
+<p><strong>Precio:</strong> 10.50 €/kg</p>
+
+<p>
+Pota negra de excelente calidad.
+Ideal para plancha, arroces y guisos marineros.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoPotaNegra"
+onchange="actualizarPrecioPotaNegra()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioPotaNegra"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 5.25€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionPotaNegra">
+
+<option>Entera</option>
+<option>Limpia</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarPotaNegra()"
 class="btn-producto">
 
 🛒 Añadir al pedido
