@@ -1004,12 +1004,12 @@ class="btn-producto">
 
     
         <button
-        onclick="agregarCarrito('Almeja Italiana',10,cantidades['almejaitaliana'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoAlmejaItaliana()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2724,6 +2724,57 @@ actualizarCarrito();
 cerrarProductoSalmonete();
 
 }
+function abrirProductoAlmejaItaliana(){
+
+document.getElementById("modalAlmejaItaliana").style.display="flex";
+
+}
+
+function cerrarProductoAlmejaItaliana(){
+
+document.getElementById("modalAlmejaItaliana").style.display="none";
+
+}
+
+function actualizarPrecioAlmejaItaliana(){
+
+let peso =
+parseFloat(document.getElementById("pesoAlmejaItaliana").value);
+
+let total = 10 * peso;
+
+document.getElementById("precioAlmejaItaliana").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarAlmejaItaliana(){
+
+let peso =
+parseFloat(document.getElementById("pesoAlmejaItaliana").value);
+
+let preparacion =
+document.getElementById("preparacionAlmejaItaliana").value;
+
+let precioFinal = 10 * peso;
+
+carrito.push({
+
+nombre:"Almeja Italiana",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAlmejaItaliana();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3709,6 +3760,75 @@ Total: 7.50€
 
 <button
 onclick="agregarSalmonete()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalAlmejaItaliana"
+class="modal-producto"
+onclick="cerrarProductoAlmejaItaliana()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="almeja italiana.jpg">
+
+<h2 style="font-size:42px; line-height:1;">
+🦪 Almeja Italiana
+</h2>
+
+<p><strong>Precio:</strong> 10 €/kg</p>
+
+<p>
+Almeja italiana fresca seleccionada.
+Ideal para arroces, pastas y mariscos al vapor.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoAlmejaItaliana"
+onchange="actualizarPrecioAlmejaItaliana()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioAlmejaItaliana"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 5.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionAlmejaItaliana">
+
+<option>Natural</option>
+<option>Depurada</option>
+<option>Lista para cocinar</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarAlmejaItaliana()"
 class="btn-producto">
 
 🛒 Añadir al pedido
