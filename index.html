@@ -1075,12 +1075,12 @@ class="btn-producto">
       
 
         <button
-        onclick="agregarCarrito('Berberecho',18,cantidades['berberecho'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoBerberecho()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2877,6 +2877,57 @@ actualizarCarrito();
 cerrarProductoAlmejaJaponicaGallega();
 
 }
+function abrirProductoBerberecho(){
+
+document.getElementById("modalBerberecho").style.display="flex";
+
+}
+
+function cerrarProductoBerberecho(){
+
+document.getElementById("modalBerberecho").style.display="none";
+
+}
+
+function actualizarPrecioBerberecho(){
+
+let peso =
+parseFloat(document.getElementById("pesoBerberecho").value);
+
+let total = 18 * peso;
+
+document.getElementById("precioBerberecho").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBerberecho(){
+
+let peso =
+parseFloat(document.getElementById("pesoBerberecho").value);
+
+let preparacion =
+document.getElementById("preparacionBerberecho").value;
+
+let precioFinal = 18 * peso;
+
+carrito.push({
+
+nombre:"Berberecho",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoBerberecho();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -4063,6 +4114,73 @@ Total: 13.00€
 
 <button
 onclick="agregarAlmejaJaponicaGallega()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalBerberecho"
+class="modal-producto"
+onclick="cerrarProductoBerberecho()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="berberecho.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🦪 Berberecho
+</h2>
+
+<p><strong>Precio:</strong> 18 €/kg</p>
+
+<p>
+Berberecho fresco seleccionado.
+Ideal para aperitivos, mariscadas y arroces.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoBerberecho"
+onchange="actualizarPrecioBerberecho()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioBerberecho"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 9.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionBerberecho">
+
+<option>Natural</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarBerberecho()"
 class="btn-producto">
 
 🛒 Añadir al pedido
