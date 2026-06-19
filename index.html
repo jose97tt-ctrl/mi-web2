@@ -1641,12 +1641,12 @@ class="btn-producto">
        
 
         <button
-        onclick="agregarCarrito('Pulpo Blando O Amizclado',5.5,cantidades['pulpoblanco'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoPulpoBlando()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -1665,12 +1665,12 @@ class="btn-producto">
       
 
         <button
-        onclick="agregarCarrito('Pulpo Roca',15,cantidades['pulporoca'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoPulpoRoca()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -4084,6 +4084,108 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoPotaNegra();
+
+}
+function abrirProductoPulpoBlando(){
+
+document.getElementById("modalPulpoBlando").style.display="flex";
+
+}
+
+function cerrarProductoPulpoBlando(){
+
+document.getElementById("modalPulpoBlando").style.display="none";
+
+}
+
+function actualizarPrecioPulpoBlando(){
+
+let peso =
+parseFloat(document.getElementById("pesoPulpoBlando").value);
+
+let total = 5.5 * peso;
+
+document.getElementById("precioPulpoBlando").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPulpoBlando(){
+
+let peso =
+parseFloat(document.getElementById("pesoPulpoBlando").value);
+
+let preparacion =
+document.getElementById("preparacionPulpoBlando").value;
+
+let precioFinal = 5.5 * peso;
+
+carrito.push({
+
+nombre:"Pulpo Blando O Amizclado",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPulpoBlando();
+
+}
+function abrirProductoPulpoRoca(){
+
+document.getElementById("modalPulpoRoca").style.display="flex";
+
+}
+
+function cerrarProductoPulpoRoca(){
+
+document.getElementById("modalPulpoRoca").style.display="none";
+
+}
+
+function actualizarPrecioPulpoRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoPulpoRoca").value);
+
+let total = 15 * peso;
+
+document.getElementById("precioPulpoRoca").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPulpoRoca(){
+
+let peso =
+parseFloat(document.getElementById("pesoPulpoRoca").value);
+
+let preparacion =
+document.getElementById("preparacionPulpoRoca").value;
+
+let precioFinal = 15 * peso;
+
+carrito.push({
+
+nombre:"Pulpo Roca",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPulpoRoca();
 
 }
 
@@ -6876,6 +6978,126 @@ Total: 5.25€
 
 <button
 onclick="agregarPotaNegra()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPulpoBlando"
+class="modal-producto"
+onclick="cerrarProductoPulpoBlando()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="pulpo blanco.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐙 Pulpo Blando
+</h2>
+
+<p><strong>Precio:</strong> 5.50 €/kg</p>
+
+<p>
+Pulpo blando o amizclado fresco.
+Ideal para guisos y cocina marinera.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoPulpoBlando"
+onchange="actualizarPrecioPulpoBlando()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioPulpoBlando"
+style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+
+Total: 2.75€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionPulpoBlando">
+
+<option>Entero</option>
+
+</select>
+
+<p style="color:green;">✅ Disponible</p>
+
+<button
+onclick="agregarPulpoBlando()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPulpoRoca"
+class="modal-producto"
+onclick="cerrarProductoPulpoRoca()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="pulpo roca.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐙 Pulpo Roca
+</h2>
+
+<p><strong>Precio:</strong> 15 €/kg</p>
+
+<p>
+Pulpo de roca seleccionado.
+Perfecto para pulpo a la gallega y plancha.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoPulpoRoca"
+onchange="actualizarPrecioPulpoRoca()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioPulpoRoca"
+style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+
+Total: 7.50€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionPulpoRoca">
+
+<option>Entero</option>
+
+</select>
+
+<p style="color:green;">✅ Disponible</p>
+
+<button
+onclick="agregarPulpoRoca()"
 class="btn-producto">
 
 🛒 Añadir al pedido
