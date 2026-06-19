@@ -1051,12 +1051,12 @@ class="btn-producto">
 
        
         <button
-        onclick="agregarCarrito('Almeja Japónica Gallega',26,cantidades['almejajaponicagallega'] || 1)"
-        class="btn-producto">
+onclick="abrirProductoAlmejaJaponicaGallega()"
+class="btn-producto">
 
-        🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-        </button>
+</button>
 
     </div>
 
@@ -2826,6 +2826,57 @@ actualizarCarrito();
 cerrarProductoAlmejaChirla();
 
 }
+function abrirProductoAlmejaJaponicaGallega(){
+
+document.getElementById("modalAlmejaJaponicaGallega").style.display="flex";
+
+}
+
+function cerrarProductoAlmejaJaponicaGallega(){
+
+document.getElementById("modalAlmejaJaponicaGallega").style.display="none";
+
+}
+
+function actualizarPrecioAlmejaJaponicaGallega(){
+
+let peso =
+parseFloat(document.getElementById("pesoAlmejaJaponicaGallega").value);
+
+let total = 26 * peso;
+
+document.getElementById("precioAlmejaJaponicaGallega").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarAlmejaJaponicaGallega(){
+
+let peso =
+parseFloat(document.getElementById("pesoAlmejaJaponicaGallega").value);
+
+let preparacion =
+document.getElementById("preparacionAlmejaJaponicaGallega").value;
+
+let precioFinal = 26 * peso;
+
+carrito.push({
+
+nombre:"Almeja Japónica Gallega",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAlmejaJaponicaGallega();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -3945,6 +3996,73 @@ Total: 6.00€
 
 <button
 onclick="agregarAlmejaChirla()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalAlmejaJaponicaGallega"
+class="modal-producto"
+onclick="cerrarProductoAlmejaJaponicaGallega()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="almeja japonica gallega.jpg">
+
+<h2 style="font-size:34px; line-height:1;">
+🦪 Almeja Japónica Gallega
+</h2>
+
+<p><strong>Precio:</strong> 26 €/kg</p>
+
+<p>
+Almeja japónica gallega de gran calidad.
+Ideal para arroces, mariscadas y cocina gourmet.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoAlmejaJaponicaGallega"
+onchange="actualizarPrecioAlmejaJaponicaGallega()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioAlmejaJaponicaGallega"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 13.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionAlmejaJaponicaGallega">
+
+<option>Natural lista para cocinar</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarAlmejaJaponicaGallega()"
 class="btn-producto">
 
 🛒 Añadir al pedido
