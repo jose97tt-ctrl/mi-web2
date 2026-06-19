@@ -721,7 +721,7 @@ class="btn-producto">
       
 
         <button
-        onclick="agregarCarrito('Atún Fresco',40,cantidades['atunfresco'] || 1)"
+       onclick="abrirProductoAtunFresco()"
         class="btn-producto">
 
         🛒 Añadir al carrito
@@ -740,12 +740,12 @@ class="btn-producto">
 
         <h3>Boquerón</h3>
 
-        <p>Precio 25€caja</p>
+        <p>Precio 10€kg</p>
 
        
 
         <button
-        onclick="agregarCarrito('Boquerón',25,cantidades['boqueron'] || 1)"
+        onclick="abrirProductoBoqueron()"
         class="btn-producto">
 
         🛒 Añadir al carrito
@@ -764,11 +764,11 @@ class="btn-producto">
 
         <h3 style="text-align:center;">Bacaladilla</h3>
 
-        <p>Precio 18€caja</p>
+        <p>Precio 18€kg</p>
 
        
         <button
-        onclick="agregarCarrito('Bacaladilla',18,cantidades['bacaladilla'] || 1)"
+        onclick="abrirProductoBacaladilla()"
         class="btn-producto">
 
         🛒 Añadir al carrito
@@ -790,7 +790,7 @@ class="btn-producto">
 
 
         <button
-        onclick="agregarCarrito('Brótola Roca',15,cantidades['brotolaroca'] || 1)"
+        onclick="abrirProductoBrotolaRoca()"
         class="btn-producto">
 
         🛒 Añadir al carrito
@@ -813,7 +813,7 @@ class="btn-producto">
 
         
         <button
-        onclick="agregarCarrito('Brótola',8,cantidades['brotola'] || 1)"
+        onclick="abrirProductoBrotola()"
         class="btn-producto">
 
         🛒 Añadir al carrito
@@ -2112,6 +2112,57 @@ actualizarCarrito();
 cerrarProductoAtunEnvasado();
 
 }
+function abrirProductoAtunFresco(){
+
+document.getElementById("modalAtunFresco").style.display="flex";
+
+}
+
+function cerrarProductoAtunFresco(){
+
+document.getElementById("modalAtunFresco").style.display="none";
+
+}
+
+function actualizarPrecioAtunFresco(){
+
+let peso =
+parseFloat(document.getElementById("pesoAtunFresco").value);
+
+let total = 40 * peso;
+
+document.getElementById("precioAtunFresco").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarAtunFresco(){
+
+let peso =
+parseFloat(document.getElementById("pesoAtunFresco").value);
+
+let preparacion =
+document.getElementById("preparacionAtunFresco").value;
+
+let precioFinal = 40 * peso;
+
+carrito.push({
+
+nombre:"Atún Fresco",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAtunFresco();
+
+}
 
 window.addEventListener('scroll',()=>{
 
@@ -2264,6 +2315,76 @@ Total: 7.50€
 
 <button
 onclick="agregarAtunEnvasado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalAtunFresco"
+class="modal-producto"
+onclick="cerrarProductoAtunFresco()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="atun fresco.jpg">
+
+<h2 style="font-size:50px; line-height:1;">
+🐟 Atún Fresco
+</h2>
+
+<p><strong>Precio:</strong> 40 €/kg</p>
+
+<p>
+Atún fresco seleccionado.
+Ideal para plancha, tartar y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoAtunFresco"
+onchange="actualizarPrecioAtunFresco()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<p id="precioAtunFresco"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 20.00€
+
+</p>
+
+<label>Preparación:</label>
+
+<select id="preparacionAtunFresco">
+
+<option>Entero</option>
+<option>Lomos</option>
+<option>Tacos</option>
+<option>Filetes</option>
+
+</select>
+
+<p style="color:green;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarAtunFresco()"
 class="btn-producto">
 
 🛒 Añadir al pedido
