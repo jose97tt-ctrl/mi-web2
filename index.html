@@ -364,10 +364,23 @@ body{
 
 font-size:15px;
 
-padding-left:45px;
+padding-left:55px;
 
 opacity:0.85;
 
+position:relative;
+
+}
+.submenu::before{
+
+content:"";
+position:absolute;
+left:35px;
+top:50%;
+transform:translateY(-50%);
+width:10px;
+height:2px;
+background:rgba(255,255,255,0.5);
 }
 
 .menu-lateral a:hover{
