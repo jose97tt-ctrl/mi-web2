@@ -1937,6 +1937,27 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="perca.jpg" alt="Perca">
+
+<div class="card-content">
+
+<h3>Perca</h3>
+
+<p>11.40€/kg</p>
+
+<button
+onclick="abrirProductoPerca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -4735,6 +4756,71 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoPargo();
+
+}
+function abrirProductoPerca(){
+
+document.getElementById("modalPerca").style.display="flex";
+
+}
+
+function cerrarProductoPerca(){
+
+document.getElementById("modalPerca").style.display="none";
+
+}
+
+function actualizarPrecioPerca(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaPerca").value);
+
+let peso =
+parseFloat(document.getElementById("pesoPerca").value);
+
+let total = precio * peso;
+
+document.getElementById("precioPerca").innerHTML =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPerca(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaPerca").value);
+
+let peso =
+parseFloat(document.getElementById("pesoPerca").value);
+
+let preparacion =
+document.getElementById("preparacionPerca").value;
+
+let procedencia =
+document.getElementById("procedenciaPerca").options[
+document.getElementById("procedenciaPerca").selectedIndex
+].text;
+
+let total = precio * peso;
+
+carrito.push({
+
+nombre:"Perca - " + procedencia,
+
+peso:peso + " kg",
+
+preparacion:preparacion,
+
+precio:total
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPerca();
 
 }
 
@@ -8217,6 +8303,79 @@ Total: 14.50€
 
 <button
 onclick="agregarPargo()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPerca"
+class="modal-producto"
+onclick="cerrarProductoPerca()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="perca.jpg">
+
+<h3>🐟 PERCA</h3>
+
+<p>
+Perca seleccionada.
+Elige peso y preparación.
+</p>
+
+<label><strong>Tipo:</strong></label>
+
+<select id="procedenciaPerca"
+onchange="actualizarPrecioPerca()">
+
+<option value="11.4">Perca</option>
+
+</select>
+
+<br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoPerca"
+onchange="actualizarPrecioPerca()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br>
+
+<h2 id="precioPerca"
+style="color:green;">
+Total: 11.40€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionPerca">
+
+<option>Entera</option>
+<option>Sin escamas</option>
+<option>Sin agallas</option>
+<option>En lomos</option>
+
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarPerca()"
 class="btn-producto">
 
 🛒 Añadir al pedido
