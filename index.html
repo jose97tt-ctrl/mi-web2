@@ -360,9 +360,12 @@ body{
     color:white;
     display:block;
 }
+.submenu-container{
+    display:none;
+}
 
 .submenu{
-    display:none;
+    display:block;
     font-size:15px;
     padding-left:55px;
     opacity:0.85;
@@ -379,7 +382,6 @@ body{
     height:2px;
     background:rgba(255,255,255,0.5);
 }
-
 .menu-lateral a:hover{
     background:#16a34a;
 }
@@ -703,16 +705,19 @@ transform:scale(1.2);
 
 <a href="#productos" onclick="cerrarMenu()">🐟 Pescados</a>
 
-<a href="javascript:void(0)" onclick="toggleMariscos()" class="menu-principal">
+<a href="#mariscos" onclick="cerrarMenu(); toggleMariscos()" class="menu-principal">
 🦐 Mariscos <span id="flechaMariscos">▼</span>
 </a>
+
+<div id="submenuMariscos" class="submenu-container">
 
 <a href="#elaborados" onclick="cerrarMenu()" class="submenu">↳ 🐠 Elaborados</a>
 
 <a href="#langostinoCocido" onclick="cerrarMenu()" class="submenu">↳ 🦐 Langostino Cocido</a>
 
 <a href="#pulpoCocido" onclick="cerrarMenu()" class="submenu">↳ 🐙 Pulpo Cocido</a>
-<a href="#carnes" onclick="cerrarMenu()">🥩 Carnes</a>
+
+</div>
 
 <a href="#piscifactoria" onclick="cerrarMenu()">🐟 Piscifactoría</a>
 
@@ -5059,15 +5064,17 @@ function toggleMariscos(){
 
 mariscosAbierto = !mariscosAbierto;
 
-let submenus = document.querySelectorAll(".submenu");
+let submenu = document.getElementById("submenuMariscos");
 
 let flecha = document.getElementById("flechaMariscos");
 
-submenus.forEach(el=>{
-    el.style.display = mariscosAbierto ? "block" : "none";
-});
-
-flecha.innerText = mariscosAbierto ? "▲" : "▼";
+if(mariscosAbierto){
+    submenu.style.display = "block";
+    flecha.innerText = "▲";
+}else{
+    submenu.style.display = "none";
+    flecha.innerText = "▼";
+}
 
 }
 
