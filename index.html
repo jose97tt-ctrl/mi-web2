@@ -4520,10 +4520,6 @@ function actualizarPrecioDorada(){
 
 let precio =
 parseFloat(document.getElementById("procedenciaDorada").value);
-let procedencia =
-document.getElementById("procedenciaDorada").options[
-document.getElementById("procedenciaDorada").selectedIndex
-].text;
 
 let peso =
 parseFloat(document.getElementById("pesoDorada").value);
@@ -4534,7 +4530,6 @@ document.getElementById("precioDorada").innerHTML =
 "Total: " + total.toFixed(2) + "€";
 
 }
-
 function agregarDorada(){
 
 let precio =
@@ -4545,14 +4540,21 @@ parseFloat(document.getElementById("pesoDorada").value);
 
 let preparacion =
 document.getElementById("preparacionDorada").value;
+let procedencia =
+document.getElementById("procedenciaDorada").options[
+document.getElementById("procedenciaDorada").selectedIndex
+].text;
 
 let total = precio * peso;
 
 carrito.push({
 
 nombre:"Dorada - " + procedencia,
+
 peso:peso + " kg",
+
 preparacion:preparacion,
+
 precio:total
 
 });
