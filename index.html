@@ -361,7 +361,12 @@ body{
     display:block;
 }
 .submenu-container{
-    display:none;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+}
+.submenu-container.open{
+    max-height:300px;
 }
 
 .submenu{
@@ -5069,15 +5074,24 @@ let submenu = document.getElementById("submenuMariscos");
 let flecha = document.getElementById("flechaMariscos");
 
 if(mariscosAbierto){
-    submenu.style.display = "block";
+    submenu.classList.add("open");
     flecha.innerText = "▲";
 }else{
-    submenu.style.display = "none";
+    submenu.classList.remove("open");
     flecha.innerText = "▼";
 }
 
 }
+document.querySelectorAll(".menu-lateral a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        let submenu = document.getElementById("submenuMariscos");
+        let flecha = document.getElementById("flechaMariscos");
 
+        submenu.classList.remove("open");
+        flecha.innerText = "▼";
+        mariscosAbierto = false;
+    });
+});
 
 window.addEventListener('scroll',()=>{
 
