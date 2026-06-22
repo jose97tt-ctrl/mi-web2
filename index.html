@@ -360,6 +360,15 @@ body{
     color:white;
     display:block;
 }
+.submenu{
+
+font-size:15px;
+
+padding-left:45px;
+
+opacity:0.85;
+
+}
 
 .menu-lateral a:hover{
     background:#16a34a;
@@ -686,11 +695,17 @@ transform:scale(1.2);
 
 <a href="#mariscos" onclick="cerrarMenu()">🦐 Mariscos</a>
 
-<a href="#elaborados" onclick="cerrarMenu()">🐠 Elaborados</a>
+<a href="#elaborados" onclick="cerrarMenu()" class="submenu">
+↳ 🐠 Elaborados
+</a>
 
-<a href="#langostinoCocido" onclick="cerrarMenu()">🦐 Langostino Cocido</a>
+<a href="#langostinoCocido" onclick="cerrarMenu()" class="submenu">
+↳ 🦐 Langostino Cocido
+</a>
 
-<a href="#pulpoCocido" onclick="cerrarMenu()">🐙 Pulpo Cocido</a>
+<a href="#pulpoCocido" onclick="cerrarMenu()" class="submenu">
+↳ 🐙 Pulpo Cocido
+</a>
 
 <a href="#carnes" onclick="cerrarMenu()">🥩 Carnes</a>
 
