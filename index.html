@@ -378,18 +378,20 @@ body{
     cursor:pointer;
     font-size:18px;
     padding:5px 10px;
+    transition:transform 0.3s ease;
 }
-
 
 .submenu-container{
     max-height:0;
     overflow:hidden;
-    transition:max-height 0.4s ease;
-}
-.submenu-container.open{
-    max-height:300px;
+    transition:max-height 0.35s ease, opacity 0.25s ease;
+    opacity:0;
 }
 
+.submenu-container.open{
+    max-height:300px;
+    opacity:1;
+}
 .submenu{
     display:block;
     font-size:15px;
@@ -5112,10 +5114,12 @@ if(!submenu || !flecha){
 
 if(mariscosAbierto){
     submenu.classList.add("open");
-    flecha.innerText = "▲";
+    flecha.innerText = "▼";
+    flecha.style.transform = "rotate(180deg)";
 }else{
     submenu.classList.remove("open");
     flecha.innerText = "▼";
+    flecha.style.transform = "rotate(0deg)";
 }
 
 }
