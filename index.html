@@ -4599,6 +4599,20 @@ function cerrarProductoLubina(){
 document.getElementById("modalLubina").style.display="none";
 
 }
+function actualizarPrecioLubina(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaLubina").value);
+
+let peso =
+parseFloat(document.getElementById("pesoLubina").value);
+
+let total = precio * peso;
+
+document.getElementById("precioLubina").innerHTML =
+"Total: " + total.toFixed(2) + "€";
+
+}
 
 
 window.addEventListener('scroll',()=>{
