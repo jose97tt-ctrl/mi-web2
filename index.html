@@ -360,6 +360,27 @@ body{
     color:white;
     display:block;
 }
+.menu-mariscos{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 25px;
+    color:white;
+}
+
+.menu-mariscos .menu-link{
+    text-decoration:none;
+    color:white;
+    font-size:22px;
+}
+
+.flecha{
+    cursor:pointer;
+    font-size:18px;
+    padding:5px 10px;
+}
+
+
 .submenu-container{
     max-height:0;
     overflow:hidden;
@@ -709,6 +730,7 @@ transform:scale(1.2);
 
 <a href="#productos" onclick="cerrarMenu()">🐟 Pescados</a>
 
+<!-- MARISCOS -->
 <div class="menu-mariscos">
 
 <a href="#mariscos" onclick="cerrarMenu()" class="menu-link">
@@ -730,6 +752,9 @@ transform:scale(1.2);
 <a href="#pulpoCocido" onclick="cerrarMenu()" class="submenu">↳ 🐙 Pulpo Cocido</a>
 
 </div>
+
+<!-- CARNES (RESTO ORIGINAL, NO TOCAR) -->
+<a href="#carnes" onclick="cerrarMenu()">🥩 Carnes</a>
 
 <a href="#piscifactoria" onclick="cerrarMenu()">🐟 Piscifactoría</a>
 
@@ -5079,8 +5104,11 @@ e.stopPropagation();
 mariscosAbierto = !mariscosAbierto;
 
 let submenu = document.getElementById("submenuMariscos");
-
 let flecha = document.getElementById("flechaMariscos");
+
+if(!submenu || !flecha){
+    return;
+}
 
 if(mariscosAbierto){
     submenu.classList.add("open");
