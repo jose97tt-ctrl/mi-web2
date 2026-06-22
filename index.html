@@ -362,6 +362,7 @@ body{
 }
 
 .submenu{
+    display:none;
     font-size:15px;
     padding-left:55px;
     opacity:0.85;
@@ -702,20 +703,15 @@ transform:scale(1.2);
 
 <a href="#productos" onclick="cerrarMenu()">🐟 Pescados</a>
 
-<a href="#mariscos" onclick="cerrarMenu()">🦐 Mariscos</a>
-
-<a href="#elaborados" onclick="cerrarMenu()" class="submenu">
-↳ 🐠 Elaborados
+<a href="javascript:void(0)" onclick="toggleMariscos()" class="menu-principal">
+🦐 Mariscos <span id="flechaMariscos">▼</span>
 </a>
 
-<a href="#langostinoCocido" onclick="cerrarMenu()" class="submenu">
-↳ 🦐 Langostino Cocido
-</a>
+<a href="#elaborados" onclick="cerrarMenu()" class="submenu">↳ 🐠 Elaborados</a>
 
-<a href="#pulpoCocido" onclick="cerrarMenu()" class="submenu">
-↳ 🐙 Pulpo Cocido
-</a>
+<a href="#langostinoCocido" onclick="cerrarMenu()" class="submenu">↳ 🦐 Langostino Cocido</a>
 
+<a href="#pulpoCocido" onclick="cerrarMenu()" class="submenu">↳ 🐙 Pulpo Cocido</a>
 <a href="#carnes" onclick="cerrarMenu()">🥩 Carnes</a>
 
 <a href="#piscifactoria" onclick="cerrarMenu()">🐟 Piscifactoría</a>
@@ -5055,6 +5051,23 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoSalmon();
+
+}
+let mariscosAbierto = false;
+
+function toggleMariscos(){
+
+mariscosAbierto = !mariscosAbierto;
+
+let submenus = document.querySelectorAll(".submenu");
+
+let flecha = document.getElementById("flechaMariscos");
+
+submenus.forEach(el=>{
+    el.style.display = mariscosAbierto ? "block" : "none";
+});
+
+flecha.innerText = mariscosAbierto ? "▲" : "▼";
 
 }
 
