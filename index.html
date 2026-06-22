@@ -1979,6 +1979,27 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="salmon.jpg" alt="Salmón">
+
+<div class="card-content">
+
+<h3>Salmón</h3>
+
+<p>Desde 7.00€/kg</p>
+
+<button
+onclick="abrirProductoSalmon()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -4907,6 +4928,71 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoRodaballo();
+
+}
+function abrirProductoSalmon(){
+
+document.getElementById("modalSalmon").style.display="flex";
+
+}
+
+function cerrarProductoSalmon(){
+
+document.getElementById("modalSalmon").style.display="none";
+
+}
+
+function actualizarPrecioSalmon(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaSalmon").value);
+
+let peso =
+parseFloat(document.getElementById("pesoSalmon").value);
+
+let total = precio * peso;
+
+document.getElementById("precioSalmon").innerHTML =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarSalmon(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaSalmon").value);
+
+let peso =
+parseFloat(document.getElementById("pesoSalmon").value);
+
+let preparacion =
+document.getElementById("preparacionSalmon").value;
+
+let procedencia =
+document.getElementById("procedenciaSalmon").options[
+document.getElementById("procedenciaSalmon").selectedIndex
+].text;
+
+let total = precio * peso;
+
+carrito.push({
+
+nombre:"Salmón - " + procedencia,
+
+peso:peso + " kg",
+
+preparacion:preparacion,
+
+precio:total
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoSalmon();
 
 }
 
@@ -8545,6 +8631,91 @@ Total: 13.20€
 
 <button
 onclick="agregarRodaballo()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalSalmon"
+class="modal-producto"
+onclick="cerrarProductoSalmon()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="salmon.jpg">
+
+<h3>🐟 SALMÓN</h3>
+
+<p>
+Salmón seleccionado.
+Elige formato y preparación.
+</p>
+
+<label><strong>Formato:</strong></label>
+
+<select id="procedenciaSalmon"
+onchange="actualizarPrecioSalmon()">
+
+<option value="7.0">Salmón 2kg-3kg</option>
+
+<option value="7.45">Salmón 3kg-4kg</option>
+
+<option value="7.45">Salmón 4kg-5kg</option>
+
+<option value="7.45">Salmón 5kg-6kg</option>
+
+<option value="7.45">Salmón 6kg-7kg</option>
+
+<option value="7.45">Salmón 7kg-8kg</option>
+
+<option value="11.8">Filete de Salmón</option>
+
+</select>
+
+<br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoSalmon"
+onchange="actualizarPrecioSalmon()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br>
+
+<h2 id="precioSalmon"
+style="color:green;">
+Total: 7.00€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionSalmon">
+
+<option>Entero</option>
+<option>Sin cabeza</option>
+<option>En lomos</option>
+<option>Rodajas</option>
+<option>Sin raspa</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarSalmon()"
 class="btn-producto">
 
 🛒 Añadir al pedido
