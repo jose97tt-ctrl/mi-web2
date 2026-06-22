@@ -4520,6 +4520,10 @@ function actualizarPrecioDorada(){
 
 let precio =
 parseFloat(document.getElementById("procedenciaDorada").value);
+let procedencia =
+document.getElementById("procedenciaDorada").options[
+document.getElementById("procedenciaDorada").selectedIndex
+].text;
 
 let peso =
 parseFloat(document.getElementById("pesoDorada").value);
@@ -4546,7 +4550,7 @@ let total = precio * peso;
 
 carrito.push({
 
-nombre:"Dorada",
+nombre:"Dorada - " + procedencia,
 peso:peso + " kg",
 preparacion:preparacion,
 precio:total
