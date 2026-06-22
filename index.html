@@ -1999,6 +1999,7 @@ function agregarCarrito(producto,precio,cantidad=1){
 
 
     actualizarCarrito();
+    
 
 
     let aviso =
@@ -4543,22 +4544,21 @@ document.getElementById("preparacionDorada").value;
 
 let total = precio * peso;
 
-let nombre =
-"Dorada - " +
-peso + "kg - " +
-preparacion;
-
 carrito.push({
 
-nombre:nombre,
-
+nombre:"Dorada",
+peso:peso + " kg",
+preparacion:preparacion,
 precio:total
 
 });
 
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
 actualizarCarrito();
 
-document.getElementById("modalDorada").style.display="none";
+cerrarProductoDorada();
 
 }
 
