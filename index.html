@@ -4613,6 +4613,44 @@ document.getElementById("precioLubina").innerHTML =
 "Total: " + total.toFixed(2) + "€";
 
 }
+function agregarLubina(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaLubina").value);
+
+let peso =
+parseFloat(document.getElementById("pesoLubina").value);
+
+let preparacion =
+document.getElementById("preparacionLubina").value;
+
+let procedencia =
+document.getElementById("procedenciaLubina").options[
+document.getElementById("procedenciaLubina").selectedIndex
+].text;
+
+let total = precio * peso;
+
+carrito.push({
+
+nombre:"Lubina - " + procedencia,
+
+peso:peso + " kg",
+
+preparacion:preparacion,
+
+precio:total
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoLubina();
+
+}
 
 
 window.addEventListener('scroll',()=>{
