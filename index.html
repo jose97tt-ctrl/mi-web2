@@ -125,6 +125,7 @@ padding:130px 10% 90px;
 }
 
 h2{
+
     text-align:center;
     font-size:3rem;
     margin-bottom:50px;
@@ -133,18 +134,22 @@ h2{
     text-transform:uppercase;
 
     max-width:100%;
+
     white-space:normal;
-    overflow-wrap:break-word;
-    word-break:break-word;
+
+    overflow-wrap:normal;
+
+    word-break:normal;
+
+    line-height:1.1;
+
 }
 @media(max-width:768px){
 
 h2{
 
     font-size:2.2rem;
-
     letter-spacing:1px;
-
     line-height:1.2;
 
 }
@@ -520,10 +525,42 @@ width:200px;
 }
 @media(max-width:768px){
 
-    .card h3{
-        font-size:18px;
-    }
+.card h3{
 
+    font-size:18px;
+
+    min-height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    line-height:1.2;
+
+    padding:0 5px;
+
+    white-space:normal;
+
+    word-break:keep-all;
+
+    overflow-wrap:break-word;
+
+}
+@media(max-width:768px){
+
+.card h3{
+
+    font-size:16px;
+
+    min-height:55px;
+
+}
+
+}
     .card-content{
         padding:15px;
     }
