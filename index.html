@@ -4505,6 +4505,11 @@ function abrirProductoDorada(){
 document.getElementById("modalDorada").style.display="flex";
 
 }
+function cerrarProductoDorada(){
+
+document.getElementById("modalDorada").style.display="none";
+
+}
 
 function actualizarPrecioDorada(){
 
@@ -7795,10 +7800,12 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalDorada" class="modal-producto">
+<div id="modalDorada"
+class="modal-producto"
+onclick="cerrarProductoDorada()">
 
-<div class="contenido-modal">
-
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
 <img src="dorada.jpg">
 
 <h2>🐟 DORADA</h2>
