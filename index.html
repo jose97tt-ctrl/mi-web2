@@ -710,9 +710,17 @@ transform:scale(1.2);
 
 <a href="#productos" onclick="cerrarMenu()">🐟 Pescados</a>
 
-<a href="#mariscos" onclick="cerrarMenu(); toggleMariscos()" class="menu-principal">
-🦐 Mariscos <span id="flechaMariscos">▼</span>
+<div class="menu-mariscos">
+
+<a href="#mariscos" onclick="cerrarMenu()" class="menu-link">
+🦐 Mariscos
 </a>
+
+<span class="flecha" onclick="toggleMariscos(event)" id="flechaMariscos">
+▼
+</span>
+
+</div>
 
 <div id="submenuMariscos" class="submenu-container">
 
@@ -5065,7 +5073,9 @@ cerrarProductoSalmon();
 }
 let mariscosAbierto = false;
 
-function toggleMariscos(){
+function toggleMariscos(e){
+
+e.stopPropagation();
 
 mariscosAbierto = !mariscosAbierto;
 
