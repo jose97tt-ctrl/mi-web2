@@ -1958,6 +1958,27 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="rodaballo.jpg" alt="Rodaballo">
+
+<div class="card-content">
+
+<h3>Rodaballo</h3>
+
+<p>Desde 13.20€/kg</p>
+
+<button
+onclick="abrirProductoRodaballo()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -4821,6 +4842,71 @@ carrito.length;
 actualizarCarrito();
 
 cerrarProductoPerca();
+
+}
+function abrirProductoRodaballo(){
+
+document.getElementById("modalRodaballo").style.display="flex";
+
+}
+
+function cerrarProductoRodaballo(){
+
+document.getElementById("modalRodaballo").style.display="none";
+
+}
+
+function actualizarPrecioRodaballo(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaRodaballo").value);
+
+let peso =
+parseFloat(document.getElementById("pesoRodaballo").value);
+
+let total = precio * peso;
+
+document.getElementById("precioRodaballo").innerHTML =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarRodaballo(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaRodaballo").value);
+
+let peso =
+parseFloat(document.getElementById("pesoRodaballo").value);
+
+let preparacion =
+document.getElementById("preparacionRodaballo").value;
+
+let procedencia =
+document.getElementById("procedenciaRodaballo").options[
+document.getElementById("procedenciaRodaballo").selectedIndex
+].text;
+
+let total = precio * peso;
+
+carrito.push({
+
+nombre:"Rodaballo - " + procedencia,
+
+peso:peso + " kg",
+
+preparacion:preparacion,
+
+precio:total
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoRodaballo();
 
 }
 
@@ -8376,6 +8462,89 @@ Total: 11.40€
 
 <button
 onclick="agregarPerca()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalRodaballo"
+class="modal-producto"
+onclick="cerrarProductoRodaballo()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="rodaballo.jpg">
+
+<h3>🐟 RODABALLO</h3>
+
+<p>
+Rodaballo de piscifactoría seleccionado.
+Elige tamaño y preparación.
+</p>
+
+<label><strong>Tamaño:</strong></label>
+
+<select id="procedenciaRodaballo"
+onchange="actualizarPrecioRodaballo()">
+
+<option value="13.2">400g-600g</option>
+
+<option value="16.5">1kg-1.5kg</option>
+
+<option value="16.5">1.5kg-2kg</option>
+
+<option value="16.5">2kg-3kg</option>
+
+<option value="18.5">+2.5kg</option>
+
+</select>
+
+<br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoRodaballo"
+onchange="actualizarPrecioRodaballo()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br>
+
+<h2 id="precioRodaballo"
+style="color:green;">
+Total: 13.20€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionRodaballo">
+
+<option>Entero</option>
+<option>Limpio</option>
+<option>Sin agallas</option>
+<option>En lomos</option>
+
+
+
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarRodaballo()"
 class="btn-producto">
 
 🛒 Añadir al pedido
