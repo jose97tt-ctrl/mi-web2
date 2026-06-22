@@ -4672,6 +4672,71 @@ actualizarCarrito();
 cerrarProductoLubina();
 
 }
+function abrirProductoPargo(){
+
+document.getElementById("modalPargo").style.display="flex";
+
+}
+
+function cerrarProductoPargo(){
+
+document.getElementById("modalPargo").style.display="none";
+
+}
+
+function actualizarPrecioPargo(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaPargo").value);
+
+let peso =
+parseFloat(document.getElementById("pesoPargo").value);
+
+let total = precio * peso;
+
+document.getElementById("precioPargo").innerHTML =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPargo(){
+
+let precio =
+parseFloat(document.getElementById("procedenciaPargo").value);
+
+let peso =
+parseFloat(document.getElementById("pesoPargo").value);
+
+let preparacion =
+document.getElementById("preparacionPargo").value;
+
+let procedencia =
+document.getElementById("procedenciaPargo").options[
+document.getElementById("procedenciaPargo").selectedIndex
+].text;
+
+let total = precio * peso;
+
+carrito.push({
+
+nombre:"Pargo - " + procedencia,
+
+peso:peso + " kg",
+
+preparacion:preparacion,
+
+precio:total
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoPargo();
+
+}
 
 
 window.addEventListener('scroll',()=>{
@@ -8077,6 +8142,81 @@ Total: 7.80€
 
 <button
 onclick="agregarLubina()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+<div id="modalPargo"
+class="modal-producto"
+onclick="cerrarProductoPargo()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="pargo.jpg">
+
+<h3>🐟 PARGO</h3>
+
+<p>
+Pargo de piscifactoría seleccionado.
+Elige tamaño y preparación.
+</p>
+
+<label><strong>Procedencia:</strong></label>
+
+<select id="procedenciaPargo"
+onchange="actualizarPrecioPargo()">
+
+<option value="14.5">Griego 800g-1kg</option>
+
+<option value="17.5">Griego 1kg-1.5kg</option>
+
+</select>
+
+<br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoPargo"
+onchange="actualizarPrecioPargo()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br>
+
+<h2 id="precioPargo"
+style="color:green;">
+Total: 14.50€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionPargo">
+
+<option>Entero</option>
+<option>Sin escamas</option>
+<option>Sin agallas</option>
+<option>En lomos</option>
+
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarPargo()"
 class="btn-producto">
 
 🛒 Añadir al pedido
