@@ -7914,6 +7914,94 @@ class="btn-producto">
 </div>
 
 </div>
+<div id="modalLubina"
+class="modal-producto"
+onclick="cerrarProductoLubina()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<img src="lubina.jpg">
+
+<h3>🐟 LUBINA</h3>
+
+<p>
+Lubina de piscifactoría seleccionada.
+Elige procedencia, tamaño y preparación.
+</p>
+
+<label><strong>Procedencia:</strong></label>
+
+<select id="procedenciaLubina"
+onchange="actualizarPrecioLubina()">
+
+<option value="7.8">Turca 400-600g</option>
+
+<option value="7.9">Griega 400-600g</option>
+
+<option value="8.9">Nacional Culmarex 400-600g</option>
+
+<option value="11.9">Estero 400-600g</option>
+
+<option value="9.6">Nacional Culmarex 600-800g</option>
+
+<option value="12.2">Estero 600-800g</option>
+
+<option value="14.7">Estero 800g-1kg</option>
+
+<option value="17.0">Estero 1.4kg-1.7kg</option>
+
+</select>
+
+<br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoLubina"
+onchange="actualizarPrecioLubina()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br>
+
+<h2 id="precioLubina"
+style="color:green;">
+Total: 7.80€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionLubina">
+
+<option>Entera</option>
+<option>Sin escamas</option>
+<option>Sin agallas</option>
+<option>Abierta a la espalda</option>
+<option>En lomos</option>
+
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button
+onclick="agregarLubina()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
