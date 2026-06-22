@@ -2103,6 +2103,22 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="anillas.jpg" alt="Anillas">
+
+<div class="card-content">
+
+<h3>Anillas (sin telilla)</h3>
+
+<p>4,20 € / kg</p>
+
+<button onclick="abrirAnillas()" class="btn-producto">
+🛒 Añadir al carrito
+</button>
+
+</div>
+</div>
 
 </div>
 
@@ -5130,7 +5146,43 @@ document.querySelectorAll(".menu-lateral a").forEach(link=>{
         mariscosAbierto = false;
     });
 });
+function abrirAnillas(){
+document.getElementById("modalAnillas").style.display="flex";
+}
 
+function cerrarAnillas(){
+document.getElementById("modalAnillas").style.display="none";
+}
+
+function actualizarAnillas(){
+
+let precio = 4.2;
+let peso = parseFloat(document.getElementById("pesoAnillas").value);
+
+let total = precio * peso;
+
+document.getElementById("precioAnillas").innerText =
+"Total: " + total.toFixed(2) + "€";
+}
+
+function agregarAnillas(){
+
+let peso = parseFloat(document.getElementById("pesoAnillas").value);
+let preparacion = document.getElementById("preparacionAnillas").value;
+
+let precio = 4.2 * peso;
+
+carrito.push({
+nombre:"Anillas",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+actualizarCarrito();
+cerrarAnillas();
+}
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
@@ -8858,6 +8910,48 @@ class="btn-producto">
 
 </div>
 
+</div>
+<div id="modalAnillas" class="modal-producto" onclick="cerrarAnillas()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="anillas.jpg">
+
+<h2>🐠 ANILLAS</h2>
+
+<p>Anillas de calamar sin telilla.</p>
+
+<p><strong>Precio fijo: 4,20€/kg</strong></p>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoAnillas" onchange="actualizarAnillas()">
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+</select>
+
+<br><br>
+
+<h2 id="precioAnillas" style="color:green;">
+Total: 4.20€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionAnillas">
+<option>Enteras</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">✅ Disponible</p>
+
+<button onclick="agregarAnillas()" class="btn-producto">
+🛒 Añadir al carrito
+</button>
+
+</div>
 </div>
 
 </body>
