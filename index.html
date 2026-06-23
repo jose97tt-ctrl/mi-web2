@@ -5245,6 +5245,8 @@ preparacion:preparacion,
 precio:precio
 });
 
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
 actualizarCarrito();
 
 cerrarChocoTiras();
@@ -9024,13 +9026,13 @@ Total: 4.20€
 
 <div class="contenido-modal" onclick="event.stopPropagation()">
 
-<img src="choco-tiras.jpg" style="height:70px;">
+<img src="choco-tiras.jpg" style="height:40px;">
 
-<h2>🐠 CHOCO EN TIRAS</h2>
+<h2 style="margin:5px 0;">🐠 CHOCO EN TIRAS</h2>
 
-<p>Choco limpio cortado en tiras.</p>
+<p style="margin:5px 0;">Choco limpio cortado en tiras.</p>
 
-<p><strong>Precio fijo: 3,20€/kg</strong></p>
+<p style="margin:5px 0;"><strong>Precio fijo: 3,20€/kg</strong></p>
 
 <label><strong>Peso:</strong></label>
 
@@ -9045,7 +9047,7 @@ Total: 4.20€
 
 <br><br>
 
-<h2 id="precioChocoTiras" style="color:green;">
+<h2 id="precioChocoTiras" style="color:green;margin:8px 0;">
 Total: 1.60€
 </h2>
 
