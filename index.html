@@ -5231,22 +5231,25 @@ document.getElementById("precioChocoTiras").innerHTML =
 function agregarChocoTiras(){
 
 let peso =
-document.getElementById("pesoChocoTiras").value;
+parseFloat(document.getElementById("pesoChocoTiras").value);
 
-let precio = 3.20;
+let preparacion =
+document.getElementById("preparacionChocoTiras").value;
 
-let total = precio * peso;
+let precio = 3.2 * peso;
 
-agregarCarrito(
-"Choco en Tiras (" + peso + " kg)",
-total,
-1
-);
+carrito.push({
+nombre:"Choco en Tiras",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+actualizarCarrito();
 
 cerrarChocoTiras();
 
 }
-    
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
