@@ -1975,7 +1975,7 @@ class="btn-producto">
        
 
         <button
-onclick="abrirProductoPulpoBlando()"
+onclick="abrirProductoPulpoBlanco()"
 class="btn-producto">
 
 🛒 Añadir al carrito
@@ -4792,37 +4792,37 @@ actualizarCarrito();
 cerrarProductoPotaNegra();
 
 }
-function abrirProductoPulpoBlando(){
+function abrirProductoPulpoBlanco(){
 
-document.getElementById("modalPulpoBlando").style.display="flex";
-
-}
-
-function cerrarProductoPulpoBlando(){
-
-document.getElementById("modalPulpoBlando").style.display="none";
+document.getElementById("modalPulpoBlanco").style.display="flex";
 
 }
 
-function actualizarPrecioPulpoBlando(){
+function cerrarProductoPulpoBlanco(){
+
+document.getElementById("modalPulpoBlanco").style.display="none";
+
+}
+
+function actualizarPrecioPulpoBlanco(){
 
 let peso =
-parseFloat(document.getElementById("pesoPulpoBlando").value);
+parseFloat(document.getElementById("pesoPulpoBlanco").value);
 
 let total = 5.5 * peso;
 
-document.getElementById("precioPulpoBlando").innerText =
+document.getElementById("precioPulpoBlanco").innerText =
 "Total: " + total.toFixed(2) + "€";
 
 }
 
-function agregarPulpoBlando(){
+function agregarPulpoBlanco(){
 
 let peso =
-parseFloat(document.getElementById("pesoPulpoBlando").value);
+parseFloat(document.getElementById("pesoPulpoBlanco").value);
 
 let preparacion =
-document.getElementById("preparacionPulpoBlando").value;
+document.getElementById("preparacionPulpoBlanco").value;
 
 let precioFinal = 5.5 * peso;
 
@@ -4840,7 +4840,7 @@ carrito.length;
 
 actualizarCarrito();
 
-cerrarProductoPulpoBlando();
+cerrarProductoPulpoBlanco();
 
 }
 function abrirProductoPulpoRoca(){
@@ -8942,9 +8942,9 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalPulpoBlando"
+<div id="modalPulpoBlanco"
 class="modal-producto"
-onclick="cerrarProductoPulpoBlando()">
+onclick="cerrarProductoPulpoBlanco()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
@@ -8952,20 +8952,20 @@ onclick="event.stopPropagation()">
 <img src="pulpo blanco.jpg">
 
 <h2 style="font-size:50px; line-height:1;">
-🐙 Pulpo Blando
+🐙 Pulpo Blanco
 </h2>
 
 <p><strong>Precio:</strong> 5.50 €/kg</p>
 
 <p>
-Pulpo blando o amizclado fresco.
+Pulpo blanco o amizclado fresco.
 Ideal para guisos y cocina marinera.
 </p>
 
 <label>Peso:</label>
 
-<select id="pesoPulpoBlando"
-onchange="actualizarPrecioPulpoBlando()">
+<select id="pesoPulpoBlanco"
+onchange="actualizarPrecioPulpoBlanco()">
 
 <option value="0.5">500 g</option>
 <option value="1">1 kg</option>
@@ -8974,7 +8974,7 @@ onchange="actualizarPrecioPulpoBlando()">
 
 </select>
 
-<p id="precioPulpoBlando"
+<p id="precioPulpoBlanco"
 style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
 
 Total: 2.75€
@@ -8983,7 +8983,7 @@ Total: 2.75€
 
 <label>Preparación:</label>
 
-<select id="preparacionPulpoBlando">
+<select id="preparacionPulpoBlanco">
 
 <option>Entero</option>
 
@@ -8992,7 +8992,8 @@ Total: 2.75€
 <p style="color:green;">✅ Disponible</p>
 
 <button
-onclick="agregarPulpoBlando()"
+onclick="agregarPulpoBlanco
+()"
 class="btn-producto">
 
 🛒 Añadir al pedido
