@@ -1958,6 +1958,26 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="choco-tiras.jpg" alt="Choco en Tiras">
+
+<div class="card-content">
+
+<h3>Choco en Tiras</h3>
+
+<p>Precio 3,20€/kg</p>
+
+<button
+onclick="abrirChocoTiras()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+</div>
 
 </div>
 
@@ -5182,6 +5202,51 @@ document.getElementById("contadorCarrito").innerText = carrito.length;
 actualizarCarrito();
 cerrarAnillas();
 }
+function abrirChocoTiras(){
+
+document.getElementById("modalChocoTiras").style.display="flex";
+
+}
+
+function cerrarChocoTiras(){
+
+document.getElementById("modalChocoTiras").style.display="none";
+
+}
+
+function actualizarChocoTiras(){
+
+let precio = 3.20;
+
+let peso =
+parseFloat(document.getElementById("pesoChocoTiras").value);
+
+let total = precio * peso;
+
+document.getElementById("precioChocoTiras").innerHTML =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarChocoTiras(){
+
+let peso =
+document.getElementById("pesoChocoTiras").value;
+
+let precio = 3.20;
+
+let total = precio * peso;
+
+agregarCarrito(
+"Choco en Tiras (" + peso + " kg)",
+total,
+1
+);
+
+cerrarChocoTiras();
+
+}
+    
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
@@ -8948,6 +9013,55 @@ Total: 4.20€
 
 <button onclick="agregarAnillas()" class="btn-producto">
 🛒 Añadir al carrito
+</button>
+
+</div>
+</div>
+<div id="modalChocoTiras" class="modal-producto" onclick="cerrarChocoTiras()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="choco-tiras.jpg" style="height:70px;">
+
+<h2>🐠 CHOCO EN TIRAS</h2>
+
+<p>Choco limpio cortado en tiras.</p>
+
+<p><strong>Precio fijo: 3,20€/kg</strong></p>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoChocoTiras" onchange="actualizarChocoTiras()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioChocoTiras" style="color:green;">
+Total: 1.60€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionChocoTiras">
+
+<option>Cortado en tiras</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarChocoTiras()" class="btn-producto">
+
+🛒 Añadir al carrito
+
 </button>
 
 </div>
