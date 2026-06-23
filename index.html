@@ -5348,6 +5348,60 @@ actualizarCarrito();
 cerrarChoco();
 
 }
+function abrirBacalao(){
+document.getElementById("modalBacalao").style.display="flex";
+}
+
+function cerrarBacalao(){
+document.getElementById("modalBacalao").style.display="none";
+}
+
+function actualizarBacalao(){
+
+let precio =
+parseFloat(document.getElementById("tamanoBacalao").value);
+
+let peso =
+parseFloat(document.getElementById("pesoBacalao").value);
+
+let total = precio * peso;
+
+document.getElementById("precioBacalao").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBacalao(){
+
+let peso =
+parseFloat(document.getElementById("pesoBacalao").value);
+
+let preparacion =
+document.getElementById("preparacionBacalao").value;
+
+let selector =
+document.getElementById("tamanoBacalao");
+
+let nombreProducto =
+selector.options[selector.selectedIndex].text;
+
+let precio =
+parseFloat(document.getElementById("tamanoBacalao").value) * peso;
+
+carrito.push({
+nombre:nombreProducto,
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
+actualizarCarrito();
+
+cerrarBacalao();
+
+}
 
 window.addEventListener('scroll',()=>{
 
@@ -9221,6 +9275,67 @@ Total: 3.95€
 </p>
 
 <button onclick="agregarChoco()" class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+</div>
+
+</div>
+<div id="modalBacalao" class="modal-producto" onclick="cerrarBacalao()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="filete-bacalao.jpg" style="height:40px;">
+
+<h2 style="margin:5px 0;">🐟 FILETE DE BACALAO</h2>
+
+<p style="margin:5px 0;">Filete de bacalao fresco.</p>
+
+<p style="margin:5px 0;"><strong>Seleccione tamaño y peso.</strong></p>
+
+<label><strong>Tamaño:</strong></label>
+
+<select id="tamanoBacalao" onchange="actualizarBacalao()">
+
+<option value="13.30">Filete de Bacalao M</option>
+<option value="16.50">Filete de Bacalao G</option>
+
+</select>
+
+<br><br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoBacalao" onchange="actualizarBacalao()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioBacalao" style="color:green;margin:8px 0;">
+Total: 6.65€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionBacalao">
+
+<option>Lomos</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarBacalao()" class="btn-producto">
 
 🛒 Añadir al carrito
 
