@@ -6098,6 +6098,30 @@ resultado.appendChild(div);
 
 
 }
+document.addEventListener("click",function(e){
+
+let buscador =
+document.getElementById("buscadorFlotante");
+
+let lupa =
+document.querySelector(".buscar-btn-fijo");
+
+
+if(
+buscador.style.display=="block" &&
+!buscador.contains(e.target) &&
+!lupa.contains(e.target)
+){
+
+buscador.style.display="none";
+
+document.getElementById("inputBusqueda").value="";
+
+document.getElementById("resultadosBusqueda").innerHTML="";
+
+}
+
+});
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
