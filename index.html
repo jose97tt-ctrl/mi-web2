@@ -1978,6 +1978,27 @@ class="btn-producto">
 
 </div>
 </div>
+<div class="card">
+
+<img src="choco.jpg" alt="Choco Limpio">
+
+<div class="card-content">
+
+<h3>Choco Limpio</h3>
+
+<p>Desde 7,90€/kg</p>
+
+<button
+onclick="abrirChoco()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -5252,6 +5273,61 @@ actualizarCarrito();
 cerrarChocoTiras();
 
 }
+function abrirChoco(){
+document.getElementById("modalChoco").style.display="flex";
+}
+
+function cerrarChoco(){
+document.getElementById("modalChoco").style.display="none";
+}
+
+function actualizarChoco(){
+
+let precio =
+parseFloat(document.getElementById("tamanoChoco").value);
+
+let peso =
+parseFloat(document.getElementById("pesoChoco").value);
+
+let total = precio * peso;
+
+document.getElementById("precioChoco").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarChoco(){
+
+let peso =
+parseFloat(document.getElementById("pesoChoco").value);
+
+let preparacion =
+document.getElementById("preparacionChoco").value;
+
+let selector =
+document.getElementById("tamanoChoco");
+
+let nombreProducto =
+selector.options[selector.selectedIndex].text;
+
+let precio =
+parseFloat(document.getElementById("tamanoChoco").value) * peso;
+
+carrito.push({
+nombre:nombreProducto,
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
+actualizarCarrito();
+
+cerrarChoco();
+
+}
+
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
@@ -9070,6 +9146,67 @@ Total: 1.60€
 </button>
 
 </div>
+</div>
+<div id="modalChoco" class="modal-producto" onclick="cerrarChoco()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="choco.jpg" style="height:40px;">
+
+<h2 style="margin:5px 0;">🐠 CHOCO LIMPIO</h2>
+
+<p style="margin:5px 0;">Choco limpio fresco.</p>
+
+<p style="margin:5px 0;"><strong>Seleccione tamaño y peso.</strong></p>
+
+<label><strong>Tamaño:</strong></label>
+
+<select id="tamanoChoco" onchange="actualizarChoco()">
+
+<option value="7.90">Choco M</option>
+<option value="8.80">Choco G</option>
+
+</select>
+
+<br><br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoChoco" onchange="actualizarChoco()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioChoco" style="color:green;margin:8px 0;">
+Total: 3.95€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionChoco">
+
+<option>Limpio</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarChoco()" class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+</div>
+
 </div>
 
 </body>
