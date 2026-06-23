@@ -2062,6 +2062,27 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="rejos-pota.jpg" alt="Rejos de Pota">
+
+<div class="card-content">
+
+<h3>Rejos de Pota</h3>
+
+<p>Precio 8,00€/kg</p>
+
+<button
+onclick="abrirRejosPota()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -5762,6 +5783,52 @@ document.getElementById("contadorCarrito").innerText = carrito.length;
 actualizarCarrito();
 
 cerrarRosada();
+
+}
+function abrirRejosPota(){
+document.getElementById("modalRejosPota").style.display="flex";
+}
+
+function cerrarRejosPota(){
+document.getElementById("modalRejosPota").style.display="none";
+}
+
+function actualizarRejosPota(){
+
+let precio = 8.0;
+
+let peso =
+parseFloat(document.getElementById("pesoRejosPota").value);
+
+let total = precio * peso;
+
+document.getElementById("precioRejosPota").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarRejosPota(){
+
+let peso =
+parseFloat(document.getElementById("pesoRejosPota").value);
+
+let preparacion =
+document.getElementById("preparacionRejosPota").value;
+
+let precio = 8.0 * peso;
+
+carrito.push({
+nombre:"Rejos de Pota",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
+actualizarCarrito();
+
+cerrarRejosPota();
 
 }
 
@@ -9989,6 +10056,55 @@ Total: 10.00€
 </p>
 
 <button onclick="agregarRosada()" class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+</div>
+
+</div>
+<div id="modalRejosPota" class="modal-producto" onclick="cerrarRejosPota()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="rejos-pota.jpg" style="height:40px;">
+
+<h2 style="margin:5px 0;">🦑 REJOS DE POTA</h2>
+
+<p style="margin:5px 0;">Rejos de pota listos para cocinar.</p>
+
+<p style="margin:5px 0;"><strong>Precio fijo: 8,00€/kg</strong></p>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoRejosPota" onchange="actualizarRejosPota()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioRejosPota" style="color:green;margin:8px 0;">
+Total: 8.00€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionRejosPota">
+
+<option>Enteros</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarRejosPota()" class="btn-producto">
 
 🛒 Añadir al carrito
 
