@@ -296,6 +296,21 @@ body{
 *{
     box-sizing:border-box;
 }
+.buscar-btn{
+
+position:fixed;
+
+top:20px;
+
+right:80px;
+
+font-size:28px;
+
+cursor:pointer;
+
+z-index:9999;
+
+}
 .carrito-btn{
     position:fixed;
     top:20px;
@@ -5871,6 +5886,13 @@ let tarjetas =
 document.querySelectorAll(".card");
 
 
+tarjetas.forEach(card=>{
+
+card.style.display="none";
+
+});
+
+
 for(let tarjeta of tarjetas){
 
 let texto =
@@ -5879,12 +5901,12 @@ tarjeta.innerText.toLowerCase();
 
 if(texto.includes(nombre)){
 
+tarjeta.style.display="block";
+
 tarjeta.scrollIntoView({
 behavior:"smooth",
 block:"center"
 });
-
-break;
 
 }
 
