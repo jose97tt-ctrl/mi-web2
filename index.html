@@ -2020,6 +2020,27 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="filete-gallineta.jpg" alt="Filete de Gallineta">
+
+<div class="card-content">
+
+<h3>Filete de Gallineta</h3>
+
+<p>Precio 7,60€/kg</p>
+
+<button
+onclick="abrirGallineta()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -5400,6 +5421,52 @@ document.getElementById("contadorCarrito").innerText = carrito.length;
 actualizarCarrito();
 
 cerrarBacalao();
+
+}
+function abrirGallineta(){
+document.getElementById("modalGallineta").style.display="flex";
+}
+
+function cerrarGallineta(){
+document.getElementById("modalGallineta").style.display="none";
+}
+
+function actualizarGallineta(){
+
+let precio = 7.6;
+
+let peso =
+parseFloat(document.getElementById("pesoGallineta").value);
+
+let total = precio * peso;
+
+document.getElementById("precioGallineta").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarGallineta(){
+
+let peso =
+parseFloat(document.getElementById("pesoGallineta").value);
+
+let preparacion =
+document.getElementById("preparacionGallineta").value;
+
+let precio = 7.6 * peso;
+
+carrito.push({
+nombre:"Filete de Gallineta",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
+actualizarCarrito();
+
+cerrarGallineta();
 
 }
 
@@ -9336,6 +9403,56 @@ Total: 6.65€
 </p>
 
 <button onclick="agregarBacalao()" class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+</div>
+
+</div>
+<div id="modalGallineta" class="modal-producto" onclick="cerrarGallineta()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="filete-gallineta.jpg" style="height:40px;">
+
+<h2 style="margin:5px 0;">🐟 FILETE DE GALLINETA</h2>
+
+<p style="margin:5px 0;">Filete de gallineta fresco.</p>
+
+<p style="margin:5px 0;"><strong>Precio fijo: 7,60€/kg</strong></p>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoGallineta" onchange="actualizarGallineta()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioGallineta" style="color:green;margin:8px 0;">
+Total: 3.80€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionGallineta">
+
+<option>Lomos</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarGallineta()" class="btn-producto">
 
 🛒 Añadir al carrito
 
