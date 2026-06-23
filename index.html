@@ -703,10 +703,14 @@ transform:scale(1.2);
 <div class="menu-btn" onclick="abrirMenu()">
 ☰
 </div>
+
 <div class="carrito-btn" onclick="abrirCarrito()">
 🛒 <span id="contadorCarrito">0</span>
 </div>
 
+<div class="buscar-btn" onclick="abrirBuscador()">
+🔍
+</div>
 <!-- CAMBIA logo.png POR TU LOGO -->
 <img src="logo.png" class="logo" alt="Miguel Montalbán">
 
@@ -5846,6 +5850,45 @@ document.getElementById("contadorCarrito").innerText = carrito.length;
 actualizarCarrito();
 
 cerrarRejosPota();
+
+}
+function abrirBuscador(){
+
+let producto = prompt("🔍 Buscar producto:");
+
+if(producto){
+
+buscarProducto(producto.toLowerCase());
+
+}
+
+}
+
+
+function buscarProducto(nombre){
+
+let tarjetas =
+document.querySelectorAll(".card");
+
+
+for(let tarjeta of tarjetas){
+
+let texto =
+tarjeta.innerText.toLowerCase();
+
+
+if(texto.includes(nombre)){
+
+tarjeta.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+break;
+
+}
+
+}
 
 }
 
