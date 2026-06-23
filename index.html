@@ -5490,6 +5490,61 @@ actualizarCarrito();
 cerrarGallineta();
 
 }
+function abrirLangostinoCocido(){
+document.getElementById("modalLangostinoCocido").style.display="flex";
+}
+
+function cerrarLangostinoCocido(){
+document.getElementById("modalLangostinoCocido").style.display="none";
+}
+
+function actualizarLangostinoCocido(){
+
+let precio =
+parseFloat(document.getElementById("calibreLangostinoCocido").value);
+
+let peso =
+parseFloat(document.getElementById("pesoLangostinoCocido").value);
+
+let total = precio * peso;
+
+document.getElementById("precioLangostinoCocido").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarLangostinoCocido(){
+
+let peso =
+parseFloat(document.getElementById("pesoLangostinoCocido").value);
+
+let preparacion =
+document.getElementById("preparacionLangostinoCocido").value;
+
+let selector =
+document.getElementById("calibreLangostinoCocido");
+
+let nombreProducto =
+"Langostino Cocido - " +
+selector.options[selector.selectedIndex].text;
+
+let precio =
+parseFloat(document.getElementById("calibreLangostinoCocido").value) * peso;
+
+carrito.push({
+nombre:nombreProducto,
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
+actualizarCarrito();
+
+cerrarLangostinoCocido();
+
+}
 
 window.addEventListener('scroll',()=>{
 
@@ -9474,6 +9529,74 @@ Total: 3.80€
 </p>
 
 <button onclick="agregarGallineta()" class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+</div>
+
+</div>
+<div id="modalLangostinoCocido" class="modal-producto" onclick="cerrarLangostinoCocido()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="langostino-cocido.jpg" style="height:40px;">
+
+<h2 style="margin:5px 0;">🦐 LANGOSTINO COCIDO</h2>
+
+<p style="margin:5px 0;">Langostino cocido listo para consumir.</p>
+
+<p style="margin:5px 0;"><strong>Seleccione calibre y peso.</strong></p>
+
+<label><strong>Calibre:</strong></label>
+
+<select id="calibreLangostinoCocido" onchange="actualizarLangostinoCocido()">
+
+<option value="11.00">10/20 pz/kg</option>
+
+<option value="8.50">20/30 pz/kg 🔥</option>
+
+<option value="11.50">20/30 pz/kg (Monodón)</option>
+
+<option value="8.00">30/40 pz/kg 🔥</option>
+
+<option value="7.30">40/50 pz/kg 🔥</option>
+
+</select>
+
+<br><br>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoLangostinoCocido" onchange="actualizarLangostinoCocido()">
+
+<option value="0.5">500 g</option>
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioLangostinoCocido" style="color:green;margin:8px 0;">
+Total: 5.50€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionLangostinoCocido">
+
+<option>Cocido</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarLangostinoCocido()" class="btn-producto">
 
 🛒 Añadir al carrito
 
