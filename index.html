@@ -5937,16 +5937,22 @@ if(buscador.style.display=="block"){
 
 buscador.style.display="none";
 
+
 }else{
 
 buscador.style.display="block";
+
+
+document.getElementById("inputBusqueda").value="";
+
+document.getElementById("resultadosBusqueda").innerHTML="";
+
 
 document.getElementById("inputBusqueda").focus();
 
 }
 
 }
-
 
 function quitarTildes(texto){
 
