@@ -5718,6 +5718,52 @@ actualizarCarrito();
 cerrarPatasPulpo();
 
 }
+function abrirRosada(){
+document.getElementById("modalRosada").style.display="flex";
+}
+
+function cerrarRosada(){
+document.getElementById("modalRosada").style.display="none";
+}
+
+function actualizarRosada(){
+
+let precio = 10.0;
+
+let peso =
+parseFloat(document.getElementById("pesoRosada").value);
+
+let total = precio * peso;
+
+document.getElementById("precioRosada").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarRosada(){
+
+let peso =
+parseFloat(document.getElementById("pesoRosada").value);
+
+let preparacion =
+document.getElementById("preparacionRosada").value;
+
+let precio = 10.0 * peso;
+
+carrito.push({
+nombre:"Filete de Rosada",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
+});
+
+document.getElementById("contadorCarrito").innerText = carrito.length;
+
+actualizarCarrito();
+
+cerrarRosada();
+
+}
 
 window.addEventListener('scroll',()=>{
 
@@ -9893,6 +9939,56 @@ Total: 30.00€
 </p>
 
 <button onclick="agregarPatasPulpo()" class="btn-producto">
+
+🛒 Añadir al carrito
+
+</button>
+
+</div>
+
+</div>
+<div id="modalRosada" class="modal-producto" onclick="cerrarRosada()">
+
+<div class="contenido-modal" onclick="event.stopPropagation()">
+
+<img src="filete-rosada.jpg" style="height:40px;">
+
+<h2 style="margin:5px 0;">🐟 FILETE DE ROSADA</h2>
+
+<p style="margin:5px 0;">Filete de rosada fresco.</p>
+
+<p style="margin:5px 0;"><strong>Precio fijo: 10,00€/kg</strong></p>
+
+<label><strong>Peso:</strong></label>
+
+<select id="pesoRosada" onchange="actualizarRosada()">
+
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+
+</select>
+
+<br><br>
+
+<h2 id="precioRosada" style="color:green;margin:8px 0;">
+Total: 10.00€
+</h2>
+
+<label><strong>Preparación:</strong></label>
+
+<select id="preparacionRosada">
+
+<option>Lomos</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarRosada()" class="btn-producto">
 
 🛒 Añadir al carrito
 
