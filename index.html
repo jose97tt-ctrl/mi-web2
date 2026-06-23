@@ -706,6 +706,55 @@ transition:0.3s;
 transform:scale(1.2);
 
 }
+.buscador-flotante{
+
+display:none;
+
+position:fixed;
+
+top:70px;
+
+right:20px;
+
+background:white;
+
+padding:15px;
+
+border-radius:15px;
+
+z-index:9999;
+
+width:280px;
+
+box-shadow:0 0 15px rgba(0,0,0,0.3);
+
+}
+
+
+.buscador-flotante input{
+
+width:100%;
+
+padding:10px;
+
+font-size:16px;
+
+border-radius:8px;
+
+border:1px solid #ccc;
+
+}
+
+
+.resultado-busqueda{
+
+padding:10px;
+
+cursor:pointer;
+
+border-bottom:1px solid #ddd;
+
+}
 </style>
 </head>
 
@@ -725,6 +774,17 @@ transform:scale(1.2);
 
 <div class="buscar-btn" onclick="abrirBuscador()">
 🔍
+</div>
+<div id="buscadorFlotante" class="buscador-flotante">
+
+<input 
+id="inputBusqueda"
+type="text"
+placeholder="🔍 Buscar producto..."
+onkeyup="mostrarResultados()">
+
+<div id="resultadosBusqueda"></div>
+
 </div>
 <!-- CAMBIA logo.png POR TU LOGO -->
 <img src="logo.png" class="logo" alt="Miguel Montalbán">
@@ -5869,18 +5929,47 @@ cerrarRejosPota();
 }
 function abrirBuscador(){
 
-let producto = prompt("🔍 Buscar producto:");
+let buscador =
+document.getElementById("buscadorFlotante");
 
-if(producto){
 
-buscarProducto(producto.toLowerCase());
+if(buscador.style.display=="block"){
+
+buscador.style.display="none";
+
+}else{
+
+buscador.style.display="block";
+
+document.getElementById("inputBusqueda").focus();
 
 }
 
 }
 
 
-function buscarProducto(nombre){
+function quitarTildes(texto){
+
+return texto.normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+
+}
+
+
+
+function mostrarResultados(){
+
+let texto =
+quitarTildes(
+document.getElementById("inputBusqueda").value.toLowerCase()
+);
+
+
+let resultado =
+document.getElementById("resultadosBusqueda");
+
+
+resultado.innerHTML="";
+
 
 let tarjetas =
 document.querySelectorAll(".card");
@@ -5888,32 +5977,45 @@ document.querySelectorAll(".card");
 
 tarjetas.forEach(card=>{
 
-card.style.display="none";
 
-});
-
-
-for(let tarjeta of tarjetas){
-
-let texto =
-tarjeta.innerText.toLowerCase();
+let nombre =
+quitarTildes(card.innerText.toLowerCase());
 
 
-if(texto.includes(nombre)){
+if(nombre.includes(texto) && texto!=""){
 
-tarjeta.style.display="block";
 
-tarjeta.scrollIntoView({
+let div=document.createElement("div");
+
+div.className="resultado-busqueda";
+
+div.innerText=card.querySelector("h3").innerText;
+
+
+div.onclick=function(){
+
+card.scrollIntoView({
 behavior:"smooth",
 block:"center"
 });
 
-}
+
+document.getElementById("buscadorFlotante").style.display="none";
+
+
+};
+
+
+resultado.appendChild(div);
+
 
 }
 
-}
 
+});
+
+
+}
 window.addEventListener('scroll',()=>{
 
 const cards=document.querySelectorAll('.card');
