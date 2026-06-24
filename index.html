@@ -6124,59 +6124,54 @@ document.getElementById("modalAbadejoPuntoSal").style.display="flex";
 
 }
 
-
 function cerrarProductoAbadejoPuntoSal(){
 
 document.getElementById("modalAbadejoPuntoSal").style.display="none";
 
 }
 
-
-
 function actualizarPrecioAbadejoPuntoSal(){
 
+let precio = 4.40;
 
-let peso = document.getElementById("pesoAbadejoPuntoSal").value;
+let peso =
+parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
 
+let total = precio * peso;
 
-let precio = 4.40 * peso;
-
-
-document.getElementById("precioAbadejoPuntoSal").innerHTML =
-
-"Precio: " + precio.toFixed(2) + " €";
-
+document.getElementById("precioAbadejoPuntoSal").innerText =
+"Total: " + total.toFixed(2) + "€";
 
 }
-
-
-
 
 function agregarAbadejoPuntoSal(){
 
+let peso =
+parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
 
-let peso = document.getElementById("pesoAbadejoPuntoSal").value;
-
+let preparacion =
+document.getElementById("preparacionAbadejoPuntoSal").value;
 
 let precio = 4.40 * peso;
 
+carrito.push({
 
+nombre:"Abadejo Punto de Sal",
+peso:peso + " kg",
+preparacion:preparacion,
+precio:precio
 
-agregarAlCarrito(
+});
 
-"Abadejo Punto de Sal - " + peso + " kg",
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
 
-precio
-
-);
-
-
+actualizarCarrito();
 
 cerrarProductoAbadejoPuntoSal();
 
-
-
 }
+
 function abrirBuscador(){
 
 let buscador =
@@ -10578,77 +10573,60 @@ Total: 8.00€
 </div>
 
 </div>
-<div id="modalAbadejoPuntoSal"
-class="modal-producto">
+<div id="modalAbadejoPuntoSal" class="modal-producto" onclick="cerrarProductoAbadejoPuntoSal()">
 
+<div class="contenido-modal" onclick="event.stopPropagation()">
 
-<div class="contenido-modal">
+<img src="abadejo-punto-sal.jpg" style="height:40px;">
 
+<h2 style="margin:5px 0;">🐟 ABADEJO PUNTO DE SAL</h2>
 
-<img src="abadejo-punto-sal.jpg"
-alt="Abadejo Punto de Sal">
-
-
-<h2>Abadejo Punto de Sal</h2>
-
-
-<p>
-
-Filete de Abadejo con Piel congelado.
-Producto de calidad ideal para plancha, horno o fritura.
-
+<p style="margin:5px 0;">
+Filete de Abadejo con piel. Producto congelado listo para cocinar.
 </p>
 
+<p style="margin:5px 0;">
+<strong>Precio fijo: 4,40€/kg</strong>
+</p>
 
-<label>
-<strong>Peso:</strong>
-</label>
+<label><strong>Peso:</strong></label>
 
+<select id="pesoAbadejoPuntoSal" onchange="actualizarPrecioAbadejoPuntoSal()">
 
-<select id="pesoAbadejoPuntoSal"
-onchange="actualizarPrecioAbadejoPuntoSal()">
-
-
-<option value="1">
-1 kg
-</option>
-
-<option value="2">
-2 kg
-</option>
-
-<option value="3">
-3 kg
-</option>
-
-<option value="5">
-5 kg
-</option>
-
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
 
 </select>
 
+<br><br>
 
-<h3 id="precioAbadejoPuntoSal">
+<h2 id="precioAbadejoPuntoSal" style="color:green;margin:8px 0;">
+Total: 4.40€
+</h2>
 
-Precio: 4,40 €
+<label><strong>Preparación:</strong></label>
 
-</h3>
+<select id="preparacionAbadejoPuntoSal">
 
+<option>Filete con piel</option>
 
-<button
-onclick="agregarAbadejoPuntoSal()"
-class="btn-producto">
+</select>
 
-🛒 Añadir al pedido
+<p style="color:green;font-weight:bold;">
+✅ Disponible
+</p>
+
+<button onclick="agregarAbadejoPuntoSal()" class="btn-producto">
+
+🛒 Añadir al carrito
 
 </button>
 
+</div>
 
 </div>
 
-
-</div>
 
 </body>
 </html>
