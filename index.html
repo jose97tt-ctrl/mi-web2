@@ -983,7 +983,7 @@ onkeyup="mostrarResultados()">
 <!-- CARNES (RESTO ORIGINAL, NO TOCAR) -->
 <a href="#carnes" onclick="cerrarMenu()">🥩 Carnes</a>
 
-<a href="#piscifactoria" onclick="cerrarMenu()">🐟 Piscifactoría</a>
+<a href="#" onclick="cerrarMenu()">🐟 Piscifactoría</a>
 
 <a href="#congelados" onclick="cerrarMenu()">❄️ Congelados</a>
 
@@ -2417,9 +2417,9 @@ class="btn-producto">
 
 </section>
 
-<section id="piscifactoria">
+<section id="">
 
-<h3 id="piscifactoria" class="categoria-productos">
+<h3 id="" class="categoria-productos">
 🐟 PISCIFACTORÍA
 </h3>
 
@@ -2551,7 +2551,45 @@ class="btn-producto">
 
 </div>
 
+
+<section id="congelados">
+
+<h2 class="categoria-productos">
+❄️ CONGELADOS
+</h2>
+
+<div class="productos">
+<div class="card">
+
+<img src="abadejo-punto-sal.jpg"
+alt="Abadejo Punto de Sal">
+
+
+<div class="card-content">
+
+<h3>Abadejo Punto de Sal</h3>
+
+<p>Desde 4,40€/kg</p>
+
+
+<button
+onclick="abrirProductoAbadejoPuntoSal()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+
 </div>
+
+</div>
+
+
+</div>
+
+</section>
+
 
 <section class="calidad">
 
@@ -2560,8 +2598,11 @@ class="btn-producto">
 <div class="calidad-grid">
 
 <div class="item">
+
 <h3>🐟 Frescura Garantizada</h3>
+
 <p>Selección diaria de productos.</p>
+
 </div>
 
 <div class="item">
@@ -6073,6 +6114,65 @@ document.getElementById("contadorCarrito").innerText = carrito.length;
 actualizarCarrito();
 
 cerrarRejosPota();
+
+}
+function abrirProductoAbadejoPuntoSal(){
+
+document.getElementById("modalAbadejoPuntoSal").style.display="flex";
+
+}
+
+
+function cerrarProductoAbadejoPuntoSal(){
+
+document.getElementById("modalAbadejoPuntoSal").style.display="none";
+
+}
+
+
+
+function actualizarPrecioAbadejoPuntoSal(){
+
+
+let peso = document.getElementById("pesoAbadejoPuntoSal").value;
+
+
+let precio = 4.40 * peso;
+
+
+document.getElementById("precioAbadejoPuntoSal").innerHTML =
+
+"Precio: " + precio.toFixed(2) + " €";
+
+
+}
+
+
+
+
+function agregarAbadejoPuntoSal(){
+
+
+let peso = document.getElementById("pesoAbadejoPuntoSal").value;
+
+
+let precio = 4.40 * peso;
+
+
+
+agregarAlCarrito(
+
+"Abadejo Punto de Sal - " + peso + " kg",
+
+precio
+
+);
+
+
+
+cerrarProductoAbadejoPuntoSal();
+
+
 
 }
 function abrirBuscador(){
@@ -10474,6 +10574,77 @@ Total: 8.00€
 </button>
 
 </div>
+
+</div>
+<div id="modalAbadejoPuntoSal"
+class="modal-producto">
+
+
+<div class="contenido-modal">
+
+
+<img src="abadejo-punto-sal.jpg"
+alt="Abadejo Punto de Sal">
+
+
+<h2>Abadejo Punto de Sal</h2>
+
+
+<p>
+
+Filete de Abadejo con Piel congelado.
+Producto de calidad ideal para plancha, horno o fritura.
+
+</p>
+
+
+<label>
+<strong>Peso:</strong>
+</label>
+
+
+<select id="pesoAbadejoPuntoSal"
+onchange="actualizarPrecioAbadejoPuntoSal()">
+
+
+<option value="1">
+1 kg
+</option>
+
+<option value="2">
+2 kg
+</option>
+
+<option value="3">
+3 kg
+</option>
+
+<option value="5">
+5 kg
+</option>
+
+
+</select>
+
+
+<h3 id="precioAbadejoPuntoSal">
+
+Precio: 4,40 €
+
+</h3>
+
+
+<button
+onclick="agregarAbadejoPuntoSal()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+
+</div>
+
 
 </div>
 
