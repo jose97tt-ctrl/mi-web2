@@ -2838,8 +2838,11 @@ function abrirProductoAguja(){
 
 document.getElementById("modalAguja").style.display="flex";
 
-}
+document.getElementById("pesoAguja").value = "1";
 
+actualizarPrecioAguja();
+
+}
 function cerrarProductoAguja(){
 
     document.getElementById("modalAguja").style.display="none";
