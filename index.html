@@ -1139,7 +1139,7 @@ border:2px solid #0a7c3a;
  
 
 <button
-onclick="window.location.href='producto.html'"
+onclick="abrirProductoAguja()"
 class="btn-producto">
 
 🛒 Añadir al carrito
@@ -2910,6 +2910,23 @@ document.getElementById("modalAguja").style.display="flex";
 document.getElementById("pesoAguja").value = "1";
 
 actualizarPrecioAguja();
+
+}
+function abrirProductoAguja(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html";
+
+    }else{
+
+        document.getElementById("modalAguja").style.display = "flex";
+
+        document.getElementById("pesoAguja").value = "1";
+
+        actualizarPrecioAguja();
+
+    }
 
 }
 function cerrarProductoAguja(){
