@@ -215,6 +215,38 @@ h2{
 }
 
 }
+.producto-layout{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+}
+
+.producto-foto{
+    flex:1;
+}
+
+.producto-foto img{
+    width:100%;
+    border-radius:15px;
+    display:block;
+}
+
+.producto-info{
+    flex:1;
+}
+
+@media (max-width:768px){
+
+.producto-layout{
+    flex-direction:column;
+}
+
+.producto-foto,
+.producto-info{
+    width:100%;
+}
+
+}
 .card{
 
 background:white;
