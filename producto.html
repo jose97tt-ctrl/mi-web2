@@ -105,6 +105,61 @@ line-height:1.6;
 color:#444;
 
 }
+select,
+input{
+
+width:100%;
+
+padding:14px;
+
+font-size:18px;
+
+margin-top:10px;
+
+margin-bottom:20px;
+
+border-radius:10px;
+
+border:1px solid #ccc;
+
+}
+
+.btnComprar{
+
+width:100%;
+
+padding:18px;
+
+background:#0a8f4d;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-size:22px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+#precioFinal{
+
+color:#0a8f4d;
+
+text-align:center;
+
+font-size:34px;
+
+margin-top:25px;
+
+}
+
 
 </style>
 
@@ -133,6 +188,64 @@ color:#444;
             Pescado azul de gran calidad.
             Ideal para plancha, horno y fritura.
         </p>
+    <hr>
+
+<h3>⚖️ Peso</h3>
+
+<select id="pesoAguja">
+
+<option value="1">1 kg</option>
+
+<option value="2">2 kg</option>
+
+<option value="3">3 kg</option>
+
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoAguja"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0">
+
+<hr>
+
+<h3>🔪 Preparación</h3>
+
+<select id="preparacionAguja">
+
+<option>Entero</option>
+
+<option>Limpio</option>
+
+<option>Rodajas</option>
+
+</select>
+
+<p style="color:green;font-weight:bold;">
+
+✅ Disponible
+
+</p>
+
+<h2 id="precioFinal">
+
+Total: 24.00€
+
+</h2>
+
+<button class="btnComprar">
+
+🛒 Añadir al pedido
+
+</button>
 
     </div>
 
