@@ -251,6 +251,36 @@ Total: 24.00€
 
 </div>
 <script>
+const productos = {
+
+
+    aguja: {
+        nombre: "🐟 Aguja",
+        imagen: "aguja.jpg",
+        precio: 24,
+        descripcion: "Pescado azul de gran calidad. Ideal para plancha, horno y fritura."
+    },
+
+    salmonete: {
+        nombre: "🐟 Salmonete",
+        imagen: "salmonete.jpg",
+        precio: 15,
+        descripcion: "Salmonete fresco de gran calidad."
+    },
+
+    dorada: {
+        nombre: "🐟 Dorada",
+        imagen: "dorada.jpg",
+        precio: 7.8,
+        descripcion: "Dorada de piscifactoría fresca."
+    }
+
+};
+const parametros = new URLSearchParams(window.location.search);
+
+const idProducto = parametros.get("producto");
+
+const producto = productos[idProducto];
 
 function actualizarPrecioAguja(){
 console.log("Funciona");
@@ -279,6 +309,24 @@ let total = precioKilo * peso;
 
 document.getElementById("precioFinal").innerHTML =
 "Total: " + total.toFixed(2) + " €";
+
+}
+if(producto){
+
+    document.getElementById("nombreProducto").innerText =
+    producto.nombre;
+
+    document.getElementById("imagenProducto").src =
+    producto.imagen;
+
+    document.getElementById("imagenProducto").alt =
+    producto.nombre;
+
+    document.getElementById("precioProducto").innerText =
+    producto.precio + " €/kg";
+
+    document.getElementById("descripcionProducto").innerText =
+    producto.descripcion;
 
 }
 
