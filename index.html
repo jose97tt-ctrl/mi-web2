@@ -2750,7 +2750,7 @@ function cerrarMenu(){
     document.getElementById("menuLateral").style.transform="translateX(-100%)";
     document.getElementById("fondoMenu").style.display="none";
 }
-let carrito=[];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 function agregarCarrito(producto,precio,cantidad=1){
@@ -2759,6 +2759,7 @@ function agregarCarrito(producto,precio,cantidad=1){
     precio:precio,
     cantidad:cantidad
 });
+localStorage.setItem("carrito", JSON.stringify(carrito));
 
 
     document.getElementById("contadorCarrito").innerText =
@@ -2855,6 +2856,7 @@ function cerrarCarrito(){
 function vaciarCarrito(){
 
     carrito=[];
+    localStorage.removeItem("carrito");
 
     actualizarCarrito();
 
@@ -2864,7 +2866,9 @@ function vaciarCarrito(){
     function eliminarProducto(indice){
 
     carrito.splice(indice,1);
-
+        
+localStorage.setItem("carrito", JSON.stringify(carrito));
+        
     document.getElementById("contadorCarrito").innerText =
     carrito.length;
 
