@@ -192,7 +192,7 @@ margin-top:25px;
 
 <h3>⚖️ Peso</h3>
 
-<select id="pesoAguja">
+<select id="pesoAguja" onchange="actualizarPrecioAguja()">
 
 <option value="1">1 kg</option>
 
@@ -214,6 +214,7 @@ id="pesoPersonalizadoAguja"
 placeholder="Ejemplo: 0.250"
 step="0.001"
 min="0">
+oninput="actualizarPrecioAguja()"
 
 <hr>
 
@@ -252,6 +253,40 @@ Total: 24.00€
 </div>
 
 </div>
+<script>
+
+function actualizarPrecioAguja(){
+
+let precioKilo = 24;
+
+let pesoSeleccionado =
+parseFloat(document.getElementById("pesoAguja").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
+
+let total = precioKilo * peso;
+
+document.getElementById("precioFinal").innerHTML =
+"Total: " + total.toFixed(2) + " €";
+
+}
+
+actualizarPrecioAguja();
+
+</script>
 
 </body>
 
