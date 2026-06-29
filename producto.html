@@ -219,12 +219,6 @@ oninput="actualizarPrecio()">
 
 <select id="preparacion">
 
-<option>Entero</option>
-
-<option>Limpio</option>
-
-<option>Rodajas</option>
-
 </select>
 
 <p style="color:green;font-weight:bold;">
@@ -355,6 +349,22 @@ if(producto){
 
     document.getElementById("descripcionProducto").innerText =
     producto.descripcion;
+
+    const selectPreparacion = document.getElementById("preparacion");
+
+    selectPreparacion.innerHTML = "";
+
+    producto.preparaciones.forEach(function(preparacion){
+
+        let opcion = document.createElement("option");
+
+        opcion.value = preparacion;
+
+        opcion.textContent = preparacion;
+
+        selectPreparacion.appendChild(opcion);
+
+    });
 
 }
 
