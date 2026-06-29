@@ -211,7 +211,7 @@ id="pesoPersonalizadoAguja"
 placeholder="Ejemplo: 0.250"
 step="0.001"
 min="0"
-oninput="actualizarPrecioAguja()">
+oninput="actualizarPrecio()">
 
 <hr>
 
@@ -239,12 +239,13 @@ Total: 24.00€
 
 </h2>
 
-<button class="btnComprar" onclick="agregarAguja()">
+<button
+onclick="agregarProducto()"
+class="btn-producto">
 
 🛒 Añadir al pedido
 
 </button>
-
     </div>
 
 </div>
@@ -254,26 +255,53 @@ Total: 24.00€
 const productos = {
 
 
-    aguja: {
-        nombre: "🐟 Aguja",
-        imagen: "aguja.jpg",
-        precio: 24,
-        descripcion: "Pescado azul de gran calidad. Ideal para plancha, horno y fritura."
-    },
+   aguja:{
+    nombre:"🐟 Aguja",
+    imagen:"aguja.jpg",
+    precio:24,
+    descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
+    preparaciones:[
+        "Entero",
+        "Limpio",
+        "Rodajas"
+    ]
+},
+      "atun-envasado":{
+    nombre:"🐟 Atún Envasado",
+    imagen:"atun envasado.jpg",
+    precio:15,
+    descripcion:"Ideal para hogares y hostelería.",
+    preparaciones:[
+        "Envasado original",
+        "Porciones",
+        "Filetes"
+    ]
+},
+   "atun-fresco":{
+    nombre:"🐟 Atún Fresco",
+    imagen:"atun fresco.jpg",
+    precio:40,
+    descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
+    preparaciones:[
+        "Entero",
+        "Lomos",
+        "Tacos",
+        "Filetes"
+    ]
+},
 
-    salmonete: {
-        nombre: "🐟 Salmonete",
-        imagen: "salmonete.jpg",
-        precio: 15,
-        descripcion: "Salmonete fresco de gran calidad."
-    },
+    boqueron:{
+    nombre:"🐟 Boquerón",
+    imagen:"boqueron.jpg",
+    precio:10,
+    descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
+    preparaciones:[
+        "Entero",
+        "Desarrapado",
+        "Sin cabeza"
+    ]
+}
 
-    dorada: {
-        nombre: "🐟 Dorada",
-        imagen: "dorada.jpg",
-        precio: 7.8,
-        descripcion: "Dorada de piscifactoría fresca."
-    }
 
 };
 const parametros = new URLSearchParams(window.location.search);
@@ -282,10 +310,10 @@ const idProducto = parametros.get("producto");
 
 const producto = productos[idProducto];
 
-function actualizarPrecioAguja(){
+function actualizarPrecio(){
 console.log("Funciona");
 
-let precioKilo = 24;
+let precioKilo = producto.precio;
 
 let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAguja").value);
@@ -330,8 +358,8 @@ if(producto){
 
 }
 
-actualizarPrecioAguja();
-function agregarAguja(){
+actualizarPrecio();
+function agregarProducto(){
 
 let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAguja").value);
@@ -354,14 +382,14 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 let preparacion =
 document.getElementById("preparacionAguja").value;
 
-let precioFinal = 24 * peso;
+let precioFinal = producto.precio * peso;
 
 let carrito =
 JSON.parse(localStorage.getItem("carrito")) || [];
 
 carrito.push({
 
-    nombre:"Aguja",
+    nombre: producto.nombre.replace("🐟 ", ""),
     peso:peso + " kg",
     preparacion:preparacion,
     precio:precioFinal
