@@ -3071,11 +3071,19 @@ cerrarProductoAtunEnvasado();
 }
 function abrirProductoAtunFresco(){
 
-document.getElementById("modalAtunFresco").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoAtunFresco").value="1";
+        window.location.href = "producto.html?producto=atun-fresco";
 
-actualizarPrecioAtunFresco();
+    }else{
+
+        document.getElementById("modalAtunFresco").style.display = "flex";
+
+        document.getElementById("pesoAtunFresco").value = "1";
+
+        actualizarPrecioAtunFresco();
+
+    }
 
 }
 
