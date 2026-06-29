@@ -3034,8 +3034,23 @@ document.getElementById("modalAtunEnvasado").style.display="none";
 }
 function actualizarPrecioAtunEnvasado(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAtunEnvasado").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAtunEnvasado").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 15 * peso;
 
@@ -6812,16 +6827,22 @@ onclick="cerrarProductoAtunEnvasado()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="atun envasado.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Atún Envasado
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Atún Envasado</h2>
 
 <p><strong>Precio:</strong> 15 €/kg</p>
 
 <p>
-
 Ideal para hogares y hostelería.
 </p>
 
@@ -6830,12 +6851,32 @@ Ideal para hogares y hostelería.
 <select id="pesoAtunEnvasado"
 onchange="actualizarPrecioAtunEnvasado()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoAtunEnvasado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioAtunEnvasado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
 <p id="precioAtunEnvasado"
 style="
 font-size:24px;
@@ -6844,7 +6885,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 7.50€
+Total: 15.00€
 
 </p>
 
@@ -6869,6 +6910,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
