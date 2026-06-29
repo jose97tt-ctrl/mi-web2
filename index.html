@@ -1164,12 +1164,12 @@ class="btn-producto">
 
 
         <button
-         onclick="abrirProductoAtunEnvasado()"
-         class="btn-producto">
+onclick="abrirProductoAtunEnvasado()"
+class="btn-producto">
 
-         🛒 Añadir al carrito
+🛒 Añadir al carrito
 
-         </button>
+</button>
 
     </div>
 
@@ -3010,13 +3010,21 @@ actualizarCarrito();
 cerrarProductoAguja();
 
 }
-function abrirProductoAtunEnvasado(){
+function abrirProductoAtunFresco(){
 
-document.getElementById("modalAtunEnvasado").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoAtunEnvasado").value="1";
+        window.location.href = "producto.html?producto=atun-fresco";
 
-actualizarPrecioAtunEnvasado();
+    }else{
+
+        document.getElementById("modalAtunFresco").style.display = "flex";
+
+        document.getElementById("pesoAtunFresco").value = "1";
+
+        actualizarPrecioAtunFresco();
+
+    }
 
 }
 
@@ -3119,11 +3127,19 @@ cerrarProductoAtunFresco();
 }
 function abrirProductoBoqueron(){
 
-document.getElementById("modalBoqueron").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoBoqueron").value="1";
+        window.location.href = "producto.html?producto=boqueron";
 
-actualizarPrecioBoqueron();
+    }else{
+
+        document.getElementById("modalBoqueron").style.display = "flex";
+
+        document.getElementById("pesoBoqueron").value = "1";
+
+        actualizarPrecioBoqueron();
+
+    }
 
 }
 
