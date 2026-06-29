@@ -189,7 +189,7 @@ margin-top:25px;
 
 <h3>⚖️ Peso</h3>
 
-<select id="pesoAguja" onchange="actualizarPrecioAguja()">
+<select id="peso" onchange="actualizarPrecio()">
 
 <option value="1">1 kg</option>
 
@@ -207,7 +207,7 @@ margin-top:25px;
 
 <input
 type="number"
-id="pesoPersonalizadoAguja"
+id="pesoPersonalizado"
 placeholder="Ejemplo: 0.250"
 step="0.001"
 min="0"
@@ -217,7 +217,7 @@ oninput="actualizarPrecio()">
 
 <h3>🔪 Preparación</h3>
 
-<select id="preparacionAguja">
+<select id="preparacion">
 
 <option>Entero</option>
 
@@ -316,10 +316,10 @@ console.log("Funciona");
 let precioKilo = producto.precio;
 
 let pesoSeleccionado =
-parseFloat(document.getElementById("pesoAguja").value);
+parseFloat(document.getElementById("peso").value);
 
 let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+parseFloat(document.getElementById("pesoPersonalizado").value);
 
 let peso;
 
@@ -362,10 +362,10 @@ actualizarPrecio();
 function agregarProducto(){
 
 let pesoSeleccionado =
-parseFloat(document.getElementById("pesoAguja").value);
+parseFloat(document.getElementById("peso").value);
 
 let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+parseFloat(document.getElementById("pesoPersonalizado").value);
 
 let peso;
 
@@ -380,7 +380,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 }
 
 let preparacion =
-document.getElementById("preparacionAguja").value;
+document.getElementById("preparacion").value;
 
 let precioFinal = producto.precio * peso;
 
