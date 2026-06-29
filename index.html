@@ -3060,8 +3060,23 @@ document.getElementById("precioAtunEnvasado").innerText =
 }
 function agregarAtunEnvasado(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAtunEnvasado").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAtunEnvasado").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionAtunEnvasado").value;
@@ -3070,12 +3085,13 @@ let precioFinal = 15 * peso;
 
 carrito.push({
 
-nombre:"Atún Envasado",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Atún Envasado",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
+
 document.getElementById("contadorCarrito").innerText =
 carrito.length;
 
