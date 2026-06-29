@@ -3010,24 +3010,23 @@ actualizarCarrito();
 cerrarProductoAguja();
 
 }
-function abrirProductoAtunFresco(){
+function abrirProductoAtunEnvasado(){
 
     if(window.innerWidth <= 768){
 
-        window.location.href = "producto.html?producto=atun-fresco";
+        window.location.href = "producto.html?producto=atun-envasado";
 
     }else{
 
-        document.getElementById("modalAtunFresco").style.display = "flex";
+        document.getElementById("modalAtunEnvasado").style.display = "flex";
 
-        document.getElementById("pesoAtunFresco").value = "1";
+        document.getElementById("pesoAtunEnvasado").value = "1";
 
-        actualizarPrecioAtunFresco();
+        actualizarPrecioAtunEnvasado();
 
     }
 
 }
-
 function cerrarProductoAtunEnvasado(){
 
 document.getElementById("modalAtunEnvasado").style.display="none";
