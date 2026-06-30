@@ -3280,11 +3280,23 @@ cerrarProductoBoqueron();
 }
 function abrirProductoBacaladilla(){
 
-document.getElementById("modalBacaladilla").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoBacaladilla").value="1";
+        window.location.href = "producto.html?producto=bacaladilla";
 
-actualizarPrecioBacaladilla();
+    }else{
+
+        document.getElementById("modalBacaladilla").style.display = "flex";
+
+        document.getElementById("pesoBacaladilla").value = "1";
+
+        if(document.getElementById("pesoPersonalizadoBacaladilla")){
+            document.getElementById("pesoPersonalizadoBacaladilla").value = "";
+        }
+
+        actualizarPrecioBacaladilla();
+
+    }
 
 }
 
@@ -3335,11 +3347,23 @@ cerrarProductoBacaladilla();
 }
 function abrirProductoBrotolaRoca(){
 
-document.getElementById("modalBrotolaRoca").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoBrotolaRoca").value="1";
+        window.location.href = "producto.html?producto=brotola-roca";
 
-actualizarPrecioBrotolaRoca();
+    }else{
+
+        document.getElementById("modalBrotolaRoca").style.display = "flex";
+
+        document.getElementById("pesoBrotolaRoca").value = "1";
+
+        if(document.getElementById("pesoPersonalizadoBrotolaRoca")){
+            document.getElementById("pesoPersonalizadoBrotolaRoca").value = "";
+        }
+
+        actualizarPrecioBrotolaRoca();
+
+    }
 
 }
 
@@ -3390,11 +3414,23 @@ cerrarProductoBrotolaRoca();
 }
 function abrirProductoBrotola(){
 
-document.getElementById("modalBrotola").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoBrotola").value="1";
+        window.location.href = "producto.html?producto=brotola";
 
-actualizarPrecioBrotola();
+    }else{
+
+        document.getElementById("modalBrotola").style.display = "flex";
+
+        document.getElementById("pesoBrotola").value = "1";
+
+        if(document.getElementById("pesoPersonalizadoBrotola")){
+            document.getElementById("pesoPersonalizadoBrotola").value = "";
+        }
+
+        actualizarPrecioBrotola();
+
+    }
 
 }
 
