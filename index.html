@@ -3571,11 +3571,23 @@ cerrarProductoBrotola();
 }
 function abrirProductoCazon(){
 
-document.getElementById("modalCazon").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoCazon").value="1";
+        window.location.href = "producto.html?producto=cazon";
 
-actualizarPrecioCazon();
+    }else{
+
+        document.getElementById("modalCazon").style.display = "flex";
+
+        document.getElementById("pesoCazon").value = "1";
+
+        if(document.getElementById("pesoPersonalizadoCazon")){
+            document.getElementById("pesoPersonalizadoCazon").value = "";
+        }
+
+        actualizarPrecioCazon();
+
+    }
 
 }
 
@@ -3626,11 +3638,23 @@ cerrarProductoCazon();
 }
 function abrirProductoCorvina(){
 
-document.getElementById("modalCorvina").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoCorvina").value="1";
+        window.location.href = "producto.html?producto=corvina";
 
-actualizarPrecioCorvina();
+    }else{
+
+        document.getElementById("modalCorvina").style.display="flex";
+
+        document.getElementById("pesoCorvina").value="1";
+
+        if(document.getElementById("pesoPersonalizadoCorvina")){
+            document.getElementById("pesoPersonalizadoCorvina").value="";
+        }
+
+        actualizarPrecioCorvina();
+
+    }
 
 }
 
@@ -3642,8 +3666,23 @@ document.getElementById("modalCorvina").style.display="none";
 
 function actualizarPrecioCorvina(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCorvina").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCorvina").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 6.5 * peso;
 
@@ -3654,8 +3693,23 @@ document.getElementById("precioCorvina").innerText =
 
 function agregarCorvina(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCorvina").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCorvina").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionCorvina").value;
@@ -7608,11 +7662,17 @@ onclick="cerrarProductoCazon()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="cazon.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Cazón
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Cazón</h2>
 
 <p><strong>Precio:</strong> 15.50 €/kg</p>
 
@@ -7626,12 +7686,31 @@ Ideal para adobo, fritura y cocina tradicional.
 <select id="pesoCazon"
 onchange="actualizarPrecioCazon()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCazon"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCazon()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioCazon"
 style="
@@ -7641,7 +7720,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 7.75€
+Total: 15.50€
 
 </p>
 
@@ -7669,6 +7748,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalCorvina"
 class="modal-producto"
 onclick="cerrarProductoCorvina()">
@@ -7676,11 +7759,17 @@ onclick="cerrarProductoCorvina()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="corvina.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Corvina
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Corvina</h2>
 
 <p><strong>Precio:</strong> 6.50 €/kg</p>
 
@@ -7694,12 +7783,31 @@ Ideal para horno, plancha y filetes.
 <select id="pesoCorvina"
 onchange="actualizarPrecioCorvina()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCorvina"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCorvina()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioCorvina"
 style="
@@ -7709,7 +7817,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 3.25€
+Total: 6.50€
 
 </p>
 
@@ -7738,6 +7846,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalJurel"
 class="modal-producto"
 onclick="cerrarProductoJurel()">
@@ -7745,11 +7857,17 @@ onclick="cerrarProductoJurel()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="jurel.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Jurel
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Jurel</h2>
 
 <p><strong>Precio:</strong> 3.50 €/kg</p>
 
@@ -7763,12 +7881,31 @@ Ideal para plancha, horno y fritura.
 <select id="pesoJurel"
 onchange="actualizarPrecioJurel()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoJurel"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioJurel()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioJurel"
 style="
@@ -7778,7 +7915,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 1.75€
+Total: 3.50€
 
 </p>
 
@@ -7788,7 +7925,6 @@ Total: 1.75€
 
 <option>Entero</option>
 <option>Sin cabeza</option>
-
 
 </select>
 
@@ -7807,6 +7943,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalJurela"
 class="modal-producto"
 onclick="cerrarProductoJurela()">
@@ -7814,11 +7954,17 @@ onclick="cerrarProductoJurela()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="jurela.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Jurela
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Jurela</h2>
 
 <p><strong>Precio:</strong> 6 €/kg</p>
 
@@ -7832,12 +7978,31 @@ Ideal para plancha, horno y cocina tradicional.
 <select id="pesoJurela"
 onchange="actualizarPrecioJurela()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoJurela"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioJurela()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioJurela"
 style="
@@ -7847,7 +8012,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 3.00€
+Total: 6.00€
 
 </p>
 
@@ -7857,7 +8022,6 @@ Total: 3.00€
 
 <option>Entera</option>
 <option>Sin cabeza</option>
-
 
 </select>
 
@@ -7876,6 +8040,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalPijota"
 class="modal-producto"
 onclick="cerrarProductoPijota()">
@@ -7883,11 +8051,17 @@ onclick="cerrarProductoPijota()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="pijota.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Pijota
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Pijota</h2>
 
 <p><strong>Precio:</strong> 14.50 €/kg</p>
 
@@ -7901,12 +8075,31 @@ Ideal para fritura y cocina tradicional.
 <select id="pesoPijota"
 onchange="actualizarPrecioPijota()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoPijota"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioPijota()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioPijota"
 style="
@@ -7916,7 +8109,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 7.25€
+Total: 14.50€
 
 </p>
 
@@ -7926,7 +8119,6 @@ Total: 7.25€
 
 <option>Entera</option>
 <option>Sin cabeza</option>
-
 
 </select>
 
@@ -7945,6 +8137,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalSalmoneteRoca"
 class="modal-producto"
 onclick="cerrarProductoSalmoneteRoca()">
@@ -7952,17 +8148,18 @@ onclick="cerrarProductoSalmoneteRoca()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="salmonete roca.jpg">
 
-<h2 style="
-font-size:36px;
-line-height:1.1;
-letter-spacing:0;
-word-break:break-word;
-overflow-wrap:break-word;
-">
-🐟 Salmonete roca
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Salmonete Roca</h2>
+
 <p><strong>Precio:</strong> 23 €/kg</p>
 
 <p>
@@ -7975,12 +8172,31 @@ Muy apreciado por su sabor intenso y calidad.
 <select id="pesoSalmoneteRoca"
 onchange="actualizarPrecioSalmoneteRoca()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoSalmoneteRoca"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioSalmoneteRoca()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioSalmoneteRoca"
 style="
@@ -7990,7 +8206,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 11.50€
+Total: 23.00€
 
 </p>
 
@@ -8001,8 +8217,6 @@ Total: 11.50€
 <option>Entero</option>
 <option>Sin cabeza</option>
 <option>Sin escamas</option>
-
-
 
 </select>
 
@@ -8021,6 +8235,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalSalmonete"
 class="modal-producto"
 onclick="cerrarProductoSalmonete()">
@@ -8028,17 +8246,17 @@ onclick="cerrarProductoSalmonete()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="salmonete.jpg">
 
-<h2 style="
-font-size:36px;
-line-height:1.1;
-letter-spacing:0;
-word-break:break-word;
-overflow-wrap:break-word;
-">
-🐟 Salmonete
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Salmonete</h2>
 
 <p><strong>Precio:</strong> 15 €/kg</p>
 
@@ -8052,12 +8270,31 @@ Ideal para fritura, plancha y horno.
 <select id="pesoSalmonete"
 onchange="actualizarPrecioSalmonete()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoSalmonete"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioSalmonete()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioSalmonete"
 style="
@@ -8067,7 +8304,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 7.50€
+Total: 15.00€
 
 </p>
 
@@ -8091,6 +8328,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
