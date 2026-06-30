@@ -3405,8 +3405,23 @@ document.getElementById("modalBrotolaRoca").style.display="none";
 
 function actualizarPrecioBrotolaRoca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoBrotolaRoca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoBrotolaRoca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 15 * peso;
 
@@ -3417,8 +3432,23 @@ document.getElementById("precioBrotolaRoca").innerText =
 
 function agregarBrotolaRoca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoBrotolaRoca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoBrotolaRoca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionBrotolaRoca").value;
@@ -3427,10 +3457,10 @@ let precioFinal = 15 * peso;
 
 carrito.push({
 
-nombre:"Brótola Roca",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Brótola Roca",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -3472,8 +3502,23 @@ document.getElementById("modalBrotola").style.display="none";
 
 function actualizarPrecioBrotola(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoBrotola").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoBrotola").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 8 * peso;
 
@@ -3484,8 +3529,23 @@ document.getElementById("precioBrotola").innerText =
 
 function agregarBrotola(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoBrotola").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoBrotola").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionBrotola").value;
@@ -3494,10 +3554,10 @@ let precioFinal = 8 * peso;
 
 carrito.push({
 
-nombre:"Brótola",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Brótola",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
