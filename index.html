@@ -7190,16 +7190,17 @@ onclick="cerrarProductoBacaladilla()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="bacaladilla.jpg">
 
-<h2 style="
-font-size:34px;
-line-height:1;
-text-align:center;
-word-break:break-word;
-">
-🐟 Bacaladilla
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Bacaladilla</h2>
 
 <p><strong>Precio:</strong> 18 €/kg</p>
 
@@ -7213,12 +7214,31 @@ Ideal para freír y cocina tradicional.
 <select id="pesoBacaladilla"
 onchange="actualizarPrecioBacaladilla()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoBacaladilla"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioBacaladilla()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioBacaladilla"
 style="
@@ -7228,7 +7248,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 9.00€
+Total: 18.00€
 
 </p>
 
@@ -7257,6 +7277,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalBrotolaRoca"
 class="modal-producto"
 onclick="cerrarProductoBrotolaRoca()">
@@ -7264,11 +7288,17 @@ onclick="cerrarProductoBrotolaRoca()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="brotola roca.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Brótola Roca
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Brótola Roca</h2>
 
 <p><strong>Precio:</strong> 15 €/kg</p>
 
@@ -7282,12 +7312,31 @@ Ideal para horno, plancha y guisos.
 <select id="pesoBrotolaRoca"
 onchange="actualizarPrecioBrotolaRoca()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoBrotolaRoca"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioBrotolaRoca()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioBrotolaRoca"
 style="
@@ -7297,7 +7346,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 7.50€
+Total: 15.00€
 
 </p>
 
@@ -7325,6 +7374,10 @@ class="btn-producto">
 </div>
 
 </div>
+
+</div>
+
+</div>
 <div id="modalBrotola"
 class="modal-producto"
 onclick="cerrarProductoBrotola()">
@@ -7332,11 +7385,17 @@ onclick="cerrarProductoBrotola()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="brotola.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐟 Brótola
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Brótola</h2>
 
 <p><strong>Precio:</strong> 8 €/kg</p>
 
@@ -7350,12 +7409,31 @@ Ideal para plancha, horno y guisos.
 <select id="pesoBrotola"
 onchange="actualizarPrecioBrotola()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoBrotola"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioBrotola()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioBrotola"
 style="
@@ -7365,7 +7443,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 4.00€
+Total: 8.00€
 
 </p>
 
@@ -7389,6 +7467,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
