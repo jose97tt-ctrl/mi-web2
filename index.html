@@ -3308,8 +3308,23 @@ document.getElementById("modalBacaladilla").style.display="none";
 
 function actualizarPrecioBacaladilla(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoBacaladilla").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoBacaladilla").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 18 * peso;
 
@@ -3320,8 +3335,23 @@ document.getElementById("precioBacaladilla").innerText =
 
 function agregarBacaladilla(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoBacaladilla").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoBacaladilla").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionBacaladilla").value;
@@ -3330,10 +3360,10 @@ let precioFinal = 18 * peso;
 
 carrito.push({
 
-nombre:"Bacaladilla",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Bacaladilla",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
