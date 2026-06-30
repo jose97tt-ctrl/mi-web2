@@ -3599,8 +3599,23 @@ document.getElementById("modalCazon").style.display="none";
 
 function actualizarPrecioCazon(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCazon").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCazon").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 15.5 * peso;
 
@@ -3608,11 +3623,25 @@ document.getElementById("precioCazon").innerText =
 "Total: " + total.toFixed(2) + "€";
 
 }
-
 function agregarCazon(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCazon").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCazon").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionCazon").value;
@@ -3621,10 +3650,10 @@ let precioFinal = 15.5 * peso;
 
 carrito.push({
 
-nombre:"Cazón",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Cazón",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
