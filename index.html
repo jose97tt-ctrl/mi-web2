@@ -4894,11 +4894,19 @@ cerrarProductoCangrejoArena();
 }
 function abrirProductoCangrejoAzul(){
 
-document.getElementById("modalCangrejoAzul").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoCangrejoAzul").value="1";
+        window.location.href = "producto.html?producto=cangrejo-azul";
 
-actualizarPrecioCangrejoAzul();
+    }else{
+
+        document.getElementById("modalCangrejoAzul").style.display = "flex";
+
+        document.getElementById("pesoCangrejoAzul").value = "1";
+
+        actualizarPrecioCangrejoAzul();
+
+    }
 
 }
 
@@ -4910,20 +4918,38 @@ document.getElementById("modalCangrejoAzul").style.display="none";
 
 function actualizarPrecioCangrejoAzul(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCangrejoAzul").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCangrejoAzul").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let total = 8.5 * peso;
 
 document.getElementById("precioCangrejoAzul").innerText =
-"Total: " + total.toFixed(2) + "€";
+"Total: " + total.toFixed(2) + " €";
 
 }
 
 function agregarCangrejoAzul(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCangrejoAzul").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCangrejoAzul").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let preparacion =
 document.getElementById("preparacionCangrejoAzul").value;
@@ -9565,11 +9591,17 @@ onclick="cerrarProductoCangrejoAzul()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="cangrejo azul.jpg">
 
-<h2 style="font-size:42px; line-height:1;">
-🦀 Cangrejo Azul
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦀 Cangrejo Azul</h2>
 
 <p><strong>Precio:</strong> 8,50 €/kg</p>
 
@@ -9583,12 +9615,32 @@ Ideal para arroces, guisos y cocina marinera.
 <select id="pesoCangrejoAzul"
 onchange="actualizarPrecioCangrejoAzul()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCangrejoAzul"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCangrejoAzul()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioCangrejoAzul"
 style="
@@ -9598,7 +9650,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 4.25€
+Total: 8.50 €
 
 </p>
 
@@ -9608,7 +9660,6 @@ Total: 4.25€
 
 <option>Natural</option>
 <option>Vivo</option>
-
 
 </select>
 
@@ -9623,6 +9674,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
