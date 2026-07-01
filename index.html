@@ -3764,11 +3764,23 @@ cerrarProductoCorvina();
 }
 function abrirProductoJurel(){
 
-document.getElementById("modalJurel").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoJurel").value="1";
+        window.location.href = "producto.html?producto=jurel";
 
-actualizarPrecioJurel();
+    }else{
+
+        document.getElementById("modalJurel").style.display="flex";
+
+        document.getElementById("pesoJurel").value="1";
+
+        if(document.getElementById("pesoPersonalizadoJurel")){
+            document.getElementById("pesoPersonalizadoJurel").value="";
+        }
+
+        actualizarPrecioJurel();
+
+    }
 
 }
 
@@ -3780,8 +3792,23 @@ document.getElementById("modalJurel").style.display="none";
 
 function actualizarPrecioJurel(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoJurel").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoJurel").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 3.5 * peso;
 
@@ -3792,8 +3819,23 @@ document.getElementById("precioJurel").innerText =
 
 function agregarJurel(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoJurel").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoJurel").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionJurel").value;
