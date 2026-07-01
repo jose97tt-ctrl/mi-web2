@@ -8606,11 +8606,17 @@ onclick="cerrarProductoAlmejaItaliana()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="almeja italiana.jpg">
 
-<h2 style="font-size:42px; line-height:1;">
-🦪 Almeja Italiana
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Almeja Italiana</h2>
 
 <p><strong>Precio:</strong> 10 €/kg</p>
 
@@ -8624,12 +8630,32 @@ Ideal para arroces, pastas y mariscos al vapor.
 <select id="pesoAlmejaItaliana"
 onchange="actualizarPrecioAlmejaItaliana()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoAlmejaItaliana"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioAlmejaItaliana()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioAlmejaItaliana"
 style="
@@ -8639,7 +8665,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 5.00€
+Total: 10.00 €
 
 </p>
 
@@ -8662,6 +8688,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
