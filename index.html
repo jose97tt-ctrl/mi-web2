@@ -3861,11 +3861,23 @@ cerrarProductoJurel();
 }
 function abrirProductoJurela(){
 
-document.getElementById("modalJurela").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoJurela").value="1";
+        window.location.href = "producto.html?producto=jurela";
 
-actualizarPrecioJurela();
+    }else{
+
+        document.getElementById("modalJurela").style.display="flex";
+
+        document.getElementById("pesoJurela").value="1";
+
+        if(document.getElementById("pesoPersonalizadoJurela")){
+            document.getElementById("pesoPersonalizadoJurela").value="";
+        }
+
+        actualizarPrecioJurela();
+
+    }
 
 }
 
@@ -3877,8 +3889,23 @@ document.getElementById("modalJurela").style.display="none";
 
 function actualizarPrecioJurela(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoJurela").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoJurela").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 6 * peso;
 
@@ -3889,8 +3916,23 @@ document.getElementById("precioJurela").innerText =
 
 function agregarJurela(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoJurela").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoJurela").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionJurela").value;
