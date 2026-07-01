@@ -5137,11 +5137,19 @@ cerrarProductoCigala();
 }
 function abrirProductoConchaFina(){
 
-document.getElementById("modalConchaFina").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoConchaFina").value="1";
+        window.location.href = "producto.html?producto=concha-fina";
 
-actualizarPrecioConchaFina();
+    }else{
+
+        document.getElementById("modalConchaFina").style.display = "flex";
+
+        document.getElementById("pesoConchaFina").value = "1";
+
+        actualizarPrecioConchaFina();
+
+    }
 
 }
 
@@ -5153,20 +5161,38 @@ document.getElementById("modalConchaFina").style.display="none";
 
 function actualizarPrecioConchaFina(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoConchaFina").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoConchaFina").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let total = 16 * peso;
 
 document.getElementById("precioConchaFina").innerText =
-"Total: " + total.toFixed(2) + "€";
+"Total: " + total.toFixed(2) + " €";
 
 }
 
 function agregarConchaFina(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoConchaFina").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoConchaFina").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let preparacion =
 document.getElementById("preparacionConchaFina").value;
@@ -9935,11 +9961,17 @@ onclick="cerrarProductoConchaFina()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="concha fina.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦪 Concha Fina
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Concha Fina</h2>
 
 <p><strong>Precio:</strong> 16 €/kg</p>
 
@@ -9953,12 +9985,32 @@ Ideal para consumir al natural o con limón.
 <select id="pesoConchaFina"
 onchange="actualizarPrecioConchaFina()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoConchaFina"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioConchaFina()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioConchaFina"
 style="
@@ -9968,7 +10020,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 8.00€
+Total: 16.00 €
 
 </p>
 
@@ -9991,6 +10043,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
