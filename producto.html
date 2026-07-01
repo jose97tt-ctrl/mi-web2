@@ -581,7 +581,7 @@ JSON.parse(localStorage.getItem("carrito")) || [];
 
 carrito.push({
 
-    nombre: producto.nombre.replace("🐟 ", ""),
+    nombre: producto.nombre,
     peso:peso + " kg",
     preparacion:preparacion,
     precio:precioFinal
