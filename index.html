@@ -3958,11 +3958,23 @@ cerrarProductoJurela();
 }
 function abrirProductoPijota(){
 
-document.getElementById("modalPijota").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoPijota").value="1";
+        window.location.href = "producto.html?producto=pijota";
 
-actualizarPrecioPijota();
+    }else{
+
+        document.getElementById("modalPijota").style.display="flex";
+
+        document.getElementById("pesoPijota").value="1";
+
+        if(document.getElementById("pesoPersonalizadoPijota")){
+            document.getElementById("pesoPersonalizadoPijota").value="";
+        }
+
+        actualizarPrecioPijota();
+
+    }
 
 }
 
@@ -3974,8 +3986,23 @@ document.getElementById("modalPijota").style.display="none";
 
 function actualizarPrecioPijota(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoPijota").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoPijota").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 14.5 * peso;
 
@@ -3986,8 +4013,23 @@ document.getElementById("precioPijota").innerText =
 
 function agregarPijota(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoPijota").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoPijota").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionPijota").value;
