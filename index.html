@@ -4152,14 +4152,25 @@ cerrarProductoSalmoneteRoca();
 }
 function abrirProductoSalmonete(){
 
-document.getElementById("modalSalmonete").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoSalmonete").value="1";
+        window.location.href = "producto.html?producto=salmonete";
 
-actualizarPrecioSalmonete();
+    }else{
+
+        document.getElementById("modalSalmonete").style.display="flex";
+
+        document.getElementById("pesoSalmonete").value="1";
+
+        if(document.getElementById("pesoPersonalizadoSalmonete")){
+            document.getElementById("pesoPersonalizadoSalmonete").value="";
+        }
+
+        actualizarPrecioSalmonete();
+
+    }
 
 }
-
 function cerrarProductoSalmonete(){
 
 document.getElementById("modalSalmonete").style.display="none";
@@ -4168,8 +4179,23 @@ document.getElementById("modalSalmonete").style.display="none";
 
 function actualizarPrecioSalmonete(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoSalmonete").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoSalmonete").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 15 * peso;
 
@@ -4180,8 +4206,23 @@ document.getElementById("precioSalmonete").innerText =
 
 function agregarSalmonete(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoSalmonete").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoSalmonete").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionSalmonete").value;
@@ -4205,7 +4246,6 @@ actualizarCarrito();
 cerrarProductoSalmonete();
 
 }
-
 function abrirProductoAlmejaItaliana(){
 
 document.getElementById("modalAlmejaItaliana").style.display="flex";
