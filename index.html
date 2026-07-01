@@ -4329,11 +4329,19 @@ cerrarProductoAlmejaItaliana();
 }
 function abrirProductoAlmejaChirla(){
 
-document.getElementById("modalAlmejaChirla").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoAlmejaChirla").value="1";
+        window.location.href = "producto.html?producto=almeja-chirla";
 
-actualizarPrecioAlmejaChirla();
+    }else{
+
+        document.getElementById("modalAlmejaChirla").style.display = "flex";
+
+        document.getElementById("pesoAlmejaChirla").value = "1";
+
+        actualizarPrecioAlmejaChirla();
+
+    }
 
 }
 
@@ -4345,20 +4353,37 @@ document.getElementById("modalAlmejaChirla").style.display="none";
 
 function actualizarPrecioAlmejaChirla(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAlmejaChirla").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAlmejaChirla").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let total = 12 * peso;
 
 document.getElementById("precioAlmejaChirla").innerText =
-"Total: " + total.toFixed(2) + "€";
+"Total: " + total.toFixed(2) + " €";
 
 }
-
 function agregarAlmejaChirla(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAlmejaChirla").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAlmejaChirla").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let preparacion =
 document.getElementById("preparacionAlmejaChirla").value;
@@ -8703,11 +8728,17 @@ onclick="cerrarProductoAlmejaChirla()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="almeja o chirla.jpg">
 
-<h2 style="font-size:40px; line-height:1;">
-🦪 Almeja o Chirla
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Almeja o Chirla</h2>
 
 <p><strong>Precio:</strong> 12 €/kg</p>
 
@@ -8721,12 +8752,32 @@ Perfecta para arroces, sopas y mariscos al vapor.
 <select id="pesoAlmejaChirla"
 onchange="actualizarPrecioAlmejaChirla()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoAlmejaChirla"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioAlmejaChirla()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioAlmejaChirla"
 style="
@@ -8736,7 +8787,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 6.00€
+Total: 12.00 €
 
 </p>
 
@@ -8759,6 +8810,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
