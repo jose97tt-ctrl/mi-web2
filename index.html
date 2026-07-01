@@ -4975,11 +4975,19 @@ cerrarProductoCangrejoAzul();
 }
 function abrirProductoCarabinero(){
 
-document.getElementById("modalCarabinero").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoCarabinero").value="1";
+        window.location.href = "producto.html?producto=carabinero";
 
-actualizarPrecioCarabinero();
+    }else{
+
+        document.getElementById("modalCarabinero").style.display = "flex";
+
+        document.getElementById("pesoCarabinero").value = "1";
+
+        actualizarPrecioCarabinero();
+
+    }
 
 }
 
@@ -4991,20 +4999,38 @@ document.getElementById("modalCarabinero").style.display="none";
 
 function actualizarPrecioCarabinero(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCarabinero").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCarabinero").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let total = 85 * peso;
 
 document.getElementById("precioCarabinero").innerText =
-"Total: " + total.toFixed(2) + "€";
+"Total: " + total.toFixed(2) + " €";
 
 }
 
 function agregarCarabinero(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCarabinero").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCarabinero").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let preparacion =
 document.getElementById("preparacionCarabinero").value;
@@ -9689,17 +9715,17 @@ onclick="cerrarProductoCarabinero()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="carabinero.jpg">
 
-<h2 style="
-font-size:36px;
-line-height:1.1;
-letter-spacing:0;
-word-break:break-word;
-overflow-wrap:break-word;
-">
-🦐 Carabinero
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Carabinero</h2>
 
 <p><strong>Precio:</strong> 85 €/kg</p>
 
@@ -9713,12 +9739,32 @@ Ideal para plancha, arroces y ocasiones especiales.
 <select id="pesoCarabinero"
 onchange="actualizarPrecioCarabinero()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCarabinero"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCarabinero()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioCarabinero"
 style="
@@ -9728,7 +9774,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 42.50€
+Total: 85.00 €
 
 </p>
 
@@ -9751,6 +9797,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
