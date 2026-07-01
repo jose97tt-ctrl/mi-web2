@@ -4248,11 +4248,19 @@ cerrarProductoSalmonete();
 }
 function abrirProductoAlmejaItaliana(){
 
-document.getElementById("modalAlmejaItaliana").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoAlmejaItaliana").value="1";
+        window.location.href = "producto.html?producto=almeja-italiana";
 
-actualizarPrecioAlmejaItaliana();
+    }else{
+
+        document.getElementById("modalAlmejaItaliana").style.display = "flex";
+
+        document.getElementById("pesoAlmejaItaliana").value = "1";
+
+        actualizarPrecioAlmejaItaliana();
+
+    }
 
 }
 
@@ -4264,20 +4272,38 @@ document.getElementById("modalAlmejaItaliana").style.display="none";
 
 function actualizarPrecioAlmejaItaliana(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAlmejaItaliana").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAlmejaItaliana").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let total = 10 * peso;
 
 document.getElementById("precioAlmejaItaliana").innerText =
-"Total: " + total.toFixed(2) + "€";
+"Total: " + total.toFixed(2) + " €";
 
 }
 
 function agregarAlmejaItaliana(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoAlmejaItaliana").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAlmejaItaliana").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let preparacion =
 document.getElementById("preparacionAlmejaItaliana").value;
