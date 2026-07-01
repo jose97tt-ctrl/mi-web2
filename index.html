@@ -4813,11 +4813,19 @@ cerrarProductoCalamar();
 }
 function abrirProductoCangrejoArena(){
 
-document.getElementById("modalCangrejoArena").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoCangrejoArena").value="1";
+        window.location.href = "producto.html?producto=cangrejo-arena";
 
-actualizarPrecioCangrejoArena();
+    }else{
+
+        document.getElementById("modalCangrejoArena").style.display = "flex";
+
+        document.getElementById("pesoCangrejoArena").value = "1";
+
+        actualizarPrecioCangrejoArena();
+
+    }
 
 }
 
@@ -4829,20 +4837,38 @@ document.getElementById("modalCangrejoArena").style.display="none";
 
 function actualizarPrecioCangrejoArena(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCangrejoArena").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCangrejoArena").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let total = 5.5 * peso;
 
 document.getElementById("precioCangrejoArena").innerText =
-"Total: " + total.toFixed(2) + "€";
+"Total: " + total.toFixed(2) + " €";
 
 }
 
 function agregarCangrejoArena(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCangrejoArena").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCangrejoArena").value);
+
+let peso = pesoSeleccionado;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    peso = pesoPersonalizado;
+}
 
 let preparacion =
 document.getElementById("preparacionCangrejoArena").value;
@@ -9442,11 +9468,17 @@ onclick="cerrarProductoCangrejoArena()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="cangrejo arena.jpg">
 
-<h2 style="font-size:42px; line-height:1;">
-🦀 Cangrejo Arena
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦀 Cangrejo Arena</h2>
 
 <p><strong>Precio:</strong> 5,50 €/kg</p>
 
@@ -9460,12 +9492,32 @@ Ideal para caldos, arroces y guisos marineros.
 <select id="pesoCangrejoArena"
 onchange="actualizarPrecioCangrejoArena()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCangrejoArena"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCangrejoArena()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioCangrejoArena"
 style="
@@ -9475,7 +9527,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 2.75€
+Total: 5.50 €
 
 </p>
 
@@ -9484,7 +9536,6 @@ Total: 2.75€
 <select id="preparacionCangrejoArena">
 
 <option>Natural</option>
-
 
 </select>
 
@@ -9499,6 +9550,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
