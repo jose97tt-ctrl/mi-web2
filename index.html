@@ -4055,11 +4055,23 @@ cerrarProductoPijota();
 }
 function abrirProductoSalmoneteRoca(){
 
-document.getElementById("modalSalmoneteRoca").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoSalmoneteRoca").value="1";
+        window.location.href = "producto.html?producto=salmonete-roca";
 
-actualizarPrecioSalmoneteRoca();
+    }else{
+
+        document.getElementById("modalSalmoneteRoca").style.display="flex";
+
+        document.getElementById("pesoSalmoneteRoca").value="1";
+
+        if(document.getElementById("pesoPersonalizadoSalmoneteRoca")){
+            document.getElementById("pesoPersonalizadoSalmoneteRoca").value="";
+        }
+
+        actualizarPrecioSalmoneteRoca();
+
+    }
 
 }
 
@@ -4071,8 +4083,23 @@ document.getElementById("modalSalmoneteRoca").style.display="none";
 
 function actualizarPrecioSalmoneteRoca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoSalmoneteRoca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoSalmoneteRoca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 23 * peso;
 
@@ -4083,8 +4110,23 @@ document.getElementById("precioSalmoneteRoca").innerText =
 
 function agregarSalmoneteRoca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoSalmoneteRoca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoSalmoneteRoca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionSalmoneteRoca").value;
