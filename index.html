@@ -2929,15 +2929,15 @@ function cerrarProductoAguja(){
     document.getElementById("modalAguja").style.display="none";
 
 }
-function actualizarPrecioAguja(){
+function actualizarPrecioCoquina(){
 
-let precioKilo = 24;
+let precioKilo = 30;
 
 let pesoSeleccionado =
-parseFloat(document.getElementById("pesoAguja").value);
+parseFloat(document.getElementById("pesoCoquina").value);
 
 let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+parseFloat(document.getElementById("pesoPersonalizadoCoquina").value);
 
 let peso;
 
@@ -2954,17 +2954,17 @@ peso = pesoSeleccionado;
 
 let total = precioKilo * peso;
 
-document.getElementById("precioAguja").innerText =
+document.getElementById("precioCoquina").innerText =
 "Total: " + total.toFixed(2) + "€";
 
 }
-function agregarAguja(){
+function agregarCoquina(){
 
 let pesoSeleccionado =
-parseFloat(document.getElementById("pesoAguja").value);
+parseFloat(document.getElementById("pesoCoquina").value);
 
 let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+parseFloat(document.getElementById("pesoPersonalizadoCoquina").value);
 
 let peso;
 
@@ -2980,13 +2980,13 @@ peso = pesoSeleccionado;
 }
 
 let preparacion =
-document.getElementById("preparacionAguja").value;
+document.getElementById("preparacionCoquina").value;
 
-let precioFinal = 24 * peso;
+let precioFinal = 30 * peso;
 
 carrito.push({
 
-nombre:"Aguja",
+nombre:"Coquina",
 peso:peso + " kg",
 preparacion:preparacion,
 precio:precioFinal
@@ -2998,7 +2998,7 @@ carrito.length;
 
 actualizarCarrito();
 
-cerrarProductoAguja();
+cerrarProductoCoquina();
 
 }
 function abrirProductoAtunEnvasado(){
@@ -5218,14 +5218,21 @@ cerrarProductoConchaFina();
 }
 function abrirProductoCoquina(){
 
-document.getElementById("modalCoquina").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoCoquina").value="1";
+        window.location.href = "producto.html?producto=coquina";
 
-actualizarPrecioCoquina();
+    }else{
+
+        document.getElementById("modalCoquina").style.display = "flex";
+
+        document.getElementById("pesoCoquina").value = "1";
+
+        actualizarPrecioCoquina();
+
+    }
 
 }
-
 function cerrarProductoCoquina(){
 
 document.getElementById("modalCoquina").style.display="none";
@@ -10051,24 +10058,28 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalCoquina"
+<div id="modalCoquina" 
 class="modal-producto"
 onclick="cerrarProductoCoquina()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="coquina.jpg">
+</div>
 
-<h2 style="font-size:50px; line-height:1;">
-🦪 Coquina
-</h2>
+<div class="producto-info">
+
+<h2>🦪 Coquina</h2>
 
 <p><strong>Precio:</strong> 30 €/kg</p>
 
 <p>
-Coquina fresca seleccionada.
-Ideal para plancha, ajillo y mariscadas.
+Molusco muy apreciado por su sabor.
+Ideal para cocinar al ajillo o al vapor.
 </p>
 
 <label>Peso:</label>
@@ -10076,12 +10087,32 @@ Ideal para plancha, ajillo y mariscadas.
 <select id="pesoCoquina"
 onchange="actualizarPrecioCoquina()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCoquina"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCoquina()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioCoquina"
 style="
@@ -10091,7 +10122,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 15.00€
+Total: 30.00€
 
 </p>
 
@@ -10099,8 +10130,8 @@ Total: 15.00€
 
 <select id="preparacionCoquina">
 
-<option>Natural depurada</option>
-
+<option>Sin preparar</option>
+<option>Lavada</option>
 
 </select>
 
@@ -10115,6 +10146,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
