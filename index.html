@@ -2929,6 +2929,74 @@ function cerrarProductoAguja(){
     document.getElementById("modalAguja").style.display="none";
 
 }
+function actualizarPrecioAguja(){
+
+let pesoSeleccionado =
+parseFloat(document.getElementById("pesoAguja").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
+
+let total = 24 * peso;
+
+document.getElementById("precioAguja").innerText =
+"Total: " + total.toFixed(2) + "€";
+
+}
+function agregarAguja(){
+
+let pesoSeleccionado =
+parseFloat(document.getElementById("pesoAguja").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAguja").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
+
+let preparacion =
+document.getElementById("preparacionAguja").value;
+
+let precioFinal = 24 * peso;
+
+carrito.push({
+
+    nombre:"Aguja",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
+
+});
+
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
+actualizarCarrito();
+
+cerrarProductoAguja();
+
+}
 
 function abrirProductoAtunEnvasado(){
 
