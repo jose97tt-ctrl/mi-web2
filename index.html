@@ -6029,9 +6029,18 @@ cerrarProductoLongueron();
 }
 function abrirProductoMejillonRoca(){
 
+if(window.innerWidth<=768){
+
+window.location.href="producto.html?producto=mejillonroca";
+
+return;
+
+}
+
 document.getElementById("modalMejillonRoca").style.display="flex";
 
 document.getElementById("pesoMejillonRoca").value="1";
+document.getElementById("pesoPersonalizadoMejillonRoca").value="";
 
 actualizarPrecioMejillonRoca();
 
@@ -6045,36 +6054,60 @@ document.getElementById("modalMejillonRoca").style.display="none";
 
 function actualizarPrecioMejillonRoca(){
 
-let peso =
-parseFloat(document.getElementById("pesoMejillonRoca").value);
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoMejillonRoca").value);
 
-let total = 5.5 * peso;
+let peso;
 
-document.getElementById("precioMejillonRoca").innerText =
-"Total: " + total.toFixed(2) + "€";
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoMejillonRoca").value);
+
+}
+
+let total=5.5*peso;
+
+document.getElementById("precioMejillonRoca").innerText=
+"Total: "+total.toFixed(2)+"€";
 
 }
 
 function agregarMejillonRoca(){
 
-let peso =
-parseFloat(document.getElementById("pesoMejillonRoca").value);
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoMejillonRoca").value);
 
-let preparacion =
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoMejillonRoca").value);
+
+}
+
+let preparacion=
 document.getElementById("preparacionMejillonRoca").value;
 
-let precioFinal = 5.5 * peso;
+let precioFinal=5.5*peso;
 
 carrito.push({
 
 nombre:"Mejillón Roca",
-peso:peso + " kg",
+peso:peso.toFixed(3)+" kg",
 preparacion:preparacion,
 precio:precioFinal
 
 });
 
-document.getElementById("contadorCarrito").innerText =
+document.getElementById("contadorCarrito").innerText=
 carrito.length;
 
 actualizarCarrito();
@@ -11285,11 +11318,17 @@ onclick="cerrarProductoMejillonRoca()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="mejillon roca.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦪 Mejillón Roca
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Mejillón Roca</h2>
 
 <p><strong>Precio:</strong> 5.50 €/kg</p>
 
@@ -11300,17 +11339,39 @@ Ideal para vapor, marinera y arroces.
 
 <label>Peso:</label>
 
-<select id="pesoMejillonRoca"
+<select
+id="pesoMejillonRoca"
 onchange="actualizarPrecioMejillonRoca()">
-
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<p id="precioMejillonRoca"
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoMejillonRoca"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioMejillonRoca()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioMejillonRoca"
 style="
 font-size:24px;
 font-weight:bold;
@@ -11318,7 +11379,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 2.75€
+Total: 5.50€
 
 </p>
 
@@ -11327,10 +11388,13 @@ Total: 2.75€
 <select id="preparacionMejillonRoca">
 
 <option>Entero fresco</option>
+
 </select>
 
 <p style="color:green;">
+
 ✅ Disponible
+
 </p>
 
 <button
@@ -11340,6 +11404,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
