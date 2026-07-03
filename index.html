@@ -2929,78 +2929,7 @@ function cerrarProductoAguja(){
     document.getElementById("modalAguja").style.display="none";
 
 }
-function actualizarPrecioCoquina(){
 
-let precioKilo = 30;
-
-let pesoSeleccionado =
-parseFloat(document.getElementById("pesoCoquina").value);
-
-let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoCoquina").value);
-
-let peso;
-
-// Si el cliente escribe un peso personalizado, tiene prioridad
-if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
-
-peso = pesoPersonalizado;
-
-}else{
-
-peso = pesoSeleccionado;
-
-}
-
-let total = precioKilo * peso;
-
-document.getElementById("precioCoquina").innerText =
-"Total: " + total.toFixed(2) + "€";
-
-}
-function agregarCoquina(){
-
-let pesoSeleccionado =
-parseFloat(document.getElementById("pesoCoquina").value);
-
-let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoCoquina").value);
-
-let peso;
-
-// Si hay un peso personalizado, tiene prioridad
-if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
-
-peso = pesoPersonalizado;
-
-}else{
-
-peso = pesoSeleccionado;
-
-}
-
-let preparacion =
-document.getElementById("preparacionCoquina").value;
-
-let precioFinal = 30 * peso;
-
-carrito.push({
-
-nombre:"Coquina",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
-
-});
-
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
-
-actualizarCarrito();
-
-cerrarProductoCoquina();
-
-}
 function abrirProductoAtunEnvasado(){
 
     if(window.innerWidth <= 768){
@@ -5241,20 +5170,53 @@ document.getElementById("modalCoquina").style.display="none";
 
 function actualizarPrecioCoquina(){
 
-let peso =
+let precioKilo = 30;
+
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCoquina").value);
 
-let total = 30 * peso;
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCoquina").value);
+
+let peso;
+
+// Si el cliente escribe un peso personalizado, tiene prioridad
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+peso = pesoPersonalizado;
+
+}else{
+
+peso = pesoSeleccionado;
+
+}
+
+let total = precioKilo * peso;
 
 document.getElementById("precioCoquina").innerText =
 "Total: " + total.toFixed(2) + "€";
 
 }
-
 function agregarCoquina(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCoquina").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoCoquina").value);
+
+let peso;
+
+// Si hay un peso personalizado, tiene prioridad
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+peso = pesoPersonalizado;
+
+}else{
+
+peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionCoquina").value;
@@ -5277,6 +5239,7 @@ actualizarCarrito();
 
 cerrarProductoCoquina();
 
+}
 }
 function abrirProductoChopito(){
 
