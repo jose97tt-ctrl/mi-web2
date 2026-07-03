@@ -5765,50 +5765,85 @@ cerrarProductoGambaRoja();
 }
 function abrirProductoJibia(){
 
+if(window.innerWidth<=768){
+
+window.location.href="producto.html?producto=jibia";
+
+return;
+
+}
+
 document.getElementById("modalJibia").style.display="flex";
 
 document.getElementById("pesoJibia").value="1";
+document.getElementById("pesoPersonalizadoJibia").value="";
 
 actualizarPrecioJibia();
 
 }
 
 function cerrarProductoJibia(){
+
 document.getElementById("modalJibia").style.display="none";
+
 }
 
 function actualizarPrecioJibia(){
 
-let peso =
-parseFloat(document.getElementById("pesoJibia").value);
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoJibia").value);
 
-let total = 12 * peso;
+let peso;
 
-document.getElementById("precioJibia").innerText =
-"Total: " + total.toFixed(2) + "€";
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoJibia").value);
+
+}
+
+let total=12*peso;
+
+document.getElementById("precioJibia").innerText=
+"Total: "+total.toFixed(2)+"€";
 
 }
 
 function agregarJibia(){
 
-let peso =
-parseFloat(document.getElementById("pesoJibia").value);
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoJibia").value);
 
-let preparacion =
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoJibia").value);
+
+}
+
+let preparacion=
 document.getElementById("preparacionJibia").value;
 
-let precioFinal = 12 * peso;
+let precioFinal=12*peso;
 
 carrito.push({
 
 nombre:"Jibia o Choco",
-peso:peso + " kg",
+peso:peso.toFixed(3)+" kg",
 preparacion:preparacion,
 precio:precioFinal
 
 });
 
-document.getElementById("contadorCarrito").innerText =
+document.getElementById("contadorCarrito").innerText=
 carrito.length;
 
 actualizarCarrito();
@@ -10875,11 +10910,17 @@ onclick="cerrarProductoJibia()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="jibia.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦑 Jibia o Choco
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦑 Jibia o Choco</h2>
 
 <p><strong>Precio:</strong> 12 €/kg</p>
 
@@ -10890,19 +10931,47 @@ Ideal para plancha, guisos y fritura.
 
 <label>Peso:</label>
 
-<select id="pesoJibia"
+<select
+id="pesoJibia"
 onchange="actualizarPrecioJibia()">
-
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<p id="precioJibia" style="font-size:24px;font-weight:bold;color:#0a7f2e;margin:15px 0;">
+<br><br>
 
-Total: 6.00€
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoJibia"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioJibia()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioJibia"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 12.00€
 
 </p>
 
@@ -10913,10 +10982,13 @@ Total: 6.00€
 <option>Entera en sucio</option>
 <option>Limpia</option>
 
-
 </select>
 
-<p style="color:green;">✅ Disponible</p>
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
 
 <button
 onclick="agregarJibia()"
@@ -10925,6 +10997,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
