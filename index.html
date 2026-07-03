@@ -5589,9 +5589,18 @@ cerrarProductoGambaBlanca();
 }
 function abrirProductoGambaCristal(){
 
+if(window.innerWidth<=768){
+
+window.location.href="producto.html?producto=gambaCristal";
+
+return;
+
+}
+
 document.getElementById("modalGambaCristal").style.display="flex";
 
 document.getElementById("pesoGambaCristal").value="1";
+document.getElementById("pesoPersonalizadoGambaCristal").value="";
 
 actualizarPrecioGambaCristal();
 
@@ -5605,36 +5614,60 @@ document.getElementById("modalGambaCristal").style.display="none";
 
 function actualizarPrecioGambaCristal(){
 
-let peso =
-parseFloat(document.getElementById("pesoGambaCristal").value);
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoGambaCristal").value);
 
-let total = 20 * peso;
+let peso;
 
-document.getElementById("precioGambaCristal").innerText =
-"Total: " + total.toFixed(2) + "€";
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoGambaCristal").value);
+
+}
+
+let total=20*peso;
+
+document.getElementById("precioGambaCristal").innerText=
+"Total: "+total.toFixed(2)+" €";
 
 }
 
 function agregarGambaCristal(){
 
-let peso =
-parseFloat(document.getElementById("pesoGambaCristal").value);
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoGambaCristal").value);
 
-let preparacion =
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoGambaCristal").value);
+
+}
+
+let preparacion=
 document.getElementById("preparacionGambaCristal").value;
 
-let precioFinal = 20 * peso;
+let precioFinal=20*peso;
 
 carrito.push({
 
 nombre:"Gamba Cristal",
-peso:peso + " kg",
+peso:peso.toFixed(3)+" kg",
 preparacion:preparacion,
 precio:precioFinal
 
 });
 
-document.getElementById("contadorCarrito").innerText =
+document.getElementById("contadorCarrito").innerText=
 carrito.length;
 
 actualizarCarrito();
@@ -10606,11 +10639,17 @@ onclick="cerrarProductoGambaCristal()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="cristal.jpg">
 
-<h2 style="font-size:42px; line-height:1;">
-🦐 Gamba Cristal
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Gamba Cristal</h2>
 
 <p><strong>Precio:</strong> 20 €/kg</p>
 
@@ -10621,17 +10660,39 @@ Perfecta para fritura tradicional y tortillas de camarones.
 
 <label>Peso:</label>
 
-<select id="pesoGambaCristal"
+<select
+id="pesoGambaCristal"
 onchange="actualizarPrecioGambaCristal()">
-
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<p id="precioGambaCristal"
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoGambaCristal"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioGambaCristal()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioGambaCristal"
 style="
 font-size:24px;
 font-weight:bold;
@@ -10639,7 +10700,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 10.00€
+Total: 20.00€
 
 </p>
 
@@ -10652,7 +10713,9 @@ Total: 10.00€
 </select>
 
 <p style="color:green;">
+
 ✅ Disponible
+
 </p>
 
 <button
@@ -10662,6 +10725,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
