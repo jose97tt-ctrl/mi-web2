@@ -5677,9 +5677,18 @@ cerrarProductoGambaCristal();
 }
 function abrirProductoGambaRoja(){
 
+if(window.innerWidth<=768){
+
+window.location.href="producto.html?producto=gambaroja";
+
+return;
+
+}
+
 document.getElementById("modalGambaRoja").style.display="flex";
 
 document.getElementById("pesoGambaRoja").value="1";
+document.getElementById("pesoPersonalizadoGambaRoja").value="";
 
 actualizarPrecioGambaRoja();
 
@@ -5693,36 +5702,60 @@ document.getElementById("modalGambaRoja").style.display="none";
 
 function actualizarPrecioGambaRoja(){
 
-let peso =
-parseFloat(document.getElementById("pesoGambaRoja").value);
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoGambaRoja").value);
 
-let total = 110 * peso;
+let peso;
 
-document.getElementById("precioGambaRoja").innerText =
-"Total: " + total.toFixed(2) + "€";
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoGambaRoja").value);
+
+}
+
+let total=110*peso;
+
+document.getElementById("precioGambaRoja").innerText=
+"Total: "+total.toFixed(2)+"€";
 
 }
 
 function agregarGambaRoja(){
 
-let peso =
-parseFloat(document.getElementById("pesoGambaRoja").value);
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoGambaRoja").value);
 
-let preparacion =
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+peso=pesoPersonalizado;
+
+}else{
+
+peso=parseFloat(document.getElementById("pesoGambaRoja").value);
+
+}
+
+let preparacion=
 document.getElementById("preparacionGambaRoja").value;
 
-let precioFinal = 110 * peso;
+let precioFinal=110*peso;
 
 carrito.push({
 
 nombre:"Gamba Roja",
-peso:peso + " kg",
+peso:peso.toFixed(3)+" kg",
 preparacion:preparacion,
 precio:precioFinal
 
 });
 
-document.getElementById("contadorCarrito").innerText =
+document.getElementById("contadorCarrito").innerText=
 carrito.length;
 
 actualizarCarrito();
@@ -10740,11 +10773,17 @@ onclick="cerrarProductoGambaRoja()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="gamba roja.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦐 Gamba Roja
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Gamba Roja</h2>
 
 <p><strong>Precio:</strong> 110 €/kg</p>
 
@@ -10755,17 +10794,39 @@ Ideal para plancha, cocción y mariscadas especiales.
 
 <label>Peso:</label>
 
-<select id="pesoGambaRoja"
+<select
+id="pesoGambaRoja"
 onchange="actualizarPrecioGambaRoja()">
-
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<p id="precioGambaRoja"
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoGambaRoja"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioGambaRoja()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioGambaRoja"
 style="
 font-size:24px;
 font-weight:bold;
@@ -10773,7 +10834,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 55.00€
+Total: 110.00€
 
 </p>
 
@@ -10787,7 +10848,9 @@ Total: 55.00€
 </select>
 
 <p style="color:green;">
+
 ✅ Disponible
+
 </p>
 
 <button
@@ -10797,6 +10860,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
