@@ -5496,24 +5496,47 @@ cerrarProductoGalera();
 }
 function abrirProductoGambaBlanca(){
 
-document.getElementById("modalGambaBlanca").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoGambaBlanca").value="1";
+        window.location.href="producto.html?producto=gambablanca";
 
-actualizarPrecioGambaBlanca();
+    }else{
+
+        document.getElementById("modalGambaBlanca").style.display="flex";
+
+        document.getElementById("pesoGambaBlanca").value="1";
+
+        actualizarPrecioGambaBlanca();
+
+    }
 
 }
 
 function cerrarProductoGambaBlanca(){
 
-document.getElementById("modalGambaBlanca").style.display="none";
+    document.getElementById("modalGambaBlanca").style.display="none";
 
 }
 
 function actualizarPrecioGambaBlanca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoGambaBlanca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoGambaBlanca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 18 * peso;
 
@@ -5524,8 +5547,23 @@ document.getElementById("precioGambaBlanca").innerText =
 
 function agregarGambaBlanca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoGambaBlanca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoGambaBlanca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionGambaBlanca").value;
@@ -5534,10 +5572,10 @@ let precioFinal = 18 * peso;
 
 carrito.push({
 
-nombre:"Gamba Blanca",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Gamba Blanca",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -10466,32 +10504,60 @@ onclick="cerrarProductoGambaBlanca()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
-<img src="gamba.jpg">
+<div class="producto-layout">
 
-<h2 style="font-size:50px; line-height:1;">
-🦐 Gamba Blanca
-</h2>
+<div class="producto-foto">
+
+<img src="gambablanca.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Gamba Blanca</h2>
 
 <p><strong>Precio:</strong> 18 €/kg</p>
 
 <p>
-Gamba blanca fresca seleccionada.
-Ideal para cocer, plancha y mariscadas.
+Gamba blanca fresca de gran calidad.
+Ideal para cocer, plancha o a la sal.
 </p>
 
 <label>Peso:</label>
 
-<select id="pesoGambaBlanca"
+<select
+id="pesoGambaBlanca"
 onchange="actualizarPrecioGambaBlanca()">
-
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<p id="precioGambaBlanca"
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoGambaBlanca"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioGambaBlanca()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioGambaBlanca"
 style="
 font-size:24px;
 font-weight:bold;
@@ -10499,7 +10565,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 9.00€
+Total: 18.00€
 
 </p>
 
@@ -10507,14 +10573,15 @@ Total: 9.00€
 
 <select id="preparacionGambaBlanca">
 
-<option>Fresca</option>
-<option>Cocida</option>
-<option>Pelada (sin cabeza)</option>
+<option>Entero</option>
+<option>Limpio</option>
 
 </select>
 
 <p style="color:green;">
+
 ✅ Disponible
+
 </p>
 
 <button
@@ -10524,6 +10591,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
