@@ -5311,11 +5311,19 @@ cerrarProductoCoquina();
 
 function abrirProductoChopito(){
 
-document.getElementById("modalChopito").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoChopito").value="1";
+        window.location.href="producto.html?producto=chopito";
 
-actualizarPrecioChopito();
+    }else{
+
+        document.getElementById("modalChopito").style.display="flex";
+
+        document.getElementById("pesoChopito").value="1";
+
+        actualizarPrecioChopito();
+
+    }
 
 }
 
@@ -5339,25 +5347,39 @@ document.getElementById("precioChopito").innerText =
 
 function agregarChopito(){
 
-let peso =
+let pesoSeleccionado=
 parseFloat(document.getElementById("pesoChopito").value);
 
-let preparacion =
+let pesoPersonalizado=
+parseFloat(document.getElementById("pesoPersonalizadoChopito").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado>0){
+
+    peso=pesoPersonalizado;
+
+}else{
+
+    peso=pesoSeleccionado;
+
+}
+
+let preparacion=
 document.getElementById("preparacionChopito").value;
 
-let precioFinal = 35 * peso;
+let precioFinal=35*peso;
 
 carrito.push({
 
 nombre:"Chopito",
-peso:peso + " kg",
+peso:peso+" kg",
 preparacion:preparacion,
 precio:precioFinal
 
 });
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+document.getElementById("contadorCarrito").innerText=carrito.length;
 
 actualizarCarrito();
 
@@ -10191,18 +10213,23 @@ onclick="cerrarProductoChopito()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="chopito.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦑 Chopito
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦑 Chopito</h2>
 
 <p><strong>Precio:</strong> 35 €/kg</p>
 
 <p>
-Chopito fresco seleccionado.
-Perfecto para fritura tradicional andaluza.
+Chopito fresco de gran calidad.
+Ideal para freír, plancha o a la andaluza.
 </p>
 
 <label>Peso:</label>
@@ -10210,12 +10237,32 @@ Perfecto para fritura tradicional andaluza.
 <select id="pesoChopito"
 onchange="actualizarPrecioChopito()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoChopito"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioChopito()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioChopito"
 style="
@@ -10225,7 +10272,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 17.50€
+Total: 35.00€
 
 </p>
 
@@ -10234,6 +10281,7 @@ Total: 17.50€
 <select id="preparacionChopito">
 
 <option>Entero</option>
+<option>Limpio</option>
 
 </select>
 
@@ -10248,6 +10296,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
