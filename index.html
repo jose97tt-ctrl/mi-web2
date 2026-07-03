@@ -5335,8 +5335,23 @@ document.getElementById("modalChopito").style.display="none";
 
 function actualizarPrecioChopito(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoChopito").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoChopito").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 35 * peso;
 
