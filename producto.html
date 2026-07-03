@@ -576,7 +576,7 @@ gambaroja:{
 jibia:{
     nombre:"🦑 Jibia o Choco",
     imagen:"jibia.jpg",
-    precio:99,
+    precio:12,
     descripcion:"Jibia fresca seleccionada. Ideal para plancha, guisos y fritura.",
     preparaciones:[
         "Entera en sucio",
@@ -610,6 +610,10 @@ const parametros = new URLSearchParams(window.location.search);
 const idProducto = parametros.get("producto");
 
 const producto = productos[idProducto];
+
+alert("ID: " + idProducto);
+
+alert(producto ? "ENCONTRADO" : "NO ENCONTRADO");
 
 function actualizarPrecio(){
 console.log("Funciona");
