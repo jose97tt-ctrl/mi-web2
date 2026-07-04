@@ -6117,24 +6117,47 @@ cerrarProductoMejillonRoca();
 }
 function abrirProductoMejillon(){
 
-document.getElementById("modalMejillon").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoMejillon").value="1";
+        window.location.href = "producto.html?producto=mejillon";
 
-actualizarPrecioMejillon();
+    }else{
+
+        document.getElementById("modalMejillon").style.display = "flex";
+
+        document.getElementById("pesoMejillon").value = "1";
+
+        actualizarPrecioMejillon();
+
+    }
 
 }
 
 function cerrarProductoMejillon(){
 
-document.getElementById("modalMejillon").style.display="none";
+    document.getElementById("modalMejillon").style.display="none";
 
 }
 
 function actualizarPrecioMejillon(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoMejillon").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoMejillon").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 3.5 * peso;
 
@@ -6145,8 +6168,23 @@ document.getElementById("precioMejillon").innerText =
 
 function agregarMejillon(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoMejillon").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoMejillon").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionMejillon").value;
@@ -6155,10 +6193,10 @@ let precioFinal = 3.5 * peso;
 
 carrito.push({
 
-nombre:"Mejillón",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Mejillón",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -11418,18 +11456,23 @@ onclick="cerrarProductoMejillon()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="mejillon.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦪 Mejillón
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Mejillón</h2>
 
 <p><strong>Precio:</strong> 3.50 €/kg</p>
 
 <p>
-Mejillón fresco seleccionado.
-Ideal para vapor, marinera, arroces y tapas.
+Mejillón fresco de gran calidad.
+Ideal para cocinar al vapor, en salsa o para arroces y mariscadas.
 </p>
 
 <label>Peso:</label>
@@ -11437,12 +11480,32 @@ Ideal para vapor, marinera, arroces y tapas.
 <select id="pesoMejillon"
 onchange="actualizarPrecioMejillon()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoMejillon"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioMejillon()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioMejillon"
 style="
@@ -11452,7 +11515,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 1.75€
+Total: 3.50€
 
 </p>
 
@@ -11460,9 +11523,8 @@ Total: 1.75€
 
 <select id="preparacionMejillon">
 
-<option>Entero fresco</option>
-<option>Cocido</option>
-<option>Media concha</option>
+<option>Natural</option>
+<option>Limpio</option>
 
 </select>
 
@@ -11477,6 +11539,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
