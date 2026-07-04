@@ -6366,24 +6366,47 @@ cerrarProductoOstra();
 }
 function abrirProductoPotaBlanca(){
 
-document.getElementById("modalPotaBlanca").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoPotaBlanca").value="1";
+        window.location.href = "producto.html?producto=potablanca";
 
-actualizarPrecioPotaBlanca();
+    }else{
+
+        document.getElementById("modalPotaBlanca").style.display = "flex";
+
+        document.getElementById("pesoPotaBlanca").value = "1";
+
+        actualizarPrecioPotaBlanca();
+
+    }
 
 }
 
 function cerrarProductoPotaBlanca(){
 
-document.getElementById("modalPotaBlanca").style.display="none";
+    document.getElementById("modalPotaBlanca").style.display="none";
 
 }
 
 function actualizarPrecioPotaBlanca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoPotaBlanca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoPotaBlanca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 6 * peso;
 
@@ -6394,8 +6417,23 @@ document.getElementById("precioPotaBlanca").innerText =
 
 function agregarPotaBlanca(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoPotaBlanca").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoPotaBlanca").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionPotaBlanca").value;
@@ -6404,10 +6442,10 @@ let precioFinal = 6 * peso;
 
 carrito.push({
 
-nombre:"Pota Blanca",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Pota Blanca",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -11771,12 +11809,17 @@ onclick="cerrarProductoPotaBlanca()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="pota blanca.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐙 Pota Blanca
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🐙 Pota Blanca</h2>
 
 <p><strong>Precio:</strong> 6 €/kg</p>
 
@@ -11790,12 +11833,32 @@ Ideal para plancha, guisos y frituras.
 <select id="pesoPotaBlanca"
 onchange="actualizarPrecioPotaBlanca()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoPotaBlanca"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioPotaBlanca()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioPotaBlanca"
 style="
@@ -11805,7 +11868,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 3.00€
+Total: 6.00€
 
 </p>
 
@@ -11829,6 +11892,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
