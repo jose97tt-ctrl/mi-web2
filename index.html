@@ -6303,17 +6303,25 @@ cerrarProductoNavaja();
 }
 function abrirProductoOstra(){
 
-document.getElementById("modalOstra").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoOstra").value="1";
+        window.location.href = "producto.html?producto=ostra";
 
-actualizarPrecioOstra();
+    }else{
+
+        document.getElementById("modalOstra").style.display="flex";
+
+        document.getElementById("cantidadOstra").value="1";
+
+        actualizarPrecioOstra();
+
+    }
 
 }
 
 function cerrarProductoOstra(){
 
-document.getElementById("modalOstra").style.display="none";
+    document.getElementById("modalOstra").style.display="none";
 
 }
 
@@ -6341,10 +6349,10 @@ let precioFinal = 2.4 * cantidad;
 
 carrito.push({
 
-nombre:"Ostra Guillardeau",
-peso:cantidad + " unidades",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Ostra Guillardeau",
+    peso:cantidad + " unidades",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -11687,18 +11695,17 @@ onclick="cerrarProductoOstra()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="ostra.jpg">
 
-<h2 style="
-font-size:36px;
-line-height:1.1;
-letter-spacing:0;
-word-break:break-word;
-overflow-wrap:break-word;
-">
-🦪 Ostra Guillardeau
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Ostra Guillardeau</h2>
 
 <p><strong>Precio:</strong> 2.40 €/unidad</p>
 
@@ -11750,6 +11757,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
