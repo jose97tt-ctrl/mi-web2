@@ -659,6 +659,19 @@ const producto = productos[idProducto];
 
 function actualizarPrecio(){
 console.log("Funciona");
+if(idProducto=="ostra"){
+
+    let cantidad =
+    parseInt(document.getElementById("peso").value);
+
+    let total = 2.4 * cantidad;
+
+    document.getElementById("precioFinal").innerHTML =
+    "Total: " + total.toFixed(2) + " €";
+
+    return;
+
+}
 
 let precioKilo = producto.precio;
 
@@ -697,8 +710,17 @@ if(producto){
     document.getElementById("imagenProducto").alt =
     producto.nombre;
 
+    if(idProducto=="ostra"){
+
+    document.getElementById("precioProducto").innerText =
+    producto.precio + " €/unidad";
+
+}else{
+
     document.getElementById("precioProducto").innerText =
     producto.precio + " €/kg";
+
+}
 
     document.getElementById("descripcionProducto").innerText =
     producto.descripcion;
@@ -718,11 +740,54 @@ if(producto){
         selectPreparacion.appendChild(opcion);
 
 });
+if(idProducto=="ostra"){
+
+    document.querySelector("h3").innerText="🔢 Cantidad";
+
+    document.getElementById("peso").innerHTML=`
+        <option value="6">6 unidades</option>
+        <option value="12">12 unidades</option>
+        <option value="24">24 unidades</option>
+        <option value="48">48 unidades</option>
+    `;
+
+    document.getElementById("bloquePesoPersonalizado").style.display="none";
+
+}
 
 actualizarPrecio();
 
 }
 function agregarProducto(){
+if(idProducto=="ostra"){
+
+    let cantidad =
+    parseInt(document.getElementById("peso").value);
+
+    let preparacion =
+    document.getElementById("preparacion").value;
+
+    let precioFinal = 2.4 * cantidad;
+
+    let carrito =
+    JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito.push({
+
+        nombre: producto.nombre,
+        peso: cantidad + " unidades",
+        preparacion: preparacion,
+        precio: precioFinal
+
+    });
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    window.location.href = "index.html#productos";
+
+    return;
+
+}
 
 let pesoSeleccionado =
 parseFloat(document.getElementById("peso").value);
