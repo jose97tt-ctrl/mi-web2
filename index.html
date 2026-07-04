@@ -6210,24 +6210,47 @@ cerrarProductoMejillon();
 }
 function abrirProductoNavaja(){
 
-document.getElementById("modalNavaja").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoNavaja").value="1";
+        window.location.href = "producto.html?producto=navaja";
 
-actualizarPrecioNavaja();
+    }else{
+
+        document.getElementById("modalNavaja").style.display = "flex";
+
+        document.getElementById("pesoNavaja").value = "1";
+
+        actualizarPrecioNavaja();
+
+    }
 
 }
 
 function cerrarProductoNavaja(){
 
-document.getElementById("modalNavaja").style.display="none";
+    document.getElementById("modalNavaja").style.display="none";
 
 }
 
 function actualizarPrecioNavaja(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoNavaja").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoNavaja").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let total = 9 * peso;
 
@@ -6238,8 +6261,23 @@ document.getElementById("precioNavaja").innerText =
 
 function agregarNavaja(){
 
-let peso =
+let pesoSeleccionado =
 parseFloat(document.getElementById("pesoNavaja").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoNavaja").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
 
 let preparacion =
 document.getElementById("preparacionNavaja").value;
@@ -6248,10 +6286,10 @@ let precioFinal = 9 * peso;
 
 carrito.push({
 
-nombre:"Navaja",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Navaja",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -11553,12 +11591,17 @@ onclick="cerrarProductoNavaja()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="navaja.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🦪 Navaja
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Navaja</h2>
 
 <p><strong>Precio:</strong> 9 €/kg</p>
 
@@ -11572,12 +11615,32 @@ Ideal para plancha, ajo y perejil o cocina marinera.
 <select id="pesoNavaja"
 onchange="actualizarPrecioNavaja()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoNavaja"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioNavaja()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
 
 <p id="precioNavaja"
 style="
@@ -11587,7 +11650,7 @@ color:#0a7f2e;
 margin:15px 0;
 ">
 
-Total: 4.50€
+Total: 9.00€
 
 </p>
 
@@ -11610,6 +11673,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
