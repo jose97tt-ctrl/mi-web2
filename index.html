@@ -7981,58 +7981,95 @@ function agregarLangostinoCocido(){
 
 }
 function abrirPulpoEntero(){
-document.getElementById("modalPulpoEntero").style.display="flex";
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=pulpoentero";
+
+    }else{
+
+        document.getElementById("modalPulpoEntero").style.display = "flex";
+
+        document.getElementById("pesoPulpoEntero").value = "1";
+        document.getElementById("pesoPersonalizadoPulpoEntero").value = "";
+
+        actualizarPulpoEntero();
+
+    }
+
 }
 
 function cerrarPulpoEntero(){
-document.getElementById("modalPulpoEntero").style.display="none";
+
+    document.getElementById("modalPulpoEntero").style.display = "none";
+
 }
 
 function actualizarPulpoEntero(){
 
-let precio =
-parseFloat(document.getElementById("tamanoPulpoEntero").value);
+    let precio =
+    parseFloat(document.getElementById("tamanoPulpoEntero").value);
 
-let peso =
-parseFloat(document.getElementById("pesoPulpoEntero").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPulpoEntero").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPulpoEntero").value);
 
-document.getElementById("precioPulpoEntero").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioPulpoEntero").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarPulpoEntero(){
 
-let peso =
-parseFloat(document.getElementById("pesoPulpoEntero").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPulpoEntero").value);
 
-let preparacion =
-document.getElementById("preparacionPulpoEntero").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPulpoEntero").value);
 
-let selector =
-document.getElementById("tamanoPulpoEntero");
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let nombreProducto =
-"Pulpo Cocido Entero " +
-selector.options[selector.selectedIndex].text;
+        peso = personalizado;
 
-let precio =
-parseFloat(document.getElementById("tamanoPulpoEntero").value) * peso;
+    }
 
-carrito.push({
-nombre:nombreProducto,
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+    let preparacion =
+    document.getElementById("preparacionPulpoEntero").value;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    let selector =
+    document.getElementById("tamanoPulpoEntero");
 
-actualizarCarrito();
+    let nombreProducto =
+    "🐙 Pulpo Cocido Entero " +
+    selector.options[selector.selectedIndex].text;
 
-cerrarPulpoEntero();
+    let precio =
+    parseFloat(document.getElementById("tamanoPulpoEntero").value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarPulpoEntero();
 
 }
 function abrirPatasPulpo(){
@@ -14123,21 +14160,35 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalPulpoEntero" class="modal-producto" onclick="cerrarPulpoEntero()">
+<div id="modalPulpoEntero"
+class="modal-producto"
+onclick="cerrarPulpoEntero()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="pulpo-cocido-entero.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐙 PULPO COCIDO ENTERO</h2>
+<img src="pulpo-cocido-entero.jpg">
 
-<p style="margin:5px 0;">Pulpo cocido listo para consumir.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Seleccione tamaño y peso.</strong></p>
+<div class="producto-info">
 
-<label><strong>Tamaño:</strong></label>
+<h2>🐙 Pulpo Cocido Entero</h2>
 
-<select id="tamanoPulpoEntero" onchange="actualizarPulpoEntero()">
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Pulpo cocido listo para consumir.
+Ideal para tapas, ensaladas, pulpo a la gallega y hostelería.
+</p>
+
+<label>Tamaño:</label>
+
+<select id="tamanoPulpoEntero"
+onchange="actualizarPulpoEntero()">
 
 <option value="23.00">+1 kg</option>
 <option value="25.00">+1,5 kg</option>
@@ -14148,23 +14199,51 @@ class="btn-producto">
 
 <br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
-<select id="pesoPulpoEntero" onchange="actualizarPulpoEntero()">
+<select id="pesoPulpoEntero"
+onchange="actualizarPulpoEntero()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioPulpoEntero" style="color:green;margin:8px 0;">
-Total: 23.00€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoPulpoEntero"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPulpoEntero()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioPulpoEntero"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 23.00€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionPulpoEntero">
 
@@ -14172,15 +14251,21 @@ Total: 23.00€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarPulpoEntero()" class="btn-producto">
+<button
+onclick="agregarPulpoEntero()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
