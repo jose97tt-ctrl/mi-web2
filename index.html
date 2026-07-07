@@ -7716,62 +7716,93 @@ function agregarChoco(){
 }
 function abrirBacalao(){
 
-document.getElementById("modalBacalao").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoBacalao").value="1";
+        window.location.href = "producto.html?producto=bacalao";
 
-actualizarBacalao();
+    }else{
+
+        document.getElementById("modalBacalao").style.display = "flex";
+
+        document.getElementById("pesoBacalao").value = "1";
+        document.getElementById("pesoPersonalizadoBacalao").value = "";
+
+        actualizarBacalao();
+
+    }
 
 }
 
 function cerrarBacalao(){
-document.getElementById("modalBacalao").style.display="none";
+
+    document.getElementById("modalBacalao").style.display = "none";
+
 }
 
 function actualizarBacalao(){
 
-let precio =
-parseFloat(document.getElementById("tamanoBacalao").value);
+    let precio =
+    parseFloat(document.getElementById("tamanoBacalao").value);
 
-let peso =
-parseFloat(document.getElementById("pesoBacalao").value);
+    let peso =
+    parseFloat(document.getElementById("pesoBacalao").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoBacalao").value);
 
-document.getElementById("precioBacalao").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioBacalao").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarBacalao(){
 
-let peso =
-parseFloat(document.getElementById("pesoBacalao").value);
+    let peso =
+    parseFloat(document.getElementById("pesoBacalao").value);
 
-let preparacion =
-document.getElementById("preparacionBacalao").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoBacalao").value);
 
-let selector =
-document.getElementById("tamanoBacalao");
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let nombreProducto =
-selector.options[selector.selectedIndex].text;
+        peso = personalizado;
 
-let precio =
-parseFloat(document.getElementById("tamanoBacalao").value) * peso;
+    }
 
-carrito.push({
-nombre:nombreProducto,
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+    let preparacion =
+    document.getElementById("preparacionBacalao").value;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    let selector =
+    document.getElementById("tamanoBacalao");
 
-actualizarCarrito();
+    let nombreProducto =
+    selector.options[selector.selectedIndex].text;
 
-cerrarBacalao();
+    let precio =
+    parseFloat(document.getElementById("tamanoBacalao").value) * peso;
+
+    carrito.push({
+
+        nombre: nombreProducto,
+        peso: peso + " kg",
+        preparacion: preparacion,
+        precio: precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarBacalao();
 
 }
 function abrirGallineta(){
@@ -13643,21 +13674,35 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalBacalao" class="modal-producto" onclick="cerrarBacalao()">
+<div id="modalBacalao"
+class="modal-producto"
+onclick="cerrarBacalao()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="filete-bacalao.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐟 FILETE DE BACALAO</h2>
+<img src="filete-bacalao.jpg">
 
-<p style="margin:5px 0;">Filete de bacalao fresco.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Seleccione tamaño y peso.</strong></p>
+<div class="producto-info">
 
-<label><strong>Tamaño:</strong></label>
+<h2>🐟 Filete de Bacalao</h2>
 
-<select id="tamanoBacalao" onchange="actualizarBacalao()">
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Filete de bacalao fresco.
+Ideal para plancha, horno y cocina tradicional.
+</p>
+
+<label>Tamaño:</label>
+
+<select id="tamanoBacalao"
+onchange="actualizarBacalao()">
 
 <option value="13.30">Filete de Bacalao M</option>
 <option value="16.50">Filete de Bacalao G</option>
@@ -13666,24 +13711,51 @@ class="btn-producto">
 
 <br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
-<select id="pesoBacalao" onchange="actualizarBacalao()">
-
+<select id="pesoBacalao"
+onchange="actualizarBacalao()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioBacalao" style="color:green;margin:8px 0;">
-Total: 6.65€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoBacalao"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarBacalao()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioBacalao"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 13.30€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionBacalao">
 
@@ -13691,15 +13763,21 @@ Total: 6.65€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarBacalao()" class="btn-producto">
+<button
+onclick="agregarBacalao()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
