@@ -7807,54 +7807,85 @@ function agregarBacalao(){
 }
 function abrirGallineta(){
 
-document.getElementById("modalGallineta").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoGallineta").value="1";
+        window.location.href = "producto.html?producto=gallineta";
 
-actualizarGallineta();
+    }else{
+
+        document.getElementById("modalGallineta").style.display = "flex";
+
+        document.getElementById("pesoGallineta").value = "1";
+        document.getElementById("pesoPersonalizadoGallineta").value = "";
+
+        actualizarGallineta();
+
+    }
 
 }
 
 function cerrarGallineta(){
-document.getElementById("modalGallineta").style.display="none";
+
+    document.getElementById("modalGallineta").style.display = "none";
+
 }
 
 function actualizarGallineta(){
 
-let precio = 7.6;
+    let precio = 7.60;
 
-let peso =
-parseFloat(document.getElementById("pesoGallineta").value);
+    let peso =
+    parseFloat(document.getElementById("pesoGallineta").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoGallineta").value);
 
-document.getElementById("precioGallineta").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioGallineta").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarGallineta(){
 
-let peso =
-parseFloat(document.getElementById("pesoGallineta").value);
+    let peso =
+    parseFloat(document.getElementById("pesoGallineta").value);
 
-let preparacion =
-document.getElementById("preparacionGallineta").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoGallineta").value);
 
-let precio = 7.6 * peso;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-carrito.push({
-nombre:"Filete de Gallineta",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+        peso = personalizado;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    }
 
-actualizarCarrito();
+    let preparacion =
+    document.getElementById("preparacionGallineta").value;
 
-cerrarGallineta();
+    let precio = 7.60 * peso;
+
+    carrito.push({
+
+        nombre:"🐟 Filete de Gallineta",
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarGallineta();
 
 }
 function abrirLangostinoCocido(){
@@ -13782,36 +13813,76 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalGallineta" class="modal-producto" onclick="cerrarGallineta()">
+<div id="modalGallineta"
+class="modal-producto"
+onclick="cerrarGallineta()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="filete-gallineta.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐟 FILETE DE GALLINETA</h2>
+<img src="filete-gallineta.jpg">
 
-<p style="margin:5px 0;">Filete de gallineta fresco.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Precio fijo: 7,60€/kg</strong></p>
+<div class="producto-info">
 
-<label><strong>Peso:</strong></label>
+<h2>🐟 Filete de Gallineta</h2>
 
-<select id="pesoGallineta" onchange="actualizarGallineta()">
+<p><strong>Precio:</strong> 7,60 €/kg</p>
 
+<p>
+Filete de gallineta fresco.
+Ideal para plancha, horno y cocina tradicional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoGallineta"
+onchange="actualizarGallineta()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioGallineta" style="color:green;margin:8px 0;">
-Total: 3.80€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoGallineta"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarGallineta()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioGallineta"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.60€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionGallineta">
 
@@ -13819,15 +13890,21 @@ Total: 3.80€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarGallineta()" class="btn-producto">
+<button
+onclick="agregarGallineta()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
