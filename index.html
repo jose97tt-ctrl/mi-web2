@@ -7625,61 +7625,93 @@ function agregarChocoTiras() {
 }
 function abrirChoco(){
 
-document.getElementById("modalChoco").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoChoco").value="1";
+        window.location.href = "producto.html?producto=choco";
 
-actualizarChoco();
+    }else{
+
+        document.getElementById("modalChoco").style.display = "flex";
+
+        document.getElementById("pesoChoco").value = "1";
+        document.getElementById("pesoPersonalizadoChoco").value = "";
+
+        actualizarChoco();
+
+    }
 
 }
+
 function cerrarChoco(){
-document.getElementById("modalChoco").style.display="none";
+
+    document.getElementById("modalChoco").style.display = "none";
+
 }
 
 function actualizarChoco(){
 
-let precio =
-parseFloat(document.getElementById("tamanoChoco").value);
+    let precio =
+    parseFloat(document.getElementById("tamanoChoco").value);
 
-let peso =
-parseFloat(document.getElementById("pesoChoco").value);
+    let peso =
+    parseFloat(document.getElementById("pesoChoco").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoChoco").value);
 
-document.getElementById("precioChoco").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioChoco").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarChoco(){
 
-let peso =
-parseFloat(document.getElementById("pesoChoco").value);
+    let peso =
+    parseFloat(document.getElementById("pesoChoco").value);
 
-let preparacion =
-document.getElementById("preparacionChoco").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoChoco").value);
 
-let selector =
-document.getElementById("tamanoChoco");
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let nombreProducto =
-selector.options[selector.selectedIndex].text;
+        peso = personalizado;
 
-let precio =
-parseFloat(document.getElementById("tamanoChoco").value) * peso;
+    }
 
-carrito.push({
-nombre:nombreProducto,
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+    let preparacion =
+    document.getElementById("preparacionChoco").value;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    let selector =
+    document.getElementById("tamanoChoco");
 
-actualizarCarrito();
+    let nombreProducto =
+    selector.options[selector.selectedIndex].text;
 
-cerrarChoco();
+    let precio =
+    parseFloat(document.getElementById("tamanoChoco").value) * peso;
+
+    carrito.push({
+
+        nombre: nombreProducto,
+        peso: peso + " kg",
+        preparacion: preparacion,
+        precio: precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarChoco();
 
 }
 function abrirBacalao(){
@@ -13503,21 +13535,35 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalChoco" class="modal-producto" onclick="cerrarChoco()">
+<div id="modalChoco"
+class="modal-producto"
+onclick="cerrarChoco()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="choco.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐠 CHOCO LIMPIO</h2>
+<img src="choco.jpg">
 
-<p style="margin:5px 0;">Choco limpio fresco.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Seleccione tamaño y peso.</strong></p>
+<div class="producto-info">
 
-<label><strong>Tamaño:</strong></label>
+<h2>🐠 Choco Limpio</h2>
 
-<select id="tamanoChoco" onchange="actualizarChoco()">
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Choco limpio fresco.
+Ideal para plancha, frituras y guisos.
+</p>
+
+<label>Tamaño:</label>
+
+<select id="tamanoChoco"
+onchange="actualizarChoco()">
 
 <option value="7.90">Choco M</option>
 <option value="8.80">Choco G</option>
@@ -13526,24 +13572,51 @@ class="btn-producto">
 
 <br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
-<select id="pesoChoco" onchange="actualizarChoco()">
-
+<select id="pesoChoco"
+onchange="actualizarChoco()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioChoco" style="color:green;margin:8px 0;">
-Total: 3.95€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoChoco"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarChoco()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioChoco"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.90€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionChoco">
 
@@ -13551,15 +13624,21 @@ Total: 3.95€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarChoco()" class="btn-producto">
+<button
+onclick="agregarChoco()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
