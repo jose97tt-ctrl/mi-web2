@@ -7557,59 +7557,71 @@ actualizarCarrito();
 cerrarAnillas();
 
 }
-function abrirChocoTiras(){
+function abrirChocoTiras() {
 
-document.getElementById("modalChocoTiras").style.display="flex";
+    if (window.innerWidth <= 768) {
+        window.location.href = "producto.html?id=choco-tiras";
+        return;
+    }
 
-document.getElementById("pesoChocoTiras").value="1";
+    document.getElementById("modalChocoTiras").style.display = "flex";
 
-actualizarChocoTiras();
+    document.getElementById("pesoChocoTiras").value = "1";
+    document.getElementById("pesoPersonalizadoChocoTiras").value = "";
 
+    actualizarChocoTiras();
 }
 
-function cerrarChocoTiras(){
-
-document.getElementById("modalChocoTiras").style.display="none";
-
+function cerrarChocoTiras() {
+    document.getElementById("modalChocoTiras").style.display = "none";
 }
 
-function actualizarChocoTiras(){
+function actualizarChocoTiras() {
 
-let precio = 3.20;
+    let precio = 3.20;
 
-let peso =
-parseFloat(document.getElementById("pesoChocoTiras").value);
+    let peso = parseFloat(document.getElementById("pesoChocoTiras").value);
 
-let total = precio * peso;
+    let personalizado = parseFloat(document.getElementById("pesoPersonalizadoChocoTiras").value);
 
-document.getElementById("precioChocoTiras").innerHTML =
-"Total: " + total.toFixed(2) + "€";
+    if (!isNaN(personalizado) && personalizado > 0) {
+        peso = personalizado;
+    }
 
+    let total = precio * peso;
+
+    document.getElementById("precioChocoTiras").innerHTML =
+        "Total: " + total.toFixed(2) + "€";
 }
 
-function agregarChocoTiras(){
+function agregarChocoTiras() {
 
-let peso =
-parseFloat(document.getElementById("pesoChocoTiras").value);
+    let precioKg = 3.20;
 
-let preparacion =
-document.getElementById("preparacionChocoTiras").value;
+    let peso = parseFloat(document.getElementById("pesoChocoTiras").value);
 
-let precio = 3.2 * peso;
+    let personalizado = parseFloat(document.getElementById("pesoPersonalizadoChocoTiras").value);
 
-carrito.push({
-nombre:"Choco en Tiras",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+    if (!isNaN(personalizado) && personalizado > 0) {
+        peso = personalizado;
+    }
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    let preparacion = document.getElementById("preparacionChocoTiras").value;
 
-actualizarCarrito();
+    let precio = precioKg * peso;
 
-cerrarChocoTiras();
+    carrito.push({
+        nombre: "Choco en Tiras",
+        peso: peso + " kg",
+        preparacion: preparacion,
+        precio: precio
+    });
 
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarChocoTiras();
 }
 function abrirChoco(){
 
@@ -13395,36 +13407,76 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalChocoTiras" class="modal-producto" onclick="cerrarChocoTiras()">
+<div id="modalChocoTiras"
+class="modal-producto"
+onclick="cerrarChocoTiras()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="choco-tiras.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐠 CHOCO EN TIRAS</h2>
+<img src="choco-tiras.jpg">
 
-<p style="margin:5px 0;">Choco limpio cortado en tiras.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Precio fijo: 3,20€/kg</strong></p>
+<div class="producto-info">
 
-<label><strong>Peso:</strong></label>
+<h2>🐠 Choco en Tiras</h2>
 
-<select id="pesoChocoTiras" onchange="actualizarChocoTiras()">
+<p><strong>Precio:</strong> 3,20 €/kg</p>
 
+<p>
+Choco limpio cortado en tiras.
+Ideal para plancha, frituras y salteados.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoChocoTiras"
+onchange="actualizarChocoTiras()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioChocoTiras" style="color:green;margin:8px 0;">
-Total: 1.60€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoChocoTiras"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarChocoTiras()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioChocoTiras"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 3.20€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionChocoTiras">
 
@@ -13432,17 +13484,24 @@ Total: 1.60€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarChocoTiras()" class="btn-producto">
+<button
+onclick="agregarChocoTiras()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
 
 </div>
+
+</div>
+
+</div>
+
 </div>
 <div id="modalChoco" class="modal-producto" onclick="cerrarChoco()">
 
