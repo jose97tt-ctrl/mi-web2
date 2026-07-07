@@ -6986,17 +6986,25 @@ cerrarProductoVieira();
 }
 function abrirProductoZamburina(){
 
-document.getElementById("modalZamburina").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoZamburina").value="1";
+        window.location.href = "producto.html?producto=zamburina";
 
-actualizarPrecioZamburina();
+    }else{
+
+        document.getElementById("modalZamburina").style.display = "flex";
+
+        document.getElementById("cantidadZamburina").value = "6";
+
+        actualizarPrecioZamburina();
+
+    }
 
 }
 
 function cerrarProductoZamburina(){
 
-document.getElementById("modalZamburina").style.display="none";
+    document.getElementById("modalZamburina").style.display = "none";
 
 }
 
@@ -7024,10 +7032,10 @@ let precioFinal = 3.5 * cantidad;
 
 carrito.push({
 
-nombre:"Zamburiña",
-peso:cantidad + " unidades",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Zamburiña",
+    peso:cantidad + " unidades",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -7039,7 +7047,6 @@ actualizarCarrito();
 cerrarProductoZamburina();
 
 }
-
 function abrirProductoDorada(){
 
 document.getElementById("modalDorada").style.display="flex";
@@ -12677,17 +12684,18 @@ onclick="cerrarProductoZamburina()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="zamburiña.jpg">
 
-<h2 style="
-font-size:36px;
-line-height:1.1;
-letter-spacing:0;
-word-break:break-word;
-overflow-wrap:break-word;
-">
-🦪 Zamburiña
-</h2>
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Zamburiña</h2>
+
 <p><strong>Precio:</strong> 3.50 €/unidad</p>
 
 <p>
@@ -12703,6 +12711,7 @@ onchange="actualizarPrecioZamburina()">
 <option value="6">6 unidades</option>
 <option value="12">12 unidades</option>
 <option value="24">24 unidades</option>
+<option value="48">48 unidades</option>
 
 </select>
 
@@ -12738,6 +12747,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
