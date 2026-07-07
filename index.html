@@ -7465,41 +7465,97 @@ document.querySelectorAll(".menu-lateral a").forEach(link=>{
     });
 });
 function abrirAnillas(){
-document.getElementById("modalAnillas").style.display="flex";
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=anillas";
+
+    }else{
+
+        document.getElementById("modalAnillas").style.display = "flex";
+
+        document.getElementById("pesoAnillas").value = "1";
+
+        actualizarAnillas();
+
+    }
+
 }
 
 function cerrarAnillas(){
-document.getElementById("modalAnillas").style.display="none";
+
+    document.getElementById("modalAnillas").style.display = "none";
+
 }
 
 function actualizarAnillas(){
 
-let precio = 4.2;
-let peso = parseFloat(document.getElementById("pesoAnillas").value);
+let pesoSeleccionado =
+parseFloat(document.getElementById("pesoAnillas").value);
 
-let total = precio * peso;
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAnillas").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
+
+let total = 4.2 * peso;
 
 document.getElementById("precioAnillas").innerText =
 "Total: " + total.toFixed(2) + "€";
+
 }
 
 function agregarAnillas(){
 
-let peso = parseFloat(document.getElementById("pesoAnillas").value);
-let preparacion = document.getElementById("preparacionAnillas").value;
+let pesoSeleccionado =
+parseFloat(document.getElementById("pesoAnillas").value);
+
+let pesoPersonalizado =
+parseFloat(document.getElementById("pesoPersonalizadoAnillas").value);
+
+let peso;
+
+if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+
+    peso = pesoPersonalizado;
+
+}else{
+
+    peso = pesoSeleccionado;
+
+}
+
+let preparacion =
+document.getElementById("preparacionAnillas").value;
 
 let precio = 4.2 * peso;
 
 carrito.push({
-nombre:"Anillas",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
+
+    nombre:"Anillas",
+    peso:peso + " kg",
+    preparacion:preparacion,
+    precio:precio
+
 });
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+document.getElementById("contadorCarrito").innerText =
+carrito.length;
+
 actualizarCarrito();
+
 cerrarAnillas();
+
 }
 function abrirChocoTiras(){
 
@@ -13242,47 +13298,102 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalAnillas" class="modal-producto" onclick="cerrarAnillas()">
+<div id="modalAnillas"
+class="modal-producto"
+onclick="cerrarAnillas()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
 
-<img src="anillas.jpg" style="height:70px;">
+<div class="producto-layout">
 
-<h2>🐠 ANILLAS</h2>
+<div class="producto-foto">
 
-<p>Anillas de calamar sin telilla.</p>
+<img src="anillas.jpg">
 
-<p><strong>Precio fijo: 4,20€/kg</strong></p>
+</div>
 
-<label><strong>Peso:</strong></label>
+<div class="producto-info">
 
-<select id="pesoAnillas" onchange="actualizarAnillas()">
+<h2>🐠 Anillas</h2>
+
+<p><strong>Precio:</strong> 4.20 €/kg</p>
+
+<p>
+Anillas de calamar sin telilla.
+Perfectas para fritura y tapeo.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoAnillas"
+onchange="actualizarAnillas()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
 </select>
 
 <br><br>
 
-<h2 id="precioAnillas" style="color:green;">
-Total: 4.20€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoAnillas"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarAnillas()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioAnillas"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 4.20€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionAnillas">
+
 <option>Enteras</option>
 
 </select>
 
-<p style="color:green;font-weight:bold;">✅ Disponible</p>
+<p style="color:green;">
+✅ Disponible
+</p>
 
-<button onclick="agregarAnillas()" class="btn-producto">
-🛒 Añadir al carrito
+<button
+onclick="agregarAnillas()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
 </button>
 
 </div>
+
+</div>
+
+</div>
+
 </div>
 <div id="modalChocoTiras" class="modal-producto" onclick="cerrarChocoTiras()">
 
