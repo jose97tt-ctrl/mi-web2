@@ -784,7 +784,7 @@ if(producto){
     document.getElementById("imagenProducto").alt =
     producto.nombre;
 
-    if(idProducto=="ostra"){
+   if(producto.tipo=="unidad"){
 
     document.getElementById("precioProducto").innerText =
     producto.precio + " €/unidad";
@@ -814,16 +814,23 @@ if(producto){
         selectPreparacion.appendChild(opcion);
 
 });
-if(idProducto=="ostra"){
+if(producto.tipo=="unidad"){
 
     document.querySelector("h3").innerText="🔢 Cantidad";
 
-    document.getElementById("peso").innerHTML=`
-        <option value="6">6 unidades</option>
-        <option value="12">12 unidades</option>
-        <option value="24">24 unidades</option>
-        <option value="48">48 unidades</option>
-    `;
+    document.getElementById("peso").innerHTML="";
+
+    producto.cantidades.forEach(function(cantidad){
+
+        let opcion=document.createElement("option");
+
+        opcion.value=cantidad;
+
+        opcion.textContent=cantidad+" unidades";
+
+        document.getElementById("peso").appendChild(opcion);
+
+    });
 
     document.getElementById("bloquePesoPersonalizado").style.display="none";
 
@@ -833,16 +840,14 @@ actualizarPrecio();
 
 }
 function agregarProducto(){
-if(idProducto=="ostra"){
-
+if(producto.tipo=="unidad"){
     let cantidad =
     parseInt(document.getElementById("peso").value);
 
     let preparacion =
     document.getElementById("preparacion").value;
 
-    let precioFinal = 2.4 * cantidad;
-
+    let precioFinal = producto.precio * cantidad;
     let carrito =
     JSON.parse(localStorage.getItem("carrito")) || [];
 
