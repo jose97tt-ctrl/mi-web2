@@ -184,8 +184,21 @@ margin-top:25px;
 
         <p class="precio" id="precioProducto"></p>
 
-       <p class="descripcion" id="descripcionProducto"></p>
-    <hr>
+      <p class="descripcion" id="descripcionProducto"></p>
+
+<hr>
+
+<div id="bloqueTamano" style="display:none;">
+
+<h3>📏 Tamaño</h3>
+
+<select id="tamanoProducto" onchange="actualizarPrecio()">
+
+</select>
+
+<hr>
+
+</div>
 
 <h3 id="tituloCantidad">⚖️ Peso</h3>
 
@@ -783,7 +796,24 @@ if(idProducto=="ostra" || idProducto=="vieira"){
 
 }
 
-let precioKilo = producto.precio;
+let precioKilo;
+
+if(producto.precios){
+
+    precioKilo =
+    parseFloat(document.getElementById("tamanoProducto").value);
+
+}else{
+
+    precioKilo = producto.precio;
+
+}
+if(producto.precios){
+
+    document.getElementById("precioProducto").innerText =
+    precioKilo.toFixed(2) + " €/kg";
+
+}
 
 let pesoSeleccionado =
 parseFloat(document.getElementById("peso").value);
@@ -825,6 +855,11 @@ if(producto){
     document.getElementById("precioProducto").innerText =
     producto.precio + " €/unidad";
 
+}else if(producto.precios){
+
+    document.getElementById("precioProducto").innerText =
+    producto.precios[0].precio.toFixed(2) + " €/kg";
+
 }else{
 
     document.getElementById("precioProducto").innerText =
@@ -834,6 +869,33 @@ if(producto){
 
     document.getElementById("descripcionProducto").innerText =
     producto.descripcion;
+    if(producto.precios){
+
+    document.getElementById("bloqueTamano").style.display = "block";
+
+    let selectorTamano =
+    document.getElementById("tamanoProducto");
+
+    selectorTamano.innerHTML = "";
+
+    producto.precios.forEach(function(item){
+
+        let opcion = document.createElement("option");
+
+        opcion.value = item.precio;
+
+        opcion.textContent =
+        item.nombre + " - " + item.precio.toFixed(2) + " €/kg";
+
+        selectorTamano.appendChild(opcion);
+
+    });
+
+}else{
+
+    document.getElementById("bloqueTamano").style.display = "none";
+
+}
 
     const selectPreparacion = document.getElementById("preparacion");
 
@@ -925,14 +987,38 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 let preparacion =
 document.getElementById("preparacion").value;
 
-let precioFinal = producto.precio * peso;
+let nombreProducto = producto.nombre;
+
+let precioKilo;
+
+if(producto.precios){
+
+    let selector =
+    document.getElementById("tamanoProducto");
+
+    let indice =
+    selector.selectedIndex;
+
+    nombreProducto =
+    producto.precios[indice].nombre;
+
+    precioKilo =
+    producto.precios[indice].precio;
+
+}else{
+
+    precioKilo = producto.precio;
+
+}
+
+let precioFinal = precioKilo * peso;
 
 let carrito =
 JSON.parse(localStorage.getItem("carrito")) || [];
 
 carrito.push({
 
-    nombre: producto.nombre,
+    nombre: nombreProducto,
     peso:peso + " kg",
     preparacion:preparacion,
     precio:precioFinal
