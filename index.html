@@ -7889,58 +7889,95 @@ function agregarGallineta(){
 
 }
 function abrirLangostinoCocido(){
-document.getElementById("modalLangostinoCocido").style.display="flex";
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=langostinococido";
+
+    }else{
+
+        document.getElementById("modalLangostinoCocido").style.display = "flex";
+
+        document.getElementById("pesoLangostinoCocido").value = "1";
+        document.getElementById("pesoPersonalizadoLangostinoCocido").value = "";
+
+        actualizarLangostinoCocido();
+
+    }
+
 }
 
 function cerrarLangostinoCocido(){
-document.getElementById("modalLangostinoCocido").style.display="none";
+
+    document.getElementById("modalLangostinoCocido").style.display = "none";
+
 }
 
 function actualizarLangostinoCocido(){
 
-let precio =
-parseFloat(document.getElementById("calibreLangostinoCocido").value);
+    let precio =
+    parseFloat(document.getElementById("calibreLangostinoCocido").value);
 
-let peso =
-parseFloat(document.getElementById("pesoLangostinoCocido").value);
+    let peso =
+    parseFloat(document.getElementById("pesoLangostinoCocido").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLangostinoCocido").value);
 
-document.getElementById("precioLangostinoCocido").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioLangostinoCocido").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarLangostinoCocido(){
 
-let peso =
-parseFloat(document.getElementById("pesoLangostinoCocido").value);
+    let peso =
+    parseFloat(document.getElementById("pesoLangostinoCocido").value);
 
-let preparacion =
-document.getElementById("preparacionLangostinoCocido").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLangostinoCocido").value);
 
-let selector =
-document.getElementById("calibreLangostinoCocido");
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let nombreProducto =
-"Langostino Cocido - " +
-selector.options[selector.selectedIndex].text;
+        peso = personalizado;
 
-let precio =
-parseFloat(document.getElementById("calibreLangostinoCocido").value) * peso;
+    }
 
-carrito.push({
-nombre:nombreProducto,
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+    let preparacion =
+    document.getElementById("preparacionLangostinoCocido").value;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    let selector =
+    document.getElementById("calibreLangostinoCocido");
 
-actualizarCarrito();
+    let nombreProducto =
+    "🦐 Langostino Cocido - " +
+    selector.options[selector.selectedIndex].text;
 
-cerrarLangostinoCocido();
+    let precio =
+    parseFloat(document.getElementById("calibreLangostinoCocido").value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarLangostinoCocido();
 
 }
 function abrirPulpoEntero(){
@@ -13971,21 +14008,35 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalLangostinoCocido" class="modal-producto" onclick="cerrarLangostinoCocido()">
+<div id="modalLangostinoCocido"
+class="modal-producto"
+onclick="cerrarLangostinoCocido()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="langostino-cocido.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🦐 LANGOSTINO COCIDO</h2>
+<img src="langostino-cocido.jpg">
 
-<p style="margin:5px 0;">Langostino cocido listo para consumir.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Seleccione calibre y peso.</strong></p>
+<div class="producto-info">
 
-<label><strong>Calibre:</strong></label>
+<h2>🦐 Langostino Cocido</h2>
 
-<select id="calibreLangostinoCocido" onchange="actualizarLangostinoCocido()">
+<p><strong>Seleccione el calibre y el peso.</strong></p>
+
+<p>
+Langostino cocido listo para consumir.
+Ideal para aperitivos, mariscadas y hostelería.
+</p>
+
+<label>Calibre:</label>
+
+<select id="calibreLangostinoCocido"
+onchange="actualizarLangostinoCocido()">
 
 <option value="11.00">10/20 pz/kg</option>
 
@@ -14001,23 +14052,51 @@ class="btn-producto">
 
 <br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
-<select id="pesoLangostinoCocido" onchange="actualizarLangostinoCocido()">
+<select id="pesoLangostinoCocido"
+onchange="actualizarLangostinoCocido()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioLangostinoCocido" style="color:green;margin:8px 0;">
-Total: 11.00€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoLangostinoCocido"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarLangostinoCocido()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioLangostinoCocido"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 11.00€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionLangostinoCocido">
 
@@ -14025,15 +14104,21 @@ Total: 11.00€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarLangostinoCocido()" class="btn-producto">
+<button
+onclick="agregarLangostinoCocido()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
