@@ -8073,58 +8073,95 @@ function agregarPulpoEntero(){
 
 }
 function abrirPatasPulpo(){
-document.getElementById("modalPatasPulpo").style.display="flex";
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=pataspulpo";
+
+    }else{
+
+        document.getElementById("modalPatasPulpo").style.display = "flex";
+
+        document.getElementById("pesoPatasPulpo").value = "1";
+        document.getElementById("pesoPersonalizadoPatasPulpo").value = "";
+
+        actualizarPatasPulpo();
+
+    }
+
 }
 
 function cerrarPatasPulpo(){
-document.getElementById("modalPatasPulpo").style.display="none";
+
+    document.getElementById("modalPatasPulpo").style.display = "none";
+
 }
 
 function actualizarPatasPulpo(){
 
-let precio =
-parseFloat(document.getElementById("tamanoPatasPulpo").value);
+    let precio =
+    parseFloat(document.getElementById("tamanoPatasPulpo").value);
 
-let peso =
-parseFloat(document.getElementById("pesoPatasPulpo").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPatasPulpo").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPatasPulpo").value);
 
-document.getElementById("precioPatasPulpo").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioPatasPulpo").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarPatasPulpo(){
 
-let peso =
-parseFloat(document.getElementById("pesoPatasPulpo").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPatasPulpo").value);
 
-let preparacion =
-document.getElementById("preparacionPatasPulpo").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPatasPulpo").value);
 
-let selector =
-document.getElementById("tamanoPatasPulpo");
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let nombreProducto =
-"Patas de Pulpo Cocidas " +
-selector.options[selector.selectedIndex].text;
+        peso = personalizado;
 
-let precio =
-parseFloat(document.getElementById("tamanoPatasPulpo").value) * peso;
+    }
 
-carrito.push({
-nombre:nombreProducto,
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+    let preparacion =
+    document.getElementById("preparacionPatasPulpo").value;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    let selector =
+    document.getElementById("tamanoPatasPulpo");
 
-actualizarCarrito();
+    let nombreProducto =
+    "🐙 Patas de Pulpo Cocidas " +
+    selector.options[selector.selectedIndex].text;
 
-cerrarPatasPulpo();
+    let precio =
+    parseFloat(document.getElementById("tamanoPatasPulpo").value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarPatasPulpo();
 
 }
 function abrirRosada(){
@@ -14270,21 +14307,35 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalPatasPulpo" class="modal-producto" onclick="cerrarPatasPulpo()">
+<div id="modalPatasPulpo"
+class="modal-producto"
+onclick="cerrarPatasPulpo()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="patas-pulpo-cocidas.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐙 PATAS DE PULPO COCIDAS</h2>
+<img src="patas-pulpo-cocidas.jpg">
 
-<p style="margin:5px 0;">Patas de pulpo cocidas listas para consumir.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Seleccione tamaño y peso.</strong></p>
+<div class="producto-info">
 
-<label><strong>Tamaño:</strong></label>
+<h2>🐙 Patas de Pulpo Cocidas</h2>
 
-<select id="tamanoPatasPulpo" onchange="actualizarPatasPulpo()">
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Patas de pulpo cocidas listas para consumir.
+Ideales para pulpo a la gallega, plancha y cocina gourmet.
+</p>
+
+<label>Tamaño:</label>
+
+<select id="tamanoPatasPulpo"
+onchange="actualizarPatasPulpo()">
 
 <option value="30.00">200/300 g</option>
 
@@ -14294,24 +14345,51 @@ class="btn-producto">
 
 <br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
-<select id="pesoPatasPulpo" onchange="actualizarPatasPulpo()">
-
+<select id="pesoPatasPulpo"
+onchange="actualizarPatasPulpo()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioPatasPulpo" style="color:green;margin:8px 0;">
-Total: 30.00€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoPatasPulpo"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPatasPulpo()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioPatasPulpo"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 30.00€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionPatasPulpo">
 
@@ -14319,15 +14397,21 @@ Total: 30.00€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarPatasPulpo()" class="btn-producto">
+<button
+onclick="agregarPatasPulpo()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
