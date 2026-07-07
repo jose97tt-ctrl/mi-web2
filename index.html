@@ -6923,17 +6923,25 @@ cerrarProductoQuisquilla();
 }
 function abrirProductoVieira(){
 
-document.getElementById("modalVieira").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoVieira").value="1";
+        window.location.href = "producto.html?producto=vieira";
 
-actualizarPrecioVieira();
+    }else{
+
+        document.getElementById("modalVieira").style.display = "flex";
+
+        document.getElementById("cantidadVieira").value = "6";
+
+        actualizarPrecioVieira();
+
+    }
 
 }
 
 function cerrarProductoVieira(){
 
-document.getElementById("modalVieira").style.display="none";
+    document.getElementById("modalVieira").style.display = "none";
 
 }
 
@@ -6961,10 +6969,10 @@ let precioFinal = 4 * cantidad;
 
 carrito.push({
 
-nombre:"Vieira",
-peso:cantidad + " unidades",
-preparacion:preparacion,
-precio:precioFinal
+    nombre:"Vieira",
+    peso:cantidad + " unidades",
+    preparacion:preparacion,
+    precio:precioFinal
 
 });
 
@@ -12591,13 +12599,19 @@ onclick="cerrarProductoVieira()">
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
 
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="vieira.jpg">
 
-<h2 style="font-size:50px; line-height:1;">
-🐚 Vieira
-</h2>
+</div>
 
-<p><strong>Precio:</strong> 4 €/unidad</p>
+<div class="producto-info">
+
+<h2>🐚 Vieira</h2>
+
+<p><strong>Precio:</strong> 4.00 €/unidad</p>
 
 <p>
 Vieira fresca seleccionada.
@@ -12612,6 +12626,7 @@ onchange="actualizarPrecioVieira()">
 <option value="6">6 unidades</option>
 <option value="12">12 unidades</option>
 <option value="24">24 unidades</option>
+<option value="48">48 unidades</option>
 
 </select>
 
@@ -12647,6 +12662,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
