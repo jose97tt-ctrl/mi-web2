@@ -738,7 +738,7 @@ if(idProducto=="ostra" || idProducto=="vieira"){
     let cantidad =
     parseInt(document.getElementById("peso").value);
 
-    let total = 2.4 * cantidad;
+    let total = producto.precio * cantidad;
 
     document.getElementById("precioFinal").innerHTML =
     "Total: " + total.toFixed(2) + " €";
