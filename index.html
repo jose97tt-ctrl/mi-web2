@@ -8055,54 +8055,85 @@ cerrarPatasPulpo();
 }
 function abrirRosada(){
 
-document.getElementById("modalRosada").style.display="flex";
+    if(window.innerWidth <= 768){
 
-document.getElementById("pesoRosada").value="1";
+        window.location.href = "producto.html?producto=rosada";
 
-actualizarPrecioRosada();
+    }else{
+
+        document.getElementById("modalRosada").style.display = "flex";
+
+        document.getElementById("pesoRosada").value = "1";
+        document.getElementById("pesoPersonalizadoRosada").value = "";
+
+        actualizarRosada();
+
+    }
 
 }
 
 function cerrarRosada(){
-document.getElementById("modalRosada").style.display="none";
+
+    document.getElementById("modalRosada").style.display = "none";
+
 }
 
 function actualizarRosada(){
 
-let precio = 10.0;
+    let precio = 10.00;
 
-let peso =
-parseFloat(document.getElementById("pesoRosada").value);
+    let peso =
+    parseFloat(document.getElementById("pesoRosada").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoRosada").value);
 
-document.getElementById("precioRosada").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioRosada").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarRosada(){
 
-let peso =
-parseFloat(document.getElementById("pesoRosada").value);
+    let peso =
+    parseFloat(document.getElementById("pesoRosada").value);
 
-let preparacion =
-document.getElementById("preparacionRosada").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoRosada").value);
 
-let precio = 10.0 * peso;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-carrito.push({
-nombre:"Filete de Rosada",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
-});
+        peso = personalizado;
 
-document.getElementById("contadorCarrito").innerText = carrito.length;
+    }
 
-actualizarCarrito();
+    let preparacion =
+    document.getElementById("preparacionRosada").value;
 
-cerrarRosada();
+    let precio = 10.00 * peso;
+
+    carrito.push({
+
+        nombre:"🐟 Filete de Rosada",
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText = carrito.length;
+
+    actualizarCarrito();
+
+    cerrarRosada();
 
 }
 function abrirRejosPota(){
@@ -14100,36 +14131,76 @@ Total: 30.00€
 </div>
 
 </div>
-<div id="modalRosada" class="modal-producto" onclick="cerrarRosada()">
+<div id="modalRosada"
+class="modal-producto"
+onclick="cerrarRosada()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="filete-rosada.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐟 FILETE DE ROSADA</h2>
+<img src="filete-rosada.jpg">
 
-<p style="margin:5px 0;">Filete de rosada fresco.</p>
+</div>
 
-<p style="margin:5px 0;"><strong>Precio fijo: 10,00€/kg</strong></p>
+<div class="producto-info">
 
-<label><strong>Peso:</strong></label>
+<h2>🐟 Filete de Rosada</h2>
 
-<select id="pesoRosada" onchange="actualizarRosada()">
+<p><strong>Precio:</strong> 10,00 €/kg</p>
 
+<p>
+Filete de rosada fresco.
+Ideal para plancha, horno y cocina tradicional.
+</p>
+
+<label>Peso:</label>
+
+<select id="pesoRosada"
+onchange="actualizarRosada()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioRosada" style="color:green;margin:8px 0;">
-Total: 10.00€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoRosada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarRosada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioRosada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 10.00€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionRosada">
 
@@ -14137,15 +14208,21 @@ Total: 10.00€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarRosada()" class="btn-producto">
+<button
+onclick="agregarRosada()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
