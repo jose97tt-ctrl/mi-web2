@@ -64,11 +64,11 @@ header h1{
 
 <div class="contenedor">
 
-<h2>
+<h2>Panel de precios</h2>
 
-Próximamente...
+<div id="listaProductos">
 
-</h2>
+</div>
 
 </div>
 
@@ -76,9 +76,35 @@ Próximamente...
 
 <script>
 
-console.log(productos);
+let lista = document.getElementById("listaProductos");
 
-</script>   
+lista.innerHTML = `
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-bottom:1px solid #ddd;
+">
+
+<span>${productos.aguja.nombre}</span>
+
+<input
+type="number"
+value="${productos.aguja.precio}"
+style="
+width:120px;
+padding:8px;
+font-size:18px;
+text-align:center;
+">
+
+</div>
+
+`;
+
+</script>
 
 </body>
 
