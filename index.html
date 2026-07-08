@@ -8505,55 +8505,86 @@ function agregarRejosPota(){
 }
 function abrirProductoAbadejoPuntoSal(){
 
-document.getElementById("modalAbadejoPuntoSal").style.display="flex";
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=abadejopuntosal";
+
+    }else{
+
+        document.getElementById("modalAbadejoPuntoSal").style.display = "flex";
+
+        document.getElementById("pesoAbadejoPuntoSal").value = "1";
+        document.getElementById("pesoPersonalizadoAbadejoPuntoSal").value = "";
+
+        actualizarPrecioAbadejoPuntoSal();
+
+    }
 
 }
 
 function cerrarProductoAbadejoPuntoSal(){
 
-document.getElementById("modalAbadejoPuntoSal").style.display="none";
+    document.getElementById("modalAbadejoPuntoSal").style.display = "none";
 
 }
 
 function actualizarPrecioAbadejoPuntoSal(){
 
-let precio = 4.40;
+    let precio = 4.40;
 
-let peso =
-parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
+    let peso =
+    parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoAbadejoPuntoSal").value);
 
-document.getElementById("precioAbadejoPuntoSal").innerText =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioAbadejoPuntoSal").innerText =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarAbadejoPuntoSal(){
 
-let peso =
-parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
+    let peso =
+    parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
 
-let preparacion =
-document.getElementById("preparacionAbadejoPuntoSal").value;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoAbadejoPuntoSal").value);
 
-let precio = 4.40 * peso;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-carrito.push({
+        peso = personalizado;
 
-nombre:"Abadejo Punto de Sal",
-peso:peso + " kg",
-preparacion:preparacion,
-precio:precio
+    }
 
-});
+    let preparacion =
+    document.getElementById("preparacionAbadejoPuntoSal").value;
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+    let precio = 4.40 * peso;
 
-actualizarCarrito();
+    carrito.push({
 
-cerrarProductoAbadejoPuntoSal();
+        nombre:"🐟 Abadejo Punto de Sal",
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoAbadejoPuntoSal();
 
 }
 
@@ -15001,39 +15032,76 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalAbadejoPuntoSal" class="modal-producto" onclick="cerrarProductoAbadejoPuntoSal()">
+<div id="modalAbadejoPuntoSal"
+class="modal-producto"
+onclick="cerrarProductoAbadejoPuntoSal()">
 
-<div class="contenido-modal" onclick="event.stopPropagation()">
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+<div class="producto-layout">
 
-<img src="abadejo-punto-sal.jpg" style="height:40px;">
+<div class="producto-foto">
 
-<h2 style="margin:5px 0;">🐟 ABADEJO PUNTO DE SAL</h2>
+<img src="abadejo-punto-sal.jpg">
 
-<p style="margin:5px 0;">
-Filete de Abadejo con piel. Producto congelado listo para cocinar.
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Abadejo Punto de Sal</h2>
+
+<p><strong>Precio:</strong> 4,40 €/kg</p>
+
+<p>
+Filete de abadejo con piel, punto de sal.
+Producto listo para cocinar, ideal para plancha, horno y frituras.
 </p>
 
-<p style="margin:5px 0;">
-<strong>Precio fijo: 4,40€/kg</strong>
-</p>
+<label>Peso:</label>
 
-<label><strong>Peso:</strong></label>
-
-<select id="pesoAbadejoPuntoSal" onchange="actualizarPrecioAbadejoPuntoSal()">
+<select id="pesoAbadejoPuntoSal"
+onchange="actualizarPrecioAbadejoPuntoSal()">
 
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioAbadejoPuntoSal" style="color:green;margin:8px 0;">
-Total: 4.40€
-</h2>
+<label><b>O escribe el peso exacto:</b></label>
 
-<label><strong>Preparación:</strong></label>
+<input
+type="number"
+id="pesoPersonalizadoAbadejoPuntoSal"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioAbadejoPuntoSal()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioAbadejoPuntoSal"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 4.40€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionAbadejoPuntoSal">
 
@@ -15041,13 +15109,15 @@ Total: 4.40€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
-<button onclick="agregarAbadejoPuntoSal()" class="btn-producto">
+<button
+onclick="agregarAbadejoPuntoSal()"
+class="btn-producto">
 
-🛒 Añadir al carrito
+🛒 Añadir al pedido
 
 </button>
 
@@ -15055,6 +15125,9 @@ Total: 4.40€
 
 </div>
 
+</div>
+
+</div>
 
 </body>
 </html>
