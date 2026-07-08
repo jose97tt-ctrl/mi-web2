@@ -83,6 +83,24 @@ box-sizing:border-box;
 <div id="listaProductos">
 
 </div>
+<button
+onclick="obtenerPrecios()"
+style="
+width:100%;
+padding:18px;
+margin-top:25px;
+background:#0a8f4d;
+color:white;
+font-size:22px;
+font-weight:bold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+">
+
+💾 Comprobar precios
+
+</button>
 
 </div>
 
@@ -122,6 +140,7 @@ function mostrarProductos(){
 
             <input
             type="number"
+            data-id="${id}"
             value="${productos[id].precio || ""}"
             step="0.01"
             style="
@@ -146,6 +165,21 @@ buscador.addEventListener("input", function(){
     mostrarProductos();
 
 });
+function obtenerPrecios(){
+
+    let precios = {};
+
+    let cajas = document.querySelectorAll("input[type='number']");
+
+    cajas.forEach(function(caja){
+
+        precios[caja.dataset.id] = parseFloat(caja.value);
+
+    });
+
+    console.log(precios);
+
+}
 
 </script>
 
