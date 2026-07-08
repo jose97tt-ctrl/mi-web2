@@ -7421,67 +7421,95 @@ function agregarPerca(){
 }
 function abrirProductoRodaballo(){
 
-document.getElementById("modalRodaballo").style.display="flex";
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=rodaballo";
+
+    }else{
+
+        document.getElementById("modalRodaballo").style.display = "flex";
+
+        document.getElementById("pesoRodaballo").value = "1";
+        document.getElementById("pesoPersonalizadoRodaballo").value = "";
+
+        actualizarPrecioRodaballo();
+
+    }
 
 }
 
 function cerrarProductoRodaballo(){
 
-document.getElementById("modalRodaballo").style.display="none";
+    document.getElementById("modalRodaballo").style.display = "none";
 
 }
 
 function actualizarPrecioRodaballo(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaRodaballo").value);
+    let precio =
+    parseFloat(document.getElementById("procedenciaRodaballo").value);
 
-let peso =
-parseFloat(document.getElementById("pesoRodaballo").value);
+    let peso =
+    parseFloat(document.getElementById("pesoRodaballo").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoRodaballo").value);
 
-document.getElementById("precioRodaballo").innerHTML =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioRodaballo").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarRodaballo(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaRodaballo").value);
+    let peso =
+    parseFloat(document.getElementById("pesoRodaballo").value);
 
-let peso =
-parseFloat(document.getElementById("pesoRodaballo").value);
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoRodaballo").value);
 
-let preparacion =
-document.getElementById("preparacionRodaballo").value;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let procedencia =
-document.getElementById("procedenciaRodaballo").options[
-document.getElementById("procedenciaRodaballo").selectedIndex
-].text;
+        peso = personalizado;
 
-let total = precio * peso;
+    }
 
-carrito.push({
+    let preparacion =
+    document.getElementById("preparacionRodaballo").value;
 
-nombre:"Rodaballo - " + procedencia,
+    let selector =
+    document.getElementById("procedenciaRodaballo");
 
-peso:peso + " kg",
+    let nombreProducto =
+    "🐟 Rodaballo - " +
+    selector.options[selector.selectedIndex].text;
 
-preparacion:preparacion,
+    let precio =
+    parseFloat(selector.value) * peso;
 
-precio:total
+    carrito.push({
 
-});
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+    });
 
-actualizarCarrito();
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
 
-cerrarProductoRodaballo();
+    actualizarCarrito();
+
+    cerrarProductoRodaballo();
 
 }
 function abrirProductoSalmon(){
@@ -13679,55 +13707,89 @@ onclick="cerrarProductoRodaballo()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="rodaballo.jpg">
 
-<h3>🐟 RODABALLO</h3>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Rodaballo</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
 
 <p>
 Rodaballo de piscifactoría seleccionado.
-Elige tamaño y preparación.
+Ideal para horno, plancha y cocina gourmet.
 </p>
 
-<label><strong>Tamaño:</strong></label>
+<label>Tamaño:</label>
 
 <select id="procedenciaRodaballo"
 onchange="actualizarPrecioRodaballo()">
 
-<option value="13.2">400g-600g</option>
+<option value="13.20">400 g - 600 g</option>
 
-<option value="16.5">1kg-1.5kg</option>
+<option value="16.50">1 kg - 1,5 kg</option>
 
-<option value="16.5">1.5kg-2kg</option>
+<option value="16.50">1,5 kg - 2 kg</option>
 
-<option value="16.5">2kg-3kg</option>
+<option value="16.50">2 kg - 3 kg</option>
 
-<option value="18.5">+2.5kg</option>
+<option value="18.50">+2,5 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
 <select id="pesoRodaballo"
 onchange="actualizarPrecioRodaballo()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<h2 id="precioRodaballo"
-style="color:green;">
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoRodaballo"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioRodaballo()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioRodaballo"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
 Total: 13.20€
-</h2>
 
-<label><strong>Preparación:</strong></label>
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionRodaballo">
 
@@ -13736,12 +13798,9 @@ Total: 13.20€
 <option>Sin agallas</option>
 <option>En lomos</option>
 
-
-
-
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
@@ -13752,6 +13811,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
