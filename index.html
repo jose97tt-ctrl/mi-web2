@@ -7328,67 +7328,95 @@ function agregarPargo(){
 }
 function abrirProductoPerca(){
 
-document.getElementById("modalPerca").style.display="flex";
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=perca";
+
+    }else{
+
+        document.getElementById("modalPerca").style.display = "flex";
+
+        document.getElementById("pesoPerca").value = "1";
+        document.getElementById("pesoPersonalizadoPerca").value = "";
+
+        actualizarPrecioPerca();
+
+    }
 
 }
 
 function cerrarProductoPerca(){
 
-document.getElementById("modalPerca").style.display="none";
+    document.getElementById("modalPerca").style.display = "none";
 
 }
 
 function actualizarPrecioPerca(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaPerca").value);
+    let precio =
+    parseFloat(document.getElementById("procedenciaPerca").value);
 
-let peso =
-parseFloat(document.getElementById("pesoPerca").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPerca").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPerca").value);
 
-document.getElementById("precioPerca").innerHTML =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioPerca").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarPerca(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaPerca").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPerca").value);
 
-let peso =
-parseFloat(document.getElementById("pesoPerca").value);
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPerca").value);
 
-let preparacion =
-document.getElementById("preparacionPerca").value;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let procedencia =
-document.getElementById("procedenciaPerca").options[
-document.getElementById("procedenciaPerca").selectedIndex
-].text;
+        peso = personalizado;
 
-let total = precio * peso;
+    }
 
-carrito.push({
+    let preparacion =
+    document.getElementById("preparacionPerca").value;
 
-nombre:"Perca - " + procedencia,
+    let selector =
+    document.getElementById("procedenciaPerca");
 
-peso:peso + " kg",
+    let nombreProducto =
+    "🐟 Perca - " +
+    selector.options[selector.selectedIndex].text;
 
-preparacion:preparacion,
+    let precio =
+    parseFloat(selector.value) * peso;
 
-precio:total
+    carrito.push({
 
-});
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+    });
 
-actualizarCarrito();
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
 
-cerrarProductoPerca();
+    actualizarCarrito();
+
+    cerrarProductoPerca();
 
 }
 function abrirProductoRodaballo(){
@@ -13541,47 +13569,81 @@ onclick="cerrarProductoPerca()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="perca.jpg">
 
-<h3>🐟 PERCA</h3>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Perca</h2>
+
+<p><strong>Seleccione el tipo y el peso.</strong></p>
 
 <p>
 Perca seleccionada.
-Elige peso y preparación.
+Ideal para plancha, horno y cocina tradicional.
 </p>
 
-<label><strong>Tipo:</strong></label>
+<label>Tipo:</label>
 
 <select id="procedenciaPerca"
 onchange="actualizarPrecioPerca()">
 
-<option value="11.4">Perca</option>
+<option value="11.40">Perca</option>
 
 </select>
 
-<br>
+<br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
 <select id="pesoPerca"
 onchange="actualizarPrecioPerca()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<h2 id="precioPerca"
-style="color:green;">
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoPerca"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioPerca()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioPerca"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
 Total: 11.40€
-</h2>
 
-<label><strong>Preparación:</strong></label>
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionPerca">
 
@@ -13590,10 +13652,9 @@ Total: 11.40€
 <option>Sin agallas</option>
 <option>En lomos</option>
 
-
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
@@ -13604,6 +13665,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
