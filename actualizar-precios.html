@@ -90,6 +90,10 @@ box-sizing:border-box;
 
 <script>
 
+let lista = document.getElementById("listaProductos");
+
+let buscador = document.getElementById("buscador");
+
 function mostrarProductos(){
 
     lista.innerHTML = "";
@@ -135,45 +139,6 @@ function mostrarProductos(){
 
 }
 
-lista.innerHTML = "";
-
-for(let id in productos){
-let texto = buscador.value.toLowerCase();
-
-if(!productos[id].nombre.toLowerCase().includes(texto)){
-
-    continue;
-
-}
-
-    lista.innerHTML += `
-
-    <div style="
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px;
-    border-bottom:1px solid #ddd;
-    ">
-
-        <span>${productos[id].nombre}</span>
-
-        <input
-        type="number"
-        value="${productos[id].precio || ""}"
-        step="0.01"
-        style="
-        width:120px;
-        padding:8px;
-        font-size:18px;
-        text-align:center;
-        ">
-
-    </div>
-
-    `;
-
-}
 mostrarProductos();
 
 buscador.addEventListener("input", function(){
