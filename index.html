@@ -7142,65 +7142,95 @@ function agregarDorada(){
 }
 function abrirProductoLubina(){
 
-document.getElementById("modalLubina").style.display="flex";
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=lubina";
+
+    }else{
+
+        document.getElementById("modalLubina").style.display = "flex";
+
+        document.getElementById("pesoLubina").value = "1";
+        document.getElementById("pesoPersonalizadoLubina").value = "";
+
+        actualizarPrecioLubina();
+
+    }
 
 }
 
 function cerrarProductoLubina(){
 
-document.getElementById("modalLubina").style.display="none";
+    document.getElementById("modalLubina").style.display = "none";
 
 }
+
 function actualizarPrecioLubina(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaLubina").value);
+    let precio =
+    parseFloat(document.getElementById("procedenciaLubina").value);
 
-let peso =
-parseFloat(document.getElementById("pesoLubina").value);
+    let peso =
+    parseFloat(document.getElementById("pesoLubina").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLubina").value);
 
-document.getElementById("precioLubina").innerHTML =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioLubina").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
 
 }
+
 function agregarLubina(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaLubina").value);
+    let peso =
+    parseFloat(document.getElementById("pesoLubina").value);
 
-let peso =
-parseFloat(document.getElementById("pesoLubina").value);
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLubina").value);
 
-let preparacion =
-document.getElementById("preparacionLubina").value;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let procedencia =
-document.getElementById("procedenciaLubina").options[
-document.getElementById("procedenciaLubina").selectedIndex
-].text;
+        peso = personalizado;
 
-let total = precio * peso;
+    }
 
-carrito.push({
+    let preparacion =
+    document.getElementById("preparacionLubina").value;
 
-nombre:"Lubina - " + procedencia,
+    let selector =
+    document.getElementById("procedenciaLubina");
 
-peso:peso + " kg",
+    let nombreProducto =
+    "🐟 Lubina - " +
+    selector.options[selector.selectedIndex].text;
 
-preparacion:preparacion,
+    let precio =
+    parseFloat(selector.value) * peso;
 
-precio:total
+    carrito.push({
 
-});
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+    });
 
-actualizarCarrito();
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
 
-cerrarProductoLubina();
+    actualizarCarrito();
+
+    cerrarProductoLubina();
 
 }
 function abrirProductoPargo(){
@@ -13246,61 +13276,95 @@ onclick="cerrarProductoLubina()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="lubina.jpg">
 
-<h3>🐟 LUBINA</h3>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Lubina</h2>
+
+<p><strong>Seleccione la procedencia y el peso.</strong></p>
 
 <p>
 Lubina de piscifactoría seleccionada.
-Elige procedencia, tamaño y preparación.
+Disponible en distintas procedencias y calibres. Ideal para horno, plancha y cocina mediterránea.
 </p>
 
-<label><strong>Procedencia:</strong></label>
+<label>Procedencia:</label>
 
 <select id="procedenciaLubina"
 onchange="actualizarPrecioLubina()">
 
-<option value="7.8">Turca 400-600g</option>
+<option value="7.8">Turca 400-600 g</option>
 
-<option value="7.9">Griega 400-600g</option>
+<option value="7.9">Griega 400-600 g</option>
 
-<option value="8.9">Nacional Culmarex 400-600g</option>
+<option value="8.9">Nacional Culmarex 400-600 g</option>
 
-<option value="11.9">Estero 400-600g</option>
+<option value="11.9">Estero 400-600 g</option>
 
-<option value="9.6">Nacional Culmarex 600-800g</option>
+<option value="9.6">Nacional Culmarex 600-800 g</option>
 
-<option value="12.2">Estero 600-800g</option>
+<option value="12.2">Estero 600-800 g</option>
 
-<option value="14.7">Estero 800g-1kg</option>
+<option value="14.7">Estero 800 g - 1 kg</option>
 
-<option value="17.0">Estero 1.4kg-1.7kg</option>
+<option value="17.0">Estero 1,4 kg - 1,7 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
 <select id="pesoLubina"
 onchange="actualizarPrecioLubina()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<h2 id="precioLubina"
-style="color:green;">
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoLubina"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioLubina()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioLubina"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
 Total: 7.80€
-</h2>
 
-<label><strong>Preparación:</strong></label>
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionLubina">
 
@@ -13310,10 +13374,9 @@ Total: 7.80€
 <option>Abierta a la espalda</option>
 <option>En lomos</option>
 
-
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
@@ -13324,6 +13387,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
