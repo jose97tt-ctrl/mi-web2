@@ -7235,67 +7235,95 @@ function agregarLubina(){
 }
 function abrirProductoPargo(){
 
-document.getElementById("modalPargo").style.display="flex";
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=pargo";
+
+    }else{
+
+        document.getElementById("modalPargo").style.display = "flex";
+
+        document.getElementById("pesoPargo").value = "1";
+        document.getElementById("pesoPersonalizadoPargo").value = "";
+
+        actualizarPrecioPargo();
+
+    }
 
 }
 
 function cerrarProductoPargo(){
 
-document.getElementById("modalPargo").style.display="none";
+    document.getElementById("modalPargo").style.display = "none";
 
 }
 
 function actualizarPrecioPargo(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaPargo").value);
+    let precio =
+    parseFloat(document.getElementById("procedenciaPargo").value);
 
-let peso =
-parseFloat(document.getElementById("pesoPargo").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPargo").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPargo").value);
 
-document.getElementById("precioPargo").innerHTML =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioPargo").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarPargo(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaPargo").value);
+    let peso =
+    parseFloat(document.getElementById("pesoPargo").value);
 
-let peso =
-parseFloat(document.getElementById("pesoPargo").value);
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPargo").value);
 
-let preparacion =
-document.getElementById("preparacionPargo").value;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let procedencia =
-document.getElementById("procedenciaPargo").options[
-document.getElementById("procedenciaPargo").selectedIndex
-].text;
+        peso = personalizado;
 
-let total = precio * peso;
+    }
 
-carrito.push({
+    let preparacion =
+    document.getElementById("preparacionPargo").value;
 
-nombre:"Pargo - " + procedencia,
+    let selector =
+    document.getElementById("procedenciaPargo");
 
-peso:peso + " kg",
+    let nombreProducto =
+    "🐟 Pargo - " +
+    selector.options[selector.selectedIndex].text;
 
-preparacion:preparacion,
+    let precio =
+    parseFloat(selector.value) * peso;
 
-precio:total
+    carrito.push({
 
-});
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+    });
 
-actualizarCarrito();
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
 
-cerrarProductoPargo();
+    actualizarCarrito();
+
+    cerrarProductoPargo();
 
 }
 function abrirProductoPerca(){
@@ -13401,49 +13429,83 @@ onclick="cerrarProductoPargo()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
 
 <img src="pargo.jpg">
 
-<h3>🐟 PARGO</h3>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Pargo</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
 
 <p>
 Pargo de piscifactoría seleccionado.
-Elige tamaño y preparación.
+Ideal para horno, plancha y cocina mediterránea.
 </p>
 
-<label><strong>Procedencia:</strong></label>
+<label>Procedencia:</label>
 
 <select id="procedenciaPargo"
 onchange="actualizarPrecioPargo()">
 
-<option value="14.5">Griego 800g-1kg</option>
+<option value="14.5">Griego 800 g - 1 kg</option>
 
-<option value="17.5">Griego 1kg-1.5kg</option>
+<option value="17.5">Griego 1 kg - 1,5 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<label><strong>Peso:</strong></label>
+<label>Peso:</label>
 
 <select id="pesoPargo"
 onchange="actualizarPrecioPargo()">
 
-
 <option value="1">1 kg</option>
 <option value="2">2 kg</option>
 <option value="3">3 kg</option>
+<option value="4">4 kg</option>
 
 </select>
 
-<br>
+<br><br>
 
-<h2 id="precioPargo"
-style="color:green;">
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoPargo"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioPargo()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioPargo"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
 Total: 14.50€
-</h2>
 
-<label><strong>Preparación:</strong></label>
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionPargo">
 
@@ -13452,10 +13514,9 @@ Total: 14.50€
 <option>Sin agallas</option>
 <option>En lomos</option>
 
-
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
@@ -13466,6 +13527,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
