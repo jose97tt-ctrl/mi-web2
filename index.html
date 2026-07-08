@@ -7049,64 +7049,95 @@ cerrarProductoZamburina();
 }
 function abrirProductoDorada(){
 
-document.getElementById("modalDorada").style.display="flex";
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=dorada";
+
+    }else{
+
+        document.getElementById("modalDorada").style.display="flex";
+
+        document.getElementById("pesoDorada").value="1";
+        document.getElementById("pesoPersonalizadoDorada").value="";
+
+        actualizarPrecioDorada();
+
+    }
 
 }
+
 function cerrarProductoDorada(){
 
-document.getElementById("modalDorada").style.display="none";
+    document.getElementById("modalDorada").style.display="none";
 
 }
 
 function actualizarPrecioDorada(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaDorada").value);
+    let precio =
+    parseFloat(document.getElementById("procedenciaDorada").value);
 
-let peso =
-parseFloat(document.getElementById("pesoDorada").value);
+    let peso =
+    parseFloat(document.getElementById("pesoDorada").value);
 
-let total = precio * peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoDorada").value);
 
-document.getElementById("precioDorada").innerHTML =
-"Total: " + total.toFixed(2) + "€";
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioDorada").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
 
 }
+
 function agregarDorada(){
 
-let precio =
-parseFloat(document.getElementById("procedenciaDorada").value);
+    let peso =
+    parseFloat(document.getElementById("pesoDorada").value);
 
-let peso =
-parseFloat(document.getElementById("pesoDorada").value);
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoDorada").value);
 
-let preparacion =
-document.getElementById("preparacionDorada").value;
-let procedencia =
-document.getElementById("procedenciaDorada").options[
-document.getElementById("procedenciaDorada").selectedIndex
-].text;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-let total = precio * peso;
+        peso = personalizado;
 
-carrito.push({
+    }
 
-nombre:"Dorada - " + procedencia,
+    let preparacion =
+    document.getElementById("preparacionDorada").value;
 
-peso:peso + " kg",
+    let selector =
+    document.getElementById("procedenciaDorada");
 
-preparacion:preparacion,
+    let nombreProducto =
+    "🐟 Dorada - " +
+    selector.options[selector.selectedIndex].text;
 
-precio:total
+    let precio =
+    parseFloat(selector.value) * peso;
 
-});
+    carrito.push({
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
 
-actualizarCarrito();
+    });
 
-cerrarProductoDorada();
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoDorada();
 
 }
 function abrirProductoLubina(){
@@ -13096,55 +13127,87 @@ onclick="cerrarProductoDorada()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
+<div class="producto-layout">
+
+<div class="producto-foto">
+
 <img src="dorada.jpg">
 
-<h3>🐟 DORADA</h3>
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Dorada</h2>
+
+<p><strong>Seleccione la procedencia y el peso.</strong></p>
 
 <p>
 Dorada de piscifactoría seleccionada.
-Elige procedencia, tamaño y preparación.
+Disponible en distintas procedencias y calibres. Ideal para horno, plancha y cocina mediterránea.
 </p>
 
-<label><strong>Procedencia:</strong></label>
+<label>Procedencia:</label>
 
 <select id="procedenciaDorada"
 onchange="actualizarPrecioDorada()">
 
-<option value="7.8">Turca 400-600g</option>
-<option value="7.9">Nacional 400-600g</option>
-<option value="8.5">Griega 400-600g</option>
-
-<option value="8.3">Nacional 600-800g</option>
-<option value="9.3">Griega 600-800g</option>
-
-<option value="11.9">Esteros 600-800g</option>
-
-<option value="14.8">Esteros 1kg-1.5kg</option>
-
-</select>
-
-<br>
-
-<label><strong>Peso:</strong></label>
-
-<select id="pesoDorada"
-onchange="actualizarPrecioDorada()">
-
-
-<option value="1">1 kg</option>
-<option value="2">2 kg</option>
-<option value="3">3 kg</option>
+<option value="7.8">Turca 400-600 g</option>
+<option value="7.9">Nacional 400-600 g</option>
+<option value="8.5">Griega 400-600 g</option>
+<option value="8.3">Nacional 600-800 g</option>
+<option value="9.3">Griega 600-800 g</option>
+<option value="11.9">Esteros 600-800 g</option>
+<option value="14.8">Esteros 1 kg - 1,5 kg</option>
 
 </select>
 
 <br><br>
 
-<h2 id="precioDorada"
-style="color:green;">
-Total: 7.80€
-</h2>
+<label>Peso:</label>
 
-<label><strong>Preparación:</strong></label>
+<select id="pesoDorada"
+onchange="actualizarPrecioDorada()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoDorada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioDorada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p id="precioDorada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.80€
+
+</p>
+
+<label>Preparación:</label>
 
 <select id="preparacionDorada">
 
@@ -13158,7 +13221,7 @@ Total: 7.80€
 
 </select>
 
-<p style="color:green;font-weight:bold;">
+<p style="color:green;">
 ✅ Disponible
 </p>
 
@@ -13169,6 +13232,10 @@ class="btn-producto">
 🛒 Añadir al pedido
 
 </button>
+
+</div>
+
+</div>
 
 </div>
 
