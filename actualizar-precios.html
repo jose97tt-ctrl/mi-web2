@@ -111,6 +111,7 @@ cursor:pointer;
 let lista = document.getElementById("listaProductos");
 
 let buscador = document.getElementById("buscador");
+let cambios = {};
 
 function mostrarProductos(){
 
@@ -125,6 +126,13 @@ function mostrarProductos(){
             continue;
 
         }
+    function guardarCambio(input){
+
+    cambios[input.dataset.id] = parseFloat(input.value);
+
+    console.log(cambios);
+
+}
 
       lista.innerHTML += `
 
@@ -163,6 +171,7 @@ type="number"
 data-id="${id}"
 value="${productos[id].precio || ""}"
 step="0.01"
+onchange="guardarCambio(this)"
 style="
 width:120px;
 padding:10px;
