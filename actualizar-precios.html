@@ -126,33 +126,55 @@ function mostrarProductos(){
 
         }
 
-        lista.innerHTML += `
+      lista.innerHTML += `
 
-        <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:15px;
-        border-bottom:1px solid #ddd;
-        ">
+<div style="
+display:grid;
+grid-template-columns:1fr 140px;
+align-items:center;
+gap:20px;
+padding:14px;
+border-bottom:1px solid #e5e5e5;
+">
 
-            <span>${productos[id].nombre}</span>
+<div>
 
-            <input
-            type="number"
-            data-id="${id}"
-            value="${productos[id].precio || ""}"
-            step="0.01"
-            style="
-            width:120px;
-            padding:8px;
-            font-size:18px;
-            text-align:center;
-            ">
+<div style="
+font-size:12px;
+color:#888;
+">
 
-        </div>
+${id}
 
-        `;
+</div>
+
+<div style="
+font-size:18px;
+font-weight:bold;
+">
+
+${productos[id].nombre}
+
+</div>
+
+</div>
+<input
+type="number"
+data-id="${id}"
+value="${productos[id].precio || ""}"
+step="0.01"
+style="
+width:120px;
+padding:10px;
+font-size:18px;
+text-align:center;
+border-radius:8px;
+border:1px solid #ccc;
+">
+
+</div>
+
+`;
 
     }
 
