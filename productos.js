@@ -4,7 +4,7 @@ const productos = {
    aguja:{
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:28.0,
+    precio:29.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
