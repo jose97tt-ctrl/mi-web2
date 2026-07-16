@@ -4,7 +4,7 @@ const productos = {
    aguja:{
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:24,
+    precio:28.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -15,7 +15,7 @@ const productos = {
       "atun-envasado":{
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:15,
+    precio:15.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
@@ -26,7 +26,7 @@ const productos = {
    "atun-fresco":{
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:40,
+    precio:40.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -39,7 +39,7 @@ const productos = {
   boqueron:{
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
-    precio:10,
+    precio:10.0,
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
     preparaciones:[
         "Entero",
@@ -51,7 +51,7 @@ const productos = {
 bacaladilla:{
     nombre:"🐟 Bacaladilla",
     imagen:"bacaladilla.jpg",
-    precio:18,
+    precio:18.0,
     descripcion:"Bacaladilla fresca seleccionada. Ideal para freír y cocina tradicional.",
     preparaciones:[
         "Entera",
@@ -63,7 +63,7 @@ bacaladilla:{
 "brotola-roca":{
     nombre:"🐟 Brótola Roca",
     imagen:"brotola roca.jpg",
-    precio:15,
+    precio:15.0,
     descripcion:"Brótola roca fresca seleccionada. Ideal para horno, plancha y guisos.",
     preparaciones:[
         "Entera",
@@ -74,7 +74,7 @@ bacaladilla:{
 brotola:{
     nombre:"🐟 Brótola",
     imagen:"brotola.jpg",
-    precio:8,
+    precio:8.0,
     descripcion:"Brótola fresca seleccionada. Ideal para plancha, horno y guisos.",
     preparaciones:[
         "Entera",
@@ -115,7 +115,7 @@ jurel:{
 jurela:{
     nombre:"🐟 Jurela",
     imagen:"jurela.jpg",
-    precio:6,
+    precio:6.0,
     descripcion:"Jurela fresca seleccionada. Ideal para plancha, horno y cocina tradicional.",
     preparaciones:[
         "Entera",
@@ -135,7 +135,7 @@ pijota:{
 "salmonete-roca":{
     nombre:"🐟 Salmonete Roca",
     imagen:"salmonete roca.jpg",
-    precio:23,
+    precio:23.0,
     descripcion:"Salmonete de roca fresco seleccionado. Muy apreciado por su sabor intenso y calidad.",
     preparaciones:[
         "Entero",
@@ -146,7 +146,7 @@ pijota:{
 salmonete:{
     nombre:"🐟 Salmonete",
     imagen:"salmonete.jpg",
-    precio:15,
+    precio:15.0,
     descripcion:"Salmonete fresco seleccionado. Ideal para fritura, plancha y horno.",
     preparaciones:[
         "Entero",
@@ -156,7 +156,7 @@ salmonete:{
 "almeja-italiana":{
     nombre:"🦪 Almeja Italiana",
     imagen:"almeja italiana.jpg",
-    precio:10,
+    precio:10.0,
     descripcion:"Almeja italiana fresca seleccionada. Ideal para cocinar al vapor, marinera o arroces.",
     preparaciones:[
         "Malla",
@@ -166,7 +166,7 @@ salmonete:{
 "almeja-chirla":{
     nombre:"🦪 Almeja o Chirla",
     imagen:"almeja o chirla.jpg",
-    precio:12,
+    precio:12.0,
     descripcion:"Chirla fresca seleccionada. Perfecta para arroces, sopas y mariscos al vapor.",
     preparaciones:[
         "Natural lista para cocinar"
@@ -175,7 +175,7 @@ salmonete:{
 "almeja-japonica-gallega":{
     nombre:"🦪 Almeja Japónica Gallega",
     imagen:"almeja japonica gallega.jpg",
-    precio:26,
+    precio:28.0,
     descripcion:"Almeja japónica gallega de gran calidad. Ideal para arroces, mariscadas y cocina gourmet.",
     preparaciones:[
         "Natural lista para cocinar"
@@ -184,7 +184,7 @@ salmonete:{
 berberecho:{
     nombre:"🦪 Berberecho",
     imagen:"berberecho.jpg",
-    precio:18,
+    precio:18.0,
     descripcion:"Berberecho fresco seleccionado. Ideal para aperitivos, mariscadas y arroces.",
     preparaciones:[
         "Natural"
@@ -193,7 +193,7 @@ berberecho:{
 "escupina-gallega":{
     nombre:"🦪 Escupiña Gallega",
     imagen:"bolos o escupiña gallega.jpg",
-    precio:24,
+    precio:24.0,
     descripcion:"Escupiña gallega fresca de alta calidad. Ideal para mariscadas y cocina gourmet.",
     preparaciones:[
         "Natural"
@@ -202,7 +202,7 @@ berberecho:{
 "canaillas-busanos":{
     nombre:"🦐 Cañaíllas o Busanos",
     imagen:"cañaillas o busanos.jpg",
-    precio:45,
+    precio:45.0,
     descripcion:"Cañaíllas frescas seleccionadas. Perfectas para cocer y mariscadas.",
     preparaciones:[
         "Natural",
@@ -212,7 +212,7 @@ berberecho:{
 calamar:{
     nombre:"🦑 Calamar",
     imagen:"calamar.jpg",
-    precio:26,
+    precio:26.0,
     descripcion:"Calamar fresco seleccionado. Ideal para plancha, fritura y rellenos.",
     preparaciones:[
         "Entero",
@@ -242,7 +242,7 @@ calamar:{
 carabinero:{
     nombre:"Carabinero",
     imagen:"carabinero.jpg",
-    precio:85,
+    precio:85.0,
     descripcion:"Carabinero fresco de máxima calidad. Ideal para plancha, arroces y ocasiones especiales.",
     preparaciones:[
         "Natural"
@@ -251,7 +251,7 @@ carabinero:{
 cigala:{
     nombre:"Cigala",
     imagen:"cigala.jpg",
-    precio:100,
+    precio:100.0,
     descripcion:"Cigala fresca de máxima calidad. Producto premium ideal para plancha, cocción y mariscadas.",
     preparaciones:[
         "Natural"
@@ -260,7 +260,7 @@ cigala:{
 "concha-fina":{
     nombre:"Concha Fina",
     imagen:"concha fina.jpg",
-    precio:16,
+    precio:16.0,
     descripcion:"Concha fina fresca seleccionada. Ideal para consumir al natural o con limón.",
     preparaciones:[
         "Natural"
@@ -269,7 +269,7 @@ cigala:{
 coquina:{
     nombre:"🦪 Coquina",
     imagen:"coquina.jpg",
-    precio:30,
+    precio:30.0,
     descripcion:"Molusco muy apreciado por su sabor. Ideal para cocinar al ajillo o al vapor.",
     preparaciones:[
         "Sin preparar",
@@ -279,7 +279,7 @@ coquina:{
 chopito:{
     nombre:"🦑 Chopito",
     imagen:"chopito.jpg",
-    precio:35,
+    precio:35.0,
     descripcion:"Chopito fresco de gran calidad. Ideal para freír, plancha o a la andaluza.",
     preparaciones:[
         "Entero",
@@ -299,7 +299,7 @@ galera:{
 gambablanca:{
     nombre:"🦐 Gamba Blanca",
     imagen:"gamba.jpg",
-    precio:18,
+    precio:18.0,
     descripcion:"Gamba blanca fresca de gran calidad. Ideal para cocer, plancha o a la sal.",
     preparaciones:[
         "Entero",
@@ -309,7 +309,7 @@ gambablanca:{
 gambacristal:{
     nombre:"🦐 Gamba Cristal",
     imagen:"cristal.jpg",
-    precio:20,
+    precio:20.0,
     descripcion:"Gamba cristal fresca seleccionada. Perfecta para fritura tradicional y tortillas de camarones.",
     preparaciones:[
         "Fresca"
@@ -318,7 +318,7 @@ gambacristal:{
 gambaroja:{
     nombre:"🦐 Gamba Roja",
     imagen:"gamba roja.jpg",
-    precio:110,
+    precio:110.0,
     descripcion:"Gamba roja premium de máxima calidad. Ideal para plancha, cocción y mariscadas especiales.",
     preparaciones:[
         "Fresca",
@@ -328,7 +328,7 @@ gambaroja:{
 jibia:{
     nombre:"🦑 Jibia o Choco",
     imagen:"jibia.jpg",
-    precio:12,
+    precio:12.0,
     descripcion:"Jibia fresca seleccionada. Ideal para plancha, guisos y fritura.",
     preparaciones:[
         "Entera en sucio",
@@ -338,7 +338,7 @@ jibia:{
 langostinotigre:{
     nombre:"🦐 Langostino Tigre",
     imagen:"langostino tigre.jpg",
-    precio:45,
+    precio:45.0,
     descripcion:"Langostino tigre premium. Ideal para plancha, cocción y mariscadas.",
     preparaciones:[
         "Fresco",
@@ -348,7 +348,7 @@ langostinotigre:{
 longueron:{
     nombre:"🦪 Longuerón",
     imagen:"longueron.jpg",
-    precio:11,
+    precio:11.0,
     descripcion:"Longuerón fresco seleccionado. Ideal para plancha y cocina marinera.",
     preparaciones:[
         "Natural depurado"
@@ -376,7 +376,7 @@ mejillon:{
 navaja:{
     nombre:"🦪 Navaja",
     imagen:"navaja.jpg",
-    precio:9,
+    precio:9.0,
     descripcion:"Navaja fresca seleccionada. Ideal para plancha, ajo y perejil o cocina marinera.",
     preparaciones:[
         "Entera depurada"
@@ -401,7 +401,7 @@ ostra:{
 potablanca:{
     nombre:"🐙 Pota Blanca",
     imagen:"pota blanca.jpg",
-    precio:6,
+    precio:6.0,
     descripcion:"Pota blanca fresca seleccionada. Ideal para plancha, guisos y frituras.",
     preparaciones:[
         "Entera",
@@ -431,7 +431,7 @@ pulpoblanco:{
 pulporoca:{
     nombre:"🐙 Pulpo Roca",
     imagen:"pulpo roca.jpg",
-    precio:15,
+    precio:15.0,
     descripcion:"Pulpo de roca seleccionado. Perfecto para pulpo a la gallega, plancha y cocina gourmet.",
     preparaciones:[
         "Entero",
@@ -441,7 +441,7 @@ pulporoca:{
 puntillitas:{
     nombre:"🦑 Puntillitas",
     imagen:"puntas.jpg",
-    precio:40,
+    precio:40.0,
     descripcion:"Puntillitas frescas ideales para fritura, plancha y tapeo.",
     preparaciones:[
         "Enteras"
@@ -450,7 +450,7 @@ puntillitas:{
 quisquilla:{
     nombre:"🦐 Quisquilla",
     imagen:"quisquillas.jpg",
-    precio:70,
+    precio:70.0,
     descripcion:"Quisquilla fresca de máxima calidad. Ideal para cocer o consumir recién preparada.",
     preparaciones:[
         "Fresca",
@@ -460,7 +460,7 @@ quisquilla:{
 vieira:{
     nombre:"🐚 Vieira",
     imagen:"vieira.jpg",
-    precio:4,
+    precio:4.0,
     descripcion:"Vieira fresca seleccionada. Ideal para horno, plancha y gratinados.",
     preparaciones:[
         "Con Concha",
@@ -503,7 +503,7 @@ anillas:{
 "chocotiras": {
     nombre: "🐠 Choco en Tiras",
     imagen: "choco-tiras.jpg",
-    precio: 3.20,
+    precio: 3.2,
     unidad: "kg",
     descripcion: "Choco limpio cortado en tiras. Ideal para plancha, frituras y salteados.",
     preparaciones: [
@@ -518,7 +518,7 @@ choco:{
     precios:[
         {
             nombre:"🐠 Choco M",
-            precio:7.90
+            precio:7.9
         },
         {
             nombre:"🐠 Choco G",
@@ -538,7 +538,7 @@ bacalao:{
     precios:[
         {
             nombre:"🐟 Filete de Bacalao M",
-            precio:13.30
+            precio:13.3
         },
         {
             nombre:"🐟 Filete de Bacalao G",
@@ -553,7 +553,7 @@ bacalao:{
 gallineta:{
     nombre:"🐟 Filete de Gallineta",
     imagen:"filete-gallineta.jpg",
-    precio:7.60,
+    precio:7.6,
     descripcion:"Filete de gallineta fresco. Ideal para plancha, horno y cocina tradicional.",
     preparaciones:[
         "Lomos"
@@ -562,7 +562,7 @@ gallineta:{
 rosada:{
     nombre:"🐟 Filete de Rosada",
     imagen:"filete-rosada.jpg",
-    precio:10.00,
+    precio:10.0,
     descripcion:"Filete de rosada fresco. Ideal para plancha, horno y cocina tradicional.",
     preparaciones:[
         "Lomos"
@@ -571,7 +571,7 @@ rosada:{
 rejospota:{
     nombre:"🦑 Rejos de Pota",
     imagen:"rejos-pota.jpg",
-    precio:8.00,
+    precio:8.0,
     descripcion:"Rejos de pota listos para cocinar. Ideales para plancha, fritura y cocina tradicional.",
     preparaciones:[
         "Enteros"
@@ -585,7 +585,7 @@ langostinococido:{
     precios:[
         {
             nombre:"🦐 Langostino Cocido 10/20 pz/kg",
-            precio:11.00
+            precio:11.0
         },
         {
             nombre:"🦐 Langostino Cocido 20/30 pz/kg 🔥",
@@ -617,7 +617,7 @@ pulpoentero:{
     precios:[
         {
             nombre:"🐙 Pulpo Cocido Entero +1 kg",
-            precio:23.00
+            precio:23.0
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +1,5 kg",
@@ -645,7 +645,7 @@ pataspulpo:{
     precios:[
         {
             nombre:"🐙 Patas de Pulpo Cocidas 200/300 g",
-            precio:30.00
+            precio:30.0
         },
         {
             nombre:"🐙 Patas de Pulpo Cocidas 300/400 g 🔥",
@@ -665,7 +665,7 @@ dorada:{
     precios:[
         {
             nombre:"🐟 Dorada Turca 400-600 g",
-            precio:7.80
+            precio:9.5
         },
         {
             nombre:"🐟 Dorada Nacional 400-600 g",
@@ -711,7 +711,7 @@ lubina:{
     precios:[
         {
             nombre:"🐟 Lubina Turca 400-600 g",
-            precio:7.80
+            precio:7.8
         },
         {
             nombre:"🐟 Lubina Griega 400-600 g",
@@ -759,7 +759,7 @@ pargo:{
     precios:[
         {
             nombre:"🐟 Pargo Griego 800 g - 1 kg",
-            precio:14.50
+            precio:14.5
         },
         {
             nombre:"🐟 Pargo Griego 1 kg - 1,5 kg",
@@ -782,7 +782,7 @@ perca:{
     precios:[
         {
             nombre:"🐟 Perca",
-            precio:11.40
+            precio:11.4
         }
     ],
 
@@ -801,7 +801,7 @@ rodaballo:{
     precios:[
         {
             nombre:"🐟 Rodaballo 400 g - 600 g",
-            precio:13.20
+            precio:13.2
         },
         {
             nombre:"🐟 Rodaballo 1 kg - 1,5 kg",
@@ -836,7 +836,7 @@ salmon:{
     precios:[
         {
             nombre:"🐟 Salmón 2 kg - 3 kg",
-            precio:7.00
+            precio:7.0
         },
         {
             nombre:"🐟 Salmón 3 kg - 4 kg",
@@ -875,7 +875,7 @@ salmon:{
 abadejopuntosal:{
     nombre:"🐟 Abadejo Punto de Sal",
     imagen:"abadejo-punto-sal.jpg",
-    precio:4.40,
+    precio:4.4,
     descripcion:"Filete de abadejo con piel, punto de sal. Producto listo para cocinar, ideal para plancha, horno y frituras.",
     preparaciones:[
         "Filete con piel"
