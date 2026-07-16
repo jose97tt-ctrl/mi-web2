@@ -15,7 +15,7 @@ const productos = {
       "atun-envasado":{
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:15.0,
+    precio:20.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
