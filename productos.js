@@ -4,7 +4,7 @@
    aguja:{
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:89.0,
+    precio:25.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -15,7 +15,7 @@
       "atun-envasado":{
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:15.0,
+    precio:20.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
@@ -26,7 +26,7 @@
    "atun-fresco":{
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:30.0,
+    precio:20.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -39,7 +39,7 @@
   boqueron:{
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
-    precio:10.0,
+    precio:20.0,
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
     preparaciones:[
         "Entero",
