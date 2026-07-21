@@ -4,7 +4,7 @@
    aguja:{
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:88.0,
+    precio:89.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -26,7 +26,7 @@
    "atun-fresco":{
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:40.0,
+    precio:30.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
