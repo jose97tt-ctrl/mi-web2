@@ -1,10 +1,10 @@
-const productos = {
+ = {const productos
 
 
    aguja:{
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:29.0,
+    precio:88.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -15,7 +15,7 @@ const productos = {
       "atun-envasado":{
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:20.0,
+    precio:15.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
