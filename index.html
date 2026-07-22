@@ -1134,7 +1134,7 @@ border:2px solid #0a7c3a;
 
         <h3>Aguja</h3>
 
-<p>Precio 25.0€kg</p>
+<p>Precio 20.0€kg</p>
 
 <button
 onclick="abrirProductoAguja()"
@@ -1157,7 +1157,7 @@ class="btn-producto">
 
         <h3>Atún Envasado</h3>
 
-<p>Precio 15.0€kg</p>
+<p>Precio 20.0€kg</p>
 
 
         <button
@@ -1180,7 +1180,7 @@ class="btn-producto">
 
         <h3>Atún Fresco</h3>
 
-        <p>Precio 40.0€kg</p>
+        <p>Precio 20.0€kg</p>
 
       
 
@@ -2946,7 +2946,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 
 }
 
-let total = 24 * peso;
+let total = productos.aguja.precio * peso;
 
 document.getElementById("precioAguja").innerText =
 "Total: " + total.toFixed(2) + "€";
@@ -2975,7 +2975,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 let preparacion =
 document.getElementById("preparacionAguja").value;
 
-let precioFinal = 24 * peso;
+let precioFinal = productos.aguja.precio * peso;
 
 carrito.push({
 
@@ -3039,7 +3039,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 
 }
 
-let total = 15 * peso;
+let total = productos["atun-envasado"].precio * peso;
 
 document.getElementById("precioAtunEnvasado").innerText =
 "Total: " + total.toFixed(2) + "€";
@@ -3068,7 +3068,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 let preparacion =
 document.getElementById("preparacionAtunEnvasado").value;
 
-let precioFinal = 15 * peso;
+let precioFinal = productos["atun-envasado"].precio * peso;
 
 carrito.push({
 
@@ -3131,7 +3131,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 
 }
 
-let total = 40 * peso;
+let total = productos["atun-fresco"].precio * peso;
 
 document.getElementById("precioAtunFresco").innerText =
 "Total: " + total.toFixed(2) + "€";
@@ -3160,7 +3160,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 let preparacion =
 document.getElementById("preparacionAtunFresco").value;
 
-let precioFinal = 40 * peso;
+let precioFinal = productos["atun-fresco"].precio * peso;
 
 carrito.push({
 
