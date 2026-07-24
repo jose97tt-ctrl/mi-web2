@@ -1,7 +1,8 @@
- = {const productos
+const productos = {
 
 
    aguja:{
+    categoria:"pescados",
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
     precio:20.0,
@@ -12,7 +13,9 @@
         "Rodajas"
     ]
 },
-      "atun-envasado":{
+
+"atun-envasado":{
+    categoria:"pescados",
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
     precio:20.0,
@@ -23,7 +26,9 @@
         "Filetes"
     ]
 },
-   "atun-fresco":{
+
+"atun-fresco":{
+    categoria:"pescados",
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
     precio:20.0,
@@ -36,7 +41,8 @@
     ]
 },
 
-  boqueron:{
+boqueron:{
+    categoria:"pescados",
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
     precio:20.0,
@@ -49,6 +55,7 @@
 },
 
 bacaladilla:{
+    categoria:"pescados",
     nombre:"🐟 Bacaladilla",
     imagen:"bacaladilla.jpg",
     precio:18.0,
@@ -61,6 +68,7 @@ bacaladilla:{
 },
 
 "brotola-roca":{
+    categoria:"pescados",
     nombre:"🐟 Brótola Roca",
     imagen:"brotola roca.jpg",
     precio:15.0,
@@ -72,6 +80,7 @@ bacaladilla:{
 },
 
 brotola:{
+    categoria:"pescados",
     nombre:"🐟 Brótola",
     imagen:"brotola.jpg",
     precio:8.0,
@@ -81,7 +90,9 @@ brotola:{
         "Limpia sin cabeza"
     ]
 },
+
 cazon:{
+    categoria:"pescados",
     nombre:"🐟 Cazón",
     imagen:"cazon.jpg",
     precio:15.5,
@@ -91,7 +102,9 @@ cazon:{
         "Entero sin piel"
     ]
 },
+
 corvina:{
+    categoria:"pescados",
     nombre:"🐟 Corvina",
     imagen:"corvina.jpg",
     precio:6.5,
@@ -102,7 +115,9 @@ corvina:{
         "Rodajas"
     ]
 },
+
 jurel:{
+    categoria:"pescados",
     nombre:"🐟 Jurel",
     imagen:"jurel.jpg",
     precio:3.5,
@@ -112,7 +127,9 @@ jurel:{
         "Sin cabeza"
     ]
 },
+
 jurela:{
+    categoria:"pescados",
     nombre:"🐟 Jurela",
     imagen:"jurela.jpg",
     precio:6.0,
@@ -122,7 +139,9 @@ jurela:{
         "Sin cabeza"
     ]
 },
+
 pijota:{
+    categoria:"pescados",
     nombre:"🐟 Pijota",
     imagen:"pijota.jpg",
     precio:14.5,
@@ -132,7 +151,9 @@ pijota:{
         "Sin cabeza"
     ]
 },
+
 "salmonete-roca":{
+    categoria:"pescados",
     nombre:"🐟 Salmonete Roca",
     imagen:"salmonete roca.jpg",
     precio:23.0,
@@ -143,7 +164,9 @@ pijota:{
         "Sin escamas"
     ]
 },
+
 salmonete:{
+    categoria:"pescados",
     nombre:"🐟 Salmonete",
     imagen:"salmonete.jpg",
     precio:15.0,
@@ -154,6 +177,7 @@ salmonete:{
     ]
 },
 "almeja-italiana":{
+    categoria:"mariscos",
     nombre:"🦪 Almeja Italiana",
     imagen:"almeja italiana.jpg",
     precio:10.0,
@@ -163,7 +187,9 @@ salmonete:{
         "A granel"
     ]
 },
+
 "almeja-chirla":{
+    categoria:"mariscos",
     nombre:"🦪 Almeja o Chirla",
     imagen:"almeja o chirla.jpg",
     precio:12.0,
@@ -172,7 +198,9 @@ salmonete:{
         "Natural lista para cocinar"
     ]
 },
+
 "almeja-japonica-gallega":{
+    categoria:"mariscos",
     nombre:"🦪 Almeja Japónica Gallega",
     imagen:"almeja japonica gallega.jpg",
     precio:28.0,
@@ -181,7 +209,9 @@ salmonete:{
         "Natural lista para cocinar"
     ]
 },
+
 berberecho:{
+    categoria:"mariscos",
     nombre:"🦪 Berberecho",
     imagen:"berberecho.jpg",
     precio:18.0,
@@ -190,7 +220,9 @@ berberecho:{
         "Natural"
     ]
 },
+
 "escupina-gallega":{
+    categoria:"mariscos",
     nombre:"🦪 Escupiña Gallega",
     imagen:"bolos o escupiña gallega.jpg",
     precio:24.0,
@@ -199,7 +231,9 @@ berberecho:{
         "Natural"
     ]
 },
+
 "canaillas-busanos":{
+    categoria:"mariscos",
     nombre:"🦐 Cañaíllas o Busanos",
     imagen:"cañaillas o busanos.jpg",
     precio:45.0,
@@ -209,7 +243,9 @@ berberecho:{
         "Cocidas"
     ]
 },
+
 calamar:{
+    categoria:"mariscos",
     nombre:"🦑 Calamar",
     imagen:"calamar.jpg",
     precio:26.0,
@@ -220,7 +256,9 @@ calamar:{
         "Limpio cortado en anillas"
     ]
 },
+
 "cangrejo-arena":{
+    categoria:"mariscos",
     nombre:"🦀 Cangrejo Arena",
     imagen:"cangrejo arena.jpg",
     precio:5.5,
@@ -229,7 +267,9 @@ calamar:{
         "Natural"
     ]
 },
+
 "cangrejo-azul":{
+    categoria:"mariscos",
     nombre:"Cangrejo Azul",
     imagen:"cangrejo azul.jpg",
     precio:8.5,
@@ -239,7 +279,9 @@ calamar:{
         "Vivo"
     ]
 },
+
 carabinero:{
+    categoria:"mariscos",
     nombre:"Carabinero",
     imagen:"carabinero.jpg",
     precio:85.0,
@@ -248,7 +290,9 @@ carabinero:{
         "Natural"
     ]
 },
+
 cigala:{
+    categoria:"mariscos",
     nombre:"Cigala",
     imagen:"cigala.jpg",
     precio:100.0,
@@ -257,7 +301,9 @@ cigala:{
         "Natural"
     ]
 },
+
 "concha-fina":{
+    categoria:"mariscos",
     nombre:"Concha Fina",
     imagen:"concha fina.jpg",
     precio:16.0,
@@ -266,17 +312,21 @@ cigala:{
         "Natural"
     ]
 },
+
 coquina:{
+    categoria:"mariscos",
     nombre:"🦪 Coquina",
     imagen:"coquina.jpg",
-    precio:30.0,
+    precio:31.0,
     descripcion:"Molusco muy apreciado por su sabor. Ideal para cocinar al ajillo o al vapor.",
     preparaciones:[
         "Sin preparar",
         "Lavada"
     ]
 },
+
 chopito:{
+    categoria:"mariscos",
     nombre:"🦑 Chopito",
     imagen:"chopito.jpg",
     precio:35.0,
@@ -286,7 +336,9 @@ chopito:{
         "Limpio"
     ]
 },
+
 galera:{
+    categoria:"mariscos",
     nombre:"🦐 Galera",
     imagen:"galera.jpg",
     precio:6.5,
@@ -296,7 +348,9 @@ galera:{
         "Limpio"
     ]
 },
+
 gambablanca:{
+    categoria:"mariscos",
     nombre:"🦐 Gamba Blanca",
     imagen:"gamba.jpg",
     precio:18.0,
@@ -306,7 +360,9 @@ gambablanca:{
         "Limpio"
     ]
 },
+
 gambacristal:{
+    categoria:"mariscos",
     nombre:"🦐 Gamba Cristal",
     imagen:"cristal.jpg",
     precio:20.0,
@@ -315,7 +371,9 @@ gambacristal:{
         "Fresca"
     ]
 },
+
 gambaroja:{
+    categoria:"mariscos",
     nombre:"🦐 Gamba Roja",
     imagen:"gamba roja.jpg",
     precio:110.0,
@@ -325,7 +383,9 @@ gambaroja:{
         "Cocida"
     ]
 },
+
 jibia:{
+    categoria:"mariscos",
     nombre:"🦑 Jibia o Choco",
     imagen:"jibia.jpg",
     precio:12.0,
@@ -335,7 +395,9 @@ jibia:{
         "Limpia"
     ]
 },
+
 langostinotigre:{
+    categoria:"mariscos",
     nombre:"🦐 Langostino Tigre",
     imagen:"langostino tigre.jpg",
     precio:45.0,
@@ -345,7 +407,9 @@ langostinotigre:{
         "Cocido"
     ]
 },
+
 longueron:{
+    categoria:"mariscos",
     nombre:"🦪 Longuerón",
     imagen:"longueron.jpg",
     precio:11.0,
@@ -354,7 +418,9 @@ longueron:{
         "Natural depurado"
     ]
 },
+
 mejillonroca:{
+    categoria:"mariscos",
     nombre:"🦪 Mejillón Roca",
     imagen:"mejillon roca.jpg",
     precio:5.5,
@@ -363,7 +429,9 @@ mejillonroca:{
         "Entero fresco"
     ]
 },
+
 mejillon:{
+    categoria:"mariscos",
     nombre:"🦪 Mejillón",
     imagen:"mejillon.jpg",
     precio:3.5,
@@ -373,7 +441,9 @@ mejillon:{
         "Limpio"
     ]
 },
+
 navaja:{
+    categoria:"mariscos",
     nombre:"🦪 Navaja",
     imagen:"navaja.jpg",
     precio:9.0,
@@ -382,7 +452,9 @@ navaja:{
         "Entera depurada"
     ]
 },
+
 ostra:{
+    categoria:"mariscos",
     nombre:"🦪 Ostra Guillardeau",
     imagen:"ostra.jpg",
     precio:2.4,
@@ -398,7 +470,9 @@ ostra:{
         48
     ]
 },
+
 potablanca:{
+    categoria:"mariscos",
     nombre:"🐙 Pota Blanca",
     imagen:"pota blanca.jpg",
     precio:6.0,
@@ -408,7 +482,9 @@ potablanca:{
         "Limpia"
     ]
 },
+
 potanegra:{
+    categoria:"mariscos",
     nombre:"🐙 Pota Negra",
     imagen:"pota negra.jpg",
     precio:10.5,
@@ -418,7 +494,9 @@ potanegra:{
         "Limpia"
     ]
 },
+
 pulpoblanco:{
+    categoria:"mariscos",
     nombre:"🐙 Pulpo Blanco O Amizclado",
     imagen:"pulpo blanco.jpg",
     precio:5.5,
@@ -428,7 +506,9 @@ pulpoblanco:{
         "Limpio"
     ]
 },
+
 pulporoca:{
+    categoria:"mariscos",
     nombre:"🐙 Pulpo Roca",
     imagen:"pulpo roca.jpg",
     precio:15.0,
@@ -438,7 +518,9 @@ pulporoca:{
         "Limpio"
     ]
 },
+
 puntillitas:{
+    categoria:"mariscos",
     nombre:"🦑 Puntillitas",
     imagen:"puntas.jpg",
     precio:40.0,
@@ -447,7 +529,9 @@ puntillitas:{
         "Enteras"
     ]
 },
+
 quisquilla:{
+    categoria:"mariscos",
     nombre:"🦐 Quisquilla",
     imagen:"quisquillas.jpg",
     precio:70.0,
@@ -457,7 +541,9 @@ quisquilla:{
         "Cocida"
     ]
 },
+
 vieira:{
+    categoria:"mariscos",
     nombre:"🐚 Vieira",
     imagen:"vieira.jpg",
     precio:4.0,
@@ -474,7 +560,9 @@ vieira:{
         48
     ]
 },
+
 zamburina:{
+    categoria:"mariscos",
     nombre:"🦪 Zamburiña",
     imagen:"zamburiña.jpg",
     precio:3.5,
@@ -492,6 +580,7 @@ zamburina:{
     ]
 },
 anillas:{
+    categoria:"elaborados",
     nombre:"🐠 Anillas",
     imagen:"anillas.jpg",
     precio:4.2,
@@ -500,17 +589,21 @@ anillas:{
         "Enteras"
     ]
 },
-"chocotiras": {
-    nombre: "🐠 Choco en Tiras",
-    imagen: "choco-tiras.jpg",
-    precio: 3.2,
-    unidad: "kg",
-    descripcion: "Choco limpio cortado en tiras. Ideal para plancha, frituras y salteados.",
-    preparaciones: [
+
+"chocotiras":{
+    categoria:"elaborados",
+    nombre:"🐠 Choco en Tiras",
+    imagen:"choco-tiras.jpg",
+    precio:3.2,
+    unidad:"kg",
+    descripcion:"Choco limpio cortado en tiras. Ideal para plancha, frituras y salteados.",
+    preparaciones:[
         "Cortado en tiras"
     ]
 },
+
 choco:{
+    categoria:"elaborados",
     nombre:"🐠 Choco Limpio",
     imagen:"choco.jpg",
     descripcion:"Choco limpio fresco. Ideal para plancha, frituras y guisos.",
@@ -518,7 +611,7 @@ choco:{
     precios:[
         {
             nombre:"🐠 Choco M",
-            precio:7.9
+            precio:7.90
         },
         {
             nombre:"🐠 Choco G",
@@ -530,7 +623,9 @@ choco:{
         "Limpio"
     ]
 },
+
 bacalao:{
+    categoria:"elaborados",
     nombre:"🐟 Filete de Bacalao",
     imagen:"filete-bacalao.jpg",
     descripcion:"Filete de bacalao fresco. Ideal para plancha, horno y cocina tradicional.",
@@ -538,7 +633,7 @@ bacalao:{
     precios:[
         {
             nombre:"🐟 Filete de Bacalao M",
-            precio:13.3
+            precio:13.30
         },
         {
             nombre:"🐟 Filete de Bacalao G",
@@ -550,7 +645,9 @@ bacalao:{
         "Lomos"
     ]
 },
+
 gallineta:{
+    categoria:"elaborados",
     nombre:"🐟 Filete de Gallineta",
     imagen:"filete-gallineta.jpg",
     precio:7.6,
@@ -559,7 +656,9 @@ gallineta:{
         "Lomos"
     ]
 },
+
 rosada:{
+    categoria:"elaborados",
     nombre:"🐟 Filete de Rosada",
     imagen:"filete-rosada.jpg",
     precio:10.0,
@@ -568,7 +667,9 @@ rosada:{
         "Lomos"
     ]
 },
+
 rejospota:{
+    categoria:"elaborados",
     nombre:"🦑 Rejos de Pota",
     imagen:"rejos-pota.jpg",
     precio:8.0,
@@ -577,7 +678,9 @@ rejospota:{
         "Enteros"
     ]
 },
+
 langostinococido:{
+    categoria:"elaborados",
     nombre:"🦐 Langostino Cocido",
     imagen:"langostino-cocido.jpg",
     descripcion:"Langostino cocido listo para consumir. Ideal para aperitivos, mariscadas y hostelería.",
@@ -585,7 +688,7 @@ langostinococido:{
     precios:[
         {
             nombre:"🦐 Langostino Cocido 10/20 pz/kg",
-            precio:11.0
+            precio:11.00
         },
         {
             nombre:"🦐 Langostino Cocido 20/30 pz/kg 🔥",
@@ -609,7 +712,9 @@ langostinococido:{
         "Cocido"
     ]
 },
+
 pulpoentero:{
+    categoria:"elaborados",
     nombre:"🐙 Pulpo Cocido Entero",
     imagen:"pulpo-cocido-entero.jpg",
     descripcion:"Pulpo cocido listo para consumir. Ideal para tapas, ensaladas, pulpo a la gallega y hostelería.",
@@ -617,7 +722,7 @@ pulpoentero:{
     precios:[
         {
             nombre:"🐙 Pulpo Cocido Entero +1 kg",
-            precio:23.0
+            precio:23.00
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +1,5 kg",
@@ -637,7 +742,9 @@ pulpoentero:{
         "Cocido"
     ]
 },
+
 pataspulpo:{
+    categoria:"elaborados",
     nombre:"🐙 Patas de Pulpo Cocidas",
     imagen:"patas-pulpo-cocidas.jpg",
     descripcion:"Patas de pulpo cocidas listas para consumir. Ideales para pulpo a la gallega, plancha y cocina gourmet.",
@@ -645,7 +752,7 @@ pataspulpo:{
     precios:[
         {
             nombre:"🐙 Patas de Pulpo Cocidas 200/300 g",
-            precio:30.0
+            precio:30.00
         },
         {
             nombre:"🐙 Patas de Pulpo Cocidas 300/400 g 🔥",
@@ -658,6 +765,7 @@ pataspulpo:{
     ]
 },
 dorada:{
+    categoria:"piscifactoria",
     nombre:"🐟 Dorada",
     imagen:"dorada.jpg",
     descripcion:"Dorada de piscifactoría seleccionada. Disponible en distintas procedencias y calibres. Ideal para horno, plancha y cocina mediterránea.",
@@ -703,7 +811,9 @@ dorada:{
         "Rodajas"
     ]
 },
+
 lubina:{
+    categoria:"piscifactoria",
     nombre:"🐟 Lubina",
     imagen:"lubina.jpg",
     descripcion:"Lubina de piscifactoría seleccionada. Disponible en distintas procedencias y calibres. Ideal para horno, plancha y cocina mediterránea.",
@@ -711,7 +821,7 @@ lubina:{
     precios:[
         {
             nombre:"🐟 Lubina Turca 400-600 g",
-            precio:7.8
+            precio:7.80
         },
         {
             nombre:"🐟 Lubina Griega 400-600 g",
@@ -751,7 +861,9 @@ lubina:{
         "En lomos"
     ]
 },
+
 pargo:{
+    categoria:"piscifactoria",
     nombre:"🐟 Pargo",
     imagen:"pargo.jpg",
     descripcion:"Pargo de piscifactoría seleccionado. Ideal para horno, plancha y cocina mediterránea.",
@@ -759,7 +871,7 @@ pargo:{
     precios:[
         {
             nombre:"🐟 Pargo Griego 800 g - 1 kg",
-            precio:14.5
+            precio:14.50
         },
         {
             nombre:"🐟 Pargo Griego 1 kg - 1,5 kg",
@@ -774,7 +886,9 @@ pargo:{
         "En lomos"
     ]
 },
+
 perca:{
+    categoria:"piscifactoria",
     nombre:"🐟 Perca",
     imagen:"perca.jpg",
     descripcion:"Perca seleccionada. Ideal para plancha, horno y cocina tradicional.",
@@ -782,7 +896,7 @@ perca:{
     precios:[
         {
             nombre:"🐟 Perca",
-            precio:11.4
+            precio:11.40
         }
     ],
 
@@ -793,7 +907,9 @@ perca:{
         "En lomos"
     ]
 },
+
 rodaballo:{
+    categoria:"piscifactoria",
     nombre:"🐟 Rodaballo",
     imagen:"rodaballo.jpg",
     descripcion:"Rodaballo de piscifactoría seleccionado. Ideal para horno, plancha y cocina gourmet.",
@@ -801,7 +917,7 @@ rodaballo:{
     precios:[
         {
             nombre:"🐟 Rodaballo 400 g - 600 g",
-            precio:13.2
+            precio:13.20
         },
         {
             nombre:"🐟 Rodaballo 1 kg - 1,5 kg",
@@ -828,7 +944,9 @@ rodaballo:{
         "En lomos"
     ]
 },
+
 salmon:{
+    categoria:"piscifactoria",
     nombre:"🐟 Salmón",
     imagen:"salmon.jpg",
     descripcion:"Salmón seleccionado de excelente calidad. Ideal para plancha, horno, ahumados y cocina profesional.",
@@ -836,7 +954,7 @@ salmon:{
     precios:[
         {
             nombre:"🐟 Salmón 2 kg - 3 kg",
-            precio:7.0
+            precio:7.00
         },
         {
             nombre:"🐟 Salmón 3 kg - 4 kg",
@@ -872,7 +990,9 @@ salmon:{
         "Sin raspa"
     ]
 },
+
 abadejopuntosal:{
+    categoria:"elaborados",
     nombre:"🐟 Abadejo Punto de Sal",
     imagen:"abadejo-punto-sal.jpg",
     precio:4.4,
@@ -880,7 +1000,6 @@ abadejopuntosal:{
     preparaciones:[
         "Filete con piel"
     ]
-},
-
+}
 
 };
