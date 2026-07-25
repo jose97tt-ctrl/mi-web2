@@ -5237,7 +5237,7 @@ document.getElementById("modalCoquina").style.display="none";
 
 function actualizarPrecioCoquina(){
 
-let precioKilo = 30;
+let precioKilo = productos.coquina.precio;
 
 let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCoquina").value);
@@ -5288,7 +5288,7 @@ peso = pesoSeleccionado;
 let preparacion =
 document.getElementById("preparacionCoquina").value;
 
-let precioFinal = 30 * peso;
+let precioFinal = productos.coquina.precio * peso;
 
 carrito.push({
 
