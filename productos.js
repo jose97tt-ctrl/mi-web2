@@ -58,7 +58,7 @@ bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Bacaladilla",
     imagen:"bacaladilla.jpg",
-    precio:10.0,
+    precio:15.0,
     descripcion:"Bacaladilla fresca seleccionada. Ideal para freír y cocina tradicional.",
     preparaciones:[
         "Entera",

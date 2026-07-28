@@ -1233,7 +1233,7 @@ line-height:1.1;
 ">
 Bacaladilla
 </h3>
-        <p>Precio 10.0€kg</p>
+        <p>Precio 15.0€kg</p>
 
        
         <button
@@ -3322,7 +3322,9 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 
 }
 
-let total = 18 * peso;
+let precioKilo = productos.bacaladilla.precio;
+let total = precioKilo * peso;
+let precioFinal = precioKilo * peso;
 
 document.getElementById("precioBacaladilla").innerText =
 "Total: " + total.toFixed(2) + "€";
