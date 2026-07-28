@@ -18,7 +18,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:20.0,
+    precio:22.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
@@ -31,7 +31,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:20.0,
+    precio:22.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -45,7 +45,7 @@ boqueron:{
     categoria:"pescados",
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
-    precio:20.0,
+    precio:10.0,
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
     preparaciones:[
         "Entero",
@@ -58,7 +58,7 @@ bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Bacaladilla",
     imagen:"bacaladilla.jpg",
-    precio:18.0,
+    precio:10.0,
     descripcion:"Bacaladilla fresca seleccionada. Ideal para freír y cocina tradicional.",
     preparaciones:[
         "Entera",
@@ -71,7 +71,7 @@ bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Brótola Roca",
     imagen:"brotola roca.jpg",
-    precio:15.0,
+    precio:10.0,
     descripcion:"Brótola roca fresca seleccionada. Ideal para horno, plancha y guisos.",
     preparaciones:[
         "Entera",
@@ -83,7 +83,7 @@ brotola:{
     categoria:"pescados",
     nombre:"🐟 Brótola",
     imagen:"brotola.jpg",
-    precio:8.0,
+    precio:10.0,
     descripcion:"Brótola fresca seleccionada. Ideal para plancha, horno y guisos.",
     preparaciones:[
         "Entera",
@@ -95,7 +95,7 @@ cazon:{
     categoria:"pescados",
     nombre:"🐟 Cazón",
     imagen:"cazon.jpg",
-    precio:15.5,
+    precio:18.5,
     descripcion:"Cazón fresco seleccionado. Ideal para adobo, fritura y cocina tradicional.",
     preparaciones:[
         "Entero con piel",
@@ -107,7 +107,7 @@ corvina:{
     categoria:"pescados",
     nombre:"🐟 Corvina",
     imagen:"corvina.jpg",
-    precio:6.5,
+    precio:8.5,
     descripcion:"Corvina fresca seleccionada. Ideal para horno, plancha y filetes.",
     preparaciones:[
         "Entera",
@@ -120,7 +120,7 @@ jurel:{
     categoria:"pescados",
     nombre:"🐟 Jurel",
     imagen:"jurel.jpg",
-    precio:3.5,
+    precio:4.5,
     descripcion:"Jurel fresco seleccionado. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -132,7 +132,7 @@ jurela:{
     categoria:"pescados",
     nombre:"🐟 Jurela",
     imagen:"jurela.jpg",
-    precio:6.0,
+    precio:6.5,
     descripcion:"Jurela fresca seleccionada. Ideal para plancha, horno y cocina tradicional.",
     preparaciones:[
         "Entera",
