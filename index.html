@@ -1204,7 +1204,7 @@ class="btn-producto">
 
         <h3>Boquerón</h3>
 
-        <p>Precio 17.0€kg</p>
+        <p>Precio 18.0€kg</p>
 
        
 
@@ -3225,7 +3225,8 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 
 }
 
-let total = 10 * peso;
+let precioKilo = productos.boqueron.precio;
+let total = precioKilo * peso;
 
 document.getElementById("precioBoqueron").innerText =
 "Total: " + total.toFixed(2) + "€";
@@ -3255,7 +3256,7 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 let preparacion =
 document.getElementById("preparacionBoqueron").value;
 
-let precioFinal = 10 * peso;
+let precioFinal = precioKilo * peso;
 
 carrito.push({
 
