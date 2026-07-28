@@ -1204,7 +1204,7 @@ class="btn-producto">
 
         <h3>Boquerón</h3>
 
-        <p>Precio 18.0€kg</p>
+        <p>Precio 15.0€kg</p>
 
        
 
@@ -3207,72 +3207,70 @@ document.getElementById("modalBoqueron").style.display="none";
 
 function actualizarPrecioBoqueron(){
 
-let pesoSeleccionado =
-parseFloat(document.getElementById("pesoBoqueron").value);
+    let precio =
+    parseFloat(document.getElementById("procedenciaBoqueron").value);
 
-let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoBoqueron").value);
+    let peso =
+    parseFloat(document.getElementById("pesoBoqueron").value);
 
-let peso;
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoBoqueron").value);
 
-if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+    if(!isNaN(personalizado) && personalizado > 0){
 
-    peso = pesoPersonalizado;
+        peso = personalizado;
 
-}else{
+    }
 
-    peso = pesoSeleccionado;
+    let total = precio * peso;
 
-}
-
-let precioKilo = productos.boqueron.precio;
-let total = precioKilo * peso;
-
-document.getElementById("precioBoqueron").innerText =
-"Total: " + total.toFixed(2) + "€";
+    document.getElementById("precioBoqueron").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
 
 }
 
 function agregarBoqueron(){
 
-let pesoSeleccionado =
-parseFloat(document.getElementById("pesoBoqueron").value);
+    let peso =
+    parseFloat(document.getElementById("pesoBoqueron").value);
 
-let pesoPersonalizado =
-parseFloat(document.getElementById("pesoPersonalizadoBoqueron").value);
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoBoqueron").value);
 
-let peso;
+    if(!isNaN(personalizado) && personalizado > 0){
 
-if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
+        peso = personalizado;
 
-    peso = pesoPersonalizado;
+    }
 
-}else{
+    let preparacion =
+    document.getElementById("preparacionBoqueron").value;
 
-    peso = pesoSeleccionado;
+    let selector =
+    document.getElementById("procedenciaBoqueron");
 
-}
+    let nombreProducto =
+    "🐟 Boquerón - " +
+    selector.options[selector.selectedIndex].text;
 
-let preparacion =
-document.getElementById("preparacionBoqueron").value;
+    let precio =
+    parseFloat(selector.value) * peso;
 
-let precioFinal = precioKilo * peso;
+    carrito.push({
 
-carrito.push({
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        preparacion:preparacion,
+        precio:precio
 
-    nombre:"Boquerón",
-    peso:peso + " kg",
-    preparacion:preparacion,
-    precio:precioFinal
+    });
 
-});
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
 
-document.getElementById("contadorCarrito").innerText =
-carrito.length;
+    actualizarCarrito();
 
-actualizarCarrito();
-
-cerrarProductoBoqueron();
+    cerrarProductoBoqueron();
 
 }
 function abrirProductoBacaladilla(){

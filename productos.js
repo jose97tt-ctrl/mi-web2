@@ -45,15 +45,29 @@ boqueron:{
     categoria:"pescados",
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
-    precio:18.0,
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
+
+    precios:[
+        {
+            nombre:"🐟 Boquerón Pequeño",
+            precio:15.0
+        },
+        {
+            nombre:"🐟 Boquerón Mediano",
+            precio:19.00
+        },
+        {
+            nombre:"🐟 Boquerón Gordo",
+            precio:20.00
+        }
+    ],
+
     preparaciones:[
         "Entero",
         "Desarrapado",
         "Sin cabeza"
     ]
 },
-
 bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Bacaladilla",
