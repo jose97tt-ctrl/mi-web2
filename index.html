@@ -1134,7 +1134,7 @@ border:2px solid #0a7c3a;
 
         <h3>Aguja</h3>
 
-<p>Precio 20.0€kg</p>
+<p>Precio 24.0€kg</p>
 
 <button
 onclick="abrirProductoAguja()"
@@ -2317,7 +2317,7 @@ class="btn-producto">
 
 <h3>Filete de Bacalao</h3>
 
-<p>Precio 13.30€kg</p>
+<p>Precio 13.3€kg</p>
 
 <button
 onclick="abrirBacalao()"
@@ -2412,7 +2412,7 @@ class="btn-producto">
 
 <h3>Langostino Cocido</h3>
 
-<p>Precio 11.00€kg</p>
+<p>Precio 11.0€kg</p>
 
 <button
 onclick="abrirLangostinoCocido()"
@@ -2519,7 +2519,7 @@ class="btn-producto">
 
 <h3>Lubina</h3>
 
-<p>Precio 7.80€kg</p>
+<p>Precio 7.8€kg</p>
 
 <button
 onclick="abrirProductoLubina()"
@@ -2540,7 +2540,7 @@ class="btn-producto">
 
 <h3>Pargo</h3>
 
-<p>Precio 14.50€kg</p>
+<p>Precio 14.5€kg</p>
 
 <button
 onclick="abrirProductoPargo()"
@@ -2561,7 +2561,7 @@ class="btn-producto">
 
 <h3>Perca</h3>
 
-<p>Precio 11.40€kg</p>
+<p>Precio 11.4€kg</p>
 
 <button
 onclick="abrirProductoPerca()"
@@ -2582,7 +2582,7 @@ class="btn-producto">
 
 <h3>Rodaballo</h3>
 
-<p>Precio 13.20€kg</p>
+<p>Precio 13.2€kg</p>
 
 <button
 onclick="abrirProductoRodaballo()"
@@ -2603,7 +2603,7 @@ class="btn-producto">
 
 <h3>Salmón</h3>
 
-<p>Precio 7.00€kg</p>
+<p>Precio 7.0€kg</p>
 
 <button
 onclick="abrirProductoSalmon()"
@@ -5224,6 +5224,10 @@ function abrirProductoCoquina(){
 
         document.getElementById("pesoCoquina").value = "1";
 
+        document.getElementById("precioTextoCoquina").innerHTML =
+        "<b>Precio:</b> " + productos.coquina.precio + " €/kg";
+
+        
         actualizarPrecioCoquina();
 
     }
@@ -5238,6 +5242,7 @@ document.getElementById("modalCoquina").style.display="none";
 function actualizarPrecioCoquina(){
 
 let precioKilo = productos.coquina.precio;
+alert(precioKilo);
 
 let pesoSeleccionado =
 parseFloat(document.getElementById("pesoCoquina").value);
@@ -11294,9 +11299,9 @@ onclick="event.stopPropagation()">
 
 <div class="producto-info">
 
-<h2>🦪 Coquina</h2>
-
-<p><strong>Precio:</strong> 30 €/kg</p>
+<p id="precioTextoCoquina">
+    <strong>Precio:</strong> 30 €/kg
+</p>
 
 <p>
 Molusco muy apreciado por su sabor.

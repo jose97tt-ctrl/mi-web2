@@ -5,7 +5,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:20.0,
+    precio:24.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -611,7 +611,7 @@ choco:{
     precios:[
         {
             nombre:"🐠 Choco M",
-            precio:7.90
+            precio:7.9
         },
         {
             nombre:"🐠 Choco G",
@@ -633,7 +633,7 @@ bacalao:{
     precios:[
         {
             nombre:"🐟 Filete de Bacalao M",
-            precio:13.30
+            precio:13.3
         },
         {
             nombre:"🐟 Filete de Bacalao G",
@@ -688,7 +688,7 @@ langostinococido:{
     precios:[
         {
             nombre:"🦐 Langostino Cocido 10/20 pz/kg",
-            precio:11.00
+            precio:11.0
         },
         {
             nombre:"🦐 Langostino Cocido 20/30 pz/kg 🔥",
@@ -722,7 +722,7 @@ pulpoentero:{
     precios:[
         {
             nombre:"🐙 Pulpo Cocido Entero +1 kg",
-            precio:23.00
+            precio:23.0
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +1,5 kg",
@@ -752,7 +752,7 @@ pataspulpo:{
     precios:[
         {
             nombre:"🐙 Patas de Pulpo Cocidas 200/300 g",
-            precio:30.00
+            precio:30.0
         },
         {
             nombre:"🐙 Patas de Pulpo Cocidas 300/400 g 🔥",
@@ -821,7 +821,7 @@ lubina:{
     precios:[
         {
             nombre:"🐟 Lubina Turca 400-600 g",
-            precio:7.80
+            precio:7.8
         },
         {
             nombre:"🐟 Lubina Griega 400-600 g",
@@ -871,7 +871,7 @@ pargo:{
     precios:[
         {
             nombre:"🐟 Pargo Griego 800 g - 1 kg",
-            precio:14.50
+            precio:14.5
         },
         {
             nombre:"🐟 Pargo Griego 1 kg - 1,5 kg",
@@ -896,7 +896,7 @@ perca:{
     precios:[
         {
             nombre:"🐟 Perca",
-            precio:11.40
+            precio:11.4
         }
     ],
 
@@ -917,7 +917,7 @@ rodaballo:{
     precios:[
         {
             nombre:"🐟 Rodaballo 400 g - 600 g",
-            precio:13.20
+            precio:13.2
         },
         {
             nombre:"🐟 Rodaballo 1 kg - 1,5 kg",
@@ -954,7 +954,7 @@ salmon:{
     precios:[
         {
             nombre:"🐟 Salmón 2 kg - 3 kg",
-            precio:7.00
+            precio:7.0
         },
         {
             nombre:"🐟 Salmón 3 kg - 4 kg",
