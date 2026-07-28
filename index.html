@@ -3207,8 +3207,11 @@ document.getElementById("modalBoqueron").style.display="none";
 
 function actualizarPrecioBoqueron(){
 
-    let precio =
-    parseFloat(document.getElementById("procedenciaBoqueron").value);
+    let selector =
+document.getElementById("procedenciaBoqueron");
+
+document.getElementById("precioTextoBoqueron").innerHTML =
+"<strong>Precio:</strong> " + precio + " €/kg";
 
     let peso =
     parseFloat(document.getElementById("pesoBoqueron").value);
@@ -9065,12 +9068,27 @@ onclick="event.stopPropagation()">
 
 <h2>🐟 Boquerón</h2>
 
-<p><strong>Precio:</strong> 10 €/kg</p>
+<p id="precioTextoBoqueron">
+<strong>Precio:</strong> 18 €/kg
+</p>
 
 <p>
 Boquerón fresco seleccionado.
 Ideal para freír, en vinagre o plancha.
 </p>
+
+<label>Formato:</label>
+
+<select id="procedenciaBoqueron"
+onchange="actualizarPrecioBoqueron()">
+
+<option value="18">🐟 Boquerón Pequeño</option>
+<option value="19">🐟 Boquerón Mediano</option>
+<option value="20">🐟 Boquerón Gordo</option>
+
+</select>
+
+<br><br>
 
 <label>Peso:</label>
 
