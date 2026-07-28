@@ -45,7 +45,7 @@ boqueron:{
     categoria:"pescados",
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
-    precio:18.0,
+    precio:17.0,
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
     preparaciones:[
         "Entero",
