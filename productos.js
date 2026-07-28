@@ -5,7 +5,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:22.0,
+    precio:25.5,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -18,7 +18,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:22.0,
+    precio:25.5,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
@@ -31,7 +31,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:22.0,
+    precio:25.5,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -45,7 +45,7 @@ boqueron:{
     categoria:"pescados",
     nombre:"🐟 Boquerón",
     imagen:"boqueron.jpg",
-    precio:10.0,
+    precio:18.0,
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
     preparaciones:[
         "Entero",
@@ -58,7 +58,7 @@ bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Bacaladilla",
     imagen:"bacaladilla.jpg",
-    precio:15.0,
+    precio:18.0,
     descripcion:"Bacaladilla fresca seleccionada. Ideal para freír y cocina tradicional.",
     preparaciones:[
         "Entera",
