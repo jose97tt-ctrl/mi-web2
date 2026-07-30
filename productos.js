@@ -5,7 +5,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:31.0,
+    precio:22.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -18,7 +18,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:15.0,
+    precio:22.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
@@ -31,7 +31,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:40.0,
+    precio:22.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -50,15 +50,15 @@ boqueron:{
     precios:[
         {
             nombre:"🐟 Boquerón Pequeño",
-            precio:11.0
+            precio:10.0
         },
         {
             nombre:"🐟 Boquerón Mediano",
-            precio:19.00
+            precio:11.00
         },
         {
             nombre:"🐟 Boquerón Gordo",
-            precio:20.0
+            precio:12.00
         }
     ],
 
