@@ -50,7 +50,7 @@ boqueron:{
     precios:[
         {
             nombre:"🐟 Boquerón Pequeño",
-            precio:10.0
+            precio:11.0
         },
         {
             nombre:"🐟 Boquerón Mediano",
@@ -968,7 +968,7 @@ salmon:{
     precios:[
         {
             nombre:"🐟 Salmón 2 kg - 3 kg",
-            precio:6.5
+            precio:7.0
         },
         {
             nombre:"🐟 Salmón 3 kg - 4 kg",
