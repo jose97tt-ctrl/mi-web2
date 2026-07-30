@@ -5,7 +5,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:25.5,
+    precio:31.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -18,7 +18,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Envasado",
     imagen:"atun envasado.jpg",
-    precio:25.5,
+    precio:15.0,
     descripcion:"Ideal para hogares y hostelería.",
     preparaciones:[
         "Envasado original",
@@ -31,7 +31,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:25.5,
+    precio:40.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -50,7 +50,7 @@ boqueron:{
     precios:[
         {
             nombre:"🐟 Boquerón Pequeño",
-            precio:15.0
+            precio:10.0
         },
         {
             nombre:"🐟 Boquerón Mediano",
@@ -85,7 +85,7 @@ bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Brótola Roca",
     imagen:"brotola roca.jpg",
-    precio:10.0,
+    precio:15.0,
     descripcion:"Brótola roca fresca seleccionada. Ideal para horno, plancha y guisos.",
     preparaciones:[
         "Entera",
@@ -97,7 +97,7 @@ brotola:{
     categoria:"pescados",
     nombre:"🐟 Brótola",
     imagen:"brotola.jpg",
-    precio:10.0,
+    precio:8.0,
     descripcion:"Brótola fresca seleccionada. Ideal para plancha, horno y guisos.",
     preparaciones:[
         "Entera",
@@ -109,7 +109,7 @@ cazon:{
     categoria:"pescados",
     nombre:"🐟 Cazón",
     imagen:"cazon.jpg",
-    precio:18.5,
+    precio:15.5,
     descripcion:"Cazón fresco seleccionado. Ideal para adobo, fritura y cocina tradicional.",
     preparaciones:[
         "Entero con piel",
@@ -121,7 +121,7 @@ corvina:{
     categoria:"pescados",
     nombre:"🐟 Corvina",
     imagen:"corvina.jpg",
-    precio:8.5,
+    precio:6.5,
     descripcion:"Corvina fresca seleccionada. Ideal para horno, plancha y filetes.",
     preparaciones:[
         "Entera",
@@ -134,7 +134,7 @@ jurel:{
     categoria:"pescados",
     nombre:"🐟 Jurel",
     imagen:"jurel.jpg",
-    precio:4.5,
+    precio:3.5,
     descripcion:"Jurel fresco seleccionado. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -146,7 +146,7 @@ jurela:{
     categoria:"pescados",
     nombre:"🐟 Jurela",
     imagen:"jurela.jpg",
-    precio:6.5,
+    precio:6.0,
     descripcion:"Jurela fresca seleccionada. Ideal para plancha, horno y cocina tradicional.",
     preparaciones:[
         "Entera",
@@ -331,7 +331,7 @@ coquina:{
     categoria:"mariscos",
     nombre:"🦪 Coquina",
     imagen:"coquina.jpg",
-    precio:31.0,
+    precio:30.0,
     descripcion:"Molusco muy apreciado por su sabor. Ideal para cocinar al ajillo o al vapor.",
     preparaciones:[
         "Sin preparar",
@@ -706,15 +706,15 @@ langostinococido:{
         },
         {
             nombre:"🦐 Langostino Cocido 20/30 pz/kg 🔥",
-            precio:8.50
+            precio:8.5
         },
         {
             nombre:"🦐 Langostino Cocido 20/30 pz/kg (Monodón)",
-            precio:11.50
+            precio:11.5
         },
         {
             nombre:"🦐 Langostino Cocido 30/40 pz/kg 🔥",
-            precio:8.00
+            precio:8.0
         },
         {
             nombre:"🦐 Langostino Cocido 40/50 pz/kg 🔥",
@@ -740,11 +740,11 @@ pulpoentero:{
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +1,5 kg",
-            precio:25.00
+            precio:25.0
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +2 kg",
-            precio:26.00
+            precio:26.0
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +3 kg",
@@ -791,23 +791,23 @@ dorada:{
         },
         {
             nombre:"🐟 Dorada Nacional 400-600 g",
-            precio:7.90
+            precio:7.9
         },
         {
             nombre:"🐟 Dorada Griega 400-600 g",
-            precio:8.50
+            precio:8.5
         },
         {
             nombre:"🐟 Dorada Nacional 600-800 g",
-            precio:8.30
+            precio:8.3
         },
         {
             nombre:"🐟 Dorada Griega 600-800 g",
-            precio:9.30
+            precio:9.3
         },
         {
             nombre:"🐟 Dorada Esteros 600-800 g",
-            precio:11.90
+            precio:11.9
         },
         {
             nombre:"🐟 Dorada Esteros 1 kg - 1,5 kg",
@@ -839,27 +839,27 @@ lubina:{
         },
         {
             nombre:"🐟 Lubina Griega 400-600 g",
-            precio:7.90
+            precio:7.9
         },
         {
             nombre:"🐟 Lubina Nacional Culmarex 400-600 g",
-            precio:8.90
+            precio:8.9
         },
         {
             nombre:"🐟 Lubina Estero 400-600 g",
-            precio:11.90
+            precio:11.9
         },
         {
             nombre:"🐟 Lubina Nacional Culmarex 600-800 g",
-            precio:9.60
+            precio:9.6
         },
         {
             nombre:"🐟 Lubina Estero 600-800 g",
-            precio:12.20
+            precio:12.2
         },
         {
             nombre:"🐟 Lubina Estero 800 g - 1 kg",
-            precio:14.70
+            precio:14.7
         },
         {
             nombre:"🐟 Lubina Estero 1,4 kg - 1,7 kg",
@@ -935,15 +935,15 @@ rodaballo:{
         },
         {
             nombre:"🐟 Rodaballo 1 kg - 1,5 kg",
-            precio:16.50
+            precio:16.5
         },
         {
             nombre:"🐟 Rodaballo 1,5 kg - 2 kg",
-            precio:16.50
+            precio:16.5
         },
         {
             nombre:"🐟 Rodaballo 2 kg - 3 kg",
-            precio:16.50
+            precio:16.5
         },
         {
             nombre:"🐟 Rodaballo +2,5 kg",
@@ -968,7 +968,7 @@ salmon:{
     precios:[
         {
             nombre:"🐟 Salmón 2 kg - 3 kg",
-            precio:7.0
+            precio:6.5
         },
         {
             nombre:"🐟 Salmón 3 kg - 4 kg",
