@@ -58,7 +58,7 @@ boqueron:{
         },
         {
             nombre:"🐟 Boquerón Gordo",
-            precio:20.00
+            precio:20.0
         }
     ],
 
@@ -629,7 +629,7 @@ choco:{
         },
         {
             nombre:"🐠 Choco G",
-            precio:8.80
+            precio:8.8
         }
     ],
 
@@ -651,7 +651,7 @@ bacalao:{
         },
         {
             nombre:"🐟 Filete de Bacalao G",
-            precio:16.50
+            precio:16.5
         }
     ],
 
@@ -718,7 +718,7 @@ langostinococido:{
         },
         {
             nombre:"🦐 Langostino Cocido 40/50 pz/kg 🔥",
-            precio:7.30
+            precio:7.3
         }
     ],
 
@@ -748,7 +748,7 @@ pulpoentero:{
         },
         {
             nombre:"🐙 Pulpo Cocido Entero +3 kg",
-            precio:27.00
+            precio:27.0
         }
     ],
 
@@ -770,7 +770,7 @@ pataspulpo:{
         },
         {
             nombre:"🐙 Patas de Pulpo Cocidas 300/400 g 🔥",
-            precio:30.00
+            precio:30.0
         }
     ],
 
@@ -811,7 +811,7 @@ dorada:{
         },
         {
             nombre:"🐟 Dorada Esteros 1 kg - 1,5 kg",
-            precio:14.80
+            precio:14.8
         }
     ],
 
@@ -863,7 +863,7 @@ lubina:{
         },
         {
             nombre:"🐟 Lubina Estero 1,4 kg - 1,7 kg",
-            precio:17.00
+            precio:17.0
         }
     ],
 
@@ -889,7 +889,7 @@ pargo:{
         },
         {
             nombre:"🐟 Pargo Griego 1 kg - 1,5 kg",
-            precio:17.50
+            precio:17.5
         }
     ],
 
@@ -947,7 +947,7 @@ rodaballo:{
         },
         {
             nombre:"🐟 Rodaballo +2,5 kg",
-            precio:18.50
+            precio:18.5
         }
     ],
 
@@ -992,7 +992,7 @@ salmon:{
         },
         {
             nombre:"🐟 Filete de Salmón",
-            precio:11.80
+            precio:11.8
         }
     ],
 
