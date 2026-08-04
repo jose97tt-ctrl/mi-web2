@@ -50,15 +50,15 @@ boqueron:{
     precios:[
         {
             nombre:"🐟 Boquerón Pequeño",
-            precio:10.0
+            precio:20.0
         },
         {
             nombre:"🐟 Boquerón Mediano",
-            precio:16.00
+            precio:12.00
         },
         {
             nombre:"🐟 Boquerón Gordo",
-            precio:17.00
+            precio:14.00
         }
     ],
 
