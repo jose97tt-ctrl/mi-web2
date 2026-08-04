@@ -31,7 +31,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Atún Fresco",
     imagen:"atun fresco.jpg",
-    precio:40.0,
+    precio:38.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
     preparaciones:[
         "Entero",
@@ -50,7 +50,7 @@ boqueron:{
     precios:[
         {
             nombre:"🐟 Boquerón Pequeño",
-            precio:20.0
+            precio:18.0
         },
         {
             nombre:"🐟 Boquerón Mediano",
