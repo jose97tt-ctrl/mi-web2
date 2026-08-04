@@ -5,7 +5,7 @@ const productos = {
     categoria:"pescados",
     nombre:"🐟 Aguja",
     imagen:"aguja.jpg",
-    precio:31.0,
+    precio:24.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
     preparaciones:[
         "Entero",
@@ -54,11 +54,11 @@ boqueron:{
         },
         {
             nombre:"🐟 Boquerón Mediano",
-            precio:11.00
+            precio:16.00
         },
         {
             nombre:"🐟 Boquerón Gordo",
-            precio:12.00
+            precio:17.00
         }
     ],
 
