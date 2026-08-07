@@ -1014,9 +1014,8 @@ abadejopuntosal:{
     preparaciones:[
         "Filete con piel"
     ]
-}
+},
 
-};
 bogavante:{
     categoria:"congelados",
     nombre:"🦞 Bogavante",
@@ -1060,4 +1059,6 @@ carabinero:{
     preparaciones:[
         "Entero"
     ]
-},
+}
+
+};

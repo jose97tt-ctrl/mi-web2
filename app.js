@@ -64,7 +64,7 @@ function crearTarjeta(producto){
 
     <div class="card-imagen">
 
-        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <img src="imagenes/${producto.imagen}" alt="${producto.nombre}">
 
     </div>
 

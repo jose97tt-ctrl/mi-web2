@@ -64,6 +64,24 @@ header h1{
 
 <div class="contenedor">
 
+<div id="avisoPrecio" style="
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:#0a8f4d;
+color:white;
+padding:14px 26px;
+border-radius:10px;
+font-size:17px;
+font-weight:bold;
+box-shadow:0 6px 20px rgba(0,0,0,.25);
+z-index:9999;
+display:none;
+max-width:90%;
+text-align:center;
+"></div>
+
 <h2>Panel de precios</h2>
 
 <input
@@ -84,7 +102,7 @@ box-sizing:border-box;
 
 </div>
 <button
-onclick="obtenerPrecios()"
+onclick="guardarPrecios()"
 style="
 width:100%;
 padding:18px;
@@ -98,119 +116,210 @@ border-radius:10px;
 cursor:pointer;
 ">
 
-💾 Comprobar precios
+💾 Guardar precios
+
+</button>
+
+<button
+onclick="restablecerPrecios()"
+style="
+width:100%;
+padding:14px;
+margin-top:12px;
+background:#b02a2a;
+color:white;
+font-size:18px;
+font-weight:bold;
+border:none;
+border-radius:10px;
+cursor:pointer;
+">
+
+♻️ Restablecer precios originales
 
 </button>
 
 </div>
 
  <script src="productos.js"></script>
+<script src="precios-store.js"></script>
 
 <script>
 
-let lista = document.getElementById("listaProductos");
+const lista = document.getElementById("listaProductos");
+const buscador = document.getElementById("buscador");
 
-let buscador = document.getElementById("buscador");
-let cambios = {};
+function filaPrecio(id, etiqueta, valor, indice, nombreMostrar){
+
+    const attrIndice = indice === null ? "" : `data-index="${indice}"`;
+
+    return `
+        <div style="
+        display:grid;
+        grid-template-columns:1fr 140px;
+        align-items:center;
+        gap:20px;
+        padding:6px 0;
+        ">
+
+            <div style="font-size:15px;">${etiqueta}</div>
+
+            <input
+            type="number"
+            step="0.01"
+            data-id="${id}"
+            data-label="${nombreMostrar}"
+            ${attrIndice}
+            value="${valor != null ? valor : ""}"
+            style="
+            width:120px;
+            padding:10px;
+            font-size:18px;
+            text-align:center;
+            border-radius:8px;
+            border:1px solid #ccc;
+            ">
+
+        </div>
+    `;
+}
 
 function mostrarProductos(){
 
     lista.innerHTML = "";
 
-    let texto = buscador.value.toLowerCase();
+    const texto = buscador.value.toLowerCase();
 
-    for(let id in productos){
+    for(const id in productos){
 
-        if(!productos[id].nombre.toLowerCase().includes(texto)){
+        const producto = productos[id];
 
+        if(!producto.nombre.toLowerCase().includes(texto)){
             continue;
+        }
+
+        let filasPrecios = "";
+
+        if(Array.isArray(producto.precios)){
+
+            producto.precios.forEach(function(item, indice){
+                filasPrecios += filaPrecio(id, item.nombre, item.precio, indice, item.nombre);
+            });
+
+        }else{
+
+            filasPrecios = filaPrecio(id, "Precio (€/kg)", producto.precio, null, producto.nombre);
 
         }
-    function guardarCambio(input){
 
-    cambios[input.dataset.id] = parseFloat(input.value);
+        lista.innerHTML += `
+            <div style="padding:14px;border-bottom:1px solid #e5e5e5;">
 
-    console.log(cambios);
+                <div style="font-size:12px;color:#888;">${id}</div>
 
-}
+                <div style="font-size:18px;font-weight:bold;margin-bottom:8px;">
+                    ${producto.nombre}
+                </div>
 
-      lista.innerHTML += `
+                ${filasPrecios}
 
-<div style="
-display:grid;
-grid-template-columns:1fr 140px;
-align-items:center;
-gap:20px;
-padding:14px;
-border-bottom:1px solid #e5e5e5;
-">
-
-<div>
-
-<div style="
-font-size:12px;
-color:#888;
-">
-
-${id}
-
-</div>
-
-<div style="
-font-size:18px;
-font-weight:bold;
-">
-
-${productos[id].nombre}
-
-</div>
-
-</div>
-<input
-type="number"
-data-id="${id}"
-value="${productos[id].precio || ""}"
-step="0.01"
-onchange="guardarCambio(this)"
-style="
-width:120px;
-padding:10px;
-font-size:18px;
-text-align:center;
-border-radius:8px;
-border:1px solid #ccc;
-">
-
-</div>
-
-`;
-
+            </div>
+        `;
     }
-
 }
 
-mostrarProductos();
+function guardarPrecios(){
 
-buscador.addEventListener("input", function(){
+    const overrides = PreciosStore.cargar();
 
-    mostrarProductos();
-
-});
-function obtenerPrecios(){
-
-    let precios = {};
-
-    let cajas = document.querySelectorAll("input[type='number']");
+    const cajas = document.querySelectorAll("#listaProductos input[type='number']");
 
     cajas.forEach(function(caja){
 
-        precios[caja.dataset.id] = parseFloat(caja.value);
+        const valor = parseFloat(caja.value);
+        if(isNaN(valor)) return;
 
+        const id = caja.dataset.id;
+        const indice = caja.dataset.index;
+
+        if(!overrides[id]) overrides[id] = {};
+
+        if(indice === undefined){
+
+            overrides[id].precio = valor;
+
+        }else{
+
+            if(!overrides[id].precios) overrides[id].precios = {};
+            overrides[id].precios[indice] = valor;
+
+        }
     });
 
-    alert(precios.aguja);
+    PreciosStore.guardar(overrides);
+    PreciosStore.aplicar(productos, overrides);
 
+    alert("✅ Precios guardados. El catálogo mostrará los nuevos precios.");
 }
+
+function restablecerPrecios(){
+
+    if(!confirm("¿Restablecer todos los precios a los valores originales?")){
+        return;
+    }
+
+    PreciosStore.limpiar();
+    location.reload();
+}
+
+// Guarda el precio de una sola fila (al pulsar Enter) y avisa.
+function guardarUno(input){
+
+    const valor = parseFloat(input.value);
+    if(isNaN(valor)) return;
+
+    const id = input.dataset.id;
+    const indice = input.dataset.index;
+    const nombre = input.dataset.label || id;
+
+    const overrides = PreciosStore.cargar();
+    if(!overrides[id]) overrides[id] = {};
+
+    if(indice === undefined){
+        overrides[id].precio = valor;
+    }else{
+        if(!overrides[id].precios) overrides[id].precios = {};
+        overrides[id].precios[indice] = valor;
+    }
+
+    PreciosStore.guardar(overrides);
+    PreciosStore.aplicar(productos, overrides);
+
+    mostrarAviso('El precio de "' + nombre + '" se ha actualizado correctamente');
+}
+
+let temporizadorAviso;
+function mostrarAviso(mensaje){
+    const aviso = document.getElementById("avisoPrecio");
+    aviso.textContent = "✅ " + mensaje;
+    aviso.style.display = "block";
+    clearTimeout(temporizadorAviso);
+    temporizadorAviso = setTimeout(function(){
+        aviso.style.display = "none";
+    }, 2800);
+}
+
+// Enter en un campo de precio: aplica ese cambio al momento.
+lista.addEventListener("keydown", function(e){
+    if(e.key === "Enter" && e.target.matches("input[type='number']")){
+        e.preventDefault();
+        guardarUno(e.target);
+    }
+});
+
+buscador.addEventListener("input", mostrarProductos);
+
+mostrarProductos();
 
 </script>
 

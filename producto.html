@@ -262,6 +262,7 @@ class="btn-producto">
 </div>
 
 <script src="productos.js"></script>
+<script src="precios-store.js"></script>
 
 <script>
 
@@ -334,7 +335,7 @@ if(producto){
     producto.nombre;
 
     document.getElementById("imagenProducto").src =
-    producto.imagen;
+    "imagenes/" + producto.imagen;
 
     document.getElementById("imagenProducto").alt =
     producto.nombre;
