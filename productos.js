@@ -1040,3 +1040,24 @@ bogavante:{
         "Cocido"
     ]
 },
+carabinero:{
+    categoria:"congelados",
+    nombre:"🦐 Carabinero",
+    imagen:"carabinero.jpg",
+    descripcion:"Carabinero congelado de primera calidad. Producto de gran tamaño y excelente sabor. Ideal para arroces, plancha, mariscadas y cocina gourmet.",
+
+    precios:[
+        {
+            nombre:"🦐 Carabinero Gigante",
+            precio:90.00
+        },
+        {
+            nombre:"🦐 Carabinero Grande",
+            precio:80.00
+        }
+    ],
+
+    preparaciones:[
+        "Entero"
+    ]
+},
