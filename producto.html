@@ -268,7 +268,9 @@ class="btn-producto">
 const parametros = new URLSearchParams(window.location.search);
 const idProducto = parametros.get("producto");
 const producto = productos[idProducto];
-
+console.log(idProducto);
+console.log(producto);
+    
     function actualizarPrecio(){
 console.log("Funciona");
 if(idProducto=="ostra" || idProducto=="vieira"){
