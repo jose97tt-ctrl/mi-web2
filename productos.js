@@ -1017,3 +1017,26 @@ abadejopuntosal:{
 }
 
 };
+bogavante:{
+    categoria:"congelados",
+    nombre:"🦞 Bogavante",
+    imagen:"bogavante.jpg",
+    descripcion:"Bogavante congelado de primera calidad. Disponible en distintas procedencias y calibres. Ideal para arroces, mariscadas y cocina gourmet.",
+
+    precios:[
+        {
+            nombre:"🦞 Bogavante Nacional 400/600 gr",
+            precio:27.90
+        },
+        {
+            nombre:"🦞 Bogavante Importación 400/500 gr",
+            precio:19.90
+        }
+    ],
+
+    preparaciones:[
+        "Entero",
+        "Partido",
+        "Cocido"
+    ]
+},
