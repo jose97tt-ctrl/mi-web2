@@ -269,11 +269,109 @@ class="btn-producto">
 const parametros = new URLSearchParams(window.location.search);
 const idProducto = parametros.get("producto");
 const producto = productos[idProducto];
-console.log(idProducto);
-console.log(producto);
-    
-    function actualizarPrecio(){
-console.log("Funciona");
+
+function prepararProducto() {
+    if (!producto) return;
+
+    document.getElementById("nombreProducto").innerText =
+    producto.nombre;
+
+    document.getElementById("imagenProducto").src =
+    "imagenes/" + producto.imagen;
+
+    document.getElementById("imagenProducto").alt =
+    producto.nombre;
+
+    if(producto.tipo=="unidad"){
+
+        document.getElementById("precioProducto").innerText =
+        producto.precio + " €/unidad";
+
+    }else if(producto.precios){
+
+        document.getElementById("precioProducto").innerText =
+        producto.precios[0].precio.toFixed(2) + " €/kg";
+
+    }else{
+
+        document.getElementById("precioProducto").innerText =
+        producto.precio + " €/kg";
+
+    }
+
+    document.getElementById("descripcionProducto").innerText =
+    producto.descripcion;
+
+    if(producto.precios){
+
+        document.getElementById("bloqueTamano").style.display = "block";
+
+        let selectorTamano =
+        document.getElementById("tamanoProducto");
+
+        selectorTamano.innerHTML = "";
+
+        producto.precios.forEach(function(item){
+
+            let opcion = document.createElement("option");
+
+            opcion.value = item.precio;
+
+            opcion.textContent =
+            item.nombre + " - " + item.precio.toFixed(2) + " €/kg";
+
+            selectorTamano.appendChild(opcion);
+
+        });
+
+    }else{
+
+        document.getElementById("bloqueTamano").style.display = "none";
+
+    }
+
+    const selectPreparacion = document.getElementById("preparacion");
+
+    selectPreparacion.innerHTML = "";
+
+    producto.preparaciones.forEach(function(preparacion){
+
+        let opcion = document.createElement("option");
+
+        opcion.value = preparacion;
+
+        opcion.textContent = preparacion;
+
+        selectPreparacion.appendChild(opcion);
+
+    });
+
+    if(producto.tipo=="unidad"){
+
+        document.querySelector("h3").innerText="🔢 Cantidad";
+
+        document.getElementById("peso").innerHTML="";
+
+        producto.cantidades.forEach(function(cantidad){
+
+            let opcion=document.createElement("option");
+
+            opcion.value=cantidad;
+
+            opcion.textContent=cantidad+" unidades";
+
+            document.getElementById("peso").appendChild(opcion);
+
+        });
+
+        document.getElementById("bloquePesoPersonalizado").style.display="none";
+
+    }
+
+    actualizarPrecio();
+}
+
+function actualizarPrecio(){
 if(idProducto=="ostra" || idProducto=="vieira"){
 
     let cantidad =
@@ -331,104 +429,17 @@ document.getElementById("precioFinal").innerHTML =
 "Total: " + total.toFixed(2) + " €";
 
 }
-if(producto){
 
-    document.getElementById("nombreProducto").innerText =
-    producto.nombre;
+window.addEventListener("precios:actualizados", prepararProducto);
+window.addEventListener("pageshow", prepararProducto);
 
-    document.getElementById("imagenProducto").src =
-    "imagenes/" + producto.imagen;
-
-    document.getElementById("imagenProducto").alt =
-    producto.nombre;
-
-   if(producto.tipo=="unidad"){
-
-    document.getElementById("precioProducto").innerText =
-    producto.precio + " €/unidad";
-
-}else if(producto.precios){
-
-    document.getElementById("precioProducto").innerText =
-    producto.precios[0].precio.toFixed(2) + " €/kg";
-
-}else{
-
-    document.getElementById("precioProducto").innerText =
-    producto.precio + " €/kg";
-
-}
-
-    document.getElementById("descripcionProducto").innerText =
-    producto.descripcion;
-    if(producto.precios){
-
-    document.getElementById("bloqueTamano").style.display = "block";
-
-    let selectorTamano =
-    document.getElementById("tamanoProducto");
-
-    selectorTamano.innerHTML = "";
-
-    producto.precios.forEach(function(item){
-
-        let opcion = document.createElement("option");
-
-        opcion.value = item.precio;
-
-        opcion.textContent =
-        item.nombre + " - " + item.precio.toFixed(2) + " €/kg";
-
-        selectorTamano.appendChild(opcion);
-
-    });
-
-}else{
-
-    document.getElementById("bloqueTamano").style.display = "none";
-
-}
-
-    const selectPreparacion = document.getElementById("preparacion");
-
-    selectPreparacion.innerHTML = "";
-
-    producto.preparaciones.forEach(function(preparacion){
-
-        let opcion = document.createElement("option");
-
-        opcion.value = preparacion;
-
-        opcion.textContent = preparacion;
-
-        selectPreparacion.appendChild(opcion);
-
+document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") {
+        prepararProducto();
+    }
 });
-if(producto.tipo=="unidad"){
 
-    document.querySelector("h3").innerText="🔢 Cantidad";
-
-    document.getElementById("peso").innerHTML="";
-
-    producto.cantidades.forEach(function(cantidad){
-
-        let opcion=document.createElement("option");
-
-        opcion.value=cantidad;
-
-        opcion.textContent=cantidad+" unidades";
-
-        document.getElementById("peso").appendChild(opcion);
-
-    });
-
-    document.getElementById("bloquePesoPersonalizado").style.display="none";
-
-}
-
-actualizarPrecio();
-
-}
+prepararProducto();
 function agregarProducto(){
 if(producto.tipo=="unidad"){
     let cantidad =

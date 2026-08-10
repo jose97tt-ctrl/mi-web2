@@ -42,7 +42,14 @@
         localStorage.removeItem(CLAVE);
     }
 
+    function notificarCambios() {
+        if (typeof window !== "undefined" && typeof window.dispatchEvent === "function") {
+            window.dispatchEvent(new Event("precios:actualizados"));
+        }
+    }
+
     function aplicar(datos, overrides) {
+        let huboCambios = false;
 
         for (const id in overrides) {
 
@@ -59,15 +66,25 @@
                     const valor = ajuste.precios[indice];
 
                     if (producto.precios[indice] && !isNaN(valor)) {
-                        producto.precios[indice].precio = valor;
+                        if (producto.precios[indice].precio !== valor) {
+                            producto.precios[indice].precio = valor;
+                            huboCambios = true;
+                        }
                     }
                 }
             }
 
             // Productos con precio simple (incluye tipo "unidad").
             if (ajuste.precio != null && !isNaN(ajuste.precio) && producto.precio != null) {
-                producto.precio = ajuste.precio;
+                if (producto.precio !== ajuste.precio) {
+                    producto.precio = ajuste.precio;
+                    huboCambios = true;
+                }
             }
+        }
+
+        if (huboCambios) {
+            notificarCambios();
         }
     }
 
