@@ -233,17 +233,31 @@
         }
     }
 
-    CATALOGO.forEach(function (e) {
-        const producto = productos[e.id];
-        if (!producto) return;
-        if (e.skip) return;
+    function aplicarPreciosAlIndice() {
+        CATALOGO.forEach(function (e) {
+            const producto = productos[e.id];
+            if (!producto) return;
+            if (e.skip) return;
 
-        actualizarTarjeta(e, producto);
-        actualizarModal(e, producto);
+            actualizarTarjeta(e, producto);
+            actualizarModal(e, producto);
 
-        if (e.tipo === "s" || e.tipo === "u") {
-            redefinirCalculo(e);
+            if (e.tipo === "s" || e.tipo === "u") {
+                redefinirCalculo(e);
+            }
+        });
+    }
+
+    aplicarPreciosAlIndice();
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            aplicarPreciosAlIndice();
         }
+    });
+
+    window.addEventListener("pageshow", function () {
+        aplicarPreciosAlIndice();
     });
 
 })();

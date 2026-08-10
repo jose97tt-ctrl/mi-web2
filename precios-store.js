@@ -49,11 +49,26 @@
         }
     }
 
-    // Aplica los ajustes guardados en cuanto se carga el catálogo.
-    if (typeof productos !== "undefined") {
-        aplicar(productos, cargar());
+    function aplicarDesdeStorage() {
+        if (typeof productos === "undefined") return;
+        const overrides = cargar();
+        aplicar(productos, overrides);
+        return overrides;
     }
 
-    window.PreciosStore = { cargar, guardar, limpiar, aplicar };
+    // Aplica los ajustes guardados en cuanto se carga el catálogo.
+    aplicarDesdeStorage();
+
+    window.PreciosStore = { cargar, guardar, limpiar, aplicar, aplicarDesdeStorage };
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+            aplicarDesdeStorage();
+        }
+    });
+
+    window.addEventListener("pageshow", function () {
+        aplicarDesdeStorage();
+    });
 
 })();
