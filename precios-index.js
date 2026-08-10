@@ -248,16 +248,39 @@
         });
     }
 
-    aplicarPreciosAlIndice();
+    function refrescarCatalogo() {
+        aplicarPreciosAlIndice();
+    }
+
+    function refrescarDesdeStorage() {
+        if (window.PreciosStore && typeof window.PreciosStore.aplicarDesdeStorage === "function") {
+            return window.PreciosStore.aplicarDesdeStorage().then(function () {
+                refrescarCatalogo();
+            });
+        }
+
+        refrescarCatalogo();
+        return Promise.resolve();
+    }
+
+    refrescarDesdeStorage();
+
+    window.addEventListener("precios:actualizados", refrescarCatalogo);
+
+    window.addEventListener("storage", function (event) {
+        if (event.key === "preciosOverrides" || event.key === null) {
+            refrescarDesdeStorage();
+        }
+    });
 
     document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "visible") {
-            aplicarPreciosAlIndice();
+            refrescarDesdeStorage();
         }
     });
 
     window.addEventListener("pageshow", function () {
-        aplicarPreciosAlIndice();
+        refrescarDesdeStorage();
     });
 
 })();

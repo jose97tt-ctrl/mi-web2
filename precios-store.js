@@ -83,9 +83,7 @@
             }
         }
 
-        if (huboCambios) {
-            notificarCambios();
-        }
+        notificarCambios();
     }
 
     async function aplicarDesdeStorage() {

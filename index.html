@@ -3026,10 +3026,16 @@ if(!isNaN(pesoPersonalizado) && pesoPersonalizado > 0){
 
 }
 
-let total = productos.aguja.precio * peso;
+const precioUnitario = productos && productos.aguja ? productos.aguja.precio : 0;
+let total = precioUnitario * peso;
 
 document.getElementById("precioAguja").innerText =
 "Total: " + total.toFixed(2) + "€";
+
+const modalPrecio = document.querySelector('#modalAguja .producto-info p strong');
+if (modalPrecio && modalPrecio.parentElement) {
+    modalPrecio.parentElement.innerHTML = '<strong>Precio:</strong> ' + (precioUnitario || 0).toFixed(2) + ' €/kg';
+}
 
 }
 function agregarAguja(){
