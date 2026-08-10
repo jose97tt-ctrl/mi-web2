@@ -1038,9 +1038,9 @@ bogavante:{
         "Cocido"
     ]
 },
-carabinero:{
+"carabinero-congelado":{
     categoria:"congelados",
-    nombre:"🦐 Carabinero",
+    nombre:"🦐 Carabinero congelado",
     imagen:"carabineroconge.jpg",
     precio:80.0,
     descripcion:"Carabinero congelado de primera calidad. Producto de gran tamaño y excelente sabor. Ideal para arroces, plancha, mariscadas y cocina gourmet.",

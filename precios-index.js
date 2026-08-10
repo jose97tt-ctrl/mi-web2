@@ -31,6 +31,7 @@
         { id: "cangrejo-arena", suf: "CangrejoArena", tipo: "s" },
         { id: "cangrejo-azul", suf: "CangrejoAzul", tipo: "s" },
         { id: "carabinero", suf: "Carabinero", tipo: "s", skip: true },
+        { id: "carabinero-congelado", suf: "CarabineroCongelado", tipo: "a" },
         { id: "cigala", suf: "Cigala", tipo: "s" },
         { id: "concha-fina", suf: "ConchaFina", tipo: "s" },
         { id: "coquina", suf: "Coquina", tipo: "s" },
