@@ -1,22 +1,44 @@
-// Capa de persistencia de precios: guarda ajustes en localStorage y los aplica
-// sobre el objeto `productos`, soportando precio simple y array de precios.
+// Capa de persistencia de precios: guarda ajustes en una fuente compartida
+// y los aplica sobre el objeto `productos`, soportando precio simple y array de precios.
 (function () {
 
     const CLAVE = "preciosOverrides";
+    const API_URL = "/api/precios";
 
-    function cargar() {
+    async function cargar() {
         try {
-            return JSON.parse(localStorage.getItem(CLAVE)) || {};
+            const respuesta = await fetch(API_URL, { cache: "no-store" });
+            if (!respuesta.ok) throw new Error("No se pudo leer");
+            return await respuesta.json();
         } catch (e) {
-            return {};
+            try {
+                return JSON.parse(localStorage.getItem(CLAVE)) || {};
+            } catch (err) {
+                return {};
+            }
         }
     }
 
-    function guardar(overrides) {
+    async function guardar(overrides) {
+        try {
+            const respuesta = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(overrides)
+            });
+            if (respuesta.ok) {
+                localStorage.setItem(CLAVE, JSON.stringify(overrides));
+                return;
+            }
+        } catch (e) {}
+
         localStorage.setItem(CLAVE, JSON.stringify(overrides));
     }
 
-    function limpiar() {
+    async function limpiar() {
+        try {
+            await fetch(API_URL, { method: "DELETE", cache: "no-store" });
+        } catch (e) {}
         localStorage.removeItem(CLAVE);
     }
 
@@ -49,9 +71,9 @@
         }
     }
 
-    function aplicarDesdeStorage() {
-        if (typeof productos === "undefined") return;
-        const overrides = cargar();
+    async function aplicarDesdeStorage() {
+        if (typeof productos === "undefined") return null;
+        const overrides = await cargar();
         aplicar(productos, overrides);
         return overrides;
     }
