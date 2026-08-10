@@ -11,6 +11,7 @@
         { id: "atun-envasado", suf: "AtunEnvasado", tipo: "s" },
         { id: "atun-fresco", suf: "AtunFresco", tipo: "s" },
         { id: "boqueron", suf: "Boqueron", tipo: "a", sel: "procedenciaBoqueron" },
+        { id: "bogavante", suf: "Bogavante", tipo: "a", sel: "tipoBogavante" },
         { id: "bacaladilla", suf: "Bacaladilla", tipo: "s" },
         { id: "brotola-roca", suf: "BrotolaRoca", tipo: "s" },
         { id: "brotola", suf: "Brotola", tipo: "s" },
@@ -31,7 +32,7 @@
         { id: "cangrejo-arena", suf: "CangrejoArena", tipo: "s" },
         { id: "cangrejo-azul", suf: "CangrejoAzul", tipo: "s" },
         { id: "carabinero", suf: "Carabinero", tipo: "s", skip: true },
-        { id: "carabinero-congelado", suf: "CarabineroCongelado", tipo: "a" },
+        { id: "carabinero-congelado", suf: "CarabineroCongelado", tipo: "a", sel: "tipoCarabineroCongelado" },
         { id: "cigala", suf: "Cigala", tipo: "s" },
         { id: "concha-fina", suf: "ConchaFina", tipo: "s" },
         { id: "coquina", suf: "Coquina", tipo: "s" },
@@ -132,7 +133,7 @@
         const producto = productos[e.id];
         const getElem = function (baseId) {
             if (document.getElementById(baseId)) return document.getElementById(baseId);
-            if (e.id === "carabinero") {
+            if (e.id === "carabinero" || e.id === "carabinero-congelado") {
                 if (baseId === "tipoCarabinero") return document.getElementById("tipoCarabineroCongelado");
                 if (baseId === "pesoCarabinero") return document.getElementById("pesoCarabineroCongelado");
                 if (baseId === "pesoPersonalizadoCarabinero") return document.getElementById("pesoPersonalizadoCarabineroCongelado");
@@ -180,7 +181,7 @@
                 precio = producto ? producto.precio : NaN;
             }
 
-            const modal = e.id === "carabinero"
+            const modal = (e.id === "carabinero" || e.id === "carabinero-congelado")
                 ? document.getElementById("modalCarabineroCongelado")
                 : document.getElementById("modal" + e.suf);
             const h2 = modal ? modal.querySelector(".producto-info h2") : null;
