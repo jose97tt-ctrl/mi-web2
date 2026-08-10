@@ -621,7 +621,7 @@ object-fit:cover;
 background:white;
 
 }
-#modalAtunEnvasado img{ */ */
+#modalAtunEnvasado img{
 
 height:150px;
 
@@ -2686,7 +2686,7 @@ alt="Carabinero">
 <p>Desde <strong>80.00 €/kg</strong></p>
 
 <button
-onclick="abrirProductoCarabinero()"
+onclick="abrirProductoCarabineroCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
@@ -5020,25 +5020,13 @@ cerrarProductoCangrejoAzul();
 }
 function abrirProductoCarabinero(){
 
-    if(window.innerWidth <= 768){
-
-        window.location.href = "producto.html?producto=carabinero";
-
-    }else{
-
-        document.getElementById("modalCarabinero").style.display = "flex";
-
-        document.getElementById("pesoCarabinero").value = "1";
-
-        actualizarPrecioCarabinero();
-
-    }
+    abrirProductoCarabineroCongelado();
 
 }
 
 function cerrarProductoCarabinero(){
 
-document.getElementById("modalCarabinero").style.display="none";
+document.getElementById("modalCarabineroCongelado").style.display="none";
 
 }
 
@@ -8734,7 +8722,7 @@ function agregarBogavante(){
     cerrarProductoBogavante();
 
 }
-function abrirProductoCarabinero(){
+function abrirProductoCarabineroCongelado(){
 
     if(window.innerWidth <= 768){
 
@@ -8742,10 +8730,10 @@ function abrirProductoCarabinero(){
 
     }else{
 
-        document.getElementById("modalCarabinero").style.display="flex";
+        document.getElementById("modalCarabineroCongelado").style.display="flex";
 
-        document.getElementById("pesoCarabinero").value="1";
-        document.getElementById("pesoPersonalizadoCarabinero").value="";
+        document.getElementById("pesoCarabineroCongelado").value="1";
+        document.getElementById("pesoPersonalizadoCarabineroCongelado").value="";
 
         actualizarPrecioCarabinero();
 
@@ -8753,22 +8741,28 @@ function abrirProductoCarabinero(){
 
 }
 
+function abrirProductoCarabinero(){
+
+    abrirProductoCarabineroCongelado();
+
+}
+
 function cerrarProductoCarabinero(){
 
-    document.getElementById("modalCarabinero").style.display="none";
+    document.getElementById("modalCarabineroCongelado").style.display="none";
 
 }
 
 function actualizarPrecioCarabinero(){
 
     let precio =
-    parseFloat(document.getElementById("tipoCarabinero").value);
+    parseFloat(document.getElementById("tipoCarabineroCongelado").value);
 
     let peso =
-    parseFloat(document.getElementById("pesoCarabinero").value);
+    parseFloat(document.getElementById("pesoCarabineroCongelado").value);
 
     let personalizado =
-    parseFloat(document.getElementById("pesoPersonalizadoCarabinero").value);
+    parseFloat(document.getElementById("pesoPersonalizadoCarabineroCongelado").value);
 
     if(!isNaN(personalizado) && personalizado > 0){
 
@@ -8778,7 +8772,7 @@ function actualizarPrecioCarabinero(){
 
     let total = precio * peso;
 
-    document.getElementById("precioCarabinero").innerHTML =
+    document.getElementById("precioCarabineroCongelado").innerHTML =
     "Total: " + total.toFixed(2) + "€";
 
 }
@@ -8786,10 +8780,10 @@ function actualizarPrecioCarabinero(){
 function agregarCarabinero(){
 
     let peso =
-    parseFloat(document.getElementById("pesoCarabinero").value);
+    parseFloat(document.getElementById("pesoCarabineroCongelado").value);
 
     let personalizado =
-    parseFloat(document.getElementById("pesoPersonalizadoCarabinero").value);
+    parseFloat(document.getElementById("pesoPersonalizadoCarabineroCongelado").value);
 
     if(!isNaN(personalizado) && personalizado > 0){
 
@@ -8798,10 +8792,10 @@ function agregarCarabinero(){
     }
 
     let preparacion =
-    document.getElementById("preparacionCarabinero").value;
+    document.getElementById("preparacionCarabineroCongelado").value;
 
     let selector =
-    document.getElementById("tipoCarabinero");
+    document.getElementById("tipoCarabineroCongelado");
 
     let nombreProducto =
     "🦐 Carabinero - " +
@@ -11243,7 +11237,7 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalCarabinero"
+<div id="modalCarabineroFresco"
 class="modal-producto"
 onclick="cerrarProductoCarabinero()">
 
@@ -15503,7 +15497,7 @@ class="btn-producto">
 </div>
 
 </div>
-    <div id="modalCarabinero"
+    <div id="modalCarabineroCongelado"
 class="modal-producto"
 onclick="cerrarProductoCarabinero()">
 
@@ -15532,7 +15526,7 @@ Ideal para arroces, plancha, mariscadas y cocina gourmet.
 
 <label>Tamaño:</label>
 
-<select id="tipoCarabinero"
+<select id="tipoCarabineroCongelado"
 onchange="actualizarPrecioCarabinero()">
 
 <option value="90.0">
@@ -15549,7 +15543,7 @@ Carabinero Grande
 
 <label>Peso:</label>
 
-<select id="pesoCarabinero"
+<select id="pesoCarabineroCongelado"
 onchange="actualizarPrecioCarabinero()">
 
 <option value="1">1 kg</option>
@@ -15565,7 +15559,7 @@ onchange="actualizarPrecioCarabinero()">
 
 <input
 type="number"
-id="pesoPersonalizadoCarabinero"
+id="pesoPersonalizadoCarabineroCongelado"
 placeholder="Ejemplo: 0.250"
 step="0.001"
 min="0"
@@ -15580,7 +15574,7 @@ font-size:16px;
 ">
 
 <p
-id="precioCarabinero"
+id="precioCarabineroCongelado"
 style="
 font-size:24px;
 font-weight:bold;
@@ -15594,7 +15588,7 @@ Total: 90.00€
 
 <label>Preparación:</label>
 
-<select id="preparacionCarabinero">
+<select id="preparacionCarabineroCongelado">
 
 <option>Entero</option>
 

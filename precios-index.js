@@ -30,7 +30,7 @@
         { id: "calamar", suf: "Calamar", tipo: "s" },
         { id: "cangrejo-arena", suf: "CangrejoArena", tipo: "s" },
         { id: "cangrejo-azul", suf: "CangrejoAzul", tipo: "s" },
-        { id: "carabinero", suf: "Carabinero", tipo: "s" },
+        { id: "carabinero", suf: "Carabinero", tipo: "s", skip: true },
         { id: "cigala", suf: "Cigala", tipo: "s" },
         { id: "concha-fina", suf: "ConchaFina", tipo: "s" },
         { id: "coquina", suf: "Coquina", tipo: "s" },
@@ -90,7 +90,7 @@
         const pElem = card ? card.querySelector(".card-content p") : null;
         if (!pElem) return;
 
-        if (e.tipo === "a" && Array.isArray(producto.precios)) {
+        if (Array.isArray(producto.precios)) {
             pElem.textContent = "Desde " + fmt(precioMinimo(producto.precios)) + " €/kg";
         } else if (e.tipo === "u") {
             pElem.textContent = "Precio " + fmt(producto.precio) + " €/ud";
@@ -128,34 +128,63 @@
 
     // Redefine el cálculo de productos simples / por unidad para leer el precio de `productos`.
     function redefinirCalculo(e) {
+        const producto = productos[e.id];
+        const getElem = function (baseId) {
+            if (document.getElementById(baseId)) return document.getElementById(baseId);
+            if (e.id === "carabinero") {
+                if (baseId === "tipoCarabinero") return document.getElementById("tipoCarabineroCongelado");
+                if (baseId === "pesoCarabinero") return document.getElementById("pesoCarabineroCongelado");
+                if (baseId === "pesoPersonalizadoCarabinero") return document.getElementById("pesoPersonalizadoCarabineroCongelado");
+                if (baseId === "precioCarabinero") return document.getElementById("precioCarabineroCongelado");
+                if (baseId === "preparacionCarabinero") return document.getElementById("preparacionCarabineroCongelado");
+            }
+            return null;
+        };
+
         const recalcular = function () {
-            const totalEl = document.getElementById("precio" + e.suf);
+            const totalEl = getElem("precio" + e.suf);
             if (!totalEl) return;
-            const precio = productos[e.id].precio;
+
+            let precio;
+            if (Array.isArray(producto && producto.precios)) {
+                const tipoEl = getElem("tipo" + e.suf);
+                precio = tipoEl ? parseFloat(tipoEl.value) : NaN;
+            } else {
+                precio = producto ? producto.precio : NaN;
+            }
 
             if (e.tipo === "u") {
                 const selEl = document.getElementById(e.sel);
                 const cantidad = selEl ? parseInt(selEl.value) : NaN;
-                if (isNaN(cantidad)) return;
+                if (isNaN(cantidad) || isNaN(precio)) return;
                 totalEl.innerText = "Total: " + fmt(precio * cantidad) + "€";
                 return;
             }
 
-            const pesoEl = document.getElementById("peso" + e.suf);
-            const persoEl = document.getElementById("pesoPersonalizado" + e.suf);
+            const pesoEl = getElem("peso" + e.suf);
+            const persoEl = getElem("pesoPersonalizado" + e.suf);
             let peso = pesoEl ? parseFloat(pesoEl.value) : NaN;
             const perso = persoEl ? parseFloat(persoEl.value) : NaN;
             if (!isNaN(perso) && perso > 0) peso = perso;
-            if (isNaN(peso)) return;
+            if (isNaN(peso) || isNaN(precio)) return;
             totalEl.innerText = "Total: " + fmt(precio * peso) + "€";
         };
 
         const agregar = function () {
-            const precio = productos[e.id].precio;
-            const modal = document.getElementById("modal" + e.suf);
+            let precio;
+            if (Array.isArray(producto && producto.precios)) {
+                const tipoEl = getElem("tipo" + e.suf);
+                precio = tipoEl ? parseFloat(tipoEl.value) : NaN;
+            } else {
+                precio = producto ? producto.precio : NaN;
+            }
+
+            const modal = e.id === "carabinero"
+                ? document.getElementById("modalCarabineroCongelado")
+                : document.getElementById("modal" + e.suf);
             const h2 = modal ? modal.querySelector(".producto-info h2") : null;
-            const nombre = h2 ? h2.textContent.trim() : productos[e.id].nombre;
-            const prepEl = document.getElementById("preparacion" + e.suf);
+            const nombre = h2 ? h2.textContent.trim() : producto ? producto.nombre : "Producto";
+            const prepEl = getElem("preparacion" + e.suf);
             const preparacion = prepEl ? prepEl.value : "";
 
             let cantidadTexto;
@@ -164,16 +193,16 @@
             if (e.tipo === "u") {
                 const selEl = document.getElementById(e.sel);
                 const cantidad = selEl ? parseInt(selEl.value) : NaN;
-                if (isNaN(cantidad)) return;
+                if (isNaN(cantidad) || isNaN(precio)) return;
                 cantidadTexto = cantidad + " unidades";
                 precioFinal = precio * cantidad;
             } else {
-                const pesoEl = document.getElementById("peso" + e.suf);
-                const persoEl = document.getElementById("pesoPersonalizado" + e.suf);
+                const pesoEl = getElem("peso" + e.suf);
+                const persoEl = getElem("pesoPersonalizado" + e.suf);
                 let peso = pesoEl ? parseFloat(pesoEl.value) : NaN;
                 const perso = persoEl ? parseFloat(persoEl.value) : NaN;
                 if (!isNaN(perso) && perso > 0) peso = perso;
-                if (isNaN(peso)) return;
+                if (isNaN(peso) || isNaN(precio)) return;
                 cantidadTexto = peso + " kg";
                 precioFinal = precio * peso;
             }
@@ -205,6 +234,7 @@
     CATALOGO.forEach(function (e) {
         const producto = productos[e.id];
         if (!producto) return;
+        if (e.skip) return;
 
         actualizarTarjeta(e, producto);
         actualizarModal(e, producto);
