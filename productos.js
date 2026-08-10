@@ -1062,3 +1062,24 @@ bogavante:{
 }
 
 };
+gambarojacongelada:{
+    categoria:"congelados",
+    nombre:"🦐 Gamba Roja / Alistado",
+    imagen:"gambarojaconge.jpg",
+    descripcion:"Gamba roja congelada de primera calidad. Seleccionada por tamaño, ideal para plancha, arroces, mariscadas y cocina gourmet.",
+
+    precios:[
+        {
+            nombre:"🦐 Gamba Roja Grande",
+            precio:80.00
+        },
+        {
+            nombre:"🦐 Gamba Roja Mediana",
+            precio:90.00
+        }
+    ],
+
+    preparaciones:[
+        "Entera"
+    ]
+},
