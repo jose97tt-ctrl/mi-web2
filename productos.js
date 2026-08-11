@@ -1083,3 +1083,39 @@ gambarojacongelada:{
         "Entera"
     ]
 },
+
+gambablancacongelada:{
+    categoria:"congelados",
+    nombre:"🦐 Gamba Blanca Congelada",
+    imagen:"gambablancaconge.jpg",
+    descripcion:"Gamba blanca congelada de primera calidad. Disponible en distintos tamaños y formatos. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Gamba Blanca Gorda",
+            precio:17.90
+        },
+        {
+            nombre:"🦐 Gamba Blanca Mediana",
+            precio:15.90
+        },
+        {
+            nombre:"🦐 Cola de Gamba Blanca Gorda",
+            precio:14.90
+        },
+        {
+            nombre:"🦐 Cola de Gamba Blanca Mediana",
+            precio:11.90
+        },
+        {
+            nombre:"🦐 Cola de Gamba Blanca Pelada Importación 10/30 pcs",
+            precio:8.40
+        }
+    ],
+
+    preparaciones:[
+        "Entera",
+        "Cola",
+        "Pelada"
+    ]
+},
