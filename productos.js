@@ -1294,7 +1294,7 @@ pulpocongelado:{
         }
     ]
 },
-pataspulpo:{
+pataspulpocongeladas:{
     categoria:"congelados",
     nombre:"🐙 Patas de Pulpo Cocidas",
     imagen:"pataspulpocongeladas.jpg",
