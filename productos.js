@@ -1119,3 +1119,11 @@ gambablancacongelada:{
         "Pelada"
     ]
 },
+
+cristalgambusinocongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Cristal / Gambusino Congelado",
+    imagen:"cristalgambusinoconge.jpg",
+    precio:9.90,
+    descripcion:"Cristal o gambusino congelado de primera calidad. Ideal para frituras, arroces y cocina profesional."
+},
