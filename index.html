@@ -3040,6 +3040,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="puntillitacalamarconge.jpg"
+alt="Puntillita de Calamar Nacional Larga">
+
+<div class="card-content">
+
+<h3>🦑 Puntillita de Calamar Nacional Larga</h3>
+
+<p>Precio <strong>38,50 €/kg</strong></p>
+
+<button
+onclick="abrirProductoPuntillitaCalamarCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -10383,6 +10405,86 @@ function agregarCalamarNacionalCongelado(){
     actualizarCarrito();
 
     cerrarProductoCalamarNacionalCongelado();
+
+}
+function abrirProductoPuntillitaCalamarCongelada(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=puntillitacalamarcongelada";
+
+    }else{
+
+        document.getElementById("modalPuntillitaCalamarCongelada").style.display="flex";
+
+        document.getElementById("pesoPuntillitaCalamarCongelada").value="1";
+        document.getElementById("pesoPersonalizadoPuntillitaCalamarCongelada").value="";
+
+        actualizarPrecioPuntillitaCalamarCongelada();
+
+    }
+
+}
+
+function cerrarProductoPuntillitaCalamarCongelada(){
+
+    document.getElementById("modalPuntillitaCalamarCongelada").style.display="none";
+
+}
+
+function actualizarPrecioPuntillitaCalamarCongelada(){
+
+    let precio = 38.50;
+
+    let peso =
+    parseFloat(document.getElementById("pesoPuntillitaCalamarCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPuntillitaCalamarCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioPuntillitaCalamarCongelada").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPuntillitaCalamarCongelada(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoPuntillitaCalamarCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPuntillitaCalamarCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 38.50;
+
+    carrito.push({
+
+        nombre:"🦑 Puntillita de Calamar Nacional Larga",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoPuntillitaCalamarCongelada();
 
 }
 function abrirBuscador(){
@@ -18718,6 +18820,100 @@ Total: 13.90€
 
 <button
 onclick="agregarCalamarNacionalCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalPuntillitaCalamarCongelada"
+class="modal-producto"
+onclick="cerrarProductoPuntillitaCalamarCongelada()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="puntillitacalamarconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦑 Puntillita de Calamar Nacional Larga</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Puntillita de calamar nacional larga congelada.
+Ideal para fritura, plancha, arroces
+y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoPuntillitaCalamarCongelada"
+onchange="actualizarPrecioPuntillitaCalamarCongelada()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoPuntillitaCalamarCongelada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioPuntillitaCalamarCongelada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioPuntillitaCalamarCongelada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 38.50€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarPuntillitaCalamarCongelada()"
 class="btn-producto">
 
 🛒 Añadir al pedido
