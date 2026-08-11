@@ -3018,6 +3018,29 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="calamarnacionalconge.jpg"
+alt="Calamar Nacional">
+
+<div class="card-content">
+
+<h3>🦑 Calamar Nacional</h3>
+
+<p>Desde <strong>9,80 €/kg</strong></p>
+
+<button
+onclick="abrirProductoCalamarNacionalCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+    
 </section>
 
 
@@ -10273,7 +10296,95 @@ function agregarPatasPulpoCongeladas(){
     cerrarProductoPatasPulpoCongeladas();
 
 }
+function abrirProductoCalamarNacionalCongelado(){
 
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=calamarnacionalcongelado";
+
+    }else{
+
+        document.getElementById("modalCalamarNacionalCongelado").style.display="flex";
+
+        document.getElementById("pesoCalamarNacionalCongelado").value="1";
+        document.getElementById("pesoPersonalizadoCalamarNacionalCongelado").value="";
+
+        actualizarPrecioCalamarNacionalCongelado();
+
+    }
+
+}
+
+function cerrarProductoCalamarNacionalCongelado(){
+
+    document.getElementById("modalCalamarNacionalCongelado").style.display="none";
+
+}
+
+function actualizarPrecioCalamarNacionalCongelado(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoCalamarNacionalCongelado").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoCalamarNacionalCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoCalamarNacionalCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioCalamarNacionalCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCalamarNacionalCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoCalamarNacionalCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoCalamarNacionalCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoCalamarNacionalCongelado");
+
+    let nombreProducto =
+    "🦑 Calamar Nacional - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoCalamarNacionalCongelado();
+
+}
 function abrirBuscador(){
 
 let buscador =
@@ -18490,6 +18601,123 @@ Total: 19.50€
 
 <button
 onclick="agregarPatasPulpoCongeladas()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalCalamarNacionalCongelado"
+class="modal-producto"
+onclick="cerrarProductoCalamarNacionalCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="calamarnacionalconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦑 Calamar Nacional</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Calamar nacional congelado seleccionado.
+Disponible en distintos tamaños.
+Ideal para plancha, fritura, arroces
+y cocina profesional.
+</p>
+
+<label>Tamaño:</label>
+
+<select
+id="tipoCalamarNacionalCongelado"
+onchange="actualizarPrecioCalamarNacionalCongelado()">
+
+<option value="13.90">
+Calamar Nacional M
+</option>
+
+<option value="12.90">
+Calamar Nacional P
+</option>
+
+<option value="9.80">
+Calamar Nacional 2P
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoCalamarNacionalCongelado"
+onchange="actualizarPrecioCalamarNacionalCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCalamarNacionalCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCalamarNacionalCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioCalamarNacionalCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 13.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarCalamarNacionalCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
