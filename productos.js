@@ -1167,3 +1167,21 @@ cigalacongelada:{
         }
     ]
 },
+
+gamboncongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Gambón Congelado",
+    imagen:"gambonconge.jpg",
+    descripcion:"Gambón congelado seleccionado. Disponible en distintos calibres. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Gambón Nº1",
+            precio:10.00
+        },
+        {
+            nombre:"🦐 Gambón Nº2",
+            precio:8.50
+        }
+    ]
+},
