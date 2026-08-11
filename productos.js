@@ -1145,3 +1145,25 @@ quisquillacongeleada:{
         }
     ]
 },
+
+cigalacongelada:{
+    categoria:"congelados",
+    nombre:"🦐 Cigala Congelada",
+    imagen:"cigalaconge.jpg",
+    descripcion:"Cigala congelada de primera calidad. Disponible en distintos tamaños. Ideal para mariscadas, arroces, plancha y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Cigala Grande",
+            precio:80.00
+        },
+        {
+            nombre:"🦐 Cigala Mediana",
+            precio:70.00
+        },
+        {
+            nombre:"🦐 Cigala Pequeña",
+            precio:50.00
+        }
+    ]
+},
