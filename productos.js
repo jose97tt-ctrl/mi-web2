@@ -1326,3 +1326,20 @@ sepianacionalcongelada:{
     precio:4.45,
     descripcion:"Sepia nacional congelada de 200/400 g. Ideal para plancha, fritura, arroces, guisos y cocina profesional."
 },
+bacalaoislandiacongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Bacalao de Islandia a Punto de Sal",
+    imagen:"bacalaoislandiaconge.jpg",
+    descripcion:"Filete de bacalao de Islandia a punto de sal. Disponible en distintos tamaños, ideal para plancha, horno y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🐟 Filete de Bacalao +2000 grs",
+            precio:14.90
+        },
+        {
+            nombre:"🐟 Filete de Bacalao +1000 grs",
+            precio:12.90
+        }
+    ]
+},
