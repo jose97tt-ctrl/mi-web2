@@ -2996,6 +2996,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="pataspulpocongeladas.jpg"
+alt="Patas de Pulpo Cocidas">
+
+<div class="card-content">
+
+<h3>🐙 Patas de Pulpo Cocidas</h3>
+
+<p><strong>19,50 € / paquete</strong></p>
+
+<button
+onclick="abrirProductoPatasPulpo()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -10187,6 +10209,69 @@ function agregarPulpoCongelado(){
     actualizarCarrito();
 
     cerrarProductoPulpoCongelado();
+
+}
+function abrirProductoPatasPulpo(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=pataspulpo";
+
+    }else{
+
+        document.getElementById("modalPatasPulpo").style.display="flex";
+
+        document.getElementById("cantidadPatasPulpo").value="1";
+
+        actualizarPrecioPatasPulpo();
+
+    }
+
+}
+
+function cerrarProductoPatasPulpo(){
+
+    document.getElementById("modalPatasPulpo").style.display="none";
+
+}
+
+function actualizarPrecioPatasPulpo(){
+
+    let cantidad =
+    parseInt(document.getElementById("cantidadPatasPulpo").value);
+
+    let precio = 19.50;
+
+    let total = precio * cantidad;
+
+    document.getElementById("precioPatasPulpo").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPatasPulpo(){
+
+    let cantidad =
+    parseInt(document.getElementById("cantidadPatasPulpo").value);
+
+    let precio = 19.50;
+
+    let total = precio * cantidad;
+
+    carrito.push({
+
+        nombre:"🐙 Patas de Pulpo Cocidas",
+        cantidad:cantidad + " paquete(s)",
+        precio:total
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoPatasPulpo();
 
 }
 
@@ -18345,6 +18430,81 @@ class="btn-producto">
 </div>
 
 </div>
+<div id="modalPatasPulpo"
+class="modal-producto"
+onclick="cerrarProductoPatasPulpo()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="pataspulpocongeladas.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐙 Patas de Pulpo Cocidas</h2>
+
+<p><strong>Paquete de 3 unidades de 100 g.</strong></p>
+
+<p>
+Patas de pulpo cocidas listas para consumir.
+Ideales para plancha, pulpo a la gallega,
+tapas y cocina profesional.
+</p>
+
+<label>Cantidad:</label>
+
+<select
+id="cantidadPatasPulpo"
+onchange="actualizarPrecioPatasPulpo()">
+
+<option value="1">1 paquete</option>
+<option value="2">2 paquetes</option>
+<option value="3">3 paquetes</option>
+<option value="4">4 paquetes</option>
+
+</select>
+
+<p
+id="precioPatasPulpo"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 19.50€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarPatasPulpo()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+    
 <script src="precios-index.js"></script>
 
 </body>
