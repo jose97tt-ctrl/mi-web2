@@ -1378,4 +1378,11 @@ coladerapecongelada:{
         }
     ]
 },
+lenguadorubiocongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Lenguado Rubio",
+    imagen:"lenguadorubioconge.jpg",
+    precio:8.10,
+    descripcion:"Lenguado rubio congelado de 300/400 g. Ideal para plancha, horno, fritura y cocina profesional."
+},
 
