@@ -1273,3 +1273,24 @@ mejillonpasteurizadocongelado:{
         "Pasteurizado"
     ]
 },
+pulpocongelado:{
+    categoria:"congelados",
+    nombre:"🐙 Pulpo Congelado",
+    imagen:"pulpocongelado.jpg",
+    descripcion:"Pulpo congelado seleccionado de excelente calidad. Disponible en distintos tamaños y pesos. Ideal para cocina profesional, plancha, horno y elaboraciones.",
+    
+    precios:[
+        {
+            nombre:"🐙 Pulpo T1",
+            precio:18.90
+        },
+        {
+            nombre:"🐙 Pulpo +5000 grs Francés",
+            precio:13.50
+        },
+        {
+            nombre:"🐙 Pulpo 3000/5000 grs Francés",
+            precio:12.50
+        }
+    ]
+},
