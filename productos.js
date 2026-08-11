@@ -1263,3 +1263,13 @@ zamburinacongelada:{
         }
     ]
 },
+mejillonpasteurizadocongelado:{
+    categoria:"congelados",
+    nombre:"🦪 Mejillón Pasteurizado Congelado",
+    imagen:"mejillonpasteurizadoconge.jpg",
+    precio:3.85,
+    descripcion:"Mejillón pasteurizado congelado en bolsa de 1 kg. Producto listo para utilizar, ideal para arroces, guisos, tapas y cocina profesional.",
+    preparaciones:[
+        "Pasteurizado"
+    ]
+},
