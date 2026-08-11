@@ -2908,6 +2908,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="langostinovannameiconge.jpg"
+alt="Langostino Vannamei Congelado">
+
+<div class="card-content">
+
+<h3>🦐 Langostino Vannamei Congelado</h3>
+
+<p>Desde <strong>6,55 €/kg</strong></p>
+
+<button
+onclick="abrirProductoLangostinoVannameiCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -9752,6 +9774,95 @@ function agregarLangostinoBlancoCongelado(){
     actualizarCarrito();
 
     cerrarProductoLangostinoBlancoCongelado();
+
+}
+function abrirProductoLangostinoVannameiCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=langostinovannameicongelado";
+
+    }else{
+
+        document.getElementById("modalLangostinoVannameiCongelado").style.display="flex";
+
+        document.getElementById("pesoLangostinoVannameiCongelado").value="1";
+        document.getElementById("pesoPersonalizadoLangostinoVannameiCongelado").value="";
+
+        actualizarPrecioLangostinoVannameiCongelado();
+
+    }
+
+}
+
+function cerrarProductoLangostinoVannameiCongelado(){
+
+    document.getElementById("modalLangostinoVannameiCongelado").style.display="none";
+
+}
+
+function actualizarPrecioLangostinoVannameiCongelado(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoLangostinoVannameiCongelado").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoLangostinoVannameiCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLangostinoVannameiCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioLangostinoVannameiCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarLangostinoVannameiCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoLangostinoVannameiCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLangostinoVannameiCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoLangostinoVannameiCongelado");
+
+    let nombreProducto =
+    "🦐 Langostino Vannamei Congelado - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoLangostinoVannameiCongelado();
 
 }
 
@@ -17451,6 +17562,127 @@ Total: 12.00€
 
 <button
 onclick="agregarLangostinoBlancoCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalLangostinoVannameiCongelado"
+class="modal-producto"
+onclick="cerrarProductoLangostinoVannameiCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="langostinovannameiconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Langostino Vannamei Congelado</h2>
+
+<p><strong>Seleccione el tipo y el peso.</strong></p>
+
+<p>
+Langostino Vannamei congelado seleccionado.
+Disponible en distintos formatos y calibres.
+Ideal para plancha, frituras, arroces,
+mariscadas y cocina profesional.
+</p>
+
+<label>Tipo:</label>
+
+<select
+id="tipoLangostinoVannameiCongelado"
+onchange="actualizarPrecioLangostinoVannameiCongelado()">
+
+<option value="6.90">
+Langostino Vannamei 20/30 pcs
+</option>
+
+<option value="6.55">
+Cola de Langostino Vannamei 36/40 pcs Terranova
+</option>
+
+<option value="7.90">
+Cola de Langostino Vannamei 36/40 pcs Eguillen
+</option>
+
+<option value="6.95">
+Langostino Vannamei Cocido 40/50 pcs Terranova
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoLangostinoVannameiCongelado"
+onchange="actualizarPrecioLangostinoVannameiCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoLangostinoVannameiCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioLangostinoVannameiCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioLangostinoVannameiCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 6.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarLangostinoVannameiCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
