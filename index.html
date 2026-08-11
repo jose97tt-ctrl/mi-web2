@@ -2663,31 +2663,7 @@ class="btn-producto">
 </h2>
 
 <div class="productos">
-<div class="card">
 
-<img src="imagenes/abadejo-punto-sal.jpg"
-alt="Abadejo Punto de Sal">
-
-
-<div class="card-content">
-
-<h3>Abadejo Punto de Sal</h3>
-
-<p>Precio 4.4€kg</p>
-
-
-<button
-onclick="abrirProductoAbadejoPuntoSal()"
-class="btn-producto">
-
-🛒 Añadir al pedido
-
-</button>
-
-
-</div>
-
-</div>
 <div class="card">
 
 <img src="imagenes/bogavante.jpg"
@@ -8939,90 +8915,7 @@ function agregarRejosPota(){
     cerrarRejosPota();
 
 }
-function abrirProductoAbadejoPuntoSal(){
 
-    if(window.innerWidth <= 768){
-
-        window.location.href = "producto.html?producto=abadejopuntosal";
-
-    }else{
-
-        document.getElementById("modalAbadejoPuntoSal").style.display = "flex";
-
-        document.getElementById("pesoAbadejoPuntoSal").value = "1";
-        document.getElementById("pesoPersonalizadoAbadejoPuntoSal").value = "";
-
-        actualizarPrecioAbadejoPuntoSal();
-
-    }
-
-}
-
-function cerrarProductoAbadejoPuntoSal(){
-
-    document.getElementById("modalAbadejoPuntoSal").style.display = "none";
-
-}
-
-function actualizarPrecioAbadejoPuntoSal(){
-
-    let precio = 4.40;
-
-    let peso =
-    parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
-
-    let personalizado =
-    parseFloat(document.getElementById("pesoPersonalizadoAbadejoPuntoSal").value);
-
-    if(!isNaN(personalizado) && personalizado > 0){
-
-        peso = personalizado;
-
-    }
-
-    let total = precio * peso;
-
-    document.getElementById("precioAbadejoPuntoSal").innerText =
-    "Total: " + total.toFixed(2) + "€";
-
-}
-
-function agregarAbadejoPuntoSal(){
-
-    let peso =
-    parseFloat(document.getElementById("pesoAbadejoPuntoSal").value);
-
-    let personalizado =
-    parseFloat(document.getElementById("pesoPersonalizadoAbadejoPuntoSal").value);
-
-    if(!isNaN(personalizado) && personalizado > 0){
-
-        peso = personalizado;
-
-    }
-
-    let preparacion =
-    document.getElementById("preparacionAbadejoPuntoSal").value;
-
-    let precio = 4.40 * peso;
-
-    carrito.push({
-
-        nombre:"🐟 Abadejo Punto de Sal",
-        peso:peso + " kg",
-        preparacion:preparacion,
-        precio:precio
-
-    });
-
-    document.getElementById("contadorCarrito").innerText =
-    carrito.length;
-
-    actualizarCarrito();
-
-    cerrarProductoAbadejoPuntoSal();
-
-}
 function abrirProductoBogavante(){
 
     if(window.innerWidth <= 768){
@@ -17048,102 +16941,7 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalAbadejoPuntoSal"
-class="modal-producto"
-onclick="cerrarProductoAbadejoPuntoSal()">
 
-<div class="contenido-modal"
-onclick="event.stopPropagation()">
-<div class="producto-layout">
-
-<div class="producto-foto">
-
-<img src="imagenes/abadejo-punto-sal.jpg">
-
-</div>
-
-<div class="producto-info">
-
-<h2>🐟 Abadejo Punto de Sal</h2>
-
-<p><strong>Precio:</strong> 4,40 €/kg</p>
-
-<p>
-Filete de abadejo con piel, punto de sal.
-Producto listo para cocinar, ideal para plancha, horno y frituras.
-</p>
-
-<label>Peso:</label>
-
-<select id="pesoAbadejoPuntoSal"
-onchange="actualizarPrecioAbadejoPuntoSal()">
-
-<option value="1">1 kg</option>
-<option value="2">2 kg</option>
-<option value="3">3 kg</option>
-<option value="4">4 kg</option>
-
-</select>
-
-<br><br>
-
-<label><b>O escribe el peso exacto:</b></label>
-
-<input
-type="number"
-id="pesoPersonalizadoAbadejoPuntoSal"
-placeholder="Ejemplo: 0.250"
-step="0.001"
-min="0"
-oninput="actualizarPrecioAbadejoPuntoSal()"
-style="
-width:100%;
-padding:10px;
-margin-top:8px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-">
-
-<p id="precioAbadejoPuntoSal"
-style="
-font-size:24px;
-font-weight:bold;
-color:#0a7f2e;
-margin:15px 0;
-">
-
-Total: 4.40€
-
-</p>
-
-<label>Preparación:</label>
-
-<select id="preparacionAbadejoPuntoSal">
-
-<option>Filete con piel</option>
-
-</select>
-
-<p style="color:green;">
-✅ Disponible
-</p>
-
-<button
-onclick="agregarAbadejoPuntoSal()"
-class="btn-producto">
-
-🛒 Añadir al pedido
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 <div id="modalBogavante"
 class="modal-producto"
 onclick="cerrarProductoBogavante()">
