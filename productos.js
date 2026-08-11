@@ -1005,17 +1005,6 @@ salmon:{
     ]
 },
 
-abadejopuntosal:{
-    categoria:"elaborados",
-    nombre:"🐟 Abadejo Punto de Sal",
-    imagen:"abadejo-punto-sal.jpg",
-    precio:4.4,
-    descripcion:"Filete de abadejo con piel, punto de sal. Producto listo para cocinar, ideal para plancha, horno y frituras.",
-    preparaciones:[
-        "Filete con piel"
-    ]
-},
-
 bogavante:{
     categoria:"congelados",
     nombre:"🦞 Bogavante",
