@@ -2999,16 +2999,16 @@ class="btn-producto">
 <div class="card">
 
 <img src="pataspulpocongeladas.jpg"
-alt="Patas de Pulpo Cocidas">
+alt="Patas de Pulpo Cocidas Congeladas">
 
 <div class="card-content">
 
-<h3>🐙 Patas de Pulpo Cocidas</h3>
+<h3>🐙 Patas de Pulpo Cocidas Congeladas</h3>
 
 <p><strong>19,50 € / paquete</strong></p>
 
 <button
-onclick="abrirProductoPatasPulpo()"
+onclick="abrirProductoPatasPulpoCongeladas()"
 class="btn-producto">
 
 🛒 Añadir al pedido
@@ -3018,7 +3018,6 @@ class="btn-producto">
 </div>
 
 </div>
-
 </section>
 
 
@@ -10211,48 +10210,48 @@ function agregarPulpoCongelado(){
     cerrarProductoPulpoCongelado();
 
 }
-function abrirProductoPatasPulpo(){
+function abrirProductoPatasPulpoCongeladas(){
 
     if(window.innerWidth <= 768){
 
-        window.location.href = "producto.html?producto=pataspulpo";
+        window.location.href = "producto.html?producto=pataspulpocongeladas";
 
     }else{
 
-        document.getElementById("modalPatasPulpo").style.display="flex";
+        document.getElementById("modalPatasPulpoCongeladas").style.display="flex";
 
-        document.getElementById("cantidadPatasPulpo").value="1";
+        document.getElementById("cantidadPatasPulpoCongeladas").value="1";
 
-        actualizarPrecioPatasPulpo();
+        actualizarPrecioPatasPulpoCongeladas();
 
     }
 
 }
 
-function cerrarProductoPatasPulpo(){
+function cerrarProductoPatasPulpoCongeladas(){
 
-    document.getElementById("modalPatasPulpo").style.display="none";
+    document.getElementById("modalPatasPulpoCongeladas").style.display="none";
 
 }
 
-function actualizarPrecioPatasPulpo(){
+function actualizarPrecioPatasPulpoCongeladas(){
 
     let cantidad =
-    parseInt(document.getElementById("cantidadPatasPulpo").value);
+    parseInt(document.getElementById("cantidadPatasPulpoCongeladas").value);
 
     let precio = 19.50;
 
     let total = precio * cantidad;
 
-    document.getElementById("precioPatasPulpo").innerHTML =
+    document.getElementById("precioPatasPulpoCongeladas").innerHTML =
     "Total: " + total.toFixed(2) + "€";
 
 }
 
-function agregarPatasPulpo(){
+function agregarPatasPulpoCongeladas(){
 
     let cantidad =
-    parseInt(document.getElementById("cantidadPatasPulpo").value);
+    parseInt(document.getElementById("cantidadPatasPulpoCongeladas").value);
 
     let precio = 19.50;
 
@@ -10260,7 +10259,7 @@ function agregarPatasPulpo(){
 
     carrito.push({
 
-        nombre:"🐙 Patas de Pulpo Cocidas",
+        nombre:"🐙 Patas de Pulpo Cocidas Congeladas",
         cantidad:cantidad + " paquete(s)",
         precio:total
 
@@ -10271,7 +10270,7 @@ function agregarPatasPulpo(){
 
     actualizarCarrito();
 
-    cerrarProductoPatasPulpo();
+    cerrarProductoPatasPulpoCongeladas();
 
 }
 
@@ -18430,9 +18429,9 @@ class="btn-producto">
 </div>
 
 </div>
-<div id="modalPatasPulpo"
+<div id="modalPatasPulpoCongeladas"
 class="modal-producto"
-onclick="cerrarProductoPatasPulpo()">
+onclick="cerrarProductoPatasPulpoCongeladas()">
 
 <div class="contenido-modal"
 onclick="event.stopPropagation()">
@@ -18447,12 +18446,12 @@ onclick="event.stopPropagation()">
 
 <div class="producto-info">
 
-<h2>🐙 Patas de Pulpo Cocidas</h2>
+<h2>🐙 Patas de Pulpo Cocidas Congeladas</h2>
 
 <p><strong>Paquete de 3 unidades de 100 g.</strong></p>
 
 <p>
-Patas de pulpo cocidas listas para consumir.
+Patas de pulpo cocidas congeladas listas para consumir.
 Ideales para plancha, pulpo a la gallega,
 tapas y cocina profesional.
 </p>
@@ -18460,8 +18459,8 @@ tapas y cocina profesional.
 <label>Cantidad:</label>
 
 <select
-id="cantidadPatasPulpo"
-onchange="actualizarPrecioPatasPulpo()">
+id="cantidadPatasPulpoCongeladas"
+onchange="actualizarPrecioPatasPulpoCongeladas()">
 
 <option value="1">1 paquete</option>
 <option value="2">2 paquetes</option>
@@ -18471,7 +18470,7 @@ onchange="actualizarPrecioPatasPulpo()">
 </select>
 
 <p
-id="precioPatasPulpo"
+id="precioPatasPulpoCongeladas"
 style="
 font-size:24px;
 font-weight:bold;
@@ -18490,7 +18489,7 @@ Total: 19.50€
 </p>
 
 <button
-onclick="agregarPatasPulpo()"
+onclick="agregarPatasPulpoCongeladas()"
 class="btn-producto">
 
 🛒 Añadir al pedido
