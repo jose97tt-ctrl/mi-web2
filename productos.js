@@ -1185,3 +1185,21 @@ gamboncongelado:{
         }
     ]
 },
+
+langostinorayadocongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Langostino Rayado Tipo Sanlúcar - Túnez",
+    imagen:"langostinorayadoconge.jpg",
+    descripcion:"Langostino rayado congelado tipo Sanlúcar, procedente de Túnez. Disponible en distintos tamaños. Ideal para plancha, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Langostino Rayado Grande",
+            precio:27.60
+        },
+        {
+            nombre:"🦐 Langostino Rayado Mediano",
+            precio:23.90
+        }
+    ]
+},
