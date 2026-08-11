@@ -1323,3 +1323,10 @@ calamarnacionalcongelado:{
         }
     ]
 },
+puntillitacalamarcongelada:{
+    categoria:"congelados",
+    nombre:"🦑 Puntillita de Calamar Nacional Larga",
+    imagen:"puntillitacalamarconge.jpg",
+    precio:38.50,
+    descripcion:"Puntillita de calamar nacional larga congelada. Ideal para fritura, plancha, arroces y cocina profesional."
+},
