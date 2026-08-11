@@ -1385,4 +1385,10 @@ lenguadorubiocongelado:{
     precio:8.10,
     descripcion:"Lenguado rubio congelado de 300/400 g. Ideal para plancha, horno, fritura y cocina profesional."
 },
-
+lenguadotigrecongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Lenguado Tigre",
+    imagen:"lenguadotigreconge.jpg",
+    precio:7.10,
+    descripcion:"Lenguado tigre congelado de 400/600 g. Ideal para plancha, horno, fritura y cocina profesional."
+},
