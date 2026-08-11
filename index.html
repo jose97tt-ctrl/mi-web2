@@ -2974,6 +2974,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="pulpocongelado.jpg"
+alt="Pulpo Congelado">
+
+<div class="card-content">
+
+<h3>🐙 Pulpo Congelado</h3>
+
+<p>Desde <strong>12,50 €/kg</strong></p>
+
+<button
+onclick="abrirProductoPulpoCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -10076,6 +10098,95 @@ function agregarMejillonPasteurizadoCongelado(){
     actualizarCarrito();
 
     cerrarProductoMejillonPasteurizadoCongelado();
+
+}
+function abrirProductoPulpoCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=pulpocongelado";
+
+    }else{
+
+        document.getElementById("modalPulpoCongelado").style.display="flex";
+
+        document.getElementById("pesoPulpoCongelado").value="1";
+        document.getElementById("pesoPersonalizadoPulpoCongelado").value="";
+
+        actualizarPrecioPulpoCongelado();
+
+    }
+
+}
+
+function cerrarProductoPulpoCongelado(){
+
+    document.getElementById("modalPulpoCongelado").style.display="none";
+
+}
+
+function actualizarPrecioPulpoCongelado(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoPulpoCongelado").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoPulpoCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPulpoCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioPulpoCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarPulpoCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoPulpoCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoPulpoCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoPulpoCongelado");
+
+    let nombreProducto =
+    "🐙 Pulpo Congelado - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoPulpoCongelado();
 
 }
 
@@ -18117,6 +18228,123 @@ class="btn-producto">
 
 </div>
 
+<div id="modalPulpoCongelado"
+class="modal-producto"
+onclick="cerrarProductoPulpoCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="pulpocongelado.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐙 Pulpo Congelado</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Pulpo congelado seleccionado de excelente calidad.
+Disponible en distintos tamaños y pesos.
+Ideal para cocina profesional, plancha,
+horno y diferentes elaboraciones.
+</p>
+
+<label>Tamaño:</label>
+
+<select
+id="tipoPulpoCongelado"
+onchange="actualizarPrecioPulpoCongelado()">
+
+<option value="18.90">
+Pulpo T1
+</option>
+
+<option value="13.50">
+Pulpo +5000 grs Francés
+</option>
+
+<option value="12.50">
+Pulpo 3000/5000 grs Francés
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoPulpoCongelado"
+onchange="actualizarPrecioPulpoCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoPulpoCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioPulpoCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioPulpoCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 18.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarPulpoCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 <script src="precios-index.js"></script>
 
 </body>
