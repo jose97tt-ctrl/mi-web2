@@ -2776,6 +2776,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="cristalgambusinoconge.jpg"
+alt="Cristal / Gambusino Congelado">
+
+<div class="card-content">
+
+<h3>🦐 Cristal / Gambusino Congelado</h3>
+
+<p><strong>9,90 €/kg</strong></p>
+
+<button
+onclick="abrirProductoCristalGambusinoCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -9091,6 +9113,90 @@ function agregarGambaBlancaCongelada(){
     actualizarCarrito();
 
     cerrarProductoGambaBlancaCongelada();
+
+}
+function abrirProductoCristalGambusinoCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=cristalgambusinocongelado";
+
+    }else{
+
+        document.getElementById("modalCristalGambusinoCongelado").style.display="flex";
+
+        document.getElementById("pesoCristalGambusinoCongelado").value="1";
+        document.getElementById("pesoPersonalizadoCristalGambusinoCongelado").value="";
+
+        actualizarPrecioCristalGambusinoCongelado();
+
+    }
+
+}
+
+function cerrarProductoCristalGambusinoCongelado(){
+
+    document.getElementById("modalCristalGambusinoCongelado").style.display="none";
+
+}
+
+function actualizarPrecioCristalGambusinoCongelado(){
+
+    let precio = 9.90;
+
+    let peso =
+    parseFloat(document.getElementById("pesoCristalGambusinoCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoCristalGambusinoCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioCristalGambusinoCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarCristalGambusinoCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoCristalGambusinoCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoCristalGambusinoCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let nombreProducto =
+    "🦐 Cristal / Gambusino Congelado";
+
+    let precio =
+    9.90 * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoCristalGambusinoCongelado();
 
 }
 
@@ -16128,6 +16234,99 @@ Total: 17.90€
 
 <button
 onclick="agregarGambaBlancaCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalCristalGambusinoCongelado"
+class="modal-producto"
+onclick="cerrarProductoCristalGambusinoCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="cristalgambusinoconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Cristal / Gambusino Congelado</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Cristal o gambusino congelado de primera calidad.
+Ideal para frituras, arroces y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoCristalGambusinoCongelado"
+onchange="actualizarPrecioCristalGambusinoCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoCristalGambusinoCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioCristalGambusinoCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioCristalGambusinoCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 9.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarCristalGambusinoCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
