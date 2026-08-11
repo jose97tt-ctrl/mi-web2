@@ -2930,6 +2930,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="zamburinacongelada.jpg"
+alt="Zamburiña Congelada">
+
+<div class="card-content">
+
+<h3>🦪 Zamburiña Congelada</h3>
+
+<p>Desde <strong>12,90 €/kg</strong></p>
+
+<button
+onclick="abrirProductoZamburinaCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -9863,6 +9885,95 @@ function agregarLangostinoVannameiCongelado(){
     actualizarCarrito();
 
     cerrarProductoLangostinoVannameiCongelado();
+
+}
+function abrirProductoZamburinaCongelada(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=zamburinacongelada";
+
+    }else{
+
+        document.getElementById("modalZamburinaCongelada").style.display="flex";
+
+        document.getElementById("pesoZamburinaCongelada").value="1";
+        document.getElementById("pesoPersonalizadoZamburinaCongelada").value="";
+
+        actualizarPrecioZamburinaCongelada();
+
+    }
+
+}
+
+function cerrarProductoZamburinaCongelada(){
+
+    document.getElementById("modalZamburinaCongelada").style.display="none";
+
+}
+
+function actualizarPrecioZamburinaCongelada(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoZamburinaCongelada").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoZamburinaCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoZamburinaCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioZamburinaCongelada").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarZamburinaCongelada(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoZamburinaCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoZamburinaCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoZamburinaCongelada");
+
+    let nombreProducto =
+    "🦪 Zamburiña Congelada - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoZamburinaCongelada();
 
 }
 
@@ -17683,6 +17794,119 @@ Total: 6.90€
 
 <button
 onclick="agregarLangostinoVannameiCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalZamburinaCongelada"
+class="modal-producto"
+onclick="cerrarProductoZamburinaCongelada()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="zamburinacongelada.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Zamburiña Congelada</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Zamburiña congelada de primera calidad.
+Disponible en distintos calibres y formatos.
+Ideal para plancha, horno, arroces,
+mariscadas y cocina profesional.
+</p>
+
+<label>Tamaño:</label>
+
+<select
+id="tipoZamburinaCongelada"
+onchange="actualizarPrecioZamburinaCongelada()">
+
+<option value="14.90">
+Zamburiña 10/20 pcs Bolsa de 1 kg
+</option>
+
+<option value="12.90">
+Zamburiña 20/30 pcs Bolsa de 1 kg
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoZamburinaCongelada"
+onchange="actualizarPrecioZamburinaCongelada()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoZamburinaCongelada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioZamburinaCongelada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioZamburinaCongelada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 14.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarZamburinaCongelada()"
 class="btn-producto">
 
 🛒 Añadir al pedido
