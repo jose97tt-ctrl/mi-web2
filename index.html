@@ -3170,6 +3170,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="lenguadotigreconge.jpg"
+alt="Lenguado Tigre 400/600 g">
+
+<div class="card-content">
+
+<h3>🐟 Lenguado Tigre 400/600 g</h3>
+
+<p>Precio <strong>7,10 €/kg</strong></p>
+
+<button
+onclick="abrirProductoLenguadoTigreCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -11008,6 +11030,86 @@ function agregarLenguadoRubioCongelado(){
     actualizarCarrito();
 
     cerrarProductoLenguadoRubioCongelado();
+
+}
+function abrirProductoLenguadoTigreCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=lenguadotigrecongelado";
+
+    }else{
+
+        document.getElementById("modalLenguadoTigreCongelado").style.display="flex";
+
+        document.getElementById("pesoLenguadoTigreCongelado").value="1";
+        document.getElementById("pesoPersonalizadoLenguadoTigreCongelado").value="";
+
+        actualizarPrecioLenguadoTigreCongelado();
+
+    }
+
+}
+
+function cerrarProductoLenguadoTigreCongelado(){
+
+    document.getElementById("modalLenguadoTigreCongelado").style.display="none";
+
+}
+
+function actualizarPrecioLenguadoTigreCongelado(){
+
+    let precio = 7.10;
+
+    let peso =
+    parseFloat(document.getElementById("pesoLenguadoTigreCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLenguadoTigreCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioLenguadoTigreCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarLenguadoTigreCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoLenguadoTigreCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLenguadoTigreCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 7.10;
+
+    carrito.push({
+
+        nombre:"🐟 Lenguado Tigre 400/600 g",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoLenguadoTigreCongelado();
 
 }
 
@@ -19946,6 +20048,100 @@ Total: 8.10€
 
 <button
 onclick="agregarLenguadoRubioCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalLenguadoTigreCongelado"
+class="modal-producto"
+onclick="cerrarProductoLenguadoTigreCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="lenguadotigreconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Lenguado Tigre 400/600 g</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Lenguado tigre congelado de 400/600 g.
+Ideal para plancha, horno, fritura
+y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoLenguadoTigreCongelado"
+onchange="actualizarPrecioLenguadoTigreCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoLenguadoTigreCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioLenguadoTigreCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioLenguadoTigreCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.10€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarLenguadoTigreCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
