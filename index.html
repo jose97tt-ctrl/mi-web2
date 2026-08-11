@@ -3062,6 +3062,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="sepianacionalconge.jpg"
+alt="Sepia Nacional 200/400 g">
+
+<div class="card-content">
+
+<h3>🦑 Sepia Nacional 200/400 g</h3>
+
+<p>Precio <strong>4,45 €/kg</strong></p>
+
+<button
+onclick="abrirProductoSepiaNacionalCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -10485,6 +10507,86 @@ function agregarPuntillitaCalamarCongelada(){
     actualizarCarrito();
 
     cerrarProductoPuntillitaCalamarCongelada();
+
+}
+function abrirProductoSepiaNacionalCongelada(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=sepianacionalcongelada";
+
+    }else{
+
+        document.getElementById("modalSepiaNacionalCongelada").style.display="flex";
+
+        document.getElementById("pesoSepiaNacionalCongelada").value="1";
+        document.getElementById("pesoPersonalizadoSepiaNacionalCongelada").value="";
+
+        actualizarPrecioSepiaNacionalCongelada();
+
+    }
+
+}
+
+function cerrarProductoSepiaNacionalCongelada(){
+
+    document.getElementById("modalSepiaNacionalCongelada").style.display="none";
+
+}
+
+function actualizarPrecioSepiaNacionalCongelada(){
+
+    let precio = 4.45;
+
+    let peso =
+    parseFloat(document.getElementById("pesoSepiaNacionalCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoSepiaNacionalCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioSepiaNacionalCongelada").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarSepiaNacionalCongelada(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoSepiaNacionalCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoSepiaNacionalCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 4.45;
+
+    carrito.push({
+
+        nombre:"🦑 Sepia Nacional 200/400 g",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoSepiaNacionalCongelada();
 
 }
 function abrirBuscador(){
@@ -18914,6 +19016,100 @@ Total: 38.50€
 
 <button
 onclick="agregarPuntillitaCalamarCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalSepiaNacionalCongelada"
+class="modal-producto"
+onclick="cerrarProductoSepiaNacionalCongelada()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="sepianacionalconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦑 Sepia Nacional 200/400 g</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Sepia nacional congelada de 200/400 g.
+Ideal para plancha, fritura, arroces,
+guisos y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoSepiaNacionalCongelada"
+onchange="actualizarPrecioSepiaNacionalCongelada()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoSepiaNacionalCongelada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioSepiaNacionalCongelada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioSepiaNacionalCongelada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 4.45€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarSepiaNacionalCongelada()"
 class="btn-producto">
 
 🛒 Añadir al pedido
