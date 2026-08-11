@@ -1294,3 +1294,11 @@ pulpocongelado:{
         }
     ]
 },
+pataspulpo:{
+    categoria:"congelados",
+    nombre:"🐙 Patas de Pulpo Cocidas",
+    imagen:"pataspulpocongeladas.jpg",
+    precio:19.50,
+    descripcion:"Patas de pulpo cocidas de 100 g. Se presentan en paquetes de 3 unidades. Producto listo para consumir, ideal para plancha, pulpo a la gallega y cocina profesional.",
+    tipo:"unidad"
+},
