@@ -1357,3 +1357,25 @@ abadejopielpuntosalcongelado:{
     precio:4.40,
     descripcion:"Filete de abadejo con piel 500/1000 g a punto de sal. Ideal para plancha, horno, fritura y cocina profesional."
 },
+coladerapecongelada:{
+    categoria:"congelados",
+    nombre:"🐟 Cola de Rape",
+    imagen:"coladerapeconge.jpg",
+    descripcion:"Cola de rape congelada de excelente calidad, disponible con y sin piel y en distintos tamaños. Ideal para horno, plancha y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🐟 Cola de Rape con Piel de Mauritania +1000 g",
+            precio:11.90
+        },
+        {
+            nombre:"🐟 Cola de Rape sin Piel de Gambia +1000 g",
+            precio:6.90
+        },
+        {
+            nombre:"🐟 Cola de Rape sin Piel de Gambia 350/500 g",
+            precio:5.90
+        }
+    ]
+},
+
