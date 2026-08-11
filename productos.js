@@ -1350,3 +1350,10 @@ filetecarbonerocongelado:{
     precio:7.65,
     descripcion:"Filete de carbonero congelado de excelente calidad. Ideal para plancha, horno, fritura y cocina profesional."
 },
+abadejopielpuntosalcongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Abadejo con Piel Punto de Sal",
+    imagen:"abadejopielpuntosalconge.jpg",
+    precio:4.40,
+    descripcion:"Filete de abadejo con piel 500/1000 g a punto de sal. Ideal para plancha, horno, fritura y cocina profesional."
+},
