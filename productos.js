@@ -1203,3 +1203,21 @@ langostinorayadocongelado:{
         }
     ]
 },
+
+langostinoblancocongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Langostino Blanco Salvaje - Túnez",
+    imagen:"langostinoblancoconge.jpg",
+    descripcion:"Langostino blanco salvaje congelado, procedente de Túnez. Disponible en distintos tamaños. Ideal para plancha, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Langostino Blanco Salvaje Grande",
+            precio:12.00
+        },
+        {
+            nombre:"🦐 Langostino Blanco Salvaje Mediano",
+            precio:10.80
+        }
+    ]
+},
