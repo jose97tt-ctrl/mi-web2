@@ -1246,3 +1246,20 @@ langostinovannameicongelado:{
         }
     ]
 },
+zamburinacongelada:{
+    categoria:"congelados",
+    nombre:"🦪 Zamburiña Congelada",
+    imagen:"zamburinacongelada.jpg",
+    descripcion:"Zamburiña congelada de primera calidad. Disponible en distintos calibres y formatos. Ideal para plancha, horno, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦪 Zamburiña 10/20 pcs Bolsa de 1 kg",
+            precio:14.90
+        },
+        {
+            nombre:"🦪 Zamburiña 20/30 pcs Bolsa de 1 kg",
+            precio:12.90
+        }
+    ]
+},
