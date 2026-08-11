@@ -3148,6 +3148,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="lenguadorubioconge.jpg"
+alt="Lenguado Rubio 300/400 g">
+
+<div class="card-content">
+
+<h3>🐟 Lenguado Rubio 300/400 g</h3>
+
+<p>Precio <strong>8,10 €/kg</strong></p>
+
+<button
+onclick="abrirProductoLenguadoRubioCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -10906,6 +10928,86 @@ function agregarColaRapeCongelada(){
     actualizarCarrito();
 
     cerrarProductoColaRapeCongelada();
+
+}
+function abrirProductoLenguadoRubioCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=lenguadorubiocongelado";
+
+    }else{
+
+        document.getElementById("modalLenguadoRubioCongelado").style.display="flex";
+
+        document.getElementById("pesoLenguadoRubioCongelado").value="1";
+        document.getElementById("pesoPersonalizadoLenguadoRubioCongelado").value="";
+
+        actualizarPrecioLenguadoRubioCongelado();
+
+    }
+
+}
+
+function cerrarProductoLenguadoRubioCongelado(){
+
+    document.getElementById("modalLenguadoRubioCongelado").style.display="none";
+
+}
+
+function actualizarPrecioLenguadoRubioCongelado(){
+
+    let precio = 8.10;
+
+    let peso =
+    parseFloat(document.getElementById("pesoLenguadoRubioCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLenguadoRubioCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioLenguadoRubioCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarLenguadoRubioCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoLenguadoRubioCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoLenguadoRubioCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 8.10;
+
+    carrito.push({
+
+        nombre:"🐟 Lenguado Rubio 300/400 g",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoLenguadoRubioCongelado();
 
 }
 
@@ -19750,6 +19852,100 @@ Total: 11.90€
 
 <button
 onclick="agregarColaRapeCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalLenguadoRubioCongelado"
+class="modal-producto"
+onclick="cerrarProductoLenguadoRubioCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="lenguadorubioconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Lenguado Rubio 300/400 g</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Lenguado rubio congelado de 300/400 g.
+Ideal para plancha, horno, fritura
+y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoLenguadoRubioCongelado"
+onchange="actualizarPrecioLenguadoRubioCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoLenguadoRubioCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioLenguadoRubioCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioLenguadoRubioCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 8.10€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarLenguadoRubioCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
