@@ -1221,3 +1221,28 @@ langostinoblancocongelado:{
         }
     ]
 },
+langostinovannameicongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Langostino Vannamei Congelado",
+    imagen:"langostinovannameiconge.jpg",
+    descripcion:"Langostino Vannamei congelado seleccionado. Disponible en distintos formatos y calibres. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Langostino Vannamei 20/30 pcs",
+            precio:6.90
+        },
+        {
+            nombre:"🦐 Cola de Langostino Vannamei 36/40 pcs Terranova",
+            precio:6.55
+        },
+        {
+            nombre:"🦐 Cola de Langostino Vannamei 36/40 pcs Eguillen",
+            precio:7.90
+        },
+        {
+            nombre:"🦐 Langostino Vannamei Cocido 40/50 pcs Terranova",
+            precio:6.95
+        }
+    ]
+},
