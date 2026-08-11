@@ -1330,3 +1330,10 @@ puntillitacalamarcongelada:{
     precio:38.50,
     descripcion:"Puntillita de calamar nacional larga congelada. Ideal para fritura, plancha, arroces y cocina profesional."
 },
+sepianacionalcongelada:{
+    categoria:"congelados",
+    nombre:"🦑 Sepia Nacional",
+    imagen:"sepianacionalconge.jpg",
+    precio:4.45,
+    descripcion:"Sepia nacional congelada de 200/400 g. Ideal para plancha, fritura, arroces, guisos y cocina profesional."
+},
