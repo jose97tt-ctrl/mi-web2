@@ -2952,6 +2952,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="mejillonpasteurizadoconge.jpg"
+alt="Mejillón Pasteurizado Congelado">
+
+<div class="card-content">
+
+<h3>🦪 Mejillón Pasteurizado Congelado</h3>
+
+<p>Precio <strong>3,85 €/kg</strong></p>
+
+<button
+onclick="abrirProductoMejillonPasteurizadoCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -9974,6 +9996,86 @@ function agregarZamburinaCongelada(){
     actualizarCarrito();
 
     cerrarProductoZamburinaCongelada();
+
+}
+function abrirProductoMejillonPasteurizadoCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=mejillonpasteurizadocongelado";
+
+    }else{
+
+        document.getElementById("modalMejillonPasteurizadoCongelado").style.display="flex";
+
+        document.getElementById("pesoMejillonPasteurizadoCongelado").value="1";
+        document.getElementById("pesoPersonalizadoMejillonPasteurizadoCongelado").value="";
+
+        actualizarPrecioMejillonPasteurizadoCongelado();
+
+    }
+
+}
+
+function cerrarProductoMejillonPasteurizadoCongelado(){
+
+    document.getElementById("modalMejillonPasteurizadoCongelado").style.display="none";
+
+}
+
+function actualizarPrecioMejillonPasteurizadoCongelado(){
+
+    let precio = 3.85;
+
+    let peso =
+    parseFloat(document.getElementById("pesoMejillonPasteurizadoCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoMejillonPasteurizadoCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioMejillonPasteurizadoCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarMejillonPasteurizadoCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoMejillonPasteurizadoCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoMejillonPasteurizadoCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 3.85;
+
+    carrito.push({
+
+        nombre:"🦪 Mejillón Pasteurizado Congelado",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoMejillonPasteurizadoCongelado();
 
 }
 
@@ -17907,6 +18009,100 @@ Total: 14.90€
 
 <button
 onclick="agregarZamburinaCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalMejillonPasteurizadoCongelado"
+class="modal-producto"
+onclick="cerrarProductoMejillonPasteurizadoCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="mejillonpasteurizadoconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦪 Mejillón Pasteurizado Congelado</h2>
+
+<p><strong>Producto en bolsa de 1 kg.</strong></p>
+
+<p>
+Mejillón pasteurizado congelado en bolsa de 1 kg.
+Producto listo para utilizar, ideal para arroces,
+guisos, tapas y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoMejillonPasteurizadoCongelado"
+onchange="actualizarPrecioMejillonPasteurizadoCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoMejillonPasteurizadoCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioMejillonPasteurizadoCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioMejillonPasteurizadoCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 3.85€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarMejillonPasteurizadoCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
