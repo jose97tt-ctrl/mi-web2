@@ -3126,6 +3126,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="coladerapeconge.jpg"
+alt="Cola de Rape">
+
+<div class="card-content">
+
+<h3>🐟 Cola de Rape</h3>
+
+<p>Desde <strong>5,90 €/kg</strong></p>
+
+<button
+onclick="abrirProductoColaRapeCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -10797,6 +10819,96 @@ function agregarAbadejoPielPuntoSalCongelado(){
     cerrarProductoAbadejoPielPuntoSalCongelado();
 
 }
+function abrirProductoColaRapeCongelada(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=coladerapecongelada";
+
+    }else{
+
+        document.getElementById("modalColaRapeCongelada").style.display="flex";
+
+        document.getElementById("pesoColaRapeCongelada").value="1";
+        document.getElementById("pesoPersonalizadoColaRapeCongelada").value="";
+
+        actualizarPrecioColaRapeCongelada();
+
+    }
+
+}
+
+function cerrarProductoColaRapeCongelada(){
+
+    document.getElementById("modalColaRapeCongelada").style.display="none";
+
+}
+
+function actualizarPrecioColaRapeCongelada(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoColaRapeCongelada").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoColaRapeCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoColaRapeCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioColaRapeCongelada").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarColaRapeCongelada(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoColaRapeCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoColaRapeCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoColaRapeCongelada");
+
+    let nombreProducto =
+    "🐟 Cola de Rape - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoColaRapeCongelada();
+
+}
+
 function abrirBuscador(){
 
 let buscador =
@@ -19522,6 +19634,122 @@ Total: 4.40€
 
 <button
 onclick="agregarAbadejoPielPuntoSalCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalColaRapeCongelada"
+class="modal-producto"
+onclick="cerrarProductoColaRapeCongelada()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="coladerapeconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Cola de Rape</h2>
+
+<p><strong>Seleccione el tipo y el peso.</strong></p>
+
+<p>
+Cola de rape congelada de excelente calidad,
+disponible con y sin piel y en distintos tamaños.
+Ideal para horno, plancha y cocina profesional.
+</p>
+
+<label>Tipo:</label>
+
+<select
+id="tipoColaRapeCongelada"
+onchange="actualizarPrecioColaRapeCongelada()">
+
+<option value="11.90">
+Cola de Rape con Piel de Mauritania +1000 g
+</option>
+
+<option value="6.90">
+Cola de Rape sin Piel de Gambia +1000 g
+</option>
+
+<option value="5.90">
+Cola de Rape sin Piel de Gambia 350/500 g
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoColaRapeCongelada"
+onchange="actualizarPrecioColaRapeCongelada()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoColaRapeCongelada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioColaRapeCongelada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioColaRapeCongelada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 11.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarColaRapeCongelada()"
 class="btn-producto">
 
 🛒 Añadir al pedido
