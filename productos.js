@@ -1127,3 +1127,21 @@ cristalgambusinocongelado:{
     precio:9.90,
     descripcion:"Cristal o gambusino congelado de primera calidad. Ideal para frituras, arroces y cocina profesional."
 },
+
+quisquillacongeleada:{
+    categoria:"congelados",
+    nombre:"🦐 Quisquilla Congelada",
+    imagen:"quisquillaconge.jpg",
+    descripcion:"Quisquilla congelada de primera calidad. Disponible en tamaño grande y mediano. Ideal para mariscadas, arroces, plancha y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Quisquilla Grande",
+            precio:90.00
+        },
+        {
+            nombre:"🦐 Quisquilla Mediana",
+            precio:45.00
+        }
+    ]
+},
