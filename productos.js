@@ -1302,3 +1302,24 @@ pataspulpo:{
     descripcion:"Patas de pulpo cocidas de 100 g. Se presentan en paquetes de 3 unidades. Producto listo para consumir, ideal para plancha, pulpo a la gallega y cocina profesional.",
     tipo:"unidad"
 },
+calamarnacionalcongelado:{
+    categoria:"congelados",
+    nombre:"🦑 Calamar Nacional",
+    imagen:"calamarnacionalconge.jpg",
+    descripcion:"Calamar nacional congelado seleccionado. Disponible en distintos tamaños. Ideal para plancha, fritura, arroces y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦑 Calamar Nacional M",
+            precio:13.90
+        },
+        {
+            nombre:"🦑 Calamar Nacional P",
+            precio:12.90
+        },
+        {
+            nombre:"🦑 Calamar Nacional 2P",
+            precio:9.80
+        }
+    ]
+},
