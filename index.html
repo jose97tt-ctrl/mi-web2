@@ -2798,6 +2798,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="quisquillaconge.jpg"
+alt="Quisquilla Congelada">
+
+<div class="card-content">
+
+<h3>🦐 Quisquilla Congelada</h3>
+
+<p>Desde <strong>45,00 €/kg</strong></p>
+
+<button
+onclick="abrirProductoQuisquillaCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
@@ -9197,6 +9219,95 @@ function agregarCristalGambusinoCongelado(){
     actualizarCarrito();
 
     cerrarProductoCristalGambusinoCongelado();
+
+}
+function abrirProductoQuisquillaCongelada(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=quisquillacongeleada";
+
+    }else{
+
+        document.getElementById("modalQuisquillaCongelada").style.display="flex";
+
+        document.getElementById("pesoQuisquillaCongelada").value="1";
+        document.getElementById("pesoPersonalizadoQuisquillaCongelada").value="";
+
+        actualizarPrecioQuisquillaCongelada();
+
+    }
+
+}
+
+function cerrarProductoQuisquillaCongelada(){
+
+    document.getElementById("modalQuisquillaCongelada").style.display="none";
+
+}
+
+function actualizarPrecioQuisquillaCongelada(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoQuisquillaCongelada").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoQuisquillaCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoQuisquillaCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioQuisquillaCongelada").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarQuisquillaCongelada(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoQuisquillaCongelada").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoQuisquillaCongelada").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoQuisquillaCongelada");
+
+    let nombreProducto =
+    "🦐 Quisquilla Congelada - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoQuisquillaCongelada();
 
 }
 
@@ -16327,6 +16438,119 @@ Total: 9.90€
 
 <button
 onclick="agregarCristalGambusinoCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalQuisquillaCongelada"
+class="modal-producto"
+onclick="cerrarProductoQuisquillaCongelada()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="quisquillaconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🦐 Quisquilla Congelada</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Quisquilla congelada de primera calidad.
+Disponible en tamaño grande y mediano.
+Ideal para mariscadas, arroces, plancha
+y cocina profesional.
+</p>
+
+<label>Tamaño:</label>
+
+<select
+id="tipoQuisquillaCongelada"
+onchange="actualizarPrecioQuisquillaCongelada()">
+
+<option value="90.0">
+Quisquilla Grande
+</option>
+
+<option value="45.0">
+Quisquilla Mediana
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoQuisquillaCongelada"
+onchange="actualizarPrecioQuisquillaCongelada()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoQuisquillaCongelada"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioQuisquillaCongelada()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioQuisquillaCongelada"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 90.00€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarQuisquillaCongelada()"
 class="btn-producto">
 
 🛒 Añadir al pedido
