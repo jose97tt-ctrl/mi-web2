@@ -3082,6 +3082,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="carboneroconge.jpg"
+alt="Filete de Carbonero">
+
+<div class="card-content">
+
+<h3>🐟 Filete de Carbonero +2000 g</h3>
+
+<p>Precio <strong>7,65 €/kg</strong></p>
+
+<button
+onclick="abrirProductoFileteCarboneroCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -10591,6 +10613,86 @@ function agregarBacalaoIslandiaCongelado(){
     actualizarCarrito();
 
     cerrarProductoBacalaoIslandiaCongelado();
+
+}
+function abrirProductoFileteCarboneroCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=filetecarbonerocongelado";
+
+    }else{
+
+        document.getElementById("modalFileteCarboneroCongelado").style.display="flex";
+
+        document.getElementById("pesoFileteCarboneroCongelado").value="1";
+        document.getElementById("pesoPersonalizadoFileteCarboneroCongelado").value="";
+
+        actualizarPrecioFileteCarboneroCongelado();
+
+    }
+
+}
+
+function cerrarProductoFileteCarboneroCongelado(){
+
+    document.getElementById("modalFileteCarboneroCongelado").style.display="none";
+
+}
+
+function actualizarPrecioFileteCarboneroCongelado(){
+
+    let precio = 7.65;
+
+    let peso =
+    parseFloat(document.getElementById("pesoFileteCarboneroCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoFileteCarboneroCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioFileteCarboneroCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarFileteCarboneroCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoFileteCarboneroCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoFileteCarboneroCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 7.65;
+
+    carrito.push({
+
+        nombre:"🐟 Filete de Carbonero +2000 g",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoFileteCarboneroCongelado();
 
 }
 function abrirBuscador(){
@@ -19131,6 +19233,99 @@ Total: 14.90€
 
 <button
 onclick="agregarBacalaoIslandiaCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalFileteCarboneroCongelado"
+class="modal-producto"
+onclick="cerrarProductoFileteCarboneroCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="carboneroconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Filete de Carbonero +2000 g</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Filete de carbonero congelado de excelente calidad.
+Ideal para plancha, horno, fritura y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoFileteCarboneroCongelado"
+onchange="actualizarPrecioFileteCarboneroCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoFileteCarboneroCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioFileteCarboneroCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioFileteCarboneroCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 7.65€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarFileteCarboneroCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
