@@ -1343,3 +1343,10 @@ bacalaoislandiacongelado:{
         }
     ]
 },
+filetecarbonerocongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Carbonero",
+    imagen:"carboneroconge.jpg",
+    precio:7.65,
+    descripcion:"Filete de carbonero congelado de excelente calidad. Ideal para plancha, horno, fritura y cocina profesional."
+},
