@@ -3060,6 +3060,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="bacalaoislandiaconge.jpg"
+alt="Bacalao de Islandia a Punto de Sal">
+
+<div class="card-content">
+
+<h3>🐟 Bacalao de Islandia a Punto de Sal</h3>
+
+<p>Desde <strong>12,90 €/kg</strong></p>
+
+<button
+onclick="abrirProductoBacalaoIslandiaCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -10480,6 +10502,95 @@ function agregarSepiaNacionalCongelada(){
     actualizarCarrito();
 
     cerrarProductoSepiaNacionalCongelada();
+
+}
+function abrirProductoBacalaoIslandiaCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=bacalaoislandiacongelado";
+
+    }else{
+
+        document.getElementById("modalBacalaoIslandiaCongelado").style.display="flex";
+
+        document.getElementById("pesoBacalaoIslandiaCongelado").value="1";
+        document.getElementById("pesoPersonalizadoBacalaoIslandiaCongelado").value="";
+
+        actualizarPrecioBacalaoIslandiaCongelado();
+
+    }
+
+}
+
+function cerrarProductoBacalaoIslandiaCongelado(){
+
+    document.getElementById("modalBacalaoIslandiaCongelado").style.display="none";
+
+}
+
+function actualizarPrecioBacalaoIslandiaCongelado(){
+
+    let precio =
+    parseFloat(document.getElementById("tipoBacalaoIslandiaCongelado").value);
+
+    let peso =
+    parseFloat(document.getElementById("pesoBacalaoIslandiaCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoBacalaoIslandiaCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioBacalaoIslandiaCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarBacalaoIslandiaCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoBacalaoIslandiaCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoBacalaoIslandiaCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let selector =
+    document.getElementById("tipoBacalaoIslandiaCongelado");
+
+    let nombreProducto =
+    "🐟 Bacalao de Islandia a Punto de Sal - " +
+    selector.options[selector.selectedIndex].text;
+
+    let precio =
+    parseFloat(selector.value) * peso;
+
+    carrito.push({
+
+        nombre:nombreProducto,
+        peso:peso + " kg",
+        precio:precio
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoBacalaoIslandiaCongelado();
 
 }
 function abrirBuscador(){
@@ -18908,6 +19019,118 @@ Total: 4.45€
 
 <button
 onclick="agregarSepiaNacionalCongelada()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalBacalaoIslandiaCongelado"
+class="modal-producto"
+onclick="cerrarProductoBacalaoIslandiaCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="bacalaoislandiaconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Bacalao de Islandia a Punto de Sal</h2>
+
+<p><strong>Seleccione el tamaño y el peso.</strong></p>
+
+<p>
+Filete de bacalao de Islandia a punto de sal.
+Disponible en distintos tamaños.
+Ideal para plancha, horno y cocina profesional.
+</p>
+
+<label>Tamaño:</label>
+
+<select
+id="tipoBacalaoIslandiaCongelado"
+onchange="actualizarPrecioBacalaoIslandiaCongelado()">
+
+<option value="14.90">
+Filete de Bacalao +2000 grs
+</option>
+
+<option value="12.90">
+Filete de Bacalao +1000 grs
+</option>
+
+</select>
+
+<br><br>
+
+<label>Peso:</label>
+
+<select
+id="pesoBacalaoIslandiaCongelado"
+onchange="actualizarPrecioBacalaoIslandiaCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoBacalaoIslandiaCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioBacalaoIslandiaCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioBacalaoIslandiaCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 14.90€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarBacalaoIslandiaCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
