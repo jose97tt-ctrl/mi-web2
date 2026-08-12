@@ -108,4 +108,11 @@
         aplicarDesdeStorage();
     });
 
+    // Sincroniza los cambios de precio hechos desde otra pestaña (panel de admin).
+    window.addEventListener("storage", function (evento) {
+        if (evento.key === CLAVE || evento.key === null) {
+            aplicarDesdeStorage();
+        }
+    });
+
 })();

@@ -4,6 +4,7 @@ const productos = {
    aguja:{
     categoria:"pescados",
     nombre:"🐟 Aguja",
+    titulo:"Aguja",
     imagen:"aguja.jpg",
     precio:24.0,
     descripcion:"Pescado azul de gran calidad. Ideal para plancha, horno y fritura.",
@@ -17,6 +18,7 @@ const productos = {
 "atun-envasado":{
     categoria:"pescados",
     nombre:"🐟 Atún Envasado",
+    titulo:"Atún Envasado",
     imagen:"atun envasado.jpg",
     precio:15.0,
     descripcion:"Ideal para hogares y hostelería.",
@@ -30,6 +32,7 @@ const productos = {
 "atun-fresco":{
     categoria:"pescados",
     nombre:"🐟 Atún Fresco",
+    titulo:"Atún Fresco",
     imagen:"atun fresco.jpg",
     precio:38.0,
     descripcion:"Atún fresco seleccionado. Ideal para plancha, tartar y cocina profesional.",
@@ -44,6 +47,7 @@ const productos = {
 boqueron:{
     categoria:"pescados",
     nombre:"🐟 Boquerón",
+    titulo:"Boquerón",
     imagen:"boqueron.jpg",
     descripcion:"Boquerón fresco seleccionado. Ideal para freír, en vinagre o plancha.",
 
@@ -71,6 +75,7 @@ boqueron:{
 bacaladilla:{
     categoria:"pescados",
     nombre:"🐟 Bacaladilla",
+    titulo:"Bacaladilla",
     imagen:"bacaladilla.jpg",
     precio:18.0,
     descripcion:"Bacaladilla fresca seleccionada. Ideal para freír y cocina tradicional.",
@@ -84,6 +89,7 @@ bacaladilla:{
 "brotola-roca":{
     categoria:"pescados",
     nombre:"🐟 Brótola Roca",
+    titulo:"Brótola Roca",
     imagen:"brotola roca.jpg",
     precio:15.0,
     descripcion:"Brótola roca fresca seleccionada. Ideal para horno, plancha y guisos.",
@@ -96,6 +102,7 @@ bacaladilla:{
 brotola:{
     categoria:"pescados",
     nombre:"🐟 Brótola",
+    titulo:"Brótola",
     imagen:"brotola.jpg",
     precio:8.0,
     descripcion:"Brótola fresca seleccionada. Ideal para plancha, horno y guisos.",
@@ -108,6 +115,7 @@ brotola:{
 cazon:{
     categoria:"pescados",
     nombre:"🐟 Cazón",
+    titulo:"Cazón",
     imagen:"cazon.jpg",
     precio:15.5,
     descripcion:"Cazón fresco seleccionado. Ideal para adobo, fritura y cocina tradicional.",
@@ -120,6 +128,7 @@ cazon:{
 corvina:{
     categoria:"pescados",
     nombre:"🐟 Corvina",
+    titulo:"Corvina",
     imagen:"corvina.jpg",
     precio:6.5,
     descripcion:"Corvina fresca seleccionada. Ideal para horno, plancha y filetes.",
@@ -133,6 +142,7 @@ corvina:{
 jurel:{
     categoria:"pescados",
     nombre:"🐟 Jurel",
+    titulo:"Jurel",
     imagen:"jurel.jpg",
     precio:3.5,
     descripcion:"Jurel fresco seleccionado. Ideal para plancha, horno y fritura.",
@@ -145,6 +155,7 @@ jurel:{
 jurela:{
     categoria:"pescados",
     nombre:"🐟 Jurela",
+    titulo:"Jurela",
     imagen:"jurela.jpg",
     precio:6.0,
     descripcion:"Jurela fresca seleccionada. Ideal para plancha, horno y cocina tradicional.",
@@ -157,6 +168,7 @@ jurela:{
 pijota:{
     categoria:"pescados",
     nombre:"🐟 Pijota",
+    titulo:"Pijota",
     imagen:"pijota.jpg",
     precio:14.5,
     descripcion:"Pijota fresca seleccionada. Ideal para fritura y cocina tradicional.",
@@ -169,6 +181,7 @@ pijota:{
 "salmonete-roca":{
     categoria:"pescados",
     nombre:"🐟 Salmonete Roca",
+    titulo:"Salmonete Roca",
     imagen:"salmonete roca.jpg",
     precio:23.0,
     descripcion:"Salmonete de roca fresco seleccionado. Muy apreciado por su sabor intenso y calidad.",
@@ -182,6 +195,7 @@ pijota:{
 salmonete:{
     categoria:"pescados",
     nombre:"🐟 Salmonete",
+    titulo:"Salmonete",
     imagen:"salmonete.jpg",
     precio:15.0,
     descripcion:"Salmonete fresco seleccionado. Ideal para fritura, plancha y horno.",
@@ -193,6 +207,7 @@ salmonete:{
 "almeja-italiana":{
     categoria:"mariscos",
     nombre:"🦪 Almeja Italiana",
+    titulo:"Almeja Italiana",
     imagen:"almeja italiana.jpg",
     precio:10.0,
     descripcion:"Almeja italiana fresca seleccionada. Ideal para cocinar al vapor, marinera o arroces.",
@@ -205,6 +220,7 @@ salmonete:{
 "almeja-chirla":{
     categoria:"mariscos",
     nombre:"🦪 Almeja o Chirla",
+    titulo:"Almeja o chirla",
     imagen:"almeja o chirla.jpg",
     precio:12.0,
     descripcion:"Chirla fresca seleccionada. Perfecta para arroces, sopas y mariscos al vapor.",
@@ -216,6 +232,7 @@ salmonete:{
 "almeja-japonica-gallega":{
     categoria:"mariscos",
     nombre:"🦪 Almeja Japónica Gallega",
+    titulo:"Almeja Japónica Gallega",
     imagen:"almeja japonica gallega.jpg",
     precio:28.0,
     descripcion:"Almeja japónica gallega de gran calidad. Ideal para arroces, mariscadas y cocina gourmet.",
@@ -227,6 +244,7 @@ salmonete:{
 berberecho:{
     categoria:"mariscos",
     nombre:"🦪 Berberecho",
+    titulo:"Berberecho",
     imagen:"berberecho.jpg",
     precio:18.0,
     descripcion:"Berberecho fresco seleccionado. Ideal para aperitivos, mariscadas y arroces.",
@@ -238,6 +256,7 @@ berberecho:{
 "escupina-gallega":{
     categoria:"mariscos",
     nombre:"🦪 Escupiña Gallega",
+    titulo:"Bolos O Escupiña Gallega",
     imagen:"bolos o escupiña gallega.jpg",
     precio:24.0,
     descripcion:"Escupiña gallega fresca de alta calidad. Ideal para mariscadas y cocina gourmet.",
@@ -249,6 +268,7 @@ berberecho:{
 "canaillas-busanos":{
     categoria:"mariscos",
     nombre:"🦐 Cañaíllas o Busanos",
+    titulo:"Cañaíllas O Busanos",
     imagen:"cañaillas o busanos.jpg",
     precio:45.0,
     descripcion:"Cañaíllas frescas seleccionadas. Perfectas para cocer y mariscadas.",
@@ -261,6 +281,7 @@ berberecho:{
 calamar:{
     categoria:"mariscos",
     nombre:"🦑 Calamar",
+    titulo:"Calamar",
     imagen:"calamar.jpg",
     precio:26.0,
     descripcion:"Calamar fresco seleccionado. Ideal para plancha, fritura y rellenos.",
@@ -274,6 +295,7 @@ calamar:{
 "cangrejo-arena":{
     categoria:"mariscos",
     nombre:"🦀 Cangrejo Arena",
+    titulo:"Cangrejo Arena",
     imagen:"cangrejo arena.jpg",
     precio:5.5,
     descripcion:"Cangrejo de arena fresco. Ideal para caldos, arroces y guisos marineros.",
@@ -285,6 +307,7 @@ calamar:{
 "cangrejo-azul":{
     categoria:"mariscos",
     nombre:"Cangrejo Azul",
+    titulo:"Cangrejo Azul",
     imagen:"cangrejo azul.jpg",
     precio:8.5,
     descripcion:"Cangrejo azul fresco seleccionado. Ideal para arroces, guisos y cocina marinera.",
@@ -297,6 +320,7 @@ calamar:{
 carabinero:{
     categoria:"mariscos",
     nombre:"Carabinero",
+    titulo:"Carabinero fresco",
     imagen:"carabinero.jpg",
     precio:85.0,
     descripcion:"Carabinero fresco de máxima calidad. Ideal para plancha, arroces y ocasiones especiales.",
@@ -308,6 +332,7 @@ carabinero:{
 cigala:{
     categoria:"mariscos",
     nombre:"Cigala",
+    titulo:"Cigala",
     imagen:"cigala.jpg",
     precio:100.0,
     descripcion:"Cigala fresca de máxima calidad. Producto premium ideal para plancha, cocción y mariscadas.",
@@ -319,6 +344,7 @@ cigala:{
 "concha-fina":{
     categoria:"mariscos",
     nombre:"Concha Fina",
+    titulo:"Concha Fina",
     imagen:"concha fina.jpg",
     precio:16.0,
     descripcion:"Concha fina fresca seleccionada. Ideal para consumir al natural o con limón.",
@@ -330,6 +356,7 @@ cigala:{
 coquina:{
     categoria:"mariscos",
     nombre:"🦪 Coquina",
+    titulo:"Coquina",
     imagen:"coquina.jpg",
     precio:30.0,
     descripcion:"Molusco muy apreciado por su sabor. Ideal para cocinar al ajillo o al vapor.",
@@ -342,6 +369,7 @@ coquina:{
 chopito:{
     categoria:"mariscos",
     nombre:"🦑 Chopito",
+    titulo:"Chopito",
     imagen:"chopito.jpg",
     precio:35.0,
     descripcion:"Chopito fresco de gran calidad. Ideal para freír, plancha o a la andaluza.",
@@ -354,6 +382,7 @@ chopito:{
 galera:{
     categoria:"mariscos",
     nombre:"🦐 Galera",
+    titulo:"Galera",
     imagen:"galera.jpg",
     precio:6.5,
     descripcion:"Galera fresca de gran calidad. Ideal para cocer, plancha o arroces y fideuás.",
@@ -366,6 +395,7 @@ galera:{
 gambablanca:{
     categoria:"mariscos",
     nombre:"🦐 Gamba Blanca",
+    titulo:"Gamba Blanca",
     imagen:"gamba.jpg",
     precio:18.0,
     descripcion:"Gamba blanca fresca de gran calidad. Ideal para cocer, plancha o a la sal.",
@@ -378,6 +408,7 @@ gambablanca:{
 gambacristal:{
     categoria:"mariscos",
     nombre:"🦐 Gamba Cristal",
+    titulo:"Gamba Cristal O Gambusino",
     imagen:"cristal.jpg",
     precio:20.0,
     descripcion:"Gamba cristal fresca seleccionada. Perfecta para fritura tradicional y tortillas de camarones.",
@@ -389,6 +420,7 @@ gambacristal:{
 gambaroja:{
     categoria:"mariscos",
     nombre:"🦐 Gamba Roja",
+    titulo:"Gamba Roja",
     imagen:"gamba roja.jpg",
     precio:110.0,
     descripcion:"Gamba roja premium de máxima calidad. Ideal para plancha, cocción y mariscadas especiales.",
@@ -401,6 +433,7 @@ gambaroja:{
 jibia:{
     categoria:"mariscos",
     nombre:"🦑 Jibia o Choco",
+    titulo:"Jibia O Choco",
     imagen:"jibia.jpg",
     precio:12.0,
     descripcion:"Jibia fresca seleccionada. Ideal para plancha, guisos y fritura.",
@@ -413,6 +446,7 @@ jibia:{
 langostinotigre:{
     categoria:"mariscos",
     nombre:"🦐 Langostino Tigre",
+    titulo:"Langostino Tigre",
     imagen:"langostino tigre.jpg",
     precio:45.0,
     descripcion:"Langostino tigre premium. Ideal para plancha, cocción y mariscadas.",
@@ -425,6 +459,7 @@ langostinotigre:{
 longueron:{
     categoria:"mariscos",
     nombre:"🦪 Longuerón",
+    titulo:"Longuerón",
     imagen:"longueron.jpg",
     precio:11.0,
     descripcion:"Longuerón fresco seleccionado. Ideal para plancha y cocina marinera.",
@@ -436,6 +471,7 @@ longueron:{
 mejillonroca:{
     categoria:"mariscos",
     nombre:"🦪 Mejillón Roca",
+    titulo:"Mejillón Roca",
     imagen:"mejillon roca.jpg",
     precio:5.5,
     descripcion:"Mejillón de roca fresco seleccionado. Ideal para vapor, marinera y arroces.",
@@ -447,6 +483,7 @@ mejillonroca:{
 mejillon:{
     categoria:"mariscos",
     nombre:"🦪 Mejillón",
+    titulo:"Mejillón",
     imagen:"mejillon.jpg",
     precio:3.5,
     descripcion:"Mejillón fresco de gran calidad. Ideal para cocinar al vapor, en salsa o para arroces y mariscadas.",
@@ -459,6 +496,7 @@ mejillon:{
 navaja:{
     categoria:"mariscos",
     nombre:"🦪 Navaja",
+    titulo:"Navaja",
     imagen:"navaja.jpg",
     precio:9.0,
     descripcion:"Navaja fresca seleccionada. Ideal para plancha, ajo y perejil o cocina marinera.",
@@ -470,6 +508,7 @@ navaja:{
 ostra:{
     categoria:"mariscos",
     nombre:"🦪 Ostra Guillardeau",
+    titulo:"Ostra Guillardeau",
     imagen:"ostra.jpg",
     precio:2.4,
     descripcion:"Ostra francesa premium Guillardeau. Considerada una de las mejores ostras del mundo.",
@@ -488,6 +527,7 @@ ostra:{
 potablanca:{
     categoria:"mariscos",
     nombre:"🐙 Pota Blanca",
+    titulo:"Pota Blanca",
     imagen:"pota blanca.jpg",
     precio:6.0,
     descripcion:"Pota blanca fresca seleccionada. Ideal para plancha, guisos y frituras.",
@@ -500,6 +540,7 @@ potablanca:{
 potanegra:{
     categoria:"mariscos",
     nombre:"🐙 Pota Negra",
+    titulo:"Pota Negra",
     imagen:"pota negra.jpg",
     precio:10.5,
     descripcion:"Pota negra de excelente calidad. Ideal para plancha, arroces y guisos marineros.",
@@ -512,6 +553,7 @@ potanegra:{
 pulpoblanco:{
     categoria:"mariscos",
     nombre:"🐙 Pulpo Blanco O Amizclado",
+    titulo:"Pulpo Blanco O Amizclado",
     imagen:"pulpo blanco.jpg",
     precio:5.5,
     descripcion:"Pulpo blanco o amizclado fresco. Ideal para guisos, arroces y cocina marinera.",
@@ -524,6 +566,7 @@ pulpoblanco:{
 pulporoca:{
     categoria:"mariscos",
     nombre:"🐙 Pulpo Roca",
+    titulo:"Pulpo Roca",
     imagen:"pulpo roca.jpg",
     precio:15.0,
     descripcion:"Pulpo de roca seleccionado. Perfecto para pulpo a la gallega, plancha y cocina gourmet.",
@@ -536,6 +579,7 @@ pulporoca:{
 puntillitas:{
     categoria:"mariscos",
     nombre:"🦑 Puntillitas",
+    titulo:"Puntillitas",
     imagen:"puntas.jpg",
     precio:40.0,
     descripcion:"Puntillitas frescas ideales para fritura, plancha y tapeo.",
@@ -547,6 +591,7 @@ puntillitas:{
 quisquilla:{
     categoria:"mariscos",
     nombre:"🦐 Quisquilla",
+    titulo:"Quisquilla",
     imagen:"quisquillas.jpg",
     precio:70.0,
     descripcion:"Quisquilla fresca de máxima calidad. Ideal para cocer o consumir recién preparada.",
@@ -559,6 +604,7 @@ quisquilla:{
 vieira:{
     categoria:"mariscos",
     nombre:"🐚 Vieira",
+    titulo:"Vieira",
     imagen:"vieira.jpg",
     precio:4.0,
     descripcion:"Vieira fresca seleccionada. Ideal para horno, plancha y gratinados.",
@@ -578,6 +624,7 @@ vieira:{
 zamburina:{
     categoria:"mariscos",
     nombre:"🦪 Zamburiña",
+    titulo:"Zamburiña",
     imagen:"zamburiña.jpg",
     precio:3.5,
     descripcion:"Zamburiña fresca seleccionada. Perfecta para plancha, horno y marisco gourmet.",
@@ -596,6 +643,7 @@ zamburina:{
 anillas:{
     categoria:"elaborados",
     nombre:"🐠 Anillas",
+    titulo:"Anillas (sin telilla)",
     imagen:"anillas.jpg",
     precio:4.2,
     descripcion:"Anillas de calamar sin telilla. Perfectas para fritura y tapeo.",
@@ -607,6 +655,7 @@ anillas:{
 "chocotiras":{
     categoria:"elaborados",
     nombre:"🐠 Choco en Tiras",
+    titulo:"Choco en Tiras",
     imagen:"choco-tiras.jpg",
     precio:3.2,
     unidad:"kg",
@@ -619,6 +668,7 @@ anillas:{
 choco:{
     categoria:"elaborados",
     nombre:"🐠 Choco Limpio",
+    titulo:"Choco Limpio",
     imagen:"choco.jpg",
     descripcion:"Choco limpio fresco. Ideal para plancha, frituras y guisos.",
 
@@ -641,6 +691,7 @@ choco:{
 bacalao:{
     categoria:"elaborados",
     nombre:"🐟 Filete de Bacalao",
+    titulo:"Filete de Bacalao",
     imagen:"filete-bacalao.jpg",
     descripcion:"Filete de bacalao fresco. Ideal para plancha, horno y cocina tradicional.",
 
@@ -663,6 +714,7 @@ bacalao:{
 gallineta:{
     categoria:"elaborados",
     nombre:"🐟 Filete de Gallineta",
+    titulo:"Filete de Gallineta",
     imagen:"filete-gallineta.jpg",
     precio:7.6,
     descripcion:"Filete de gallineta fresco. Ideal para plancha, horno y cocina tradicional.",
@@ -674,6 +726,7 @@ gallineta:{
 rosada:{
     categoria:"elaborados",
     nombre:"🐟 Filete de Rosada",
+    titulo:"Filete de Rosada",
     imagen:"filete-rosada.jpg",
     precio:10.0,
     descripcion:"Filete de rosada fresco. Ideal para plancha, horno y cocina tradicional.",
@@ -684,6 +737,7 @@ rosada:{
 
 "filete-merluza-nambia":{
     categoria:"elaborados",
+    catalogo:false,
     nombre:"🐟 Filete Merluza Nambia",
     imagen:"filete-merluza-nambia.jpg",
     precio:11.90,
@@ -696,6 +750,7 @@ rosada:{
 rejospota:{
     categoria:"elaborados",
     nombre:"🦑 Rejos de Pota",
+    titulo:"Rejos de Pota",
     imagen:"rejos-pota.jpg",
     precio:8.0,
     descripcion:"Rejos de pota listos para cocinar. Ideales para plancha, fritura y cocina tradicional.",
@@ -706,7 +761,9 @@ rejospota:{
 
 langostinococido:{
     categoria:"elaborados",
+    seccion:"langostinoCocido",
     nombre:"🦐 Langostino Cocido",
+    titulo:"Langostino Cocido",
     imagen:"langostino-cocido.jpg",
     descripcion:"Langostino cocido listo para consumir. Ideal para aperitivos, mariscadas y hostelería.",
 
@@ -740,7 +797,9 @@ langostinococido:{
 
 pulpoentero:{
     categoria:"elaborados",
+    seccion:"pulpoCocido",
     nombre:"🐙 Pulpo Cocido Entero",
+    titulo:"Pulpo Cocido Entero",
     imagen:"pulpo-cocido-entero.jpg",
     descripcion:"Pulpo cocido listo para consumir. Ideal para tapas, ensaladas, pulpo a la gallega y hostelería.",
 
@@ -770,7 +829,9 @@ pulpoentero:{
 
 pataspulpo:{
     categoria:"elaborados",
+    seccion:"pulpoCocido",
     nombre:"🐙 Patas de Pulpo Cocidas",
+    titulo:"Patas de Pulpo Cocidas",
     imagen:"patas-pulpo-cocidas.jpg",
     descripcion:"Patas de pulpo cocidas listas para consumir. Ideales para pulpo a la gallega, plancha y cocina gourmet.",
 
@@ -792,6 +853,7 @@ pataspulpo:{
 dorada:{
     categoria:"piscifactoria",
     nombre:"🐟 Dorada",
+    titulo:"Dorada",
     imagen:"dorada.jpg",
     descripcion:"Dorada de piscifactoría seleccionada. Disponible en distintas procedencias y calibres. Ideal para horno, plancha y cocina mediterránea.",
 
@@ -840,6 +902,7 @@ dorada:{
 lubina:{
     categoria:"piscifactoria",
     nombre:"🐟 Lubina",
+    titulo:"Lubina",
     imagen:"lubina.jpg",
     descripcion:"Lubina de piscifactoría seleccionada. Disponible en distintas procedencias y calibres. Ideal para horno, plancha y cocina mediterránea.",
 
@@ -890,6 +953,7 @@ lubina:{
 pargo:{
     categoria:"piscifactoria",
     nombre:"🐟 Pargo",
+    titulo:"Pargo",
     imagen:"pargo.jpg",
     descripcion:"Pargo de piscifactoría seleccionado. Ideal para horno, plancha y cocina mediterránea.",
 
@@ -915,6 +979,7 @@ pargo:{
 perca:{
     categoria:"piscifactoria",
     nombre:"🐟 Perca",
+    titulo:"Perca",
     imagen:"perca.jpg",
     descripcion:"Perca seleccionada. Ideal para plancha, horno y cocina tradicional.",
 
@@ -936,6 +1001,7 @@ perca:{
 rodaballo:{
     categoria:"piscifactoria",
     nombre:"🐟 Rodaballo",
+    titulo:"Rodaballo",
     imagen:"rodaballo.jpg",
     descripcion:"Rodaballo de piscifactoría seleccionado. Ideal para horno, plancha y cocina gourmet.",
 
@@ -973,6 +1039,7 @@ rodaballo:{
 salmon:{
     categoria:"piscifactoria",
     nombre:"🐟 Salmón",
+    titulo:"Salmón",
     imagen:"salmon.jpg",
     descripcion:"Salmón seleccionado de excelente calidad. Ideal para plancha, horno, ahumados y cocina profesional.",
 
@@ -1019,6 +1086,7 @@ salmon:{
 bogavante:{
     categoria:"congelados",
     nombre:"🦞 Bogavante",
+    titulo:"🦞 Bogavante",
     imagen:"bogavante.jpg",
     descripcion:"Bogavante congelado de primera calidad. Disponible en distintas procedencias y calibres. Ideal para arroces, mariscadas y cocina gourmet.",
 
@@ -1041,6 +1109,7 @@ bogavante:{
 "carabinero-congelado":{
     categoria:"congelados",
     nombre:"🦐 Carabinero congelado",
+    titulo:"🦐 Carabinero congelado",
     imagen:"carabineroconge.jpg",
     precio:80.0,
     descripcion:"Carabinero congelado de primera calidad. Producto de gran tamaño y excelente sabor. Ideal para arroces, plancha, mariscadas y cocina gourmet.",
@@ -1064,6 +1133,7 @@ bogavante:{
 gambarojacongelada:{
     categoria:"congelados",
     nombre:"🦐 Gamba Roja / Alistado",
+    titulo:"🦐 Gamba Roja / Alistado",
     imagen:"gambarojaconge.jpg",
     descripcion:"Gamba roja congelada de primera calidad. Seleccionada por tamaño, ideal para plancha, arroces, mariscadas y cocina gourmet.",
 
@@ -1086,6 +1156,7 @@ gambarojacongelada:{
 gambablancacongelada:{
     categoria:"congelados",
     nombre:"🦐 Gamba Blanca Congelada",
+    titulo:"🦐 Gamba Blanca Congelada",
     imagen:"gambablancaconge.jpg",
     descripcion:"Gamba blanca congelada de primera calidad. Disponible en distintos tamaños y formatos. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
 
@@ -1122,6 +1193,7 @@ gambablancacongelada:{
 cristalgambusinocongelado:{
     categoria:"congelados",
     nombre:"🦐 Cristal / Gambusino Congelado",
+    titulo:"🦐 Cristal / Gambusino Congelado",
     imagen:"cristalgambusinoconge.jpg",
     precio:9.90,
     descripcion:"Cristal o gambusino congelado de primera calidad. Ideal para frituras, arroces y cocina profesional."
@@ -1130,6 +1202,7 @@ cristalgambusinocongelado:{
 quisquillacongeleada:{
     categoria:"congelados",
     nombre:"🦐 Quisquilla Congelada",
+    titulo:"🦐 Quisquilla Congelada",
     imagen:"quisquillaconge.jpg",
     descripcion:"Quisquilla congelada de primera calidad. Disponible en tamaño grande y mediano. Ideal para mariscadas, arroces, plancha y cocina profesional.",
 
@@ -1148,6 +1221,7 @@ quisquillacongeleada:{
 cigalacongelada:{
     categoria:"congelados",
     nombre:"🦐 Cigala Congelada",
+    titulo:"🦐 Cigala Congelada",
     imagen:"cigalaconge.jpg",
     descripcion:"Cigala congelada de primera calidad. Disponible en distintos tamaños. Ideal para mariscadas, arroces, plancha y cocina profesional.",
 
@@ -1170,6 +1244,7 @@ cigalacongelada:{
 gamboncongelado:{
     categoria:"congelados",
     nombre:"🦐 Gambón Congelado",
+    titulo:"🦐 Gambón Congelado",
     imagen:"gambonconge.jpg",
     descripcion:"Gambón congelado seleccionado. Disponible en distintos calibres. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
 
@@ -1188,6 +1263,7 @@ gamboncongelado:{
 langostinorayadocongelado:{
     categoria:"congelados",
     nombre:"🦐 Langostino Rayado Tipo Sanlúcar - Túnez",
+    titulo:"🦐 Langostino Rayado Tipo Sanlúcar - Túnez",
     imagen:"langostinorayadoconge.jpg",
     descripcion:"Langostino rayado congelado tipo Sanlúcar, procedente de Túnez. Disponible en distintos tamaños. Ideal para plancha, arroces, mariscadas y cocina profesional.",
 
@@ -1206,6 +1282,7 @@ langostinorayadocongelado:{
 langostinoblancocongelado:{
     categoria:"congelados",
     nombre:"🦐 Langostino Blanco Salvaje - Túnez",
+    titulo:"🦐 Langostino Blanco Salvaje - Túnez",
     imagen:"langostinoblancoconge.jpg",
     descripcion:"Langostino blanco salvaje congelado, procedente de Túnez. Disponible en distintos tamaños. Ideal para plancha, arroces, mariscadas y cocina profesional.",
 
@@ -1223,6 +1300,7 @@ langostinoblancocongelado:{
 langostinovannameicongelado:{
     categoria:"congelados",
     nombre:"🦐 Langostino Vannamei Congelado",
+    titulo:"🦐 Langostino Vannamei Congelado",
     imagen:"langostinovannameiconge.jpg",
     descripcion:"Langostino Vannamei congelado seleccionado. Disponible en distintos formatos y calibres. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
 
@@ -1248,6 +1326,7 @@ langostinovannameicongelado:{
 zamburinacongelada:{
     categoria:"congelados",
     nombre:"🦪 Zamburiña Congelada",
+    titulo:"🦪 Zamburiña Congelada",
     imagen:"zamburinacongelada.jpg",
     descripcion:"Zamburiña congelada de primera calidad. Disponible en distintos calibres y formatos. Ideal para plancha, horno, arroces, mariscadas y cocina profesional.",
 
@@ -1265,6 +1344,7 @@ zamburinacongelada:{
 mejillonpasteurizadocongelado:{
     categoria:"congelados",
     nombre:"🦪 Mejillón Pasteurizado Congelado",
+    titulo:"🦪 Mejillón Pasteurizado Congelado",
     imagen:"mejillonpasteurizadoconge.jpg",
     precio:3.85,
     descripcion:"Mejillón pasteurizado congelado en bolsa de 1 kg. Producto listo para utilizar, ideal para arroces, guisos, tapas y cocina profesional.",
@@ -1275,6 +1355,7 @@ mejillonpasteurizadocongelado:{
 pulpocongelado:{
     categoria:"congelados",
     nombre:"🐙 Pulpo Congelado",
+    titulo:"🐙 Pulpo Congelado",
     imagen:"pulpocongelado.jpg",
     descripcion:"Pulpo congelado seleccionado de excelente calidad. Disponible en distintos tamaños y pesos. Ideal para cocina profesional, plancha, horno y elaboraciones.",
     
@@ -1296,6 +1377,7 @@ pulpocongelado:{
 pataspulpocongeladas:{
     categoria:"congelados",
     nombre:"🐙 Patas de Pulpo Cocidas",
+    titulo:"🐙 Patas de Pulpo Cocidas Congeladas",
     imagen:"pataspulpocongeladas.jpg",
     precio:19.50,
     descripcion:"Patas de pulpo cocidas de 100 g. Se presentan en paquetes de 3 unidades. Producto listo para consumir, ideal para plancha, pulpo a la gallega y cocina profesional.",
@@ -1304,6 +1386,7 @@ pataspulpocongeladas:{
 calamarnacionalcongelado:{
     categoria:"congelados",
     nombre:"🦑 Calamar Nacional",
+    titulo:"🦑 Calamar Nacional",
     imagen:"calamarnacionalconge.jpg",
     descripcion:"Calamar nacional congelado seleccionado. Disponible en distintos tamaños. Ideal para plancha, fritura, arroces y cocina profesional.",
 
@@ -1325,6 +1408,7 @@ calamarnacionalcongelado:{
 puntillitacalamarcongelada:{
     categoria:"congelados",
     nombre:"🦑 Puntillita de Calamar Nacional Larga",
+    titulo:"🦑 Puntillita de Calamar Nacional Larga",
     imagen:"puntillitacalamarconge.jpg",
     precio:38.50,
     descripcion:"Puntillita de calamar nacional larga congelada. Ideal para fritura, plancha, arroces y cocina profesional."
@@ -1332,6 +1416,7 @@ puntillitacalamarcongelada:{
 sepianacionalcongelada:{
     categoria:"congelados",
     nombre:"🦑 Sepia Nacional",
+    titulo:"🦑 Sepia Nacional 200/400 g",
     imagen:"sepianacionalconge.jpg",
     precio:4.45,
     descripcion:"Sepia nacional congelada de 200/400 g. Ideal para plancha, fritura, arroces, guisos y cocina profesional."
@@ -1339,6 +1424,7 @@ sepianacionalcongelada:{
 bacalaoislandiacongelado:{
     categoria:"congelados",
     nombre:"🐟 Bacalao de Islandia a Punto de Sal",
+    titulo:"🐟 Bacalao de Islandia a Punto de Sal",
     imagen:"bacalaoislandiaconge.jpg",
     descripcion:"Filete de bacalao de Islandia a punto de sal. Disponible en distintos tamaños, ideal para plancha, horno y cocina profesional.",
 
@@ -1356,6 +1442,7 @@ bacalaoislandiacongelado:{
 filetecarbonerocongelado:{
     categoria:"congelados",
     nombre:"🐟 Filete de Carbonero",
+    titulo:"🐟 Filete de Carbonero +2000 g",
     imagen:"carboneroconge.jpg",
     precio:7.65,
     descripcion:"Filete de carbonero congelado de excelente calidad. Ideal para plancha, horno, fritura y cocina profesional."
@@ -1363,6 +1450,7 @@ filetecarbonerocongelado:{
 abadejopielpuntosalcongelado:{
     categoria:"congelados",
     nombre:"🐟 Filete de Abadejo con Piel Punto de Sal",
+    titulo:"🐟 Filete de Abadejo con Piel Punto de Sal",
     imagen:"abadejopielpuntosalconge.jpg",
     precio:4.40,
     descripcion:"Filete de abadejo con piel 500/1000 g a punto de sal. Ideal para plancha, horno, fritura y cocina profesional."
@@ -1370,6 +1458,7 @@ abadejopielpuntosalcongelado:{
 coladerapecongelada:{
     categoria:"congelados",
     nombre:"🐟 Cola de Rape",
+    titulo:"🐟 Cola de Rape",
     imagen:"coladerapeconge.jpg",
     descripcion:"Cola de rape congelada de excelente calidad, disponible con y sin piel y en distintos tamaños. Ideal para horno, plancha y cocina profesional.",
 
@@ -1391,6 +1480,7 @@ coladerapecongelada:{
 lenguadorubiocongelado:{
     categoria:"congelados",
     nombre:"🐟 Lenguado Rubio",
+    titulo:"🐟 Lenguado Rubio 300/400 g",
     imagen:"lenguadorubioconge.jpg",
     precio:8.10,
     descripcion:"Lenguado rubio congelado de 300/400 g. Ideal para plancha, horno, fritura y cocina profesional."
@@ -1398,6 +1488,7 @@ lenguadorubiocongelado:{
 lenguadotigrecongelado:{
     categoria:"congelados",
     nombre:"🐟 Lenguado Tigre",
+    titulo:"🐟 Lenguado Tigre 400/600 g",
     imagen:"lenguadotigreconge.jpg",
     precio:7.10,
     descripcion:"Lenguado tigre congelado de 400/600 g. Ideal para plancha, horno, fritura y cocina profesional."
@@ -1405,6 +1496,7 @@ lenguadotigrecongelado:{
 filetemerluzanambia:{
     categoria:"congelados",
     nombre:"🐟 Filete de Merluza Nambia 14 OZ",
+    titulo:"🐟 Filete de Merluza Nambia 14 OZ",
     imagen:"filetemerluzanambia.jpg",
     precio:11.90,
     descripcion:"Filete de merluza de Namibia de 14 OZ, congelado y seleccionado. Ideal para plancha, horno y cocina profesional.",
@@ -1415,6 +1507,7 @@ filetemerluzanambia:{
 filetedecorvinacongelado:{
     categoria:"congelados",
     nombre:"🐟 Filete de Corvina +1000 g",
+    titulo:"🐟 Filete de Corvina +1000 g",
     imagen:"filetedecorvinaconge.jpg",
     precio:10.80,
     descripcion:"Filete de corvina congelado de +1000 g. Ideal para plancha, horno y cocina profesional."
