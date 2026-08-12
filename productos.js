@@ -1392,3 +1392,13 @@ lenguadotigrecongelado:{
     precio:7.10,
     descripcion:"Lenguado tigre congelado de 400/600 g. Ideal para plancha, horno, fritura y cocina profesional."
 },
+filetemerluzanambia:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Merluza Nambia 14 OZ",
+    imagen:"filetemerluzanambia.jpg",
+    precio:0,
+    descripcion:"Filete de merluza de Namibia de 14 OZ, congelado y seleccionado. Ideal para plancha, horno y cocina profesional.",
+    preparaciones:[
+        "Filete"
+    ]
+},
