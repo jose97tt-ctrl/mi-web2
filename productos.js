@@ -1396,9 +1396,16 @@ filetemerluzanambia:{
     categoria:"congelados",
     nombre:"🐟 Filete de Merluza Nambia 14 OZ",
     imagen:"filetemerluzanambia.jpg",
-    precio:0,
+    precio:11.90,
     descripcion:"Filete de merluza de Namibia de 14 OZ, congelado y seleccionado. Ideal para plancha, horno y cocina profesional.",
     preparaciones:[
         "Filete"
     ]
+},
+filetedecorvinacongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Corvina +1000 g",
+    imagen:"filetedecorvinaconge.jpg",
+    precio:10.80,
+    descripcion:"Filete de corvina congelado de +1000 g. Ideal para plancha, horno y cocina profesional."
 },
