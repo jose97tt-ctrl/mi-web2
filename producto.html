@@ -271,13 +271,18 @@ const idProducto = parametros.get("producto");
 const producto = productos[idProducto];
 
 function prepararProducto() {
-    if (!producto) return;
+    if (!producto) {
+        document.getElementById("nombreProducto").innerText = "Producto no encontrado";
+        document.getElementById("descripcionProducto").innerText = "";
+        document.getElementById("imagenProducto").src = "imagenes/logo.png";
+        return;
+    }
 
     document.getElementById("nombreProducto").innerText =
     producto.nombre;
 
     document.getElementById("imagenProducto").src =
-    "imagenes/" + producto.imagen;
+    encodeURI("imagenes/" + producto.imagen);
 
     document.getElementById("imagenProducto").alt =
     producto.nombre;
@@ -331,20 +336,23 @@ function prepararProducto() {
     }
 
     const selectPreparacion = document.getElementById("preparacion");
-
     selectPreparacion.innerHTML = "";
-
-    producto.preparaciones.forEach(function(preparacion){
-
+    if (producto.preparaciones && Array.isArray(producto.preparaciones) && producto.preparaciones.length) {
+        producto.preparaciones.forEach(function(preparacion){
+            let opcion = document.createElement("option");
+            opcion.value = preparacion;
+            opcion.textContent = preparacion;
+            selectPreparacion.appendChild(opcion);
+        });
+        selectPreparacion.style.display = "block";
+    } else {
+        // si no hay preparaciones, dejar una opción por defecto
         let opcion = document.createElement("option");
-
-        opcion.value = preparacion;
-
-        opcion.textContent = preparacion;
-
+        opcion.value = "";
+        opcion.textContent = "-";
         selectPreparacion.appendChild(opcion);
-
-    });
+        selectPreparacion.style.display = "none";
+    }
 
     if(producto.tipo=="unidad"){
 
@@ -446,7 +454,7 @@ if(producto.tipo=="unidad"){
     parseInt(document.getElementById("peso").value);
 
     let preparacion =
-    document.getElementById("preparacion").value;
+    (document.getElementById("preparacion") && document.getElementById("preparacion").value) || "";
 
     let precioFinal = producto.precio * cantidad;
     let carrito =
@@ -496,17 +504,14 @@ let precioKilo;
 
 if(producto.precios){
 
-    let selector =
-    document.getElementById("tamanoProducto");
-
-    let indice =
-    selector.selectedIndex;
-
-    nombreProducto =
-    producto.precios[indice].nombre;
-
-    precioKilo =
-    producto.precios[indice].precio;
+    let selector = document.getElementById("tamanoProducto");
+    let indice = (selector && selector.selectedIndex) || 0;
+    if (producto.precios[indice]) {
+        nombreProducto = producto.precios[indice].nombre || nombreProducto;
+        precioKilo = producto.precios[indice].precio || producto.precio;
+    } else {
+        precioKilo = producto.precio;
+    }
 
 }else{
 

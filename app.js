@@ -34,20 +34,12 @@ for(const idCategoria in CONFIG.categorias){
 
     catalogo.appendChild(titulo);
 
-    const contenedor =
-        document.createElement("div");
+    const contenedor = document.createElement("div");
+    contenedor.className = "catalogo-grid";
 
-    contenedor.className =
-        "catalogo-grid";
-
-    categorias[idCategoria].forEach(producto=>{
-
+    categorias[idCategoria].forEach(producto => {
         const card = crearTarjeta(producto);
-
-contenedor.appendChild(card);
-
         contenedor.appendChild(card);
-
     });
 
     catalogo.appendChild(contenedor);
@@ -60,43 +52,19 @@ function crearTarjeta(producto){
 
     card.className = "card";
 
+    const imagenSrc = producto.imagen ? `imagenes/${producto.imagen}` : 'imagenes/logo.png';
     card.innerHTML = `
-
     <div class="card-imagen">
-
-        <img src="imagenes/${producto.imagen}" alt="${producto.nombre}">
-
+        <img src="${imagenSrc}" alt="${producto.nombre}" onerror="this.onerror=null;this.src='imagenes/logo.png'">
     </div>
-
     <div class="card-info">
-
         <h3>${producto.nombre}</h3>
-
-        <p class="descripcion">
-
-            ${producto.descripcion}
-
-        </p>
-
-        <p class="precio">
-
-            ${producto.precio} €/kg
-
-        </p>
-
+        <p class="descripcion">${producto.descripcion || ''}</p>
+        <p class="precio">${(producto.precio != null) ? producto.precio + ' €/kg' : 'Precio pendiente'}</p>
         <div class="botones-card">
-
-            <button class="btn-ver"
-            onclick="verProducto('${producto.id}')">
-
-                Ver producto
-
-            </button>
-
+            <button class="btn-ver btn-producto" onclick="verProducto('${producto.id}')">Ver producto</button>
         </div>
-
     </div>
-
     `;
 
     return card;
@@ -108,3 +76,27 @@ function verProducto(id){
     "producto.html?producto="+id;
 
 }
+
+// Si la página contiene un grid estático `.productos`, reemplazar su contenido por el catálogo dinámico
+document.addEventListener('DOMContentLoaded', function(){
+    const grid = document.querySelector('.productos');
+    if (!grid) return;
+    // Limpiar contenido estático
+    grid.innerHTML = '';
+    // Añadir por categorías
+    for (const idCategoria in CONFIG.categorias) {
+        const titulo = document.createElement('h3');
+        titulo.className = 'categoria-productos';
+        titulo.innerText = CONFIG.categorias[idCategoria].nombre || idCategoria;
+        grid.appendChild(titulo);
+        const frag = document.createElement('div');
+        frag.className = 'grid-catalogo';
+        categorias[idCategoria].forEach(p => {
+            const tarjeta = crearTarjeta(p);
+            frag.appendChild(tarjeta);
+        });
+        grid.appendChild(frag);
+    }
+    // Después de generar, actualizar precios visibles
+    if (typeof updateCatalogPrices === 'function') updateCatalogPrices();
+});

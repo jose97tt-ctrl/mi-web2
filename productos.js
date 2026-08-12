@@ -682,6 +682,17 @@ rosada:{
     ]
 },
 
+"filete-merluza-nambia":{
+    categoria:"elaborados",
+    nombre:"🐟 Filete Merluza Nambia",
+    imagen:"filete-merluza-nambia.jpg",
+    precio:11.90,
+    descripcion:"Filete de merluza Nambia. Precio actualizado.",
+    preparaciones:[
+        "Filetes"
+    ]
+},
+
 rejospota:{
     categoria:"elaborados",
     nombre:"🦑 Rejos de Pota",

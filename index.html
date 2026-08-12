@@ -297,14 +297,22 @@ height:100%;
 
     width:100%;
 
-    height:180px;
+    height:230px;
 
-    object-fit:contain;
+    object-fit:cover;
 
     background:white;
 
     display:block;
 
+}
+
+@media(max-width:768px){
+    .card img{
+        height:140px;
+    }
+    .productos{ grid-template-columns:repeat(2,1fr); gap:8px; }
+    section{ padding:80px 6% 60px; }
 }
 
 
@@ -1095,7 +1103,6 @@ onkeyup="mostrarResultados()">
 <a href="#contacto" onclick="cerrarMenu()">📞 Contacto</a>
 
 </div>
-<div id="fondoCarrito" class="fondo-menu" onclick="cerrarCarrito()"></div>
 
 <div id="carritoPanel" class="carrito-panel">
 
@@ -1163,8 +1170,9 @@ border:2px solid #0a7c3a;
 <div class="card">
 
     <img src="imagenes/aguja.jpg"
-    alt="Aguja"
-    style="cursor:pointer;">
+        alt="Aguja"
+        style="cursor:pointer;"
+        onerror="this.onerror=null;this.src='imagenes/logo.png'">
 
     <div class="card-content">
 
@@ -2815,6 +2823,7 @@ style="width:60px;height:60px;display:block;">
 </a>
 <script src="productos.js"></script>
 <script src="precios-store.js"></script>
+<script src="app.js"></script>
 
 <script>
 
@@ -2828,6 +2837,99 @@ function cerrarMenu(){
     document.getElementById("fondoMenu").style.display="none";
 }
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+// Inicializar contador y lista de carrito al cargar la página
+document.addEventListener('DOMContentLoaded', function(){
+    const contadorEl = document.getElementById("contadorCarrito");
+    if (contadorEl) contadorEl.innerText = carrito.length;
+    if (typeof actualizarCarrito === 'function') actualizarCarrito();
+});
+
+// Utilidades: slugify y formateo seguro de precio
+function slugify(text) {
+    if (!text) return "";
+    return text.toString().toLowerCase()
+        .normalize('NFD').replace(/\p{Diacritic}/gu, '')
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim().replace(/\s+/g, '-');
+}
+
+function formatPrecioVal(valor, unidadEtiqueta) {
+    if (valor == null || isNaN(valor)) return 'Precio pendiente';
+    return (parseFloat(valor)).toFixed(2) + (unidadEtiqueta ? ' ' + unidadEtiqueta : ' €/kg');
+}
+
+// Reforzar botones genéricos: si hay botones con onclick 'abrirProductoX' que no existen,
+// los sustituimos por una navegación a `producto.html?producto=<slug>` basada en el nombre.
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.btn-producto').forEach(function(btn){
+        const onclickAttr = btn.getAttribute('onclick') || '';
+        if (/abrirProducto/i.test(onclickAttr)){
+            // reemplazamos por comportamiento genérico
+            btn.removeAttribute('onclick');
+            btn.addEventListener('click', function(e){
+                let card = btn.closest('.card') || btn.closest('.card-content') || btn.closest('div');
+                let nombreEl = card ? card.querySelector('h3') : null;
+                let imgEl = card ? card.querySelector('img') : null;
+                let nombre = (nombreEl && nombreEl.innerText) ? nombreEl.innerText : (imgEl && imgEl.alt ? imgEl.alt : '');
+                const id = slugify(nombre);
+                if (!id) {
+                    // fallback: abrir buscador o producto.html
+                    window.location.href = 'producto.html';
+                    return;
+                }
+                if (typeof verProducto === 'function') {
+                    try { verProducto(id); return; } catch(err){}
+                }
+                window.location.href = 'producto.html?producto=' + encodeURIComponent(id);
+            });
+        }
+    });
+});
+
+    // Actualizar los precios mostrados en las tarjetas del catálogo según `productos` y overrides aplicados
+    function updateCatalogPrices() {
+        if (typeof productos === 'undefined') return;
+        document.querySelectorAll('.card').forEach(function(card){
+            const h3 = card.querySelector('h3');
+            if (!h3) return;
+            const nombre = h3.innerText.trim();
+            const id = slugify(nombre);
+            const prod = productos[id];
+            // busca el primer <p> que contenga la palabra Precio
+            const precioP = Array.from(card.querySelectorAll('p')).find(p => /precio/i.test(p.innerText));
+            if (precioP) {
+                if (prod) {
+                    if (prod.precios && Array.isArray(prod.precios) && prod.precios.length) {
+                        precioP.innerText = formatPrecioVal(prod.precios[0].precio);
+                    } else if (prod.precio != null && !isNaN(prod.precio)) {
+                        precioP.innerText = formatPrecioVal(prod.precio);
+                    } else {
+                        precioP.innerText = 'Precio pendiente';
+                    }
+                } else {
+                    precioP.innerText = 'Precio pendiente';
+                }
+            }
+        });
+    }
+
+    window.addEventListener('precios:actualizados', function(){
+        // reaplicar overrides y refrescar catálogo
+        if (window.PreciosStore && typeof window.PreciosStore.aplicarDesdeStorage === 'function') {
+            window.PreciosStore.aplicarDesdeStorage().then(()=>{
+                updateCatalogPrices();
+            }).catch(()=>{
+                updateCatalogPrices();
+            });
+        } else {
+            updateCatalogPrices();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+        updateCatalogPrices();
+    });
 
 
 function agregarCarrito(producto,precio,cantidad=1){
@@ -2878,25 +2980,29 @@ function actualizarCarrito(){
         let item =
         document.createElement("li");
 
-       item.innerHTML =
+     const pesoText = producto.peso || '';
+     const prepText = producto.preparacion || '';
+     const precioVal = (producto.precio || 0);
 
-'<div class="linea-carrito">' +
+     item.innerHTML =
 
-'<div>' +
+ '<div class="linea-carrito">' +
 
-'<strong>' + producto.nombre + '</strong><br>' +
+ '<div>' +
 
-'⚖️ ' + producto.peso + '<br>' +
+ '<strong>' + producto.nombre + '</strong><br>' +
 
-'🔪 ' + producto.preparacion + '<br>' +
+ '⚖️ ' + pesoText + '<br>' +
 
-'<strong>' + producto.precio.toFixed(2) + '€</strong>' +
+ '🔪 ' + prepText + '<br>' +
 
-'</div>' +
+ '<strong>' + precioVal.toFixed(2) + '€</strong>' +
 
-'<span onclick="eliminarProducto(' + index + ')" class="papelera-carrito">🗑️</span>' +
+ '</div>' +
 
-'</div>';
+ '<span onclick="eliminarProducto(' + index + ')" class="papelera-carrito">🗑️</span>' +
+
+ '</div>';
 
 lista.appendChild(item);
 
@@ -2916,6 +3022,23 @@ function abrirCarrito(){
 
     document.getElementById("fondoCarrito").style.display="block";
 
+}
+
+// Al abrir elementos, cerrar otros overlays para evitar solapamientos
+function abrirMenu(){
+    // cerrar carrito y buscador
+    const fc = document.getElementById('fondoCarrito'); if (fc) fc.style.display='none';
+    const cp = document.getElementById('carritoPanel'); if (cp) cp.style.right='-350px';
+    const bf = document.getElementById('fondoMenu'); if (bf) bf.style.display='block';
+    const ml = document.getElementById('menuLateral'); if (ml) ml.style.transform='translateX(0)';
+}
+
+function abrirCarrito(){
+    // cerrar menu y buscador
+    const fm = document.getElementById('fondoMenu'); if (fm) fm.style.display='none';
+    const ml = document.getElementById('menuLateral'); if (ml) ml.style.transform='translateX(-100%)';
+    const fc = document.getElementById('fondoCarrito'); if (fc) fc.style.display='block';
+    const cp = document.getElementById('carritoPanel'); if (cp) cp.style.right='0';
 }
 
 
