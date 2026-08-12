@@ -3214,6 +3214,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="filetedecorvinaconge.jpg"
+alt="Filete de Corvina +1000 g">
+
+<div class="card-content">
+
+<h3>🐟 Filete de Corvina +1000 g</h3>
+
+<p>Precio <strong>10,80 €/kg</strong></p>
+
+<button
+onclick="abrirProductoFileteCorvinaCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -11254,7 +11276,7 @@ function agregarFileteMerluzaNambia(){
         peso:
         peso + " kg",
 
-        precio:
+        precio: 11.90€
         total
 
     });
@@ -11272,6 +11294,87 @@ function agregarFileteMerluzaNambia(){
     cerrarProductoFileteMerluzaNambia();
 
 }
+function abrirProductoFileteCorvinaCongelado(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href = "producto.html?producto=filetedecorvinacongelado";
+
+    }else{
+
+        document.getElementById("modalFileteCorvinaCongelado").style.display="flex";
+
+        document.getElementById("pesoFileteCorvinaCongelado").value="1";
+        document.getElementById("pesoPersonalizadoFileteCorvinaCongelado").value="";
+
+        actualizarPrecioFileteCorvinaCongelado();
+
+    }
+
+}
+
+function cerrarProductoFileteCorvinaCongelado(){
+
+    document.getElementById("modalFileteCorvinaCongelado").style.display="none";
+
+}
+
+function actualizarPrecioFileteCorvinaCongelado(){
+
+    let precio = 10.80;
+
+    let peso =
+    parseFloat(document.getElementById("pesoFileteCorvinaCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoFileteCorvinaCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let total = precio * peso;
+
+    document.getElementById("precioFileteCorvinaCongelado").innerHTML =
+    "Total: " + total.toFixed(2) + "€";
+
+}
+
+function agregarFileteCorvinaCongelado(){
+
+    let peso =
+    parseFloat(document.getElementById("pesoFileteCorvinaCongelado").value);
+
+    let personalizado =
+    parseFloat(document.getElementById("pesoPersonalizadoFileteCorvinaCongelado").value);
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+    let precio = 10.80;
+
+    carrito.push({
+
+        nombre:"🐟 Filete de Corvina +1000 g",
+        peso:peso + " kg",
+        precio:precio * peso
+
+    });
+
+    document.getElementById("contadorCarrito").innerText =
+    carrito.length;
+
+    actualizarCarrito();
+
+    cerrarProductoFileteCorvinaCongelado();
+
+}
+
 
 
 function abrirBuscador(){
@@ -20397,6 +20500,99 @@ Precio pendiente
 
 <button
 onclick="agregarFileteMerluzaNambia()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalFileteCorvinaCongelado"
+class="modal-producto"
+onclick="cerrarProductoFileteCorvinaCongelado()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="filetedecorvinaconge.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Filete de Corvina +1000 g</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Filete de corvina congelado de +1000 g.
+Ideal para plancha, horno y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoFileteCorvinaCongelado"
+onchange="actualizarPrecioFileteCorvinaCongelado()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoFileteCorvinaCongelado"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioFileteCorvinaCongelado()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioFileteCorvinaCongelado"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Total: 10.80€
+
+</p>
+
+<p style="color:green;">
+
+✅ Disponible
+
+</p>
+
+<button
+onclick="agregarFileteCorvinaCongelado()"
 class="btn-producto">
 
 🛒 Añadir al pedido
