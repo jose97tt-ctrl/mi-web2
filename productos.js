@@ -1059,9 +1059,8 @@ bogavante:{
     preparaciones:[
         "Entero"
     ]
-}
+},
 
-};
 gambarojacongelada:{
     categoria:"congelados",
     nombre:"🦐 Gamba Roja / Alistado",
@@ -1419,4 +1418,5 @@ filetedecorvinacongelado:{
     imagen:"filetedecorvinaconge.jpg",
     precio:10.80,
     descripcion:"Filete de corvina congelado de +1000 g. Ideal para plancha, horno y cocina profesional."
-},
+}
+};
