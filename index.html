@@ -3192,6 +3192,28 @@ class="btn-producto">
 </div>
 
 </div>
+<div class="card">
+
+<img src="filetemerluzanambia.jpg"
+alt="Filete de Merluza Nambia 14 OZ">
+
+<div class="card-content">
+
+<h3>🐟 Filete de Merluza Nambia 14 OZ</h3>
+
+<p>Precio <strong>--,-- €/kg</strong></p>
+
+<button
+onclick="abrirProductoFileteMerluzaNambia()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
     
 </section>
 
@@ -11112,6 +11134,145 @@ function agregarLenguadoTigreCongelado(){
     cerrarProductoLenguadoTigreCongelado();
 
 }
+function abrirProductoFileteMerluzaNambia(){
+
+    if(window.innerWidth <= 768){
+
+        window.location.href =
+        "producto.html?producto=filetemerluzanambia";
+
+    }else{
+
+        document.getElementById(
+            "modalFileteMerluzaNambia"
+        ).style.display="flex";
+
+        document.getElementById(
+            "pesoFileteMerluzaNambia"
+        ).value="1";
+
+        document.getElementById(
+            "pesoPersonalizadoFileteMerluzaNambia"
+        ).value="";
+
+        actualizarPrecioFileteMerluzaNambia();
+
+    }
+
+}
+
+
+function cerrarProductoFileteMerluzaNambia(){
+
+    document.getElementById(
+        "modalFileteMerluzaNambia"
+    ).style.display="none";
+
+}
+
+
+function actualizarPrecioFileteMerluzaNambia(){
+
+    let precio = 0;
+
+    let peso =
+    parseFloat(
+        document.getElementById(
+            "pesoFileteMerluzaNambia"
+        ).value
+    );
+
+    let personalizado =
+    parseFloat(
+        document.getElementById(
+            "pesoPersonalizadoFileteMerluzaNambia"
+        ).value
+    );
+
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+
+    document.getElementById(
+        "precioFileteMerluzaNambia"
+    ).innerHTML =
+    "Precio pendiente";
+
+}
+
+
+function agregarFileteMerluzaNambia(){
+
+    let peso =
+    parseFloat(
+        document.getElementById(
+            "pesoFileteMerluzaNambia"
+        ).value
+    );
+
+    let personalizado =
+    parseFloat(
+        document.getElementById(
+            "pesoPersonalizadoFileteMerluzaNambia"
+        ).value
+    );
+
+
+    if(!isNaN(personalizado) && personalizado > 0){
+
+        peso = personalizado;
+
+    }
+
+
+    let precio = 0;
+
+
+    if(precio <= 0){
+
+        alert(
+            "⚠️ El precio de este producto todavía está pendiente."
+        );
+
+        return;
+
+    }
+
+
+    let total = precio * peso;
+
+
+    carrito.push({
+
+        nombre:
+        "🐟 Filete de Merluza Nambia 14 OZ",
+
+        peso:
+        peso + " kg",
+
+        precio:
+        total
+
+    });
+
+
+    document.getElementById(
+        "contadorCarrito"
+    ).innerText =
+    carrito.length;
+
+
+    actualizarCarrito();
+
+
+    cerrarProductoFileteMerluzaNambia();
+
+}
+
 
 function abrirBuscador(){
 
@@ -20142,6 +20303,100 @@ Total: 7.10€
 
 <button
 onclick="agregarLenguadoTigreCongelado()"
+class="btn-producto">
+
+🛒 Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div id="modalFileteMerluzaNambia"
+class="modal-producto"
+onclick="cerrarProductoFileteMerluzaNambia()">
+
+<div class="contenido-modal"
+onclick="event.stopPropagation()">
+
+<div class="producto-layout">
+
+<div class="producto-foto">
+
+<img src="filetemerluzanambia.jpg">
+
+</div>
+
+<div class="producto-info">
+
+<h2>🐟 Filete de Merluza Nambia 14 OZ</h2>
+
+<p><strong>Seleccione el peso.</strong></p>
+
+<p>
+Filete de merluza de Namibia de 14 OZ,
+congelado y seleccionado. Ideal para
+plancha, horno y cocina profesional.
+</p>
+
+<label>Peso:</label>
+
+<select
+id="pesoFileteMerluzaNambia"
+onchange="actualizarPrecioFileteMerluzaNambia()">
+
+<option value="1">1 kg</option>
+<option value="2">2 kg</option>
+<option value="3">3 kg</option>
+<option value="4">4 kg</option>
+
+</select>
+
+<br><br>
+
+<label><b>O escribe el peso exacto:</b></label>
+
+<input
+type="number"
+id="pesoPersonalizadoFileteMerluzaNambia"
+placeholder="Ejemplo: 0.250"
+step="0.001"
+min="0"
+oninput="actualizarPrecioFileteMerluzaNambia()"
+style="
+width:100%;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+">
+
+<p
+id="precioFileteMerluzaNambia"
+style="
+font-size:24px;
+font-weight:bold;
+color:#0a7f2e;
+margin:15px 0;
+">
+
+Precio pendiente
+
+</p>
+
+<p style="color:#b45309;font-weight:bold;">
+
+⚠️ Precio pendiente
+
+</p>
+
+<button
+onclick="agregarFileteMerluzaNambia()"
 class="btn-producto">
 
 🛒 Añadir al pedido
