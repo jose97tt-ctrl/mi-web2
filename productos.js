@@ -1016,17 +1016,6 @@ salmon:{
     ]
 },
 
-abadejopuntosal:{
-    categoria:"elaborados",
-    nombre:"🐟 Abadejo Punto de Sal",
-    imagen:"abadejo-punto-sal.jpg",
-    precio:4.4,
-    descripcion:"Filete de abadejo con piel, punto de sal. Producto listo para cocinar, ideal para plancha, horno y frituras.",
-    preparaciones:[
-        "Filete con piel"
-    ]
-},
-
 bogavante:{
     categoria:"congelados",
     nombre:"🦞 Bogavante",
@@ -1073,3 +1062,361 @@ bogavante:{
 }
 
 };
+gambarojacongelada:{
+    categoria:"congelados",
+    nombre:"🦐 Gamba Roja / Alistado",
+    imagen:"gambarojaconge.jpg",
+    descripcion:"Gamba roja congelada de primera calidad. Seleccionada por tamaño, ideal para plancha, arroces, mariscadas y cocina gourmet.",
+
+    precios:[
+        {
+            nombre:"🦐 Gamba Roja Grande",
+            precio:80.00
+        },
+        {
+            nombre:"🦐 Gamba Roja Mediana",
+            precio:90.00
+        }
+    ],
+
+    preparaciones:[
+        "Entera"
+    ]
+},
+
+gambablancacongelada:{
+    categoria:"congelados",
+    nombre:"🦐 Gamba Blanca Congelada",
+    imagen:"gambablancaconge.jpg",
+    descripcion:"Gamba blanca congelada de primera calidad. Disponible en distintos tamaños y formatos. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Gamba Blanca Gorda",
+            precio:17.90
+        },
+        {
+            nombre:"🦐 Gamba Blanca Mediana",
+            precio:15.90
+        },
+        {
+            nombre:"🦐 Cola de Gamba Blanca Gorda",
+            precio:14.90
+        },
+        {
+            nombre:"🦐 Cola de Gamba Blanca Mediana",
+            precio:11.90
+        },
+        {
+            nombre:"🦐 Cola de Gamba Blanca Pelada Importación 10/30 pcs",
+            precio:8.40
+        }
+    ],
+
+    preparaciones:[
+        "Entera",
+        "Cola",
+        "Pelada"
+    ]
+},
+
+cristalgambusinocongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Cristal / Gambusino Congelado",
+    imagen:"cristalgambusinoconge.jpg",
+    precio:9.90,
+    descripcion:"Cristal o gambusino congelado de primera calidad. Ideal para frituras, arroces y cocina profesional."
+},
+
+quisquillacongeleada:{
+    categoria:"congelados",
+    nombre:"🦐 Quisquilla Congelada",
+    imagen:"quisquillaconge.jpg",
+    descripcion:"Quisquilla congelada de primera calidad. Disponible en tamaño grande y mediano. Ideal para mariscadas, arroces, plancha y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Quisquilla Grande",
+            precio:90.00
+        },
+        {
+            nombre:"🦐 Quisquilla Mediana",
+            precio:45.00
+        }
+    ]
+},
+
+cigalacongelada:{
+    categoria:"congelados",
+    nombre:"🦐 Cigala Congelada",
+    imagen:"cigalaconge.jpg",
+    descripcion:"Cigala congelada de primera calidad. Disponible en distintos tamaños. Ideal para mariscadas, arroces, plancha y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Cigala Grande",
+            precio:80.00
+        },
+        {
+            nombre:"🦐 Cigala Mediana",
+            precio:70.00
+        },
+        {
+            nombre:"🦐 Cigala Pequeña",
+            precio:50.00
+        }
+    ]
+},
+
+gamboncongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Gambón Congelado",
+    imagen:"gambonconge.jpg",
+    descripcion:"Gambón congelado seleccionado. Disponible en distintos calibres. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Gambón Nº1",
+            precio:10.00
+        },
+        {
+            nombre:"🦐 Gambón Nº2",
+            precio:8.50
+        }
+    ]
+},
+
+langostinorayadocongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Langostino Rayado Tipo Sanlúcar - Túnez",
+    imagen:"langostinorayadoconge.jpg",
+    descripcion:"Langostino rayado congelado tipo Sanlúcar, procedente de Túnez. Disponible en distintos tamaños. Ideal para plancha, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Langostino Rayado Grande",
+            precio:27.60
+        },
+        {
+            nombre:"🦐 Langostino Rayado Mediano",
+            precio:23.90
+        }
+    ]
+},
+
+langostinoblancocongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Langostino Blanco Salvaje - Túnez",
+    imagen:"langostinoblancoconge.jpg",
+    descripcion:"Langostino blanco salvaje congelado, procedente de Túnez. Disponible en distintos tamaños. Ideal para plancha, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Langostino Blanco Salvaje Grande",
+            precio:12.00
+        },
+        {
+            nombre:"🦐 Langostino Blanco Salvaje Mediano",
+            precio:10.80
+        }
+    ]
+},
+langostinovannameicongelado:{
+    categoria:"congelados",
+    nombre:"🦐 Langostino Vannamei Congelado",
+    imagen:"langostinovannameiconge.jpg",
+    descripcion:"Langostino Vannamei congelado seleccionado. Disponible en distintos formatos y calibres. Ideal para plancha, frituras, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦐 Langostino Vannamei 20/30 pcs",
+            precio:6.90
+        },
+        {
+            nombre:"🦐 Cola de Langostino Vannamei 36/40 pcs Terranova",
+            precio:6.55
+        },
+        {
+            nombre:"🦐 Cola de Langostino Vannamei 36/40 pcs Eguillen",
+            precio:7.90
+        },
+        {
+            nombre:"🦐 Langostino Vannamei Cocido 40/50 pcs Terranova",
+            precio:6.95
+        }
+    ]
+},
+zamburinacongelada:{
+    categoria:"congelados",
+    nombre:"🦪 Zamburiña Congelada",
+    imagen:"zamburinacongelada.jpg",
+    descripcion:"Zamburiña congelada de primera calidad. Disponible en distintos calibres y formatos. Ideal para plancha, horno, arroces, mariscadas y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦪 Zamburiña 10/20 pcs Bolsa de 1 kg",
+            precio:14.90
+        },
+        {
+            nombre:"🦪 Zamburiña 20/30 pcs Bolsa de 1 kg",
+            precio:12.90
+        }
+    ]
+},
+mejillonpasteurizadocongelado:{
+    categoria:"congelados",
+    nombre:"🦪 Mejillón Pasteurizado Congelado",
+    imagen:"mejillonpasteurizadoconge.jpg",
+    precio:3.85,
+    descripcion:"Mejillón pasteurizado congelado en bolsa de 1 kg. Producto listo para utilizar, ideal para arroces, guisos, tapas y cocina profesional.",
+    preparaciones:[
+        "Pasteurizado"
+    ]
+},
+pulpocongelado:{
+    categoria:"congelados",
+    nombre:"🐙 Pulpo Congelado",
+    imagen:"pulpocongelado.jpg",
+    descripcion:"Pulpo congelado seleccionado de excelente calidad. Disponible en distintos tamaños y pesos. Ideal para cocina profesional, plancha, horno y elaboraciones.",
+    
+    precios:[
+        {
+            nombre:"🐙 Pulpo T1",
+            precio:18.90
+        },
+        {
+            nombre:"🐙 Pulpo +5000 grs Francés",
+            precio:13.50
+        },
+        {
+            nombre:"🐙 Pulpo 3000/5000 grs Francés",
+            precio:12.50
+        }
+    ]
+},
+pataspulpocongeladas:{
+    categoria:"congelados",
+    nombre:"🐙 Patas de Pulpo Cocidas",
+    imagen:"pataspulpocongeladas.jpg",
+    precio:19.50,
+    descripcion:"Patas de pulpo cocidas de 100 g. Se presentan en paquetes de 3 unidades. Producto listo para consumir, ideal para plancha, pulpo a la gallega y cocina profesional.",
+    tipo:"unidad"
+},
+calamarnacionalcongelado:{
+    categoria:"congelados",
+    nombre:"🦑 Calamar Nacional",
+    imagen:"calamarnacionalconge.jpg",
+    descripcion:"Calamar nacional congelado seleccionado. Disponible en distintos tamaños. Ideal para plancha, fritura, arroces y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🦑 Calamar Nacional M",
+            precio:13.90
+        },
+        {
+            nombre:"🦑 Calamar Nacional P",
+            precio:12.90
+        },
+        {
+            nombre:"🦑 Calamar Nacional 2P",
+            precio:9.80
+        }
+    ]
+},
+puntillitacalamarcongelada:{
+    categoria:"congelados",
+    nombre:"🦑 Puntillita de Calamar Nacional Larga",
+    imagen:"puntillitacalamarconge.jpg",
+    precio:38.50,
+    descripcion:"Puntillita de calamar nacional larga congelada. Ideal para fritura, plancha, arroces y cocina profesional."
+},
+sepianacionalcongelada:{
+    categoria:"congelados",
+    nombre:"🦑 Sepia Nacional",
+    imagen:"sepianacionalconge.jpg",
+    precio:4.45,
+    descripcion:"Sepia nacional congelada de 200/400 g. Ideal para plancha, fritura, arroces, guisos y cocina profesional."
+},
+bacalaoislandiacongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Bacalao de Islandia a Punto de Sal",
+    imagen:"bacalaoislandiaconge.jpg",
+    descripcion:"Filete de bacalao de Islandia a punto de sal. Disponible en distintos tamaños, ideal para plancha, horno y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🐟 Filete de Bacalao +2000 grs",
+            precio:14.90
+        },
+        {
+            nombre:"🐟 Filete de Bacalao +1000 grs",
+            precio:12.90
+        }
+    ]
+},
+filetecarbonerocongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Carbonero",
+    imagen:"carboneroconge.jpg",
+    precio:7.65,
+    descripcion:"Filete de carbonero congelado de excelente calidad. Ideal para plancha, horno, fritura y cocina profesional."
+},
+abadejopielpuntosalcongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Abadejo con Piel Punto de Sal",
+    imagen:"abadejopielpuntosalconge.jpg",
+    precio:4.40,
+    descripcion:"Filete de abadejo con piel 500/1000 g a punto de sal. Ideal para plancha, horno, fritura y cocina profesional."
+},
+coladerapecongelada:{
+    categoria:"congelados",
+    nombre:"🐟 Cola de Rape",
+    imagen:"coladerapeconge.jpg",
+    descripcion:"Cola de rape congelada de excelente calidad, disponible con y sin piel y en distintos tamaños. Ideal para horno, plancha y cocina profesional.",
+
+    precios:[
+        {
+            nombre:"🐟 Cola de Rape con Piel de Mauritania +1000 g",
+            precio:11.90
+        },
+        {
+            nombre:"🐟 Cola de Rape sin Piel de Gambia +1000 g",
+            precio:6.90
+        },
+        {
+            nombre:"🐟 Cola de Rape sin Piel de Gambia 350/500 g",
+            precio:5.90
+        }
+    ]
+},
+lenguadorubiocongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Lenguado Rubio",
+    imagen:"lenguadorubioconge.jpg",
+    precio:8.10,
+    descripcion:"Lenguado rubio congelado de 300/400 g. Ideal para plancha, horno, fritura y cocina profesional."
+},
+lenguadotigrecongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Lenguado Tigre",
+    imagen:"lenguadotigreconge.jpg",
+    precio:7.10,
+    descripcion:"Lenguado tigre congelado de 400/600 g. Ideal para plancha, horno, fritura y cocina profesional."
+},
+filetemerluzanambia:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Merluza Nambia 14 OZ",
+    imagen:"filetemerluzanambia.jpg",
+    precio:11.90,
+    descripcion:"Filete de merluza de Namibia de 14 OZ, congelado y seleccionado. Ideal para plancha, horno y cocina profesional.",
+    preparaciones:[
+        "Filete"
+    ]
+},
+filetedecorvinacongelado:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Corvina +1000 g",
+    imagen:"filetedecorvinaconge.jpg",
+    precio:10.80,
+    descripcion:"Filete de corvina congelado de +1000 g. Ideal para plancha, horno y cocina profesional."
+},
