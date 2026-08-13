@@ -1519,5 +1519,13 @@ filetedefogonerosinpiel:{
     imagen:"filetefogonerosinpiel.jpg",
     precio:9.80,
     descripcion:"Filete de fogonero congelado sin piel. Ideal para plancha, horno y cocina profesional."
+},
+filetepercanilo:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Perca Nilo",
+    titulo:"🐟 Filete de Perca Nilo",
+    imagen:"filetepercanilo.jpg",
+    precio:9.75,
+    descripcion:"Filete de perca nilo congelado. Ideal para plancha, horno y cocina profesional."
 }
 };
