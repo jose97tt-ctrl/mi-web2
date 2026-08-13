@@ -1527,5 +1527,13 @@ filetepercanilo:{
     imagen:"filetepercanilo.jpg",
     precio:9.75,
     descripcion:"Filete de perca nilo congelado. Ideal para plancha, horno y cocina profesional."
+},
+filetegallineta:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Gallineta Congelado",
+    titulo:"🐟 Filete de Gallineta Congelado",
+    imagen:"filetegallineta.jpg",
+    precio:9.00,
+    descripcion:"Filete de gallineta congelado. Ideal para plancha, horno y cocina profesional."
 }
 };
