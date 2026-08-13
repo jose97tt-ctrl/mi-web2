@@ -1511,5 +1511,13 @@ filetedecorvinacongelado:{
     imagen:"filetedecorvinaconge.jpg",
     precio:10.80,
     descripcion:"Filete de corvina congelado de +1000 g. Ideal para plancha, horno y cocina profesional."
+},
+filetedefogonerosinpiel:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Fogonero Sin Piel",
+    titulo:"🐟 Filete de Fogonero Sin Piel",
+    imagen:"filetefogonerosinpiel.jpg",
+    precio:9.80,
+    descripcion:"Filete de fogonero congelado sin piel. Ideal para plancha, horno y cocina profesional."
 }
 };
