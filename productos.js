@@ -1559,5 +1559,13 @@ fileteaguja:{
     imagen:"fileteaguja.jpg",
     precio:8.95,
     descripcion:"Filete de aguja congelado de calidad gourmet y premium. Ideal para plancha, horno y preparaciones especiales.",
+},
+centrocaella:{
+    categoria:"congelados",
+    nombre:"🐟 Centro Caella Sin Piel",
+    titulo:"🐟 Centro Caella Sin Piel",
+    imagen:"centrocaella.jpg",
+    precio:3.90,
+    descripcion:"Centro de caella congelado sin piel. Ideal para plancha, horno, fritura y cocina tradicional.",
 }
 };
