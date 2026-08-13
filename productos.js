@@ -1543,5 +1543,13 @@ filetepanga:{
     imagen:"filetepanga.jpg",
     precio:5.25,
     descripcion:"Filete de panga congelado sin glaseo. Ideal para plancha, horno y cocina profesional."
+},
+lomoatun:{
+    categoria:"congelados",
+    nombre:"🐟 Lomo de Atun Aleta Amarilla",
+    titulo:"🐟 Lomo de Atun Aleta Amarilla",
+    imagen:"lomoatun.jpg",
+    precio:7.90,
+    descripcion:"Lomo de atún de aleta amarilla seleccionado.Ideal para plancha, tataki, tartar y cocina gourmet.Al vacio y congelado.",
 }
 };
