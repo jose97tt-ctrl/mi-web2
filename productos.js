@@ -1558,6 +1558,6 @@ fileteaguja:{
     titulo:"🐟 Filete de Aguja Premium y Gourmet",
     imagen:"fileteaguja.jpg",
     precio:8.95,
-    descripcion:"Lomo de aguja congelado de calidad gourmet y premium. Ideal para plancha, horno y preparaciones especiales.",
+    descripcion:"Filete de aguja congelado de calidad gourmet y premium. Ideal para plancha, horno y preparaciones especiales.",
 }
 };
