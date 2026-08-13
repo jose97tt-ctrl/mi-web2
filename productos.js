@@ -1535,5 +1535,13 @@ filetegallineta:{
     imagen:"filetegallineta.jpg",
     precio:9.00,
     descripcion:"Filete de gallineta congelado. Ideal para plancha, horno y cocina profesional."
+},
+filetepanga:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Panga Sin Glaseo",
+    titulo:"🐟 Filete de Panga Sin Glaseo",
+    imagen:"filetepanga.jpg",
+    precio:5.25,
+    descripcion:"Filete de panga congelado sin glaseo. Ideal para plancha, horno y cocina profesional."
 }
 };
