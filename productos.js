@@ -1551,5 +1551,13 @@ lomoatun:{
     imagen:"lomoatun.jpg",
     precio:7.90,
     descripcion:"Lomo de atún de aleta amarilla seleccionado.Ideal para plancha, tataki, tartar y cocina gourmet.Al vacio y congelado.",
+},
+fileteaguja:{
+    categoria:"congelados",
+    nombre:"🐟 Filete de Aguja Premium y Gourmet",
+    titulo:"🐟 Filete de Aguja Premium y Gourmet",
+    imagen:"fileteaguja.jpg",
+    precio:8.95,
+    descripcion:"Lomo de aguja congelado de calidad gourmet y premium. Ideal para plancha, horno y preparaciones especiales.",
 }
 };
